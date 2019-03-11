@@ -1,0 +1,478 @@
+/*
+Theme Name: Stereo Lo-Fi
+Author: Jacob Hamrick
+Author URI: http://jacobhamrick.com/
+Description: A minimal but elegant and responsive theme built with Bootstrap.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, light, one-column, two-columns, left-sidebar, flexible-width, fluid-layout, responsive-layout, custom-menu, featured-images
+
+I hope to empower creatives and small businesses.
+*/
+
+/* ------------- GENERAL ------------- */
+$primary-color: rgba(0,0,0,1.0);  /* typography, lines, text ++++ for black use rgba(0,0,0,1.0) */
+$pink: #eb3e8f; /* a tags */
+$blue: #0033ff; /* KDH */
+$yellow: #FFFF00;
+$purple: #9a3eeb;
+$green: #8feb3e;
+$background-color: #FFF;
+$hover-color: #9a3eeb;
+$border: solid;
+$page-padding: 1em; /* padding of navbars, page sections, etc */
+$border-weight: 2px;
+$navbar-height-s: 80px;
+$navbar-height-l: 120px;
+$footer-height: 6em;
+$footer-height-sm: 140px;
+$footer-height-lg: 80px;
+$time: 0.5s;
+$main-font: "Helvetica Neue";
+
+.blue {
+  color: $blue;
+}
+
+.pink {
+  color: $pink;
+}
+
+
+
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $primary-color;
+  background-color: $background-color;
+  overflow: hidden;
+}
+
+body.logged-in {
+  padding-top: 0;
+}
+
+.sticky {
+  position: sticky;
+  z-index: 1000;
+}
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: $page-padding;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-left: $border $border-weight $primary-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $primary-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: .5rem;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+a {
+  color: $pink;
+  font-weight: 500;
+  transition: all $time;
+}
+
+a:hover,
+a.nav-link:hover {
+  color: $hover-color;
+  text-decoration: none;
+}
+
+
+.scroll {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+/* the left and right "margin" for site, includes navbar (matches Bootstrap default padding of 1em ) */
+.page-space {
+  padding: $page-padding;
+}
+
+.hideMe {
+  display: none;
+}
+
+
+hr:not(.the-burger) {
+  margin: .5rem 0;
+  border-top: $border-weight $primary-color solid;
+  background-color: $primary-color;
+  clear:both;
+  width: 100%;
+}
+
+
+
+/* ------------- NAVIGATION ------------- */
+
+#sticky-nav {
+  background-color: $background-color;
+  padding: 0;
+  border-bottom: $border $border-weight $primary-color;
+  color: $primary-color;
+  width: 100%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  height: $navbar-height-s;
+  .title-wrapper {
+    padding: 5px 0;
+    width: 100%;
+
+    .navbar-title {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+      height: 88%;
+      h2 {
+        font-weight: bold;
+        margin: 0 auto;
+        font-size: 14vw;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+
+
+.menu-button {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 1000;
+  background-color: $pink;
+  border: none;
+  border-left: $border $border-weight $primary-color;
+  border-bottom: $border $border-weight $primary-color;
+  border-radius: 0;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  float: right;
+  padding: 1rem .5rem;
+  margin-left: auto;
+
+}
+
+body.logged-in {
+  .menu-button {
+      top: 126px;
+  }
+}
+
+.burger-box  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
+
+/* the burger in the box */
+.the-burger {
+  border: $border 1px $primary-color;
+  margin: 0;
+  transition: all $time;
+  background-color: $primary-color;
+
+}
+
+
+
+/* burger animation */
+.menu-button.active {
+
+  .top-bun {
+    transform: rotate(40deg);
+    transform-origin: 8% 7px;
+  }
+
+  .goods {
+    opacity: 0;
+  }
+
+  .bottom-bun {
+    transform: rotate(-40deg);
+    transform-origin: 13% -5px;
+  }
+
+}
+
+.menu-button {
+  .top-bun {
+    transform: rotate(0);
+  }
+  .goods {
+    opacity: 1;
+  }
+  .bottom-bun {
+    transform: rotate(0);
+  }
+}
+
+
+.menu {
+  background-color: $blue;
+  padding: $page-padding;
+  color: #fff;
+  margin-left: 100%;
+  margin-top: 138px;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  #navbarSupportedContent {
+    height: 100%;
+  }
+
+}
+
+
+
+.menu-primary-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: .25rem 0 0;
+
+    .menu-item {
+      width: 50%;
+    }
+}
+
+a.nav-link {
+  color: $primary-color;
+}
+
+/* color of current menu-item */
+.navbar-nav .active > .nav-link,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: $pink;
+}
+
+.navbar-nav .active > .nav-link:hover,
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link.show:hover,
+.navbar-light .navbar-nav .show > .nav-link:hover  {
+  color: $hover-color;
+}
+
+
+.navbar .navbar-nav a.nav-link {
+  font-size: 2em;
+  padding: 0;
+}
+
+
+
+/* ------------- HOME PAGE ------------- */
+@keyframes pull-from-left {
+from { padding-left: 100% }
+to { padding-left: 0 }
+}
+
+@keyframes push-from-right {
+from { transform: translateX(0%) }
+to { transform: translateX(-100%) }
+}
+.navbar {
+  display: block;
+}
+
+.newsFlash-widget {
+  position: fixed;
+  top: 80px;
+  z-index: 300;
+  white-space: nowrap;
+  width: 100%;
+  background-color: $yellow;
+  border-bottom: $border $border-weight $primary-color;
+  height: 60px; /* same as menu-button height */
+  .textwidget {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    animation: push-from-right 40s linear infinite;
+    padding: 0;
+    p {
+      animation: pull-from-left 40s linear infinite;
+      text-transform: uppercase;
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+}
+
+body.logged-in {
+  .newsFlash-widget {
+    top: 126px;
+  }
+}
+
+.home-wrapper {
+  margin-top: 60px; /* same as menu-button */
+  padding: .8rem 1rem 1rem 1rem;
+  div {
+    padding: 0;
+  }
+}
+
+/* ------------- FOOTER ------------- */
+.footer {
+  display: flex;
+  height: $footer-height-sm;
+  flex-shrink: 0;
+  flex-direction: column;
+  border-top: $border $border-weight $primary-color;
+  align-items: center;
+  padding: 1em 0;
+  margin: 0;
+  min-width: 100%;
+  .footer-col {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: .5rem;
+    text-align: center;
+    .textwidget {
+      font-size: .7rem;
+      width: 100%;
+    }
+  }
+  .module-heading {
+    margin-bottom: 0;
+  }
+}
+.sm-flex {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4em;
+}
+
+/* ------------- PROJECTS PAGE ------------- */
+.projects-page {
+  display: flex;
+  flex-direction: column;
+
+}
+.projects-page div:last-child {
+  border-left: none;
+}
+
+
+
+@media screen and (min-width: 783px) {
+  body.logged-in {
+    padding-top: 0;
+  }
+
+  .admin-bar #sticky-nav {
+     top: 32px; /* accomodates admin bar when user logged in */
+     min-height: $navbar-height-s;
+     max-height: $navbar-height-s;
+     position: sticky;
+  }
+
+  .navbar-title {
+    margin-right: 0;
+  }
+
+  #navbarSupportedContent {
+    padding: 0;
+  }
+
+  .menu-primary-menu.navbar-nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    li {
+      width: auto;
+    }
+  }
+
+
+
+  a.nav-link {
+    font-size: 2rem;
+  }
+
+  .footer {
+    flex-direction: row;
+    height: $footer-height-lg;
+  }
+
+
+
+/* ------------- PROJECTS PAGE ------------- */
+.projects-page {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  max-height:calc( 100% - #{$navbar-height-s} - #{$footer-height-lg});
+  overflow-y: hidden;
+  div {
+    padding: $page-padding;
+  }
+  div:first-child {
+    width: 50%;
+  }
+  div:last-child {
+    border-left: $border-weight $border $primary-color;
+    overflow-y: auto;
+  }
+
+}
+}
+/* bootstrap breakpoint / navbar collapse toggle */
+@media screen and (min-width: 992px) {
+
+
+}

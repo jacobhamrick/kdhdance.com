@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery(".toggle-menu").on("click",function(){jQuery(this).toggleClass("active"),jQuery(".menu").toggleClass("openSesame");var e=jQuery(".menu").hasClass("openSesame");jQuery(".menu").animate({marginLeft:e?"0":"100%"},500)})});

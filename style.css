@@ -1,0 +1,354 @@
+/*
+Theme Name: Stereo Lo-Fi
+Author: Jacob Hamrick
+Author URI: http://jacobhamrick.com/
+Description: A minimal but elegant and responsive theme built with Bootstrap.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, light, one-column, two-columns, left-sidebar, flexible-width, fluid-layout, responsive-layout, custom-menu, featured-images
+
+I hope to empower creatives and small businesses.
+*/
+/* ------------- GENERAL ------------- */
+/* typography, lines, text ++++ for black use rgba(0,0,0,1.0) */
+/* a tags */
+/* KDH */
+/* padding of navbars, page sections, etc */
+.blue {
+  color: #0033ff; }
+
+.pink {
+  color: #eb3e8f; }
+
+html, body {
+  margin: 0;
+  height: 100%; }
+
+body {
+  font-family: "Helvetica Neue";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: black;
+  background-color: #FFF;
+  overflow: hidden; }
+
+body.logged-in {
+  padding-top: 0; }
+
+.sticky {
+  position: sticky;
+  z-index: 1000; }
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 1em; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-left: solid 2px black; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: .5rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase; }
+
+a {
+  color: #eb3e8f;
+  font-weight: 500;
+  transition: all 0.5s; }
+
+a:hover,
+a.nav-link:hover {
+  color: #9a3eeb;
+  text-decoration: none; }
+
+.scroll {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%; }
+
+/* the left and right "margin" for site, includes navbar (matches Bootstrap default padding of 1em ) */
+.page-space {
+  padding: 1em; }
+
+.hideMe {
+  display: none; }
+
+hr:not(.the-burger) {
+  margin: .5rem 0;
+  border-top: 2px black solid;
+  background-color: black;
+  clear: both;
+  width: 100%; }
+
+/* ------------- NAVIGATION ------------- */
+#sticky-nav {
+  background-color: #FFF;
+  padding: 0;
+  border-bottom: solid 2px black;
+  color: black;
+  width: 100%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  height: 80px; }
+  #sticky-nav .title-wrapper {
+    padding: 5px 0;
+    width: 100%; }
+    #sticky-nav .title-wrapper .navbar-title {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+      height: 88%; }
+      #sticky-nav .title-wrapper .navbar-title h2 {
+        font-weight: bold;
+        margin: 0 auto;
+        font-size: 14vw;
+        letter-spacing: 1px; }
+
+.menu-button {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 1000;
+  background-color: #eb3e8f;
+  border: none;
+  border-left: solid 2px black;
+  border-bottom: solid 2px black;
+  border-radius: 0;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  float: right;
+  padding: 1rem .5rem;
+  margin-left: auto; }
+
+body.logged-in .menu-button {
+  top: 126px; }
+
+.burger-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; }
+
+/* the burger in the box */
+.the-burger {
+  border: solid 1px black;
+  margin: 0;
+  transition: all 0.5s;
+  background-color: black; }
+
+/* burger animation */
+.menu-button.active .top-bun {
+  transform: rotate(40deg);
+  transform-origin: 8% 7px; }
+
+.menu-button.active .goods {
+  opacity: 0; }
+
+.menu-button.active .bottom-bun {
+  transform: rotate(-40deg);
+  transform-origin: 13% -5px; }
+
+.menu-button .top-bun {
+  transform: rotate(0); }
+
+.menu-button .goods {
+  opacity: 1; }
+
+.menu-button .bottom-bun {
+  transform: rotate(0); }
+
+.menu {
+  background-color: #0033ff;
+  padding: 1em;
+  color: #fff;
+  margin-left: 100%;
+  margin-top: 138px;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  width: 100%; }
+  .menu #navbarSupportedContent {
+    height: 100%; }
+
+.menu-primary-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: .25rem 0 0; }
+  .menu-primary-menu .menu-item {
+    width: 50%; }
+
+a.nav-link {
+  color: black; }
+
+/* color of current menu-item */
+.navbar-nav .active > .nav-link,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #eb3e8f; }
+
+.navbar-nav .active > .nav-link:hover,
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link.show:hover,
+.navbar-light .navbar-nav .show > .nav-link:hover {
+  color: #9a3eeb; }
+
+.navbar .navbar-nav a.nav-link {
+  font-size: 2em;
+  padding: 0; }
+
+/* ------------- HOME PAGE ------------- */
+@keyframes pull-from-left {
+  from {
+    padding-left: 100%; }
+  to {
+    padding-left: 0; } }
+
+@keyframes push-from-right {
+  from {
+    transform: translateX(0%); }
+  to {
+    transform: translateX(-100%); } }
+
+.navbar {
+  display: block; }
+
+.newsFlash-widget {
+  position: fixed;
+  top: 80px;
+  z-index: 300;
+  white-space: nowrap;
+  width: 100%;
+  background-color: #FFFF00;
+  border-bottom: solid 2px black;
+  height: 60px;
+  /* same as menu-button height */ }
+  .newsFlash-widget .textwidget {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    animation: push-from-right 40s linear infinite;
+    padding: 0; }
+    .newsFlash-widget .textwidget p {
+      animation: pull-from-left 40s linear infinite;
+      text-transform: uppercase;
+      font-size: 30px;
+      margin: 0; }
+
+body.logged-in .newsFlash-widget {
+  top: 126px; }
+
+.home-wrapper {
+  margin-top: 60px;
+  /* same as menu-button */
+  padding: .8rem 1rem 1rem 1rem; }
+  .home-wrapper div {
+    padding: 0; }
+
+/* ------------- FOOTER ------------- */
+.footer {
+  display: flex;
+  height: 140px;
+  flex-shrink: 0;
+  flex-direction: column;
+  border-top: solid 2px black;
+  align-items: center;
+  padding: 1em 0;
+  margin: 0;
+  min-width: 100%; }
+  .footer .footer-col {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: .5rem;
+    text-align: center; }
+    .footer .footer-col .textwidget {
+      font-size: .7rem;
+      width: 100%; }
+  .footer .module-heading {
+    margin-bottom: 0; }
+
+.sm-flex {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4em; }
+
+/* ------------- PROJECTS PAGE ------------- */
+.projects-page {
+  display: flex;
+  flex-direction: column; }
+
+.projects-page div:last-child {
+  border-left: none; }
+
+@media screen and (min-width: 783px) {
+  body.logged-in {
+    padding-top: 0; }
+  .admin-bar #sticky-nav {
+    top: 32px;
+    /* accomodates admin bar when user logged in */
+    min-height: 80px;
+    max-height: 80px;
+    position: sticky; }
+  .navbar-title {
+    margin-right: 0; }
+  #navbarSupportedContent {
+    padding: 0; }
+  .menu-primary-menu.navbar-nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0; }
+    .menu-primary-menu.navbar-nav li {
+      width: auto; }
+  a.nav-link {
+    font-size: 2rem; }
+  .footer {
+    flex-direction: row;
+    height: 80px; }
+  /* ------------- PROJECTS PAGE ------------- */
+  .projects-page {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    max-height: calc( 100% - 80px - 80px);
+    overflow-y: hidden; }
+    .projects-page div {
+      padding: 1em; }
+    .projects-page div:first-child {
+      width: 50%; }
+    .projects-page div:last-child {
+      border-left: 2px solid black;
+      overflow-y: auto; } }
+
+/* bootstrap breakpoint / navbar collapse toggle */
