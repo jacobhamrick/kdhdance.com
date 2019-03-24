@@ -32,7 +32,8 @@ body {
   justify-content: space-between;
   color: black;
   background-color: #FFF;
-  overflow: hidden; }
+  overflow: hidden;
+  transition: all 0.5s; }
 
 body.logged-in {
   padding-top: 0; }
@@ -41,10 +42,14 @@ body.logged-in {
   position: sticky;
   z-index: 1000; }
 
+.flex {
+  display: flex;
+  vertical-align: middle; }
+
 /* SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
-  width: 1em; }
+  width: 1rem; }
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -88,7 +93,7 @@ a.nav-link:hover {
 
 /* the left and right "margin" for site, includes navbar (matches Bootstrap default padding of 1em ) */
 .page-space {
-  padding: 1em; }
+  padding: 1rem; }
 
 .hideMe {
   display: none; }
@@ -100,34 +105,60 @@ hr:not(.the-burger) {
   clear: both;
   width: 100%; }
 
-/* ------------- NAVIGATION ------------- */
+/*
+--------------------------------------------------------------------------------
+                      ------------- HEADER -------------
+--------------------------------------------------------------------------------
+*/
+/* Adjust for WP Admin bar */
+body.logged-in .menu-button,
+body.logged-in .newsflash-widget {
+  top: 106px; }
+
+/* ------------- TITLE ------------- */
+#sticky-nav,
+.title-wrapper {
+  min-height: 60px;
+  max-height: 60px; }
+
 #sticky-nav {
+  width: 100%;
+  vertical-align: middle;
   background-color: #FFF;
   padding: 0;
   border-bottom: solid 2px black;
   color: black;
-  width: 100%;
   text-transform: uppercase;
-  white-space: nowrap;
-  height: 80px; }
+  white-space: nowrap; }
   #sticky-nav .title-wrapper {
-    padding: 5px 0;
-    width: 100%; }
-    #sticky-nav .title-wrapper .navbar-title {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      padding: 0;
-      height: 88%; }
-      #sticky-nav .title-wrapper .navbar-title h2 {
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 0 auto; }
+    #sticky-nav .title-wrapper div {
+      vertical-align: middle;
+      width: 100%;
+      text-align: justify; }
+      #sticky-nav .title-wrapper div h2 {
+        font-size: 58px;
         font-weight: bold;
-        margin: 0 auto;
-        font-size: 14vw;
-        letter-spacing: 1px; }
+        height: 60px;
+        line-height: calc(60px - 2px);
+        margin: 0; }
 
+.blue {
+  letter-spacing: -1px;
+  padding-left: 1rem; }
+
+.pink {
+  letter-spacing: -1px;
+  padding-right: 1rem; }
+
+.newsflash-widget {
+  top: 60px; }
+
+/* ------------- BURGER BUTTON ------------- */
 .menu-button {
   position: fixed;
-  top: 80px;
   right: 0;
   z-index: 1000;
   background-color: #eb3e8f;
@@ -142,9 +173,6 @@ hr:not(.the-burger) {
   padding: 1rem .5rem;
   margin-left: auto; }
 
-body.logged-in .menu-button {
-  top: 126px; }
-
 .burger-box {
   display: flex;
   flex-direction: column;
@@ -158,7 +186,7 @@ body.logged-in .menu-button {
   transition: all 0.5s;
   background-color: black; }
 
-/* burger animation */
+/* Burger Animation - Turn burger into X */
 .menu-button.active .top-bun {
   transform: rotate(40deg);
   transform-origin: 8% 7px; }
@@ -179,12 +207,16 @@ body.logged-in .menu-button {
 .menu-button .bottom-bun {
   transform: rotate(0); }
 
+/* ------------- TOGGLE MENU ------------- */
+.navbar {
+  display: block; }
+
 .menu {
   background-color: #0033ff;
-  padding: 1em;
+  padding: 1rem;
   color: #fff;
   margin-left: 100%;
-  margin-top: 138px;
+  margin-top: 120px;
   height: 100%;
   position: fixed;
   z-index: 100;
@@ -222,7 +254,18 @@ a.nav-link {
   font-size: 2em;
   padding: 0; }
 
-/* ------------- HOME PAGE ------------- */
+/*
+--------------------------------------------------------------------------------
+                   ------------- HOME PAGE -------------
+--------------------------------------------------------------------------------
+*/
+/* newsbar-widget height on small screens */
+.home-wrapper {
+  padding: .8rem 1rem 1rem 1rem; }
+  .home-wrapper div {
+    padding: 0; }
+
+/* ------------- NEWSFLASH ------------- */
 @keyframes pull-from-left {
   from {
     padding-left: 100%; }
@@ -235,40 +278,73 @@ a.nav-link {
   to {
     transform: translateX(-100%); } }
 
-.navbar {
-  display: block; }
-
-.newsFlash-widget {
+.newsflash-widget {
   position: fixed;
-  top: 80px;
   z-index: 300;
   white-space: nowrap;
   width: 100%;
   background-color: #FFFF00;
-  border-bottom: solid 2px black;
-  height: 60px;
-  /* same as menu-button height */ }
-  .newsFlash-widget .textwidget {
+  height: 22px;
+  /* same as newsbar-widget */ }
+  .newsflash-widget .textwidget {
     display: flex;
     align-items: center;
     height: 100%;
     animation: push-from-right 40s linear infinite;
     padding: 0; }
-    .newsFlash-widget .textwidget p {
+    .newsflash-widget .textwidget p {
       animation: pull-from-left 40s linear infinite;
       text-transform: uppercase;
-      font-size: 30px;
       margin: 0; }
 
-body.logged-in .newsFlash-widget {
-  top: 126px; }
+/* ------------- NEWSBAR ------------- */
+.newsbar {
+  flex-direction: column;
+  vertical-align: middle;
+  margin-top: 22px;
+  /* same as newsflash */
+  min-height: calc(5 * 22px); }
+  .newsbar .newsbar-widget {
+    flex-direction: row;
+    min-height: 22px;
+    max-height: 22px; }
+    .newsbar .newsbar-widget .newsbar-title {
+      flex-direction: column;
+      vertical-align: middle;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      margin-left: 1rem;
+      min-width: 125px;
+      line-height: calc( 22px - (2px/2)); }
+    .newsbar .newsbar-widget .newsbar-title:hover {
+      font-style: italic;
+      padding-left: 3px; }
+    .newsbar .newsbar-widget .textwidget {
+      display: flex;
+      flex-direction: row;
+      vertical-align: middle;
+      width: 100%;
+      padding-left: 1rem;
+      font-size: 12px; }
+      .newsbar .newsbar-widget .textwidget p {
+        margin-bottom: 0;
+        /* 12px = textwidget font-size */
+        line-height: calc( (12px - 2px ) * 2); }
 
-.home-wrapper {
-  margin-top: 60px;
-  /* same as menu-button */
-  padding: .8rem 1rem 1rem 1rem; }
-  .home-wrapper div {
-    padding: 0; }
+.newsbar-widget:first-child {
+  background-color: #AF52FF; }
+
+.newsbar-widget:nth-child(2) {
+  background-color: #37E251; }
+
+.newsbar-widget:nth-child(3) {
+  background-color: #F75E00; }
+
+.newsbar-widget:nth-child(4) {
+  background-color: #eb3e8f; }
+
+.newsbar-widget:nth-child(5) {
+  background-color: #2CF0FF; }
 
 /* ------------- FOOTER ------------- */
 .footer {
@@ -315,8 +391,8 @@ body.logged-in .newsFlash-widget {
   .admin-bar #sticky-nav {
     top: 32px;
     /* accomodates admin bar when user logged in */
-    min-height: 80px;
-    max-height: 80px;
+    min-height: 60px;
+    max-height: 60px;
     position: sticky; }
   .navbar-title {
     margin-right: 0; }
@@ -341,10 +417,10 @@ body.logged-in .newsFlash-widget {
     padding: 0;
     display: flex;
     flex-direction: row;
-    max-height: calc( 100% - 80px - 80px);
+    max-height: calc( 100% - 60px - 80px);
     overflow-y: hidden; }
     .projects-page div {
-      padding: 1em; }
+      padding: 1rem; }
     .projects-page div:first-child {
       width: 50%; }
     .projects-page div:last-child {

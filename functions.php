@@ -13,35 +13,34 @@
   );
 }
 
-
+// New Flash
 function wpt_create_newsFlash_widget( $name, $id, $description ) {
   register_sidebar( array(
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<div class="newsFlash-widget">',
+    'before_widget' => '<div class="newsflash-widget">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2 class="newsFlash-title">',
+    'before_title'  => '<h2 class="newsflash-title">',
     'after_title'   => '</h2>',
   ) );
-
 }
-wpt_create_newsFlash_widget( 'News Flash', 'newsFlash', 'News Flash!' );
+wpt_create_newsFlash_widget( 'News Flash', 'newsflash', 'News Flash!' );
 
 
+// News Bar
 function wpt_create_newsBar_widget( $name, $id, $description ) {
   register_sidebar( array(
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<div class="newsBar-widget">',
+    'before_widget' => '<div class="newsbar-widget flex">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2 class="newsBar-title">',
-    'after_title'   => '</h2>',
+    'before_title'  => '<p class="newsbar-title flex">',
+    'after_title'   => '</p>',
   ) );
-
 }
-wpt_create_newsBar_widget( 'News Bar', 'newsBar', 'News Bar!' );
+wpt_create_newsBar_widget( 'News Bar', 'newsbar', 'News Bar!' );
 
 
 // Register Custom Navigation Walker

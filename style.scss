@@ -21,9 +21,9 @@ $green: #8feb3e;
 $background-color: #FFF;
 $hover-color: #9a3eeb;
 $border: solid;
-$page-padding: 1em; /* padding of navbars, page sections, etc */
+$page-padding: 1rem; /* padding of navbars, page sections, etc */
 $border-weight: 2px;
-$navbar-height-s: 80px;
+$navbar-height-s: 60px;
 $navbar-height-l: 120px;
 $footer-height: 6em;
 $footer-height-sm: 140px;
@@ -55,6 +55,7 @@ body {
   color: $primary-color;
   background-color: $background-color;
   overflow: hidden;
+  transition: all $time;
 }
 
 body.logged-in {
@@ -64,6 +65,11 @@ body.logged-in {
 .sticky {
   position: sticky;
   z-index: 1000;
+}
+
+.flex {
+  display: flex;
+  vertical-align: middle;
 }
 
 /* SCROLLBAR */
@@ -139,225 +145,309 @@ hr:not(.the-burger) {
 
 
 
-/* ------------- NAVIGATION ------------- */
+/*
+--------------------------------------------------------------------------------
+                      ------------- HEADER -------------
+--------------------------------------------------------------------------------
+*/
 
-#sticky-nav {
-  background-color: $background-color;
-  padding: 0;
-  border-bottom: $border $border-weight $primary-color;
-  color: $primary-color;
-  width: 100%;
-  text-transform: uppercase;
-  white-space: nowrap;
-  height: $navbar-height-s;
+  /* Adjust for WP Admin bar */
+  body.logged-in {
+    .menu-button,
+    .newsflash-widget {
+        top: 106px;
+    }
+  }
+
+
+/* ------------- TITLE ------------- */
+
+
+  #sticky-nav,
   .title-wrapper {
-    padding: 5px 0;
-    width: 100%;
+    min-height: $navbar-height-s;
+    max-height: $navbar-height-s;
+  }
 
-    .navbar-title {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      padding: 0;
-      height: 88%;
-      h2 {
-        font-weight: bold;
-        margin: 0 auto;
-        font-size: 14vw;
-        letter-spacing: 1px;
+  #sticky-nav {
+    width: 100%;
+    vertical-align: middle;
+    background-color: $background-color;
+    padding: 0;
+    border-bottom: $border $border-weight $primary-color;
+    color: $primary-color;
+    text-transform: uppercase;
+    white-space: nowrap;
+    .title-wrapper {
+      justify-content: space-evenly;
+      flex-direction: row;
+      margin: 0 auto;
+      div {
+        vertical-align: middle;
+        width: 100%;
+        text-align: justify;
+        h2 {
+          font-size: 58px;
+          font-weight: bold;
+          height: $navbar-height-s;
+          line-height: calc(#{$navbar-height-s} - #{$border-weight});
+          margin: 0;
+        }
       }
     }
   }
-}
+  .blue  {
+    letter-spacing: -1px;
+    padding-left: $page-padding;
+  }
+
+  .pink {
+    letter-spacing: -1px;
+    padding-right: $page-padding;
+  }
 
 
+  .newsflash-widget {
+    top: $navbar-height-s;
+  }
 
-.menu-button {
-  position: fixed;
-  top: 80px;
-  right: 0;
-  z-index: 1000;
-  background-color: $pink;
-  border: none;
-  border-left: $border $border-weight $primary-color;
-  border-bottom: $border $border-weight $primary-color;
-  border-radius: 0;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  float: right;
-  padding: 1rem .5rem;
-  margin-left: auto;
 
-}
-
-body.logged-in {
+/* ------------- BURGER BUTTON ------------- */
   .menu-button {
-      top: 126px;
-  }
-}
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+    background-color: $pink;
+    border: none;
+    border-left: $border $border-weight $primary-color;
+    border-bottom: $border $border-weight $primary-color;
+    border-radius: 0;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    float: right;
+    padding: 1rem .5rem;
+    margin-left: auto;
 
-.burger-box  {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-
-}
-
-
-/* the burger in the box */
-.the-burger {
-  border: $border 1px $primary-color;
-  margin: 0;
-  transition: all $time;
-  background-color: $primary-color;
-
-}
-
-
-
-/* burger animation */
-.menu-button.active {
-
-  .top-bun {
-    transform: rotate(40deg);
-    transform-origin: 8% 7px;
   }
 
-  .goods {
-    opacity: 0;
-  }
 
-  .bottom-bun {
-    transform: rotate(-40deg);
-    transform-origin: 13% -5px;
-  }
-
-}
-
-.menu-button {
-  .top-bun {
-    transform: rotate(0);
-  }
-  .goods {
-    opacity: 1;
-  }
-  .bottom-bun {
-    transform: rotate(0);
-  }
-}
-
-
-.menu {
-  background-color: $blue;
-  padding: $page-padding;
-  color: #fff;
-  margin-left: 100%;
-  margin-top: 138px;
-  height: 100%;
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-  #navbarSupportedContent {
+  .burger-box  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
+
   }
 
-}
+
+  /* the burger in the box */
+  .the-burger {
+    border: $border 1px $primary-color;
+    margin: 0;
+    transition: all $time;
+    background-color: $primary-color;
+
+  }
 
 
 
-.menu-primary-menu {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: .25rem 0 0;
+  /* Burger Animation - Turn burger into X */
+  .menu-button.active {
 
-    .menu-item {
-      width: 50%;
+    .top-bun {
+      transform: rotate(40deg);
+      transform-origin: 8% 7px;
     }
-}
 
-a.nav-link {
-  color: $primary-color;
-}
+    .goods {
+      opacity: 0;
+    }
 
-/* color of current menu-item */
-.navbar-nav .active > .nav-link,
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .show > .nav-link {
-  color: $pink;
-}
+    .bottom-bun {
+      transform: rotate(-40deg);
+      transform-origin: 13% -5px;
+    }
 
-.navbar-nav .active > .nav-link:hover,
-.navbar-nav .nav-link.active:hover,
-.navbar-nav .nav-link.show:hover,
-.navbar-light .navbar-nav .show > .nav-link:hover  {
-  color: $hover-color;
-}
+  }
 
-
-.navbar .navbar-nav a.nav-link {
-  font-size: 2em;
-  padding: 0;
-}
+  .menu-button {
+    .top-bun {
+      transform: rotate(0);
+    }
+    .goods {
+      opacity: 1;
+    }
+    .bottom-bun {
+      transform: rotate(0);
+    }
+  }
 
 
+  /* ------------- TOGGLE MENU ------------- */
+  .navbar {
+    display: block;
+  }
 
-/* ------------- HOME PAGE ------------- */
-@keyframes pull-from-left {
-from { padding-left: 100% }
-to { padding-left: 0 }
-}
+  .menu {
+    background-color: $blue;
+    padding: $page-padding;
+    color: #fff;
+    margin-left: 100%;
+    margin-top: 120px;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    #navbarSupportedContent {
+      height: 100%;
+    }
+  }
 
-@keyframes push-from-right {
-from { transform: translateX(0%) }
-to { transform: translateX(-100%) }
-}
-.navbar {
-  display: block;
-}
-
-.newsFlash-widget {
-  position: fixed;
-  top: 80px;
-  z-index: 300;
-  white-space: nowrap;
-  width: 100%;
-  background-color: $yellow;
-  border-bottom: $border $border-weight $primary-color;
-  height: 60px; /* same as menu-button height */
-  .textwidget {
+  .menu-primary-menu {
     display: flex;
     align-items: center;
-    height: 100%;
-    animation: push-from-right 40s linear infinite;
-    padding: 0;
-    p {
-      animation: pull-from-left 40s linear infinite;
-      text-transform: uppercase;
-      font-size: 30px;
-      margin: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: .25rem 0 0;
+    .menu-item {
+        width: 50%;
     }
   }
-}
 
-body.logged-in {
-  .newsFlash-widget {
-    top: 126px;
+  a.nav-link {
+    color: $primary-color;
   }
-}
+
+  /* color of current menu-item */
+  .navbar-nav .active > .nav-link,
+  .navbar-nav .nav-link.active,
+  .navbar-nav .nav-link.show,
+  .navbar-light .navbar-nav .show > .nav-link {
+    color: $pink;
+  }
+
+  .navbar-nav .active > .nav-link:hover,
+  .navbar-nav .nav-link.active:hover,
+  .navbar-nav .nav-link.show:hover,
+  .navbar-light .navbar-nav .show > .nav-link:hover  {
+    color: $hover-color;
+  }
+
+
+  .navbar .navbar-nav a.nav-link {
+    font-size: 2em;
+    padding: 0;
+  }
+
+
+
+
+/*
+--------------------------------------------------------------------------------
+                   ------------- HOME PAGE -------------
+--------------------------------------------------------------------------------
+*/
+$nbw-height-s: 22px; /* newsbar-widget height on small screens */
 
 .home-wrapper {
-  margin-top: 60px; /* same as menu-button */
   padding: .8rem 1rem 1rem 1rem;
   div {
     padding: 0;
   }
 }
+
+/* ------------- NEWSFLASH ------------- */
+  @keyframes pull-from-left {
+  from { padding-left: 100% }
+  to { padding-left: 0 }
+  }
+
+  @keyframes push-from-right {
+  from { transform: translateX(0%) }
+  to { transform: translateX(-100%) }
+  }
+  .newsflash-widget {
+    position: fixed;
+    z-index: 300;
+    white-space: nowrap;
+    width: 100%;
+    background-color: $yellow;
+    height: $nbw-height-s; /* same as newsbar-widget */
+    .textwidget {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      animation: push-from-right 40s linear infinite;
+      padding: 0;
+      p {
+        animation: pull-from-left 40s linear infinite;
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
+  }
+
+
+/* ------------- NEWSBAR ------------- */
+
+
+
+  .newsbar {
+    flex-direction: column;
+    vertical-align: middle;
+    margin-top:$nbw-height-s; /* same as newsflash */
+    min-height: calc(5 * #{$nbw-height-s});
+    .newsbar-widget {
+      flex-direction: row;
+      min-height: $nbw-height-s;
+      max-height: $nbw-height-s;
+      .newsbar-title {
+        flex-direction: column;
+        vertical-align: middle;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        margin-left: $page-padding;
+        min-width: 125px;
+        line-height: calc( #{$nbw-height-s} - (#{$border-weight}/2) );
+      }
+      .newsbar-title:hover {
+        font-style: italic;
+        padding-left: 3px;
+      }
+      .textwidget {
+        display: flex;
+        flex-direction: row;
+        vertical-align: middle;
+        width: 100%;
+        padding-left: $page-padding;
+        font-size: 12px;
+
+        p {
+          margin-bottom: 0;
+          /* 12px = textwidget font-size */
+          line-height: calc( (12px - #{$border-weight} ) * 2)
+        }
+      }
+    }
+  }
+
+  .newsbar-widget:first-child {
+    background-color: #AF52FF;
+  }
+  .newsbar-widget:nth-child(2) {
+    background-color: #37E251;
+  }
+  .newsbar-widget:nth-child(3) {
+    background-color: #F75E00;
+  }
+  .newsbar-widget:nth-child(4) {
+    background-color: $pink;
+  }
+  .newsbar-widget:nth-child(5) {
+    background-color: #2CF0FF;
+  }
 
 /* ------------- FOOTER ------------- */
 .footer {

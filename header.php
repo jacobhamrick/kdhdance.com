@@ -14,21 +14,18 @@
 
 
   <body  <?php body_class(); ?>>
-    <nav id="sticky-nav" class="sticky navbar">
-      <div class="title-wrapper">
-        <a class="navbar-title" href="<?php bloginfo('url'); ?>">
-          <h2>
-            <span class="blue">K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
-            </span>
-            <span class="pink">
-              Dance
-            </span>
-          </h2>
-                  <!-- <h2>
-                  <?php bloginfo('name'); ?>
-                </h2> -->
-        </a>
-      </div> <!-- end title-wrapper -->
+    <nav id="sticky-nav" class="sticky navbar flex">
+      <a href="<?php bloginfo('url'); ?>">
+        <div class="title-wrapper flex">
+              <div class="blue flex">
+                <h2>K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
+                </h2>
+              </div>
+              <div class="pink flex">
+                <h2>Dance</h2>
+              </div>
+        </div> <!-- end title-wrapper -->
+      </a>
     </nav>
 
     <div class="menu-button toggle-menu">
@@ -49,4 +46,3 @@
       ) );
       ?>
     </div> <!-- end #menu -->
-    
