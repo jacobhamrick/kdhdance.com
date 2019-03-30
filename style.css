@@ -33,7 +33,7 @@ body {
   color: black;
   background-color: #FFF;
   overflow: hidden;
-  transition: all 0.5s; }
+  transition: all 0.3s linear; }
 
 body.logged-in {
   padding-top: 0; }
@@ -79,12 +79,13 @@ h6 {
 a {
   color: #eb3e8f;
   font-weight: 500;
-  transition: all 0.5s; }
+  transition: all 0.3s linear; }
 
 a:hover,
 a.nav-link:hover {
   color: #9a3eeb;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all .3s; }
 
 .scroll {
   overflow-y: scroll;
@@ -111,11 +112,13 @@ hr:not(.the-burger) {
 --------------------------------------------------------------------------------
 */
 /* Adjust for WP Admin bar */
-body.logged-in .menu-button,
 body.logged-in .newsflash-widget {
   top: 106px; }
 
-/* ------------- TITLE ------------- */
+body.logged-in .menu-button {
+  top: 46px; }
+
+/* ------------------------------- TITLE ------------------------------------ */
 #sticky-nav,
 .title-wrapper {
   min-height: 60px;
@@ -126,52 +129,46 @@ body.logged-in .newsflash-widget {
   vertical-align: middle;
   background-color: #FFF;
   padding: 0;
-  border-bottom: solid 2px black;
   color: black;
-  text-transform: uppercase;
   white-space: nowrap; }
   #sticky-nav .title-wrapper {
     justify-content: space-evenly;
     flex-direction: row;
-    margin: 0 auto; }
-    #sticky-nav .title-wrapper div {
-      vertical-align: middle;
-      width: 100%;
-      text-align: justify; }
-      #sticky-nav .title-wrapper div h2 {
-        font-size: 58px;
-        font-weight: bold;
-        height: 60px;
-        line-height: calc(60px - 2px);
-        margin: 0; }
+    margin: 0 60px 0 0;
+    /* 60px = height of burger-box */ }
+    #sticky-nav .title-wrapper .nav-text h2 {
+      font-size: 2.7rem;
+      margin-bottom: 0;
+      line-height: 1.4;
+      font-weight: bold; }
 
 .blue {
-  letter-spacing: -1px;
+  letter-spacing: 8px;
   padding-left: 1rem; }
 
 .pink {
-  letter-spacing: -1px;
+  letter-spacing: 2px;
   padding-right: 1rem; }
 
 .newsflash-widget {
   top: 60px; }
 
-/* ------------- BURGER BUTTON ------------- */
+/* ------------------------------ BURGER BUTTON ----------------------------- */
 .menu-button {
   position: fixed;
   right: 0;
   z-index: 1000;
-  background-color: #eb3e8f;
+  background-color: #0033ff;
   border: none;
-  border-left: solid 2px black;
-  border-bottom: solid 2px black;
   border-radius: 0;
   cursor: pointer;
   width: 60px;
   height: 60px;
   float: right;
   padding: 1rem .5rem;
-  margin-left: auto; }
+  margin-left: auto;
+  transition: all 0.3s linear;
+  border-left: 2px solid black; }
 
 .burger-box {
   display: flex;
@@ -181,22 +178,23 @@ body.logged-in .newsflash-widget {
 
 /* the burger in the box */
 .the-burger {
-  border: solid 1px black;
+  border: solid 1px #fff;
   margin: 0;
-  transition: all 0.5s;
-  background-color: black; }
+  transition: all 0.3s linear;
+  background-color: #fff; }
 
 /* Burger Animation - Turn burger into X */
-.menu-button.active .top-bun {
-  transform: rotate(40deg);
-  transform-origin: 8% 7px; }
-
-.menu-button.active .goods {
-  opacity: 0; }
-
-.menu-button.active .bottom-bun {
-  transform: rotate(-40deg);
-  transform-origin: 13% -5px; }
+.menu-button.active {
+  background-color: #eb3e8f;
+  transition: all 0.3s linear; }
+  .menu-button.active .top-bun {
+    transform: rotate(40deg);
+    transform-origin: 8% 7px; }
+  .menu-button.active .goods {
+    opacity: 0; }
+  .menu-button.active .bottom-bun {
+    transform: rotate(-40deg);
+    transform-origin: 13% -5px; }
 
 .menu-button .top-bun {
   transform: rotate(0); }
@@ -216,11 +214,12 @@ body.logged-in .newsflash-widget {
   padding: 1rem;
   color: #fff;
   margin-left: 100%;
-  margin-top: 120px;
+  margin-top: 95px;
   height: 100%;
   position: fixed;
   z-index: 100;
-  width: 100%; }
+  width: 100%;
+  transition: all 0.3s linear; }
   .menu #navbarSupportedContent {
     height: 100%; }
 
@@ -283,9 +282,11 @@ a.nav-link {
   z-index: 300;
   white-space: nowrap;
   width: 100%;
-  background-color: #FFFF00;
-  height: 22px;
-  /* same as newsbar-widget */ }
+  background-color: #FFDB00;
+  height: 36px;
+  /* same as newsbar-widget */
+  border-top: 2px solid black;
+  border-bottom: 2px solid black; }
   .newsflash-widget .textwidget {
     display: flex;
     align-items: center;
@@ -300,51 +301,63 @@ a.nav-link {
 /* ------------- NEWSBAR ------------- */
 .newsbar {
   flex-direction: column;
-  vertical-align: middle;
-  margin-top: 22px;
+  margin-top: 36px;
   /* same as newsflash */
-  min-height: calc(5 * 22px); }
-  .newsbar .newsbar-widget {
-    flex-direction: row;
-    min-height: 22px;
-    max-height: 22px; }
-    .newsbar .newsbar-widget .newsbar-title {
-      flex-direction: column;
-      vertical-align: middle;
-      margin-bottom: 0;
-      text-transform: uppercase;
-      margin-left: 1rem;
-      min-width: 125px;
-      line-height: calc( 22px - (2px/2)); }
-    .newsbar .newsbar-widget .newsbar-title:hover {
-      font-style: italic;
-      padding-left: 3px; }
-    .newsbar .newsbar-widget .textwidget {
-      display: flex;
+  min-height: calc(5 * (36px + 2px));
+  /* 5 = # of rows */ }
+  .newsbar .newsbar-link {
+    color: #000;
+    transition: all 0.3s linear;
+    border-bottom: 2px solid black; }
+    .newsbar .newsbar-link .newsbar-widget {
       flex-direction: row;
-      vertical-align: middle;
-      width: 100%;
-      padding-left: 1rem;
-      font-size: 12px; }
-      .newsbar .newsbar-widget .textwidget p {
-        margin-bottom: 0;
-        /* 12px = textwidget font-size */
-        line-height: calc( (12px - 2px ) * 2); }
+      align-items: center;
+      justify-content: space-between;
+      min-height: 36px;
+      max-height: 36px;
+      padding: 0 1rem 0 0;
+      transition: all 0.3s linear; }
+      .newsbar .newsbar-link .newsbar-widget .news-tab {
+        vertical-align: middle;
+        align-items: center;
+        height: 36px;
+        min-width: calc(36px * 1.75);
+        max-width: calc(36px * 1.75);
+        border-right: 2px solid black;
+        padding-right: 1rem; }
+      .newsbar .newsbar-link .newsbar-widget .newsbar-title {
+        display: none; }
+      .newsbar .newsbar-link .newsbar-widget .newsbar-icon {
+        font-size: 25px; }
+      .newsbar .newsbar-link .newsbar-widget .textwidget {
+        display: flex;
+        flex-direction: row;
+        vertical-align: middle;
+        width: 90%;
+        padding-left: 1rem;
+        font-size: 13px; }
+        .newsbar .newsbar-link .newsbar-widget .textwidget p {
+          font-weight: normal;
+          margin-bottom: 0;
+          /* 12px = textwidget font-size */
+          line-height: calc( (12px - 2px ) * 1.5); }
+  .newsbar i {
+    padding-left: 1rem; }
 
-.newsbar-widget:first-child {
-  background-color: #AF52FF; }
+#next-bar {
+  background-color: #FF962A; }
 
-.newsbar-widget:nth-child(2) {
-  background-color: #37E251; }
+#recent-bar {
+  background-color: #97FF00; }
 
-.newsbar-widget:nth-child(3) {
-  background-color: #F75E00; }
+#classes-bar {
+  background-color: #00C7FF; }
 
-.newsbar-widget:nth-child(4) {
+#outreach-bar {
+  background-color: #7B3FFC; }
+
+#contribute-bar {
   background-color: #eb3e8f; }
-
-.newsbar-widget:nth-child(5) {
-  background-color: #2CF0FF; }
 
 /* ------------- FOOTER ------------- */
 .footer {

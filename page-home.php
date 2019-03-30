@@ -10,7 +10,15 @@
 <?php endif; ?>
 
 <div class="newsbar flex">
-  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Bar") ) : ?>
+  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Next Up") ) : ?>
+  <?php endif; ?>
+  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Recent") ) : ?>
+  <?php endif; ?>
+  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Classes") ) : ?>
+  <?php endif; ?>
+  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Outreach") ) : ?>
+  <?php endif; ?>
+  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Contribute") ) : ?>
   <?php endif; ?>
 </div>
 

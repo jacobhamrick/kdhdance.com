@@ -15,9 +15,11 @@ I hope to empower creatives and small businesses.
 $primary-color: rgba(0,0,0,1.0);  /* typography, lines, text ++++ for black use rgba(0,0,0,1.0) */
 $pink: #eb3e8f; /* a tags */
 $blue: #0033ff; /* KDH */
-$yellow: #FFFF00;
-$purple: #9a3eeb;
-$green: #8feb3e;
+$yellow: #FFDB00;
+$purple: #7B3FFC;
+$green: #97FF00;
+$orange: #FF962A;
+$light-blue: #00C7FF;
 $background-color: #FFF;
 $hover-color: #9a3eeb;
 $border: solid;
@@ -28,7 +30,7 @@ $navbar-height-l: 120px;
 $footer-height: 6em;
 $footer-height-sm: 140px;
 $footer-height-lg: 80px;
-$time: 0.5s;
+$time: all 0.3s linear;
 $main-font: "Helvetica Neue";
 
 .blue {
@@ -55,7 +57,7 @@ body {
   color: $primary-color;
   background-color: $background-color;
   overflow: hidden;
-  transition: all $time;
+  transition: $time;
 }
 
 body.logged-in {
@@ -110,13 +112,14 @@ h6 {
 a {
   color: $pink;
   font-weight: 500;
-  transition: all $time;
+  transition: $time;
 }
 
 a:hover,
 a.nav-link:hover {
   color: $hover-color;
   text-decoration: none;
+  transition: all .3s;
 }
 
 
@@ -153,14 +156,16 @@ hr:not(.the-burger) {
 
   /* Adjust for WP Admin bar */
   body.logged-in {
-    .menu-button,
     .newsflash-widget {
         top: 106px;
+    }
+    .menu-button {
+      top: 46px;
     }
   }
 
 
-/* ------------- TITLE ------------- */
+/* ------------------------------- TITLE ------------------------------------ */
 
 
   #sticky-nav,
@@ -174,35 +179,30 @@ hr:not(.the-burger) {
     vertical-align: middle;
     background-color: $background-color;
     padding: 0;
-    border-bottom: $border $border-weight $primary-color;
     color: $primary-color;
-    text-transform: uppercase;
     white-space: nowrap;
     .title-wrapper {
       justify-content: space-evenly;
       flex-direction: row;
-      margin: 0 auto;
-      div {
-        vertical-align: middle;
-        width: 100%;
-        text-align: justify;
+      margin: 0 60px 0 0; /* 60px = height of burger-box */
+      .nav-text {
         h2 {
-          font-size: 58px;
+          font-size: 2.7rem;
+          margin-bottom: 0;
+          line-height: 1.4;
           font-weight: bold;
-          height: $navbar-height-s;
-          line-height: calc(#{$navbar-height-s} - #{$border-weight});
-          margin: 0;
         }
       }
     }
   }
+
   .blue  {
-    letter-spacing: -1px;
+    letter-spacing: 8px;
     padding-left: $page-padding;
   }
 
   .pink {
-    letter-spacing: -1px;
+    letter-spacing: 2px;
     padding-right: $page-padding;
   }
 
@@ -212,15 +212,13 @@ hr:not(.the-burger) {
   }
 
 
-/* ------------- BURGER BUTTON ------------- */
+/* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     position: fixed;
     right: 0;
     z-index: 1000;
-    background-color: $pink;
+    background-color: $blue;
     border: none;
-    border-left: $border $border-weight $primary-color;
-    border-bottom: $border $border-weight $primary-color;
     border-radius: 0;
     cursor: pointer;
     width: 60px;
@@ -228,9 +226,9 @@ hr:not(.the-burger) {
     float: right;
     padding: 1rem .5rem;
     margin-left: auto;
-
+    transition: $time;
+    border-left: $border-weight  $border $primary-color;
   }
-
 
   .burger-box  {
     display: flex;
@@ -243,18 +241,17 @@ hr:not(.the-burger) {
 
   /* the burger in the box */
   .the-burger {
-    border: $border 1px $primary-color;
+    border: $border 1px #fff;
     margin: 0;
-    transition: all $time;
-    background-color: $primary-color;
+    transition: $time;
+    background-color: #fff;
 
   }
 
-
-
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
-
+    background-color: $pink;
+    transition: $time;
     .top-bun {
       transform: rotate(40deg);
       transform-origin: 8% 7px;
@@ -294,11 +291,12 @@ hr:not(.the-burger) {
     padding: $page-padding;
     color: #fff;
     margin-left: 100%;
-    margin-top: 120px;
+    margin-top: 95px;
     height: 100%;
     position: fixed;
     z-index: 100;
     width: 100%;
+    transition: $time;
     #navbarSupportedContent {
       height: 100%;
     }
@@ -349,7 +347,8 @@ hr:not(.the-burger) {
                    ------------- HOME PAGE -------------
 --------------------------------------------------------------------------------
 */
-$nbw-height-s: 22px; /* newsbar-widget height on small screens */
+
+$nbw-height-s: 36px; /* newsbar-widget height on small screens */
 
 .home-wrapper {
   padding: .8rem 1rem 1rem 1rem;
@@ -375,6 +374,8 @@ $nbw-height-s: 22px; /* newsbar-widget height on small screens */
     width: 100%;
     background-color: $yellow;
     height: $nbw-height-s; /* same as newsbar-widget */
+    border-top: $border-weight  $border $primary-color;
+    border-bottom: $border-weight  $border $primary-color;
     .textwidget {
       display: flex;
       align-items: center;
@@ -392,62 +393,97 @@ $nbw-height-s: 22px; /* newsbar-widget height on small screens */
 
 /* ------------- NEWSBAR ------------- */
 
-
-
-  .newsbar {
-    flex-direction: column;
-    vertical-align: middle;
-    margin-top:$nbw-height-s; /* same as newsflash */
-    min-height: calc(5 * #{$nbw-height-s});
+.newsbar {
+  flex-direction: column;
+  margin-top: $nbw-height-s; /* same as newsflash */
+  min-height: calc(5 * (#{$nbw-height-s} + #{$border-weight})); /* 5 = # of rows */
+  .newsbar-link {
+    color: #000;
+    transition: $time;
+    border-bottom: $border-weight  $border $primary-color;
     .newsbar-widget {
       flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
       min-height: $nbw-height-s;
       max-height: $nbw-height-s;
-      .newsbar-title {
-        flex-direction: column;
+      padding: 0 $page-padding 0 0;
+      transition: $time;
+      .news-tab {
         vertical-align: middle;
-        margin-bottom: 0;
-        text-transform: uppercase;
-        margin-left: $page-padding;
-        min-width: 125px;
-        line-height: calc( #{$nbw-height-s} - (#{$border-weight}/2) );
+        align-items: center;
+        height: $nbw-height-s;
+        min-width: calc(#{$nbw-height-s} * 1.75);
+        max-width: calc(#{$nbw-height-s} * 1.75);
+        border-right: $border-weight $border $primary-color;
+        padding-right: $page-padding;
       }
-      .newsbar-title:hover {
-        font-style: italic;
-        padding-left: 3px;
+      .newsbar-title {
+        display: none;
+        // padding-left: $page-padding;
+        // font-weight: normal;
+        // flex-direction: column;
+        // margin-bottom: 0;
+        // vertical-align: middle;
+        // text-transform: uppercase;
+        // min-width: 60px;
+        // height: $nbw-height-s;
+        // line-height: $nbw-height-s;
+        // transition: $time;
+        // border-right: $border $border-weight $primary-color;
+      }
+      .newsbar-icon {
+        font-size: 25px;
       }
       .textwidget {
         display: flex;
         flex-direction: row;
         vertical-align: middle;
-        width: 100%;
+        width: 90%;
         padding-left: $page-padding;
-        font-size: 12px;
-
+        font-size: 13px;
         p {
+          font-weight: normal;
           margin-bottom: 0;
           /* 12px = textwidget font-size */
-          line-height: calc( (12px - #{$border-weight} ) * 2)
+          line-height: calc( (12px - #{$border-weight} ) * 1.5)
         }
       }
     }
   }
+  i {
+    padding-left: $page-padding;
+  }
+}
 
-  .newsbar-widget:first-child {
-    background-color: #AF52FF;
-  }
-  .newsbar-widget:nth-child(2) {
-    background-color: #37E251;
-  }
-  .newsbar-widget:nth-child(3) {
-    background-color: #F75E00;
-  }
-  .newsbar-widget:nth-child(4) {
-    background-color: $pink;
-  }
-  .newsbar-widget:nth-child(5) {
-    background-color: #2CF0FF;
-  }
+#next-bar {
+  background-color: $orange;
+}
+#recent-bar {
+  background-color: $green;
+}
+#classes-bar {
+  background-color: $light-blue;
+}
+#outreach-bar {
+  background-color: $purple;
+}
+#contribute-bar {
+  background-color: $pink;
+}
+
+// .newsbar-link:hover {
+//   transition: $time;
+//   .newsbar-title{
+//     font-style: italic;
+//     transition: $time;
+//   }
+//   .newsbar-widget {
+//     padding-right: calc(#{$page-padding} / 2);
+//     transition: $time;
+//   }
+// }
+
 
 /* ------------- FOOTER ------------- */
 .footer {

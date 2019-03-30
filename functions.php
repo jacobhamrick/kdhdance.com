@@ -13,7 +13,8 @@
   );
 }
 
-// New Flash
+// ------------------------------- NEWS FLASH ----------------------------------
+
 function wpt_create_newsFlash_widget( $name, $id, $description ) {
   register_sidebar( array(
     'name'          => __( $name ),
@@ -28,22 +29,83 @@ function wpt_create_newsFlash_widget( $name, $id, $description ) {
 wpt_create_newsFlash_widget( 'News Flash', 'newsflash', 'News Flash!' );
 
 
-// News Bar
-function wpt_create_newsBar_widget( $name, $id, $description ) {
+// ------------------------------ NEWS BAR -------------------------------------
+
+// Next Up
+function wpt_create_nextUp_widget( $name, $id, $description ) {
   register_sidebar( array(
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<div class="newsbar-widget flex">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<p class="newsbar-title flex">',
-    'after_title'   => '</p>',
+    'before_widget' => '<a  class="newsbar-link" href="/upcoming/"><div class="newsbar-widget flex">',
+    'after_widget'  => '<i class="fas fa-angle-right"></i></div>',
+    'before_title'  => '<div id="next-bar" class="news-tab flex"><p class="newsbar-title">',
+    'after_title'   => '</p><i class="newsbar-icon fas fa-bullhorn"></i></div>',
   ) );
 }
-wpt_create_newsBar_widget( 'News Bar', 'newsbar', 'News Bar!' );
+wpt_create_nextUp_widget( 'Next Up', 'nextup', 'Next Up' );
+
+// Recent
+function wpt_create_recent_widget( $name, $id, $description ) {
+  register_sidebar( array(
+    'name'          => __( $name ),
+    'id'            => $id,
+    'description'   => __( $description ),
+    'before_widget' => '<a class="newsbar-link" href="/dance/"><div class="newsbar-widget flex">',
+    'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
+    'before_title'  => '<div id="recent-bar"class="news-tab flex"><p class="newsbar-title">',
+    'after_title'   => '</p><i class="newsbar-icon fas fa-eye"></i></div>',
+  ) );
+}
+wpt_create_recent_widget( 'Recent', 'recent', 'Recent' );
+
+// Classes
+function wpt_create_classes_widget( $name, $id, $description ) {
+  register_sidebar( array(
+    'name'          => __( $name ),
+    'id'            => $id,
+    'description'   => __( $description ),
+    'before_widget' => '<a class="newsbar-link" href="/classes/"><div class="newsbar-widget flex">',
+    'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
+    'before_title'  => '<div id="classes-bar" class="news-tab flex"><p class="newsbar-title">',
+    'after_title'   => '</p><i class="newsbar-icon fas fa-spa"></i></div>',
+  ) );
+}
+wpt_create_classes_widget( 'Classes', 'classes', 'Classes' );
+
+// Outreach
+function wpt_create_outreach_widget( $name, $id, $description ) {
+  register_sidebar( array(
+    'name'          => __( $name ),
+    'id'            => $id,
+    'description'   => __( $description ),
+    'before_widget' => '<a  class="newsbar-link" href="/outreach/"><div class="newsbar-widget flex">',
+    'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
+    'before_title'  => '<div id="outreach-bar"class="news-tab flex"><p class="newsbar-title">',
+    'after_title'   => '</p><i class="newsbar-icon fas fa-hands-helping"></i></div>',
+  ) );
+}
+wpt_create_outreach_widget( 'Outreach', 'outreach', 'Outreach' );
+
+// Contribute
+function wpt_create_contribute_widget( $name, $id, $description ) {
+  register_sidebar( array(
+    'name'          => __( $name ),
+    'id'            => $id,
+    'description'   => __( $description ),
+    'before_widget' => '<a  class="newsbar-link" href="/contribute/"><div class="newsbar-widget flex">',
+    'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
+    'before_title'  => '<div id="contribute-bar" class="news-tab flex"><p class="newsbar-title">',
+    'after_title'   => '</p><i class="newsbar-icon fas fa-hand-holding-heart"></i></div>',
+  ) );
+}
+wpt_create_contribute_widget( 'Contribute', 'contribute', 'Contribute' );
 
 
-// Register Custom Navigation Walker
+
+
+
+// -------------------------------- NAVWALKER ----------------------------------
 require_once('class-wp-bootstrap-navwalker.php');
 add_action( 'init', 'register_theme_menus');
 
@@ -70,7 +132,7 @@ add_action( 'init', 'register_theme_menus');
     //add all @import links (google fonts, etc)
     //wp_enqueue_style( 'normalize_css', 'http://');
     wp_enqueue_style( 'main_css', get_template_directory_uri() . '/style.css ');
-    wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
+    wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
   }
 
   add_action( 'wp_enqueue_scripts', 'stfi_theme_styles');

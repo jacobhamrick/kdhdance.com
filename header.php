@@ -17,13 +17,13 @@
     <nav id="sticky-nav" class="sticky navbar flex">
       <a href="<?php bloginfo('url'); ?>">
         <div class="title-wrapper flex">
-              <div class="blue flex">
+              <span class="nav-text blue flex">
                 <h2>K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
                 </h2>
-              </div>
-              <div class="pink flex">
+              </span>
+              <span class="nav-text pink flex">
                 <h2>Dance</h2>
-              </div>
+              </span>
         </div> <!-- end title-wrapper -->
       </a>
     </nav>
