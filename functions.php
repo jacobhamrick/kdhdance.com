@@ -37,10 +37,10 @@ function wpt_create_nextUp_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a  class="newsbar-link" href="/upcoming/"><div class="newsbar-widget flex">',
+    'before_widget' => '<a  class="newsbar-link" href="/upcoming/"><div id="next-bar" class="newsbar-widget flex">',
     'after_widget'  => '<i class="fas fa-angle-right"></i></div>',
-    'before_title'  => '<div id="next-bar" class="news-tab flex"><p class="newsbar-title">',
-    'after_title'   => '</p><i class="newsbar-icon fas fa-bullhorn"></i></div>',
+    'before_title'  => '<p class="newsbar-title">',
+    'after_title'   => '</p>',
   ) );
 }
 wpt_create_nextUp_widget( 'Next Up', 'nextup', 'Next Up' );
@@ -51,10 +51,10 @@ function wpt_create_recent_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a class="newsbar-link" href="/dance/"><div class="newsbar-widget flex">',
+    'before_widget' => '<a class="newsbar-link" href="/dance/"><div id="recent-bar" class="newsbar-widget flex">',
     'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
-    'before_title'  => '<div id="recent-bar"class="news-tab flex"><p class="newsbar-title">',
-    'after_title'   => '</p><i class="newsbar-icon fas fa-eye"></i></div>',
+    'before_title'  => '<p class="newsbar-title">',
+    'after_title'   => '</p>',
   ) );
 }
 wpt_create_recent_widget( 'Recent', 'recent', 'Recent' );
@@ -65,10 +65,10 @@ function wpt_create_classes_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a class="newsbar-link" href="/classes/"><div class="newsbar-widget flex">',
+    'before_widget' => '<a class="newsbar-link" href="/classes/"><div id="class-bar" class="newsbar-widget flex">',
     'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
-    'before_title'  => '<div id="classes-bar" class="news-tab flex"><p class="newsbar-title">',
-    'after_title'   => '</p><i class="newsbar-icon fas fa-spa"></i></div>',
+    'before_title'  => '<p class="newsbar-title">',
+    'after_title'   => '</p>',
   ) );
 }
 wpt_create_classes_widget( 'Classes', 'classes', 'Classes' );
@@ -79,10 +79,10 @@ function wpt_create_outreach_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a  class="newsbar-link" href="/outreach/"><div class="newsbar-widget flex">',
+    'before_widget' => '<a  class="newsbar-link" href="/outreach/"><div id="outreach-bar" class="newsbar-widget flex">',
     'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
-    'before_title'  => '<div id="outreach-bar"class="news-tab flex"><p class="newsbar-title">',
-    'after_title'   => '</p><i class="newsbar-icon fas fa-hands-helping"></i></div>',
+    'before_title'  => '<p class="newsbar-title">',
+    'after_title'   => '</p>',
   ) );
 }
 wpt_create_outreach_widget( 'Outreach', 'outreach', 'Outreach' );
@@ -93,10 +93,10 @@ function wpt_create_contribute_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a  class="newsbar-link" href="/contribute/"><div class="newsbar-widget flex">',
+    'before_widget' => '<a  class="newsbar-link" href="/contribute/"><div id="contribute-bar" class="newsbar-widget flex">',
     'after_widget'  => '<i class="fas fa-angle-right"></i></div></a>',
-    'before_title'  => '<div id="contribute-bar" class="news-tab flex"><p class="newsbar-title">',
-    'after_title'   => '</p><i class="newsbar-icon fas fa-hand-holding-heart"></i></div>',
+    'before_title'  => '<p class="newsbar-title">',
+    'after_title'   => '</p>',
   ) );
 }
 wpt_create_contribute_widget( 'Contribute', 'contribute', 'Contribute' );

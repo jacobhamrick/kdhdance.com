@@ -194,7 +194,8 @@ body.logged-in .menu-button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; }
+  height: 100%;
+  width: 44px; }
 
 /* the burger in the box */
 .the-burger {
@@ -259,7 +260,18 @@ body.logged-in .menu-button {
     width: 50%; }
 
 a.nav-link {
-  color: #fff; }
+  color: #fff;
+  border-bottom: #fff 2px solid; }
+  a.nav-link .menu-shape {
+    color: #FFDB00;
+    opacity: 0.0;
+    float: right;
+    transition: all 0.0 linear;
+    line-height: 22px; }
+
+a.nav-link:hover .menu-shape {
+  opacity: 1;
+  transition: all 0.3s linear; }
 
 /* color of current menu-item */
 .navbar-nav .active > .nav-link,
@@ -350,18 +362,7 @@ a.nav-link {
         border-right: 2px solid black;
         padding-right: 1rem; }
       .newsbar .newsbar-link .newsbar-widget .newsbar-title {
-        display: none;
-        padding-left: 1rem;
-        font-weight: normal;
-        flex-direction: column;
-        margin-bottom: 0;
-        vertical-align: middle;
-        text-transform: uppercase;
-        min-width: 60px;
-        height: 48px;
-        line-height: 48px;
-        transition: all 0.3s linear;
-        border-right: 2px solid black; }
+        display: none; }
       .newsbar .newsbar-link .newsbar-widget .textwidget {
         display: flex;
         flex-direction: row;
@@ -396,7 +397,6 @@ a.nav-link {
 .newsbar-link:hover {
   transition: all 0.3s linear; }
   .newsbar-link:hover .newsbar-title {
-    font-style: italic;
     transition: all 0.3s linear; }
   .newsbar-link:hover .newsbar-widget {
     padding-right: calc(1rem / 2);
@@ -466,6 +466,10 @@ a.nav-link {
 @media screen and (min-width: 783px) {
   body.logged-in {
     padding-top: 0; }
+  body.logged-in .menu-button {
+    top: 32px; }
+  body.logged-in .newsflash-widget {
+    top: 92px; }
   .admin-bar #sticky-nav {
     top: 32px;
     /* accomodates admin bar when user logged in */
@@ -476,22 +480,110 @@ a.nav-link {
     margin-right: 0; }
   #navbarSupportedContent {
     padding: 0; }
-  .menu-primary-menu.navbar-nav {
+  /*
+--------------------------------------------------------------------------------
+                      ------------- HEADER -------------
+--------------------------------------------------------------------------------
+*/
+  .menu {
+    z-index: 400; }
+  .menu-button {
+    z-index: 200; }
+  .menu-button.active {
+    z-index: 400; }
+  .hideme {
+    display: inline; }
+  .nav-text {
+    letter-spacing: 0px; }
+  #sticky-nav {
+    background: #fff; }
+    #sticky-nav .title-wrapper .blue {
+      color: #0033ff; }
+    #sticky-nav .title-wrapper .pink {
+      color: #eb3e8f; }
+  #sticky-nav .title-wrapper h2:first-child {
+    margin-right: 0; }
+  .hideme {
+    margin-right: 1rem; }
+  /* ------------------------------ BURGER BUTTON ----------------------------- */
+  .menu-button {
+    width: 78px;
+    height: 60px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background: #fff; }
+    .menu-button .the-burger {
+      border-color: #0033ff; }
+  /* Burger Animation - Turn burger into X */
+  .menu-button.active {
+    height: calc(60px + 2px);
+    transtion: all 0.3s linear;
+    background: #0033ff; }
+    .menu-button.active .top-bun {
+      transform-origin: 8% 10px; }
+    .menu-button.active .bottom-bun {
+      transform-origin: 8% -5px; }
+    .menu-button.active .the-burger {
+      transition: all .4s linear;
+      border-color: #fff; }
+  /* ------------------------------ TOGGLE MENU ------------------------------- */
+  .menu {
+    width: 33%; }
+  .navbar-nav .menu-item {
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    margin: 0; }
-    .menu-primary-menu.navbar-nav li {
-      width: auto; }
-  a.nav-link {
-    color: #fff;
-    font-size: 2rem; }
-  .footer {
     flex-direction: row;
-    height: 80px; }
-  /* ------------- PROJECTS PAGE ------------- */
+    justify-content: space-between;
+    border-bottom: #fff solid 2px;
+    transition: all 0.3s linear; }
+    .navbar-nav .menu-item a.nav-link {
+      font-size: 1rem;
+      width: 100%;
+      border: none;
+      transition: all 0.3s linear; }
+  .menu.openSesame {
+    margin-left: 67%; }
+    .menu.openSesame h4 {
+      text-align: center; }
+  /* -----------------------------------------------------------------------------
+                  ------------- HOME PAGE   -------------
+----------------------------------------------------------------------------- */
+  /* ------------------------------ NEWSBAR ----------------------------------- */
+  .newsbar {
+    flex-direction: row;
+    min-height: calc(96px + 2px);
+    border-bottom: 2px solid black; }
+    .newsbar .fa-angle-right {
+      display: none; }
+  .newsbar-link,
+  .newsbar > .newsbar-link > .newsbar-widget {
+    min-height: 96px;
+    max-height: 96px;
+    flex-direction: column;
+    justify-content: flex-start; }
+  .newsbar .newsbar-link .newsbar-widget {
+    padding: 10px 16px; }
+  .newsbar .newsbar-link .newsbar-widget .newsbar-title {
+    display: block;
+    width: 100%;
+    text-transform: uppercase; }
+  .newsbar .newsbar-link .newsbar-widget .textwidget {
+    width: 100%;
+    padding: 0; }
+  .newsbar .newsbar-link .newsbar-widget .textwidget p {
+    font-weight: normal;
+    font-size: 14px; }
+  .newsbar-link {
+    border-right: 2px solid black;
+    width: 20%; }
+  .newsbar-link:last-child {
+    border-right: none; }
+  .newsbar-title {
+    display: block; }
+  .home-wrapper {
+    padding: 3rem; }
+  /* -----------------------------------------------------------------------------
+                    ------------- PROJECTS PAGE -------------
+----------------------------------------------------------------------------- */
   .projects-page {
     padding: 0;
     display: flex;
@@ -504,48 +596,10 @@ a.nav-link {
       width: 50%; }
     .projects-page div:last-child {
       border-left: 2px solid black;
-      overflow-y: auto; } }
-
-/* bootstrap breakpoint / navbar collapse toggle */
-@media screen and (min-width: 992px) {
-  /*
---------------------------------------------------------------------------------
-                      ------------- HEADER -------------
---------------------------------------------------------------------------------
-*/
-  .hideme {
-    display: inline; }
-  .hideme:first-child,
-  .hideme:nth-child(2) {
-    margin-right: calc(2rem / 2); }
-  .hideme:nth-child(3) {
-    margin-right: 2rem; }
-  .nav-text {
-    letter-spacing: 0px; }
-  /* ------------------------------ BURGER BUTTON ----------------------------- */
-  .menu-button {
-    padding-right: 1rem; }
-  /* Burger Animation - Turn burger into X */
-  .menu-button.active .top-bun {
-    transform-origin: 8% 15px; }
-  .menu-button.active .bottom-bun {
-    transform-origin: 13% -12px; }
-  .menu-button.active .the-burger {
-    transition: all .4s linear; }
-  /* ------------------------------ TOGGLE MENU ------------------------------- */
-  .menu {
-    width: 33%; }
-  .menu.openSesame {
-    margin-left: 67%; }
-  /* ------------------------------ NEWSBAR ----------------------------------- */
-  .newsbar {
-    flex-direction: row; }
-  .newsbar-link,
-  .newsbar > .newsbar-link > .newsbar-widget {
-    min-height: 96px;
-    max-height: 96px; }
-  .newsbar-link {
-    border-right: 2px solid black;
-    width: 20%; }
-  .newsbar-link:last-child {
-    border-right: none; } }
+      overflow-y: auto; }
+  /* -----------------------------------------------------------------------------
+                      ------------- FOOTER -------------
+----------------------------------------------------------------------------- */
+  .footer {
+    flex-direction: row;
+    height: 80px; } }

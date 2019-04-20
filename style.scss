@@ -260,7 +260,7 @@ body.logged-in {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-
+    width: 44px;
   }
 
 
@@ -282,16 +282,13 @@ body.logged-in {
       transform: rotate(40deg);
       transform-origin: 12% 6px;
     }
-
     .goods {
       opacity: 0;
     }
-
     .bottom-bun {
       transform: rotate(-40deg);
       transform-origin: 9% -3px;
     }
-
   }
 
   .menu-button {
@@ -346,6 +343,21 @@ body.logged-in {
 
   a.nav-link {
     color: #fff;
+    border-bottom: #fff $border-weight $border-type;
+    .menu-shape {
+      color: $yellow;
+      opacity: 0.0;
+      float: right;
+      transition: all 0.0 linear;
+      line-height: 22px;
+    }
+  }
+
+  a.nav-link:hover {
+    .menu-shape {
+    opacity: 1;
+    transition: $time;
+    }
   }
 
   /* color of current menu-item */
@@ -449,17 +461,6 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
       }
       .newsbar-title {
         display: none;
-        padding-left: $page-padding;
-        font-weight: normal;
-        flex-direction: column;
-        margin-bottom: 0;
-        vertical-align: middle;
-        text-transform: uppercase;
-        min-width: 60px;
-        height: $nbw-height-s;
-        line-height: $nbw-height-s;
-        transition: $time;
-        border-right: $borders;
       }
       .textwidget {
         display: flex;
@@ -503,7 +504,6 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 .newsbar-link:hover {
   transition: $time;
   .newsbar-title{
-    font-style: italic;
     transition: $time;
   }
   .newsbar-widget {
@@ -590,6 +590,14 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   body.logged-in {
     padding-top: 0;
   }
+  body.logged-in .menu-button {
+    top:32px;
+  }
+  body.logged-in {
+    .newsflash-widget {
+      top: 92px;
+    }
+  }
 
   .admin-bar #sticky-nav {
      top: 32px; /* accomodates admin bar when user logged in */
@@ -606,86 +614,72 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     padding: 0;
   }
 
-  .menu-primary-menu.navbar-nav {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    margin: 0;
-    li {
-      width: auto;
-    }
-  }
-  a.nav-link {
-    color: #fff;
-    font-size: 2rem;
-  }
-
-  .footer {
-    flex-direction: row;
-    height: $footer-height-lg;
-  }
-
-
-
-/* ------------- PROJECTS PAGE ------------- */
-.projects-page {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  max-height:calc( 100% - #{$navbar-height-s} - #{$footer-height-lg});
-  overflow-y: hidden;
-  div {
-    padding: $page-padding;
-  }
-  div:first-child {
-    width: 50%;
-  }
-  div:last-child {
-    border-left: $borders;
-    overflow-y: auto;
-  }
-
-}
-}
-/* bootstrap breakpoint / navbar collapse toggle */
-@media screen and (min-width: 992px) {
-
-  $page-padding: 2rem;
-
 /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
 --------------------------------------------------------------------------------
 */
+  .menu {
+    z-index: 400;
+  }
+  .menu-button {
+    z-index: 200;
+  }
+  .menu-button.active {
+    z-index: 400;
+  }
+
+
   .hideme {
     display: inline;
   }
-  .hideme:first-child,
-  .hideme:nth-child(2) {
-      margin-right: calc(#{$page-padding} / 2);
-  }
-  .hideme:nth-child(3) {
-    margin-right: $page-padding;
-  }
+
   .nav-text {
     letter-spacing: 0px;
   }
+  #sticky-nav {
+    background: #fff;
+    .title-wrapper {
+      .blue {
+        color: $blue;
+      }
+      .pink {
+        color: $pink;
+      }
+    }
+  }
+  #sticky-nav .title-wrapper h2:first-child{
+    margin-right:0;
+  }
+
+  .hideme {
+    margin-right: 1rem;
+  }
 /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
+    width: 78px;
+    height: 60px;
     padding-right: 1rem;
+    padding-left: 1rem;
+    background: #fff;
+    .the-burger {
+      border-color: $blue;
+    }
   }
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
+    height: calc(60px + #{$border-weight});
+    transtion: $time;
+    background: $blue;
     .top-bun {
-      transform-origin: 8% 15px;
+      transform-origin: 8% 10px;
     }
     .bottom-bun {
-      transform-origin: 13% -12px;
+      transform-origin: 8% -5px;
     }
     .the-burger {
     transition: all .4s linear;
+    border-color: #fff;
     }
   }
 
@@ -693,19 +687,70 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .menu {
     width: 33%;
   }
+
+  .navbar-nav {
+    .menu-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: #fff $border-type $border-weight;
+      transition: $time;
+      a.nav-link {
+        font-size: 1rem;
+        width: 100%;
+        border: none;
+        transition: $time;
+      }
+    }
+  }
+
   .menu.openSesame {
     margin-left: 67%;
+    h4 {
+      text-align: center;
+    }
+
   }
+
+/* -----------------------------------------------------------------------------
+                  ------------- HOME PAGE   -------------
+----------------------------------------------------------------------------- */
+
 
 /* ------------------------------ NEWSBAR ----------------------------------- */
   .newsbar {
     flex-direction: row;
+    min-height: calc(96px + #{$border-weight});
+    border-bottom: $borders;
+    .fa-angle-right {
+      display: none;
+    }
   }
 
   .newsbar-link,
   .newsbar > .newsbar-link > .newsbar-widget {
     min-height: 96px;
     max-height: 96px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .newsbar .newsbar-link .newsbar-widget  {
+    padding:  10px 16px;
+  }
+
+  .newsbar .newsbar-link .newsbar-widget .newsbar-title {
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  .newsbar .newsbar-link .newsbar-widget .textwidget {
+    width: 100%;
+    padding: 0;
+  }
+
+  .newsbar .newsbar-link .newsbar-widget .textwidget p {
+    font-weight: normal;
+    font-size: 14px;
   }
 
   .newsbar-link {
@@ -714,6 +759,45 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
   .newsbar-link:last-child {
     border-right: none;
+  }
+  .newsbar-title {
+    display: block;
+  }
+
+  .home-wrapper {
+    padding: 3rem;
+  }
+
+
+
+/* -----------------------------------------------------------------------------
+                    ------------- PROJECTS PAGE -------------
+----------------------------------------------------------------------------- */
+  .projects-page {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    max-height:calc( 100% - #{$navbar-height-s} - #{$footer-height-lg});
+    overflow-y: hidden;
+    div {
+      padding: $page-padding;
+    }
+    div:first-child {
+      width: 50%;
+    }
+    div:last-child {
+      border-left: $borders;
+      overflow-y: auto;
+    }
+  }
+
+
+/* -----------------------------------------------------------------------------
+                      ------------- FOOTER -------------
+----------------------------------------------------------------------------- */
+  .footer {
+    flex-direction: row;
+    height: $footer-height-lg;
   }
 
 }

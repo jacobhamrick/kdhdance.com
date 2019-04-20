@@ -208,7 +208,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$item_output .= self::linkmod_element_open( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
-				$item_output .= '<a' . $attributes . '>';
+				$item_output .= '<a' . $attributes . '><i class="fas fa-circle menu-shape"></i>';
 			}
 			/**
 			 * Initiate empty icon var, then if we have a string containing any
