@@ -22,9 +22,10 @@ $orange: #FF962A;
 $light-blue: #00C7FF;
 $background-color: #FFF;
 $hover-color: #9a3eeb;
-$border: solid;
-$page-padding: 1rem; /* padding of navbars, page sections, etc */
+$border-type: solid;
 $border-weight: 2px;
+$borders: $border-weight $border-type $primary-color;
+$page-padding: 1rem; /* padding of navbars, page sections, etc */
 $navbar-height-s: 60px;
 $navbar-height-l: 120px;
 $footer-height: 6em;
@@ -64,9 +65,30 @@ body.logged-in {
   padding-top: 0;
 }
 
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: $pink;
+  box-shadow: 0 0 7px $pink inset, 0 0 0 $pink;
+  outline: 0 none;
+  transition: $time;
+}
+
 .sticky {
   position: sticky;
-  z-index: 1000;
 }
 
 .flex {
@@ -82,7 +104,7 @@ body.logged-in {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    border-left: $border $border-weight $primary-color;
+    border-left: $borders;
 }
 
 /* Handle */
@@ -100,7 +122,6 @@ p {
   margin-bottom: .5rem;
 }
 
-
 h1,
 h2,
 h3,
@@ -109,25 +130,43 @@ h5,
 h6 {
   text-transform: uppercase;
 }
+
 a {
   color: $pink;
   font-weight: 500;
   transition: $time;
 }
 
-a:hover,
-a.nav-link:hover {
+a:hover {
   color: $hover-color;
   text-decoration: none;
   transition: all .3s;
 }
 
 
+/* ------------- Z-INDEX LAYERS ------------- */
+.newsflash-widget {
+  z-index: 300;
+}
+
+.menu {
+  z-index: 1000;
+}
+
+.sticky {
+  z-index: 1000;
+}
+.menu-button {
+  z-index: 2000;
+}
+
 .scroll {
   overflow-y: scroll;
   width: 100%;
   height: 100%;
 }
+
+
 /* the left and right "margin" for site, includes navbar (matches Bootstrap default padding of 1em ) */
 .page-space {
   padding: $page-padding;
@@ -154,70 +193,57 @@ hr:not(.the-burger) {
 --------------------------------------------------------------------------------
 */
 
-  /* Adjust for WP Admin bar */
-  body.logged-in {
-    .newsflash-widget {
-        top: 106px;
-    }
-    .menu-button {
-      top: 46px;
-    }
+/* Adjust for WP Admin bar */
+body.logged-in {
+  .newsflash-widget {
+      top: 106px;
   }
+  .menu-button {
+    top: 46px;
+  }
+}
 
 
 /* ------------------------------- TITLE ------------------------------------ */
-
-
-  #sticky-nav,
+#sticky-nav {
+  height: $navbar-height-s;
+  background: rgb(0,51,255);
+  background: linear-gradient(0deg, rgba(0,51,255,1) 0%, rgba(255,255,255,1) 100%);
   .title-wrapper {
-    min-height: $navbar-height-s;
-    max-height: $navbar-height-s;
-  }
-
-  #sticky-nav {
-    width: 100%;
-    vertical-align: middle;
-    background-color: $background-color;
-    padding: 0;
-    color: $primary-color;
-    white-space: nowrap;
-    .title-wrapper {
-      justify-content: space-evenly;
-      flex-direction: row;
-      margin: 0 60px 0 0; /* 60px = height of burger-box */
-      .nav-text {
-        h2 {
-          font-size: 2.7rem;
-          margin-bottom: 0;
-          line-height: 1.4;
-          font-weight: bold;
-        }
-      }
+    height: 100%;
+    h2 {
+        color: #fff;
+        font-size: 2.7rem;
+        margin-bottom: 0;
+        font-weight: bold;
+        line-height: 2.7rem;
+    }
+    h2:first-child {
+        margin-right: calc(#{$page-padding} / 2);
     }
   }
+}
 
-  .blue  {
-    letter-spacing: 8px;
-    padding-left: $page-padding;
-  }
+.blue  {
+  letter-spacing: 8px;
+}
 
-  .pink {
-    letter-spacing: 2px;
-    padding-right: $page-padding;
-  }
+.pink {
+  letter-spacing: 2px;
+
+}
 
 
-  .newsflash-widget {
-    top: $navbar-height-s;
-  }
+.newsflash-widget {
+  top: $navbar-height-s;
+}
 
 
 /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     position: fixed;
     right: 0;
-    z-index: 1000;
-    background-color: $blue;
+    top: 0;
     border: none;
     border-radius: 0;
     cursor: pointer;
@@ -227,7 +253,6 @@ hr:not(.the-burger) {
     padding: 1rem .5rem;
     margin-left: auto;
     transition: $time;
-    border-left: $border-weight  $border $primary-color;
   }
 
   .burger-box  {
@@ -241,20 +266,21 @@ hr:not(.the-burger) {
 
   /* the burger in the box */
   .the-burger {
-    border: $border 1px #fff;
+    border: $border-weight $border-type;
+    border-color: #fff;
     margin: 0;
-    transition: $time;
+    transition: all .4s linear;
     background-color: #fff;
 
   }
 
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
-    background-color: $pink;
-    transition: $time;
+    transition: all .5s linear;
+    border-bottom: none;
     .top-bun {
       transform: rotate(40deg);
-      transform-origin: 8% 7px;
+      transform-origin: 12% 6px;
     }
 
     .goods {
@@ -263,7 +289,7 @@ hr:not(.the-burger) {
 
     .bottom-bun {
       transform: rotate(-40deg);
-      transform-origin: 13% -5px;
+      transform-origin: 9% -3px;
     }
 
   }
@@ -281,7 +307,7 @@ hr:not(.the-burger) {
   }
 
 
-  /* ------------- TOGGLE MENU ------------- */
+/* ------------------------------ TOGGLE MENU ------------------------------- */
   .navbar {
     display: block;
   }
@@ -290,16 +316,20 @@ hr:not(.the-burger) {
     background-color: $blue;
     padding: $page-padding;
     color: #fff;
-    margin-left: 100%;
-    margin-top: 95px;
+    left: 100%;
+    margin-top: 60px;
     height: 100%;
     position: fixed;
-    z-index: 100;
     width: 100%;
-    transition: $time;
+    transition: all .6s ease-in-out;
     #navbarSupportedContent {
       height: 100%;
     }
+  }
+  .menu.openSesame {
+    display: block;
+    left: 0;
+    transition: all .6s ease-in-out;
   }
 
   .menu-primary-menu {
@@ -315,7 +345,7 @@ hr:not(.the-burger) {
   }
 
   a.nav-link {
-    color: $primary-color;
+    color: #fff;
   }
 
   /* color of current menu-item */
@@ -348,7 +378,7 @@ hr:not(.the-burger) {
 --------------------------------------------------------------------------------
 */
 
-$nbw-height-s: 36px; /* newsbar-widget height on small screens */
+$nbw-height-s: 48px; /* newsbar-widget height on small screens */
 
 .home-wrapper {
   padding: .8rem 1rem 1rem 1rem;
@@ -369,13 +399,12 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
   }
   .newsflash-widget {
     position: fixed;
-    z-index: 300;
     white-space: nowrap;
     width: 100%;
     background-color: $yellow;
     height: $nbw-height-s; /* same as newsbar-widget */
-    border-top: $border-weight  $border $primary-color;
-    border-bottom: $border-weight  $border $primary-color;
+    border-bottom: $borders;
+    border-top: $borders;
     .textwidget {
       display: flex;
       align-items: center;
@@ -391,7 +420,7 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
   }
 
 
-/* ------------- NEWSBAR ------------- */
+/* ------------------------------ NEWSBAR ----------------------------------- */
 
 .newsbar {
   flex-direction: column;
@@ -400,7 +429,7 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
   .newsbar-link {
     color: #000;
     transition: $time;
-    border-bottom: $border-weight  $border $primary-color;
+    border-bottom: $borders;
     .newsbar-widget {
       flex-direction: row;
       align-items: center;
@@ -413,27 +442,24 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
         vertical-align: middle;
         align-items: center;
         height: $nbw-height-s;
-        min-width: calc(#{$nbw-height-s} * 1.75);
-        max-width: calc(#{$nbw-height-s} * 1.75);
-        border-right: $border-weight $border $primary-color;
+        min-width: $nbw-height-s;
+        max-width: $nbw-height-s;
+        border-right: $borders;
         padding-right: $page-padding;
       }
       .newsbar-title {
         display: none;
-        // padding-left: $page-padding;
-        // font-weight: normal;
-        // flex-direction: column;
-        // margin-bottom: 0;
-        // vertical-align: middle;
-        // text-transform: uppercase;
-        // min-width: 60px;
-        // height: $nbw-height-s;
-        // line-height: $nbw-height-s;
-        // transition: $time;
-        // border-right: $border $border-weight $primary-color;
-      }
-      .newsbar-icon {
-        font-size: 25px;
+        padding-left: $page-padding;
+        font-weight: normal;
+        flex-direction: column;
+        margin-bottom: 0;
+        vertical-align: middle;
+        text-transform: uppercase;
+        min-width: 60px;
+        height: $nbw-height-s;
+        line-height: $nbw-height-s;
+        transition: $time;
+        border-right: $borders;
       }
       .textwidget {
         display: flex;
@@ -442,9 +468,11 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
         width: 90%;
         padding-left: $page-padding;
         font-size: 13px;
+
         p {
           font-weight: normal;
           margin-bottom: 0;
+          font-weight: bold;
           /* 12px = textwidget font-size */
           line-height: calc( (12px - #{$border-weight} ) * 1.5)
         }
@@ -462,7 +490,7 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
 #recent-bar {
   background-color: $green;
 }
-#classes-bar {
+#class-bar {
   background-color: $light-blue;
 }
 #outreach-bar {
@@ -472,18 +500,44 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
   background-color: $pink;
 }
 
-// .newsbar-link:hover {
-//   transition: $time;
-//   .newsbar-title{
-//     font-style: italic;
-//     transition: $time;
-//   }
-//   .newsbar-widget {
-//     padding-right: calc(#{$page-padding} / 2);
-//     transition: $time;
-//   }
-// }
+.newsbar-link:hover {
+  transition: $time;
+  .newsbar-title{
+    font-style: italic;
+    transition: $time;
+  }
+  .newsbar-widget {
+    padding-right: calc(#{$page-padding} / 2);
+    transition: $time;
+  }
+}
 
+/* ------------- MAILCHIMP SUBSCRIBE ------------- */
+#mc_embed_signup_scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  #mce-EMAIL,
+  #mc-embedded-subscribe {
+    border: $borders;
+  }
+  #mce-EMAIL {
+    width: 50%;
+    margin-bottom: $page-padding;
+    padding-left: calc(#{$page-padding} / 2);
+    transition: $time;
+  }
+  #mc-embedded-subscribe {
+    background-color: $blue;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: $time;
+  }
+  #mc-embedded-subscribe:hover {
+    background-color: $pink;
+    transition: $time;
+  }
+}
 
 /* ------------- FOOTER ------------- */
 .footer {
@@ -491,7 +545,7 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
   height: $footer-height-sm;
   flex-shrink: 0;
   flex-direction: column;
-  border-top: $border $border-weight $primary-color;
+  border-top: $borders;
   align-items: center;
   padding: 1em 0;
   margin: 0;
@@ -563,10 +617,8 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
       width: auto;
     }
   }
-
-
-
   a.nav-link {
+    color: #fff;
     font-size: 2rem;
   }
 
@@ -591,7 +643,7 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
     width: 50%;
   }
   div:last-child {
-    border-left: $border-weight $border $primary-color;
+    border-left: $borders;
     overflow-y: auto;
   }
 
@@ -600,5 +652,68 @@ $nbw-height-s: 36px; /* newsbar-widget height on small screens */
 /* bootstrap breakpoint / navbar collapse toggle */
 @media screen and (min-width: 992px) {
 
+  $page-padding: 2rem;
+
+/*
+--------------------------------------------------------------------------------
+                      ------------- HEADER -------------
+--------------------------------------------------------------------------------
+*/
+  .hideme {
+    display: inline;
+  }
+  .hideme:first-child,
+  .hideme:nth-child(2) {
+      margin-right: calc(#{$page-padding} / 2);
+  }
+  .hideme:nth-child(3) {
+    margin-right: $page-padding;
+  }
+  .nav-text {
+    letter-spacing: 0px;
+  }
+/* ------------------------------ BURGER BUTTON ----------------------------- */
+  .menu-button {
+    padding-right: 1rem;
+  }
+  /* Burger Animation - Turn burger into X */
+  .menu-button.active {
+    .top-bun {
+      transform-origin: 8% 15px;
+    }
+    .bottom-bun {
+      transform-origin: 13% -12px;
+    }
+    .the-burger {
+    transition: all .4s linear;
+    }
+  }
+
+/* ------------------------------ TOGGLE MENU ------------------------------- */
+  .menu {
+    width: 33%;
+  }
+  .menu.openSesame {
+    margin-left: 67%;
+  }
+
+/* ------------------------------ NEWSBAR ----------------------------------- */
+  .newsbar {
+    flex-direction: row;
+  }
+
+  .newsbar-link,
+  .newsbar > .newsbar-link > .newsbar-widget {
+    min-height: 96px;
+    max-height: 96px;
+  }
+
+  .newsbar-link {
+    border-right: $borders;
+    width: 20%;
+  }
+  .newsbar-link:last-child {
+    border-right: none;
+  }
 
 }

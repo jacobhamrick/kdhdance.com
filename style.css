@@ -38,9 +38,29 @@ body {
 body.logged-in {
   padding-top: 0; }
 
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: #eb3e8f;
+  box-shadow: 0 0 7px #eb3e8f inset, 0 0 0 #eb3e8f;
+  outline: 0 none;
+  transition: all 0.3s linear; }
+
 .sticky {
-  position: sticky;
-  z-index: 1000; }
+  position: sticky; }
 
 .flex {
   display: flex;
@@ -53,7 +73,7 @@ body.logged-in {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  border-left: solid 2px black; }
+  border-left: 2px solid black; }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -81,11 +101,23 @@ a {
   font-weight: 500;
   transition: all 0.3s linear; }
 
-a:hover,
-a.nav-link:hover {
+a:hover {
   color: #9a3eeb;
   text-decoration: none;
   transition: all .3s; }
+
+/* ------------- Z-INDEX LAYERS ------------- */
+.newsflash-widget {
+  z-index: 300; }
+
+.menu {
+  z-index: 1000; }
+
+.sticky {
+  z-index: 1000; }
+
+.menu-button {
+  z-index: 2000; }
 
 .scroll {
   overflow-y: scroll;
@@ -119,36 +151,26 @@ body.logged-in .menu-button {
   top: 46px; }
 
 /* ------------------------------- TITLE ------------------------------------ */
-#sticky-nav,
-.title-wrapper {
-  min-height: 60px;
-  max-height: 60px; }
-
 #sticky-nav {
-  width: 100%;
-  vertical-align: middle;
-  background-color: #FFF;
-  padding: 0;
-  color: black;
-  white-space: nowrap; }
+  height: 60px;
+  background: #0033ff;
+  background: linear-gradient(0deg, #0033ff 0%, white 100%); }
   #sticky-nav .title-wrapper {
-    justify-content: space-evenly;
-    flex-direction: row;
-    margin: 0 60px 0 0;
-    /* 60px = height of burger-box */ }
-    #sticky-nav .title-wrapper .nav-text h2 {
+    height: 100%; }
+    #sticky-nav .title-wrapper h2 {
+      color: #fff;
       font-size: 2.7rem;
       margin-bottom: 0;
-      line-height: 1.4;
-      font-weight: bold; }
+      font-weight: bold;
+      line-height: 2.7rem; }
+    #sticky-nav .title-wrapper h2:first-child {
+      margin-right: calc(1rem / 2); }
 
 .blue {
-  letter-spacing: 8px;
-  padding-left: 1rem; }
+  letter-spacing: 8px; }
 
 .pink {
-  letter-spacing: 2px;
-  padding-right: 1rem; }
+  letter-spacing: 2px; }
 
 .newsflash-widget {
   top: 60px; }
@@ -157,8 +179,7 @@ body.logged-in .menu-button {
 .menu-button {
   position: fixed;
   right: 0;
-  z-index: 1000;
-  background-color: #0033ff;
+  top: 0;
   border: none;
   border-radius: 0;
   cursor: pointer;
@@ -167,8 +188,7 @@ body.logged-in .menu-button {
   float: right;
   padding: 1rem .5rem;
   margin-left: auto;
-  transition: all 0.3s linear;
-  border-left: 2px solid black; }
+  transition: all 0.3s linear; }
 
 .burger-box {
   display: flex;
@@ -178,23 +198,24 @@ body.logged-in .menu-button {
 
 /* the burger in the box */
 .the-burger {
-  border: solid 1px #fff;
+  border: 2px solid;
+  border-color: #fff;
   margin: 0;
-  transition: all 0.3s linear;
+  transition: all .4s linear;
   background-color: #fff; }
 
 /* Burger Animation - Turn burger into X */
 .menu-button.active {
-  background-color: #eb3e8f;
-  transition: all 0.3s linear; }
+  transition: all .5s linear;
+  border-bottom: none; }
   .menu-button.active .top-bun {
     transform: rotate(40deg);
-    transform-origin: 8% 7px; }
+    transform-origin: 12% 6px; }
   .menu-button.active .goods {
     opacity: 0; }
   .menu-button.active .bottom-bun {
     transform: rotate(-40deg);
-    transform-origin: 13% -5px; }
+    transform-origin: 9% -3px; }
 
 .menu-button .top-bun {
   transform: rotate(0); }
@@ -205,7 +226,7 @@ body.logged-in .menu-button {
 .menu-button .bottom-bun {
   transform: rotate(0); }
 
-/* ------------- TOGGLE MENU ------------- */
+/* ------------------------------ TOGGLE MENU ------------------------------- */
 .navbar {
   display: block; }
 
@@ -213,15 +234,19 @@ body.logged-in .menu-button {
   background-color: #0033ff;
   padding: 1rem;
   color: #fff;
-  margin-left: 100%;
-  margin-top: 95px;
+  left: 100%;
+  margin-top: 60px;
   height: 100%;
   position: fixed;
-  z-index: 100;
   width: 100%;
-  transition: all 0.3s linear; }
+  transition: all .6s ease-in-out; }
   .menu #navbarSupportedContent {
     height: 100%; }
+
+.menu.openSesame {
+  display: block;
+  left: 0;
+  transition: all .6s ease-in-out; }
 
 .menu-primary-menu {
   display: flex;
@@ -234,7 +259,7 @@ body.logged-in .menu-button {
     width: 50%; }
 
 a.nav-link {
-  color: black; }
+  color: #fff; }
 
 /* color of current menu-item */
 .navbar-nav .active > .nav-link,
@@ -279,14 +304,13 @@ a.nav-link {
 
 .newsflash-widget {
   position: fixed;
-  z-index: 300;
   white-space: nowrap;
   width: 100%;
   background-color: #FFDB00;
-  height: 36px;
+  height: 48px;
   /* same as newsbar-widget */
-  border-top: 2px solid black;
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid black;
+  border-top: 2px solid black; }
   .newsflash-widget .textwidget {
     display: flex;
     align-items: center;
@@ -298,12 +322,12 @@ a.nav-link {
       text-transform: uppercase;
       margin: 0; }
 
-/* ------------- NEWSBAR ------------- */
+/* ------------------------------ NEWSBAR ----------------------------------- */
 .newsbar {
   flex-direction: column;
-  margin-top: 36px;
+  margin-top: 48px;
   /* same as newsflash */
-  min-height: calc(5 * (36px + 2px));
+  min-height: calc(5 * (48px + 2px));
   /* 5 = # of rows */ }
   .newsbar .newsbar-link {
     color: #000;
@@ -313,22 +337,31 @@ a.nav-link {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      min-height: 36px;
-      max-height: 36px;
+      min-height: 48px;
+      max-height: 48px;
       padding: 0 1rem 0 0;
       transition: all 0.3s linear; }
       .newsbar .newsbar-link .newsbar-widget .news-tab {
         vertical-align: middle;
         align-items: center;
-        height: 36px;
-        min-width: calc(36px * 1.75);
-        max-width: calc(36px * 1.75);
+        height: 48px;
+        min-width: 48px;
+        max-width: 48px;
         border-right: 2px solid black;
         padding-right: 1rem; }
       .newsbar .newsbar-link .newsbar-widget .newsbar-title {
-        display: none; }
-      .newsbar .newsbar-link .newsbar-widget .newsbar-icon {
-        font-size: 25px; }
+        display: none;
+        padding-left: 1rem;
+        font-weight: normal;
+        flex-direction: column;
+        margin-bottom: 0;
+        vertical-align: middle;
+        text-transform: uppercase;
+        min-width: 60px;
+        height: 48px;
+        line-height: 48px;
+        transition: all 0.3s linear;
+        border-right: 2px solid black; }
       .newsbar .newsbar-link .newsbar-widget .textwidget {
         display: flex;
         flex-direction: row;
@@ -339,6 +372,7 @@ a.nav-link {
         .newsbar .newsbar-link .newsbar-widget .textwidget p {
           font-weight: normal;
           margin-bottom: 0;
+          font-weight: bold;
           /* 12px = textwidget font-size */
           line-height: calc( (12px - 2px ) * 1.5); }
   .newsbar i {
@@ -350,7 +384,7 @@ a.nav-link {
 #recent-bar {
   background-color: #97FF00; }
 
-#classes-bar {
+#class-bar {
   background-color: #00C7FF; }
 
 #outreach-bar {
@@ -359,13 +393,44 @@ a.nav-link {
 #contribute-bar {
   background-color: #eb3e8f; }
 
+.newsbar-link:hover {
+  transition: all 0.3s linear; }
+  .newsbar-link:hover .newsbar-title {
+    font-style: italic;
+    transition: all 0.3s linear; }
+  .newsbar-link:hover .newsbar-widget {
+    padding-right: calc(1rem / 2);
+    transition: all 0.3s linear; }
+
+/* ------------- MAILCHIMP SUBSCRIBE ------------- */
+#mc_embed_signup_scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  #mc_embed_signup_scroll #mce-EMAIL,
+  #mc_embed_signup_scroll #mc-embedded-subscribe {
+    border: 2px solid black; }
+  #mc_embed_signup_scroll #mce-EMAIL {
+    width: 50%;
+    margin-bottom: 1rem;
+    padding-left: calc(1rem / 2);
+    transition: all 0.3s linear; }
+  #mc_embed_signup_scroll #mc-embedded-subscribe {
+    background-color: #0033ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s linear; }
+  #mc_embed_signup_scroll #mc-embedded-subscribe:hover {
+    background-color: #eb3e8f;
+    transition: all 0.3s linear; }
+
 /* ------------- FOOTER ------------- */
 .footer {
   display: flex;
   height: 140px;
   flex-shrink: 0;
   flex-direction: column;
-  border-top: solid 2px black;
+  border-top: 2px solid black;
   align-items: center;
   padding: 1em 0;
   margin: 0;
@@ -421,6 +486,7 @@ a.nav-link {
     .menu-primary-menu.navbar-nav li {
       width: auto; }
   a.nav-link {
+    color: #fff;
     font-size: 2rem; }
   .footer {
     flex-direction: row;
@@ -441,3 +507,45 @@ a.nav-link {
       overflow-y: auto; } }
 
 /* bootstrap breakpoint / navbar collapse toggle */
+@media screen and (min-width: 992px) {
+  /*
+--------------------------------------------------------------------------------
+                      ------------- HEADER -------------
+--------------------------------------------------------------------------------
+*/
+  .hideme {
+    display: inline; }
+  .hideme:first-child,
+  .hideme:nth-child(2) {
+    margin-right: calc(2rem / 2); }
+  .hideme:nth-child(3) {
+    margin-right: 2rem; }
+  .nav-text {
+    letter-spacing: 0px; }
+  /* ------------------------------ BURGER BUTTON ----------------------------- */
+  .menu-button {
+    padding-right: 1rem; }
+  /* Burger Animation - Turn burger into X */
+  .menu-button.active .top-bun {
+    transform-origin: 8% 15px; }
+  .menu-button.active .bottom-bun {
+    transform-origin: 13% -12px; }
+  .menu-button.active .the-burger {
+    transition: all .4s linear; }
+  /* ------------------------------ TOGGLE MENU ------------------------------- */
+  .menu {
+    width: 33%; }
+  .menu.openSesame {
+    margin-left: 67%; }
+  /* ------------------------------ NEWSBAR ----------------------------------- */
+  .newsbar {
+    flex-direction: row; }
+  .newsbar-link,
+  .newsbar > .newsbar-link > .newsbar-widget {
+    min-height: 96px;
+    max-height: 96px; }
+  .newsbar-link {
+    border-right: 2px solid black;
+    width: 20%; }
+  .newsbar-link:last-child {
+    border-right: none; } }

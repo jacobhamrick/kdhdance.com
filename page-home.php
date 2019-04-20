@@ -6,8 +6,6 @@
 
 <?php get_header(); ?>
 
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
-<?php endif; ?>
 
 <div class="newsbar flex">
   <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Next Up") ) : ?>

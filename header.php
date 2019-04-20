@@ -15,24 +15,19 @@
 
   <body  <?php body_class(); ?>>
     <nav id="sticky-nav" class="sticky navbar flex">
-      <a href="<?php bloginfo('url'); ?>">
-        <div class="title-wrapper flex">
-              <span class="nav-text blue flex">
-                <h2>K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
-                </h2>
-              </span>
-              <span class="nav-text pink flex">
-                <h2>Dance</h2>
-              </span>
-        </div> <!-- end title-wrapper -->
-      </a>
+        <a class="title-wrapper flex" href="<?php bloginfo('url'); ?>">
+          <h2 class="nav-text blue">K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
+          </h2>
+          <h2 class="nav-text pink">Dance</h2>
+        </a> <!-- end title-wrapper -->
+        <div class="menu-button toggle-menu">
+            <div class="burger-box"><hr class="the-burger top-bun"><hr class="the-burger goods"><hr class="the-burger bottom-bun"></div>
+        </div>
     </nav>
 
-    <div class="menu-button toggle-menu">
-        <div class="burger-box"><hr class="the-burger top-bun"><hr class="the-burger goods"><hr class="the-burger bottom-bun"></div>
-    </div>
+
     <div class="menu">
-      <h2>menu</h2>
+      <h4>menu</h4>
       <?php
       wp_nav_menu( array(
         'theme_location'    => 'primary',
@@ -46,3 +41,5 @@
       ) );
       ?>
     </div> <!-- end #menu -->
+    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
+    <?php endif; ?>
