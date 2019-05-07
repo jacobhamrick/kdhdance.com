@@ -351,7 +351,6 @@ body.logged-in {
       color: $yellow;
       opacity: 0.0;
       float: right;
-      transition: all 0.0 linear;
       line-height: 22px;
     }
   }
@@ -359,7 +358,7 @@ body.logged-in {
   a.nav-link:hover {
     .menu-shape {
     opacity: 1;
-    transition: $time;
+  
     }
   }
 
@@ -634,7 +633,12 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .menu-button.active {
     z-index: 3000;
   }
-
+  .menu-button:hover,
+  .menu-button.active:hover {
+    .the-burger {
+      border-color: $pink;
+    }
+  }
 
   .hideme {
     display: inline;

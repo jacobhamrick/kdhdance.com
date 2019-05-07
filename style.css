@@ -267,12 +267,10 @@ a.nav-link {
     color: #FFDB00;
     opacity: 0.0;
     float: right;
-    transition: all 0.0 linear;
     line-height: 22px; }
 
 a.nav-link:hover .menu-shape {
-  opacity: 1;
-  transition: all 0.3s linear; }
+  opacity: 1; }
 
 /* color of current menu-item */
 .navbar-nav .active > .nav-link,
@@ -494,6 +492,9 @@ a.nav-link:hover .menu-shape {
     z-index: 3000; }
   .menu-button.active {
     z-index: 3000; }
+  .menu-button:hover .the-burger,
+  .menu-button.active:hover .the-burger {
+    border-color: #eb3e8f; }
   .hideme {
     display: inline; }
   .nav-text {
