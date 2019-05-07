@@ -153,8 +153,7 @@ body.logged-in .menu-button {
 /* ------------------------------- TITLE ------------------------------------ */
 #sticky-nav {
   height: 60px;
-  background: #0033ff;
-  background: linear-gradient(0deg, #0033ff 0%, white 100%); }
+  background: #0033ff; }
   #sticky-nav .title-wrapper {
     height: 100%; }
     #sticky-nav .title-wrapper h2 {
@@ -207,7 +206,7 @@ body.logged-in .menu-button {
 
 /* Burger Animation - Turn burger into X */
 .menu-button.active {
-  transition: all .5s linear;
+  transition: all .4s linear;
   border-bottom: none; }
   .menu-button.active .top-bun {
     transform: rotate(40deg);
@@ -236,13 +235,15 @@ body.logged-in .menu-button {
   padding: 1rem;
   color: #fff;
   left: 100%;
-  margin-top: 60px;
+  margin-top: 59px;
   height: 100%;
   position: fixed;
   width: 100%;
   transition: all .6s ease-in-out; }
   .menu #navbarSupportedContent {
     height: 100%; }
+  .menu #menu-title {
+    text-align: center; }
 
 .menu.openSesame {
   display: block;
@@ -486,17 +487,20 @@ a.nav-link:hover .menu-shape {
 --------------------------------------------------------------------------------
 */
   .menu {
-    z-index: 400; }
-  .menu-button {
-    z-index: 200; }
+    z-index: 1000; }
+    .menu #menu-title {
+      margin-bottom: 1.5rem; }
+  .menu-button, .the-burger {
+    z-index: 3000; }
   .menu-button.active {
-    z-index: 400; }
+    z-index: 3000; }
   .hideme {
     display: inline; }
   .nav-text {
     letter-spacing: 0px; }
   #sticky-nav {
-    background: #fff; }
+    background: #fff;
+    padding-left: 3rem; }
     #sticky-nav .title-wrapper .blue {
       color: #0033ff; }
     #sticky-nav .title-wrapper .pink {
@@ -511,14 +515,13 @@ a.nav-link:hover .menu-shape {
     height: 60px;
     padding-right: 1rem;
     padding-left: 1rem;
-    background: #fff; }
+    background: #0033ff; }
     .menu-button .the-burger {
-      border-color: #0033ff; }
+      border-color: #fff; }
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
     height: calc(60px + 2px);
-    transtion: all 0.3s linear;
-    background: #0033ff; }
+    transtion: all 0.3s linear; }
     .menu-button.active .top-bun {
       transform-origin: 8% 10px; }
     .menu-button.active .bottom-bun {
@@ -528,7 +531,8 @@ a.nav-link:hover .menu-shape {
       border-color: #fff; }
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
-    width: 33%; }
+    width: 33%;
+    margin-top: 0; }
   .navbar-nav .menu-item {
     display: flex;
     flex-direction: row;
@@ -542,30 +546,29 @@ a.nav-link:hover .menu-shape {
       transition: all 0.3s linear; }
   .menu.openSesame {
     margin-left: 67%; }
-    .menu.openSesame h4 {
-      text-align: center; }
   /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */
   /* ------------------------------ NEWSBAR ----------------------------------- */
   .newsbar {
     flex-direction: row;
-    min-height: calc(96px + 2px);
+    min-height: calc(110px + 2px);
     border-bottom: 2px solid black; }
     .newsbar .fa-angle-right {
       display: none; }
   .newsbar-link,
   .newsbar > .newsbar-link > .newsbar-widget {
-    min-height: 96px;
-    max-height: 96px;
+    min-height: 110px;
+    max-height: 110px;
     flex-direction: column;
     justify-content: flex-start; }
   .newsbar .newsbar-link .newsbar-widget {
-    padding: 10px 16px; }
+    padding: 16px; }
   .newsbar .newsbar-link .newsbar-widget .newsbar-title {
     display: block;
     width: 100%;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    border-bottom: 2px solid black; }
   .newsbar .newsbar-link .newsbar-widget .textwidget {
     width: 100%;
     padding: 0; }
@@ -602,4 +605,6 @@ a.nav-link:hover .menu-shape {
 ----------------------------------------------------------------------------- */
   .footer {
     flex-direction: row;
-    height: 80px; } }
+    height: 80px; }
+  .footer .footer-col .textwidget {
+    font-size: 1rem; } }

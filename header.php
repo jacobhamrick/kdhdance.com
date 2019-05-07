@@ -20,14 +20,14 @@
           </h2>
           <h2 class="nav-text pink">Dance</h2>
         </a> <!-- end title-wrapper -->
-        <div class="menu-button toggle-menu">
-            <div class="burger-box"><hr class="the-burger top-bun"><hr class="the-burger goods"><hr class="the-burger bottom-bun"></div>
-        </div>
     </nav>
+    <div class="menu-button toggle-menu">
+        <div class="burger-box"><hr class="the-burger top-bun"><hr class="the-burger goods"><hr class="the-burger bottom-bun"></div>
+    </div>
 
 
     <div class="menu">
-      <h4>menu</h4>
+      <h4 id="menu-title">menu</h4>
       <?php
       wp_nav_menu( array(
         'theme_location'    => 'primary',
