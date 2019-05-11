@@ -21,6 +21,8 @@
           <h2 class="nav-text pink">Dance</h2>
         </a> <!-- end title-wrapper -->
     </nav>
+    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
+    <?php endif; ?>
     <div class="menu-button toggle-menu">
         <div class="burger-box"><hr class="the-burger top-bun"><hr class="the-burger goods"><hr class="the-burger bottom-bun"></div>
     </div>
@@ -41,5 +43,3 @@
       ) );
       ?>
     </div> <!-- end #menu -->
-    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
-    <?php endif; ?>

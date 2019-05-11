@@ -107,17 +107,22 @@ a:hover {
   transition: all .3s; }
 
 /* ------------- Z-INDEX LAYERS ------------- */
-.newsflash-widget {
-  z-index: 300; }
+.newsflash-widget,
+.newsflash-widget .textwidget p {
+  z-index: 1000; }
 
 .menu {
-  z-index: 1000; }
+  z-index: 4000; }
 
-.sticky {
-  z-index: 1000; }
-
-.menu-button {
+.title-wrapper {
   z-index: 2000; }
+
+.menu-button,
+.menu-button.active {
+  z-index: 5000; }
+
+.the-burger {
+  z-index: 6000; }
 
 .scroll {
   overflow-y: scroll;
@@ -152,10 +157,16 @@ body.logged-in .menu-button {
 
 /* ------------------------------- TITLE ------------------------------------ */
 #sticky-nav {
-  height: 60px;
-  background: #0033ff; }
+  position: relative;
+  height: 70px;
+  background-color: #0033ff;
+  padding: 0; }
   #sticky-nav .title-wrapper {
-    height: 100%; }
+    position: relative;
+    height: 100%;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 1rem; }
     #sticky-nav .title-wrapper h2 {
       color: #fff;
       font-size: 2.7rem;
@@ -172,13 +183,13 @@ body.logged-in .menu-button {
   letter-spacing: 2px; }
 
 .newsflash-widget {
-  top: 60px; }
+  top: 70px; }
 
 /* ------------------------------ BURGER BUTTON ----------------------------- */
 .menu-button {
   position: fixed;
   right: 0;
-  top: 0;
+  top: 7px;
   border: none;
   border-radius: 0;
   cursor: pointer;
@@ -243,7 +254,7 @@ body.logged-in .menu-button {
   .menu #navbarSupportedContent {
     height: 100%; }
   .menu #menu-title {
-    text-align: center; }
+    text-align: left; }
 
 .menu.openSesame {
   display: block;
@@ -261,6 +272,7 @@ body.logged-in .menu-button {
     width: 50%; }
 
 a.nav-link {
+  text-transform: uppercase;
   color: #fff;
   border-bottom: #fff 2px solid; }
   a.nav-link .menu-shape {
@@ -301,37 +313,59 @@ a.nav-link:hover .menu-shape {
     padding: 0; }
 
 /* ------------- NEWSFLASH ------------- */
-@keyframes pull-from-left {
-  from {
-    padding-left: 100%; }
-  to {
-    padding-left: 0; } }
-
-@keyframes push-from-right {
-  from {
-    transform: translateX(0%); }
-  to {
-    transform: translateX(-100%); } }
-
 .newsflash-widget {
   position: fixed;
   white-space: nowrap;
   width: 100%;
-  background-color: #FFDB00;
+  background-color: #fff;
   height: 48px;
   /* same as newsbar-widget */
   border-bottom: 2px solid black;
   border-top: 2px solid black; }
   .newsflash-widget .textwidget {
     display: flex;
+    position: absolute;
     align-items: center;
     height: 100%;
-    animation: push-from-right 40s linear infinite;
-    padding: 0; }
-    .newsflash-widget .textwidget p {
-      animation: pull-from-left 40s linear infinite;
+    /* Move it (define the animation) */ }
+    .newsflash-widget .textwidget p,
+    .newsflash-widget .textwidget p:first-child {
+      position: absolute;
       text-transform: uppercase;
-      margin: 0; }
+      /* Starting position */
+      -moz-transform: translateX(10%);
+      -webkit-transform: translateX(10%);
+      transform: translateX(10%);
+      /* Animation */
+      -moz-animation: marquee 15s linear infinite;
+      -webkit-animation: marquee 15s linear infinite;
+      animation: marquee 15s linear infinite; }
+
+@-moz-keyframes marquee {
+  0% {
+    -moz-transform: translateX(10%); }
+  100% {
+    -moz-transform: translateX(-100%); } }
+
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(100%); }
+  100% {
+    -webkit-transform: translateX(-100%); } }
+
+@keyframes marquee {
+  0% {
+    -moz-transform: translateX(100%);
+    /* Firefox bug fix */
+    -webkit-transform: translateX(100%);
+    /* Firefox bug fix */
+    transform: translateX(100%); }
+  100% {
+    -moz-transform: translateX(-100%);
+    /* Firefox bug fix */
+    -webkit-transform: translateX(-100%);
+    /* Firefox bug fix */
+    transform: translateX(-100%); } }
 
 /* ------------------------------ NEWSBAR ----------------------------------- */
 .newsbar {
@@ -342,8 +376,7 @@ a.nav-link:hover .menu-shape {
   /* 5 = # of rows */ }
   .newsbar .newsbar-link {
     color: #000;
-    transition: all 0.3s linear;
-    border-bottom: 2px solid black; }
+    transition: all 0.3s linear; }
     .newsbar .newsbar-link .newsbar-widget {
       flex-direction: row;
       align-items: center;
@@ -351,7 +384,8 @@ a.nav-link:hover .menu-shape {
       min-height: 48px;
       max-height: 48px;
       padding: 0 1rem 0 0;
-      transition: all 0.3s linear; }
+      transition: all 0.3s linear;
+      border-bottom: 2px solid black; }
       .newsbar .newsbar-link .newsbar-widget .news-tab {
         vertical-align: middle;
         align-items: center;
@@ -361,20 +395,19 @@ a.nav-link:hover .menu-shape {
         border-right: 2px solid black;
         padding-right: 1rem; }
       .newsbar .newsbar-link .newsbar-widget .newsbar-title {
-        display: none; }
+        display: none;
+        font-size: 20px; }
       .newsbar .newsbar-link .newsbar-widget .textwidget {
         display: flex;
         flex-direction: row;
         vertical-align: middle;
         width: 90%;
         padding-left: 1rem;
-        font-size: 13px; }
+        font-size: 14px; }
         .newsbar .newsbar-link .newsbar-widget .textwidget p {
           font-weight: normal;
           margin-bottom: 0;
-          font-weight: bold;
-          /* 12px = textwidget font-size */
-          line-height: calc( (12px - 2px ) * 1.5); }
+          line-height: calc( (14px - 2px ) * 1.5); }
   .newsbar i {
     padding-left: 1rem; }
 
@@ -468,12 +501,12 @@ a.nav-link:hover .menu-shape {
   body.logged-in .menu-button {
     top: 32px; }
   body.logged-in .newsflash-widget {
-    top: 92px; }
+    top: 0; }
   .admin-bar #sticky-nav {
     top: 32px;
     /* accomodates admin bar when user logged in */
-    min-height: 60px;
-    max-height: 60px;
+    min-height: 70px;
+    max-height: 70px;
     position: sticky; }
   .navbar-title {
     margin-right: 0; }
@@ -484,14 +517,8 @@ a.nav-link:hover .menu-shape {
                       ------------- HEADER -------------
 --------------------------------------------------------------------------------
 */
-  .menu {
-    z-index: 1000; }
-    .menu #menu-title {
-      margin-bottom: 1.5rem; }
-  .menu-button, .the-burger {
-    z-index: 3000; }
-  .menu-button.active {
-    z-index: 3000; }
+  .menu #menu-title {
+    margin-bottom: 1.5rem; }
   .menu-button:hover .the-burger,
   .menu-button.active:hover .the-burger {
     border-color: #eb3e8f; }
@@ -500,20 +527,48 @@ a.nav-link:hover .menu-shape {
   .nav-text {
     letter-spacing: 0px; }
   #sticky-nav {
-    background: #fff;
-    padding-left: 3rem; }
-    #sticky-nav .title-wrapper .blue {
-      color: #0033ff; }
-    #sticky-nav .title-wrapper .pink {
-      color: #eb3e8f; }
+    background-color: #fff;
+    border-bottom: 2px solid black; }
+    #sticky-nav .title-wrapper {
+      background-color: #fff;
+      padding-right: 1rem;
+      width: 63%;
+      border-right: 2px solid black; }
+      #sticky-nav .title-wrapper .nav-text {
+        width: auto; }
+      #sticky-nav .title-wrapper .blue {
+        color: #0033ff; }
+      #sticky-nav .title-wrapper .pink {
+        color: #eb3e8f; }
   #sticky-nav .title-wrapper h2:first-child {
     margin-right: 0; }
   .hideme {
     margin-right: 1rem; }
+  /* ------------- NEWSFLASH ------------- */
+  @keyframes pull-from-left {
+    from {
+      padding-left: 100%; }
+    to {
+      padding-left: 63%; } }
+  @keyframes push-from-right {
+    from {
+      transform: translateX(63%); }
+    to {
+      transform: translateX(-100%); } }
+  .newsflash-widget {
+    top: 0;
+    border: none;
+    min-height: calc(70px - 2px);
+    max-height: calc(70px - 2px);
+    left: 63%;
+    width: 31%; }
+    .newsflash-widget .text-widget {
+      animation: push-from-right 20s linear infinite; }
   /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
+    top: 0;
     width: 78px;
-    height: 60px;
+    height: 70px;
     padding-right: 1rem;
     padding-left: 1rem;
     background: #0033ff; }
@@ -553,29 +608,53 @@ a.nav-link:hover .menu-shape {
   /* ------------------------------ NEWSBAR ----------------------------------- */
   .newsbar {
     flex-direction: row;
-    min-height: calc(110px + 2px);
-    border-bottom: 2px solid black; }
+    min-height: calc(100px + 2px);
+    border-bottom: none;
+    margin-top: 0; }
     .newsbar .fa-angle-right {
-      display: none; }
+      position: absolute;
+      padding-left: 18%;
+      padding-top: 35px;
+      font-size: 20px; }
+    .newsbar .fa-angle-right:hover {
+      color: #eb3e8f; }
+  #next-bar,
+  #recent-bar,
+  #class-bar,
+  #outreach-bar,
+  #contribute-bar {
+    background-color: #fff; }
+  #next-bar .newsbar-title {
+    color: #FF962A; }
+  #recent-bar .newsbar-title {
+    color: #97FF00; }
+  #class-bar .newsbar-title {
+    color: #00C7FF; }
+  #outreach-bar .newsbar-title {
+    color: #7B3FFC; }
+  #contribute-bar .newsbar-title {
+    color: #eb3e8f; }
   .newsbar-link,
   .newsbar > .newsbar-link > .newsbar-widget {
-    min-height: 110px;
-    max-height: 110px;
+    min-height: 100px;
+    max-height: 100px;
     flex-direction: column;
     justify-content: flex-start; }
   .newsbar .newsbar-link .newsbar-widget {
-    padding: 16px; }
+    padding: 0 1rem; }
   .newsbar .newsbar-link .newsbar-widget .newsbar-title {
     display: block;
     width: 100%;
     text-transform: uppercase;
-    border-bottom: 2px solid black; }
+    margin-bottom: 0;
+    font-weight: bold; }
   .newsbar .newsbar-link .newsbar-widget .textwidget {
     width: 100%;
     padding: 0; }
   .newsbar .newsbar-link .newsbar-widget .textwidget p {
     font-weight: normal;
-    font-size: 14px; }
+    font-size: 14px;
+    width: 90%; }
   .newsbar-link {
     border-right: 2px solid black;
     width: 20%; }
@@ -592,7 +671,7 @@ a.nav-link:hover .menu-shape {
     padding: 0;
     display: flex;
     flex-direction: row;
-    max-height: calc( 100% - 60px - 80px);
+    max-height: calc( 100% - 70px - 80px);
     overflow-y: hidden; }
     .projects-page div {
       padding: 1rem; }

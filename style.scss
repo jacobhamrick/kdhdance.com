@@ -26,7 +26,7 @@ $border-type: solid;
 $border-weight: 2px;
 $borders: $border-weight $border-type $primary-color;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
-$navbar-height-s: 60px;
+$navbar-height-s: 70px;
 $navbar-height-l: 120px;
 $footer-height: 6em;
 $footer-height-sm: 140px;
@@ -145,19 +145,26 @@ a:hover {
 
 
 /* ------------- Z-INDEX LAYERS ------------- */
-.newsflash-widget {
-  z-index: 300;
+.newsflash-widget,
+.newsflash-widget .textwidget p {
+  z-index: 1000;
 }
 
 .menu {
-  z-index: 1000;
+  z-index: 4000;
 }
 
-.sticky {
-  z-index: 1000;
-}
-.menu-button {
+.title-wrapper {
   z-index: 2000;
+}
+
+.menu-button,
+.menu-button.active {
+  z-index: 5000;
+}
+
+.the-burger {
+  z-index: 6000;
 }
 
 .scroll {
@@ -206,10 +213,17 @@ body.logged-in {
 
 /* ------------------------------- TITLE ------------------------------------ */
 #sticky-nav {
+  position: relative;
   height: $navbar-height-s;
-  background: $blue;
+  background-color: $blue;
+  padding: 0;
   .title-wrapper {
+    position: relative;
+
     height: 100%;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 1rem;
     h2 {
         color: #fff;
         font-size: 2.7rem;
@@ -242,7 +256,7 @@ body.logged-in {
   .menu-button {
     position: fixed;
     right: 0;
-    top: 0;
+    top: 7px;
     border: none;
     border-radius: 0;
     cursor: pointer;
@@ -322,14 +336,14 @@ body.logged-in {
       height: 100%;
     }
     #menu-title {
-      text-align: center;
+      text-align: left;
     }
   }
+
   .menu.openSesame {
     display: block;
     left: 0;
     transition: all .6s ease-in-out;
-
   }
 
   .menu-primary-menu {
@@ -345,6 +359,7 @@ body.logged-in {
   }
 
   a.nav-link {
+    text-transform: uppercase;
     color: #fff;
     border-bottom: #fff $border-weight $border-type;
     .menu-shape {
@@ -358,7 +373,7 @@ body.logged-in {
   a.nav-link:hover {
     .menu-shape {
     opacity: 1;
-  
+
     }
   }
 
@@ -384,8 +399,6 @@ body.logged-in {
   }
 
 
-
-
 /*
 --------------------------------------------------------------------------------
                    ------------- HOME PAGE -------------
@@ -402,33 +415,53 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 }
 
 /* ------------- NEWSFLASH ------------- */
-  @keyframes pull-from-left {
-  from { padding-left: 100% }
-  to { padding-left: 0 }
-  }
 
-  @keyframes push-from-right {
-  from { transform: translateX(0%) }
-  to { transform: translateX(-100%) }
-  }
   .newsflash-widget {
     position: fixed;
     white-space: nowrap;
     width: 100%;
-    background-color: $yellow;
+    background-color: #fff;
     height: $nbw-height-s; /* same as newsbar-widget */
     border-bottom: $borders;
     border-top: $borders;
     .textwidget {
       display: flex;
+      position:absolute;
       align-items: center;
       height: 100%;
-      animation: push-from-right 40s linear infinite;
-      padding: 0;
-      p {
-        animation: pull-from-left 40s linear infinite;
+      p,
+      p:first-child {
+        position: absolute;
         text-transform: uppercase;
-        margin: 0;
+        /* Starting position */
+        -moz-transform:translateX(10%);
+        -webkit-transform:translateX(10%);
+        transform:translateX(10%);
+        /* Animation */
+        -moz-animation: marquee 15s linear infinite;
+        -webkit-animation: marquee 15s linear infinite;
+        animation: marquee 15s linear infinite;
+        }
+        /* Move it (define the animation) */
+        @-moz-keyframes marquee {
+        0%   { -moz-transform: translateX(10%); }
+        100% { -moz-transform: translateX(-100%); }
+        }
+        @-webkit-keyframes marquee {
+        0%   { -webkit-transform: translateX(100%); }
+        100% { -webkit-transform: translateX(-100%); }
+        }
+        @keyframes marquee {
+        0%   {
+        -moz-transform: translateX(100%); /* Firefox bug fix */
+        -webkit-transform: translateX(100%); /* Firefox bug fix */
+        transform: translateX(100%);
+        }
+        100% {
+        -moz-transform: translateX(-100%); /* Firefox bug fix */
+        -webkit-transform: translateX(-100%); /* Firefox bug fix */
+        transform: translateX(-100%);
+        }
       }
     }
   }
@@ -443,7 +476,6 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .newsbar-link {
     color: #000;
     transition: $time;
-    border-bottom: $borders;
     .newsbar-widget {
       flex-direction: row;
       align-items: center;
@@ -452,6 +484,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
       max-height: $nbw-height-s;
       padding: 0 $page-padding 0 0;
       transition: $time;
+      border-bottom: $borders;
       .news-tab {
         vertical-align: middle;
         align-items: center;
@@ -463,6 +496,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
       }
       .newsbar-title {
         display: none;
+        font-size: 20px;
       }
       .textwidget {
         display: flex;
@@ -470,14 +504,11 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
         vertical-align: middle;
         width: 90%;
         padding-left: $page-padding;
-        font-size: 13px;
-
+        font-size: 14px;
         p {
           font-weight: normal;
           margin-bottom: 0;
-          font-weight: bold;
-          /* 12px = textwidget font-size */
-          line-height: calc( (12px - #{$border-weight} ) * 1.5)
+          line-height: calc( (14px - #{$border-weight} ) * 1.5)
         }
       }
     }
@@ -597,7 +628,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
   body.logged-in {
     .newsflash-widget {
-      top: 92px;
+      top: 0;
     }
   }
 
@@ -622,16 +653,9 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 --------------------------------------------------------------------------------
 */
   .menu {
-    z-index: 1000;
     #menu-title {
       margin-bottom: 1.5rem;
     }
-  }
-  .menu-button, .the-burger {
-    z-index: 3000;
-  }
-  .menu-button.active {
-    z-index: 3000;
   }
   .menu-button:hover,
   .menu-button.active:hover {
@@ -647,10 +671,18 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .nav-text {
     letter-spacing: 0px;
   }
+
   #sticky-nav {
-    background: #fff;
-    padding-left: 3rem;
+    background-color: #fff;
+    border-bottom: $borders;
     .title-wrapper {
+      background-color: #fff;
+      padding-right: 1rem;
+      width: 63%;
+      border-right: $borders;
+      .nav-text {
+        width: auto;
+      }
       .blue {
         color: $blue;
       }
@@ -666,10 +698,34 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .hideme {
     margin-right: 1rem;
   }
+
+  /* ------------- NEWSFLASH ------------- */
+  @keyframes pull-from-left {
+  from { padding-left: 100% }
+  to { padding-left: 63% }
+  }
+
+  @keyframes push-from-right {
+  from { transform: translateX(63%) }
+  to { transform: translateX(-100%) }
+  }
+
+  .newsflash-widget {
+    top: 0;
+    border: none;
+    min-height: calc(#{$navbar-height-s} - #{$border-weight});
+    max-height: calc(#{$navbar-height-s} - #{$border-weight});
+    left: 63%;
+    width: 31%;
+    .text-widget {
+      animation: push-from-right 20s linear infinite;
+    }
+  }
 /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
+    top: 0;
     width: 78px;
-    height: 60px;
+    height: $navbar-height-s;
     padding-right: 1rem;
     padding-left: 1rem;
     background: $blue;
@@ -727,29 +783,76 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 /* ------------------------------ NEWSBAR ----------------------------------- */
   .newsbar {
     flex-direction: row;
-    min-height: calc(110px + #{$border-weight});
-    border-bottom: $borders;
+    min-height: calc(100px + #{$border-weight});
+    border-bottom: none;
+    margin-top: 0;
     .fa-angle-right {
-      display: none;
+      position: absolute;
+      padding-left: 18%;
+      padding-top: 35px;
+      font-size: 20px;
+    }
+    .fa-angle-right:hover {
+      color: $pink;
+    }
+  }
+
+  #next-bar,
+  #recent-bar,
+  #class-bar,
+  #outreach-bar,
+  #contribute-bar {
+    background-color: #fff;
+  }
+
+  #next-bar {
+    .newsbar-title {
+      color: $orange;
+    }
+  }
+
+  #recent-bar {
+    .newsbar-title {
+      color: $green;
+    }
+  }
+
+  #class-bar {
+    .newsbar-title {
+      color: $light-blue;
+    }
+  }
+
+  #outreach-bar {
+    .newsbar-title {
+      color: $purple;
+    }
+  }
+
+  #contribute-bar {
+    .newsbar-title {
+      color: $pink;
     }
   }
 
   .newsbar-link,
   .newsbar > .newsbar-link > .newsbar-widget {
-    min-height: 110px;
-    max-height: 110px;
+    min-height: 100px;
+    max-height: 100px;
     flex-direction: column;
     justify-content: flex-start;
   }
   .newsbar .newsbar-link .newsbar-widget  {
-    padding: 16px;
+    padding: 0 1rem;
   }
 
   .newsbar .newsbar-link .newsbar-widget .newsbar-title {
     display: block;
     width: 100%;
     text-transform: uppercase;
-    border-bottom: $borders;
+    margin-bottom: 0;
+    font-weight: bold;
+    // border-bottom: $borders;
   }
   .newsbar .newsbar-link .newsbar-widget .textwidget {
     width: 100%;
@@ -759,6 +862,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .newsbar .newsbar-link .newsbar-widget .textwidget p {
     font-weight: normal;
     font-size: 14px;
+    width: 90%;
   }
 
   .newsbar-link {
