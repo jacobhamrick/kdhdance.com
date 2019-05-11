@@ -274,6 +274,7 @@ body.logged-in {
     justify-content: space-between;
     height: 100%;
     width: 44px;
+    margin-right: 0;
   }
 
 
@@ -420,7 +421,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     position: fixed;
     white-space: nowrap;
     width: 100%;
-    background-color: #fff;
+    background-color: $yellow;
     height: $nbw-height-s; /* same as newsbar-widget */
     border-bottom: $borders;
     border-top: $borders;
@@ -433,6 +434,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
       p:first-child {
         position: absolute;
         text-transform: uppercase;
+        color: #000;
         /* Starting position */
         -moz-transform:translateX(10%);
         -webkit-transform:translateX(10%);
@@ -657,12 +659,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
       margin-bottom: 1.5rem;
     }
   }
-  .menu-button:hover,
-  .menu-button.active:hover {
-    .the-burger {
-      border-color: $pink;
-    }
-  }
+
 
   .hideme {
     display: inline;
@@ -678,10 +675,10 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     .title-wrapper {
       background-color: #fff;
       padding-right: 1rem;
-      width: 63%;
-      border-right: $borders;
+      width: 60%;
       .nav-text {
         width: auto;
+        font-size: 3.5vw;
       }
       .blue {
         color: $blue;
@@ -699,9 +696,9 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     margin-right: 1rem;
   }
 
-  /* ------------- NEWSFLASH ------------- */
+  /* ----------------------------- NEWSFLASH -------------------------------- */
   @keyframes pull-from-left {
-  from { padding-left: 100% }
+  from { padding-left: 90% }
   to { padding-left: 63% }
   }
 
@@ -713,41 +710,67 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .newsflash-widget {
     top: 0;
     border: none;
+    background: #fff;
+    border-right: $borders;
     min-height: calc(#{$navbar-height-s} - #{$border-weight});
     max-height: calc(#{$navbar-height-s} - #{$border-weight});
-    left: 63%;
-    width: 31%;
+    width: 100%;
+    right: 76px;
     .text-widget {
-      animation: push-from-right 20s linear infinite;
+      animation: push-from-right 60s linear infinite;
     }
   }
+
+  .newsflash-widget .textwidget p,
+  .newsflash-widget .textwidget p:first-child {
+      font-size: 1.35rem;
+      z-index: 1000;
+  }
+
 /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     top: 0;
-    width: 78px;
-    height: $navbar-height-s;
+    width: 76px;
+    height: calc(#{$navbar-height-s} - #{$border-weight});
     padding-right: 1rem;
     padding-left: 1rem;
+    background: #fff;
+    .the-burger {
+      border-color: #000;
+    }
+  }
+
+  .menu-button:hover {
     background: $blue;
     .the-burger {
       border-color: #fff;
     }
   }
+
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
-    height: calc(60px + #{$border-weight});
-    transtion: $time;
+    transtion: all .1s linear;
+    border-left-color: $blue;
+    background-color: $blue;
     .top-bun {
       transform-origin: 8% 10px;
     }
     .bottom-bun {
-      transform-origin: 8% -5px;
+      transform-origin: -7% -8px;
     }
     .the-burger {
     transition: all .4s linear;
     border-color: #fff;
     }
   }
+
+  .menu-button.active:hover {
+    .the-burger {
+      border-color: $pink;
+    }
+  }
+
+
 
 /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {

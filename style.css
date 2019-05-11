@@ -205,7 +205,8 @@ body.logged-in .menu-button {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 44px; }
+  width: 44px;
+  margin-right: 0; }
 
 /* the burger in the box */
 .the-burger {
@@ -317,7 +318,7 @@ a.nav-link:hover .menu-shape {
   position: fixed;
   white-space: nowrap;
   width: 100%;
-  background-color: #fff;
+  background-color: #FFDB00;
   height: 48px;
   /* same as newsbar-widget */
   border-bottom: 2px solid black;
@@ -332,6 +333,7 @@ a.nav-link:hover .menu-shape {
     .newsflash-widget .textwidget p:first-child {
       position: absolute;
       text-transform: uppercase;
+      color: #000;
       /* Starting position */
       -moz-transform: translateX(10%);
       -webkit-transform: translateX(10%);
@@ -519,9 +521,6 @@ a.nav-link:hover .menu-shape {
 */
   .menu #menu-title {
     margin-bottom: 1.5rem; }
-  .menu-button:hover .the-burger,
-  .menu-button.active:hover .the-burger {
-    border-color: #eb3e8f; }
   .hideme {
     display: inline; }
   .nav-text {
@@ -532,10 +531,10 @@ a.nav-link:hover .menu-shape {
     #sticky-nav .title-wrapper {
       background-color: #fff;
       padding-right: 1rem;
-      width: 63%;
-      border-right: 2px solid black; }
+      width: 60%; }
       #sticky-nav .title-wrapper .nav-text {
-        width: auto; }
+        width: auto;
+        font-size: 3.5vw; }
       #sticky-nav .title-wrapper .blue {
         color: #0033ff; }
       #sticky-nav .title-wrapper .pink {
@@ -544,10 +543,10 @@ a.nav-link:hover .menu-shape {
     margin-right: 0; }
   .hideme {
     margin-right: 1rem; }
-  /* ------------- NEWSFLASH ------------- */
+  /* ----------------------------- NEWSFLASH -------------------------------- */
   @keyframes pull-from-left {
     from {
-      padding-left: 100%; }
+      padding-left: 90%; }
     to {
       padding-left: 63%; } }
   @keyframes push-from-right {
@@ -558,33 +557,46 @@ a.nav-link:hover .menu-shape {
   .newsflash-widget {
     top: 0;
     border: none;
+    background: #fff;
+    border-right: 2px solid black;
     min-height: calc(70px - 2px);
     max-height: calc(70px - 2px);
-    left: 63%;
-    width: 31%; }
+    width: 100%;
+    right: 76px; }
     .newsflash-widget .text-widget {
-      animation: push-from-right 20s linear infinite; }
+      animation: push-from-right 60s linear infinite; }
+  .newsflash-widget .textwidget p,
+  .newsflash-widget .textwidget p:first-child {
+    font-size: 1.35rem;
+    z-index: 1000; }
   /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     top: 0;
-    width: 78px;
-    height: 70px;
+    width: 76px;
+    height: calc(70px - 2px);
     padding-right: 1rem;
     padding-left: 1rem;
-    background: #0033ff; }
+    background: #fff; }
     .menu-button .the-burger {
+      border-color: #000; }
+  .menu-button:hover {
+    background: #0033ff; }
+    .menu-button:hover .the-burger {
       border-color: #fff; }
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
-    height: calc(60px + 2px);
-    transtion: all 0.3s linear; }
+    transtion: all .1s linear;
+    border-left-color: #0033ff;
+    background-color: #0033ff; }
     .menu-button.active .top-bun {
       transform-origin: 8% 10px; }
     .menu-button.active .bottom-bun {
-      transform-origin: 8% -5px; }
+      transform-origin: -7% -8px; }
     .menu-button.active .the-burger {
       transition: all .4s linear;
       border-color: #fff; }
+  .menu-button.active:hover .the-burger {
+    border-color: #eb3e8f; }
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
     width: 33%;
