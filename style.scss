@@ -59,10 +59,12 @@ body {
   background-color: $background-color;
   overflow: hidden;
   transition: $time;
+  border: none;
 }
 
 body.logged-in {
   padding-top: 0;
+
 }
 
 textarea:focus,
@@ -219,7 +221,6 @@ body.logged-in {
   padding: 0;
   .title-wrapper {
     position: relative;
-
     height: 100%;
     align-items: center;
     flex-direction: row;
@@ -255,7 +256,7 @@ body.logged-in {
 /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     position: fixed;
-    right: 0;
+    right: .5rem;
     top: 7px;
     border: none;
     border-radius: 0;
@@ -415,58 +416,38 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
 }
 
-/* ------------- NEWSFLASH ------------- */
+/* ------------------------------- NEWSFLASH -------------------------------- */
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
 
-  .newsflash-widget {
-    position: fixed;
+.newsflash-widget {
+  position: fixed;
+  white-space: nowrap;
+  width: 100%;
+  background-color: $yellow;
+  height: $nbw-height-s; /* same as newsbar-widget */
+  border-bottom: $borders;
+  border-top: $borders;
+  .textwidget {
+    display: flex;
+    position:absolute;
+    align-items: center;
+    height: 100%;
     white-space: nowrap;
-    width: 100%;
-    background-color: $yellow;
-    height: $nbw-height-s; /* same as newsbar-widget */
-    border-bottom: $borders;
-    border-top: $borders;
-    .textwidget {
-      display: flex;
-      position:absolute;
-      align-items: center;
-      height: 100%;
-      p,
-      p:first-child {
-        position: absolute;
-        text-transform: uppercase;
-        color: #000;
-        /* Starting position */
-        -moz-transform:translateX(10%);
-        -webkit-transform:translateX(10%);
-        transform:translateX(10%);
-        /* Animation */
-        -moz-animation: marquee 15s linear infinite;
-        -webkit-animation: marquee 15s linear infinite;
-        animation: marquee 15s linear infinite;
-        }
-        /* Move it (define the animation) */
-        @-moz-keyframes marquee {
-        0%   { -moz-transform: translateX(10%); }
-        100% { -moz-transform: translateX(-100%); }
-        }
-        @-webkit-keyframes marquee {
-        0%   { -webkit-transform: translateX(100%); }
-        100% { -webkit-transform: translateX(-100%); }
-        }
-        @keyframes marquee {
-        0%   {
-        -moz-transform: translateX(100%); /* Firefox bug fix */
-        -webkit-transform: translateX(100%); /* Firefox bug fix */
-        transform: translateX(100%);
-        }
-        100% {
-        -moz-transform: translateX(-100%); /* Firefox bug fix */
-        -webkit-transform: translateX(-100%); /* Firefox bug fix */
-        transform: translateX(-100%);
-        }
-      }
+    p,
+    p:first-child {
+      margin-bottom: 0;
+      text-transform: uppercase;
+      color: #000;
+      padding-left: 32%;
+      width: 114%;
+      animation: marquee 20s linear infinite;
+
     }
   }
+}
 
 
 /* ------------------------------ NEWSBAR ----------------------------------- */
@@ -474,10 +455,10 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 .newsbar {
   flex-direction: column;
   margin-top: $nbw-height-s; /* same as newsflash */
-  min-height: calc(5 * (#{$nbw-height-s} + #{$border-weight})); /* 5 = # of rows */
+  min-height: calc(5 * (#{$nbw-height-s})); /* 5 = # of rows */
   .newsbar-link {
-    color: #000;
     transition: $time;
+    color: #000;
     .newsbar-widget {
       flex-direction: row;
       align-items: center;
@@ -497,8 +478,11 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
         padding-right: $page-padding;
       }
       .newsbar-title {
-        display: none;
-        font-size: 20px;
+        font-size: 5vw;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        width: 69%;
+        padding-left: 1rem;
       }
       .textwidget {
         display: flex;
@@ -506,11 +490,11 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
         vertical-align: middle;
         width: 90%;
         padding-left: $page-padding;
-        font-size: 14px;
+        font-size: 3.5vw;
         p {
           font-weight: normal;
           margin-bottom: 0;
-          line-height: calc( (14px - #{$border-weight} ) * 1.5)
+          line-height:1;
         }
       }
     }
@@ -520,25 +504,25 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
 }
 
-#next-bar {
+.newsbar-link:nth-child(1) {
   background-color: $orange;
 }
-#recent-bar {
+.newsbar-link:nth-child(2) {
   background-color: $green;
 }
-#class-bar {
+.newsbar-link:nth-child(3) {
   background-color: $light-blue;
 }
-#outreach-bar {
+.newsbar-link:nth-child(4) {
   background-color: $purple;
 }
-#contribute-bar {
+.newsbar-link:nth-child(5) {
   background-color: $pink;
 }
 
 .newsbar-link:hover {
   transition: $time;
-  .newsbar-title{
+  .newsbar-title {
     transition: $time;
   }
   .newsbar-widget {
@@ -619,9 +603,17 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   border-left: none;
 }
 
-
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   ++++++++++++++++++++++++++++++ BIG SCREENS ++++++++++++++++++++++++++++++++++
+   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
 @media screen and (min-width: 783px) {
+
+  $body-border: 30px;
+  body {
+    border: $body-border solid $blue;
+  }
   body.logged-in {
     padding-top: 0;
   }
@@ -675,7 +667,8 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     .title-wrapper {
       background-color: #fff;
       padding-right: 1rem;
-      width: 60%;
+      border-right: $borders;
+      width: calc(100% - 76px); // 100px - width of menu-button
       .nav-text {
         width: auto;
         font-size: 3.5vw;
@@ -697,27 +690,16 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
 
   /* ----------------------------- NEWSFLASH -------------------------------- */
-  @keyframes pull-from-left {
-  from { padding-left: 90% }
-  to { padding-left: 63% }
-  }
-
-  @keyframes push-from-right {
-  from { transform: translateX(63%) }
-  to { transform: translateX(-100%) }
-  }
 
   .newsflash-widget {
     top: 0;
     border: none;
-    background: #fff;
-    border-right: $borders;
-    min-height: calc(#{$navbar-height-s} - #{$border-weight});
-    max-height: calc(#{$navbar-height-s} - #{$border-weight});
+    background: none;
     width: 100%;
-    right: 76px;
+    height: $body-border;
     .text-widget {
-      animation: push-from-right 60s linear infinite;
+      height: $body-border;
+      align-items: flex-start;
     }
   }
 
@@ -725,6 +707,10 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .newsflash-widget .textwidget p:first-child {
       font-size: 1.35rem;
       z-index: 1000;
+      color: #fff;
+      padding-left: 45%;
+      width: 100%;
+      animation: marquee 40s linear infinite;
   }
 
 /* ------------------------------ BURGER BUTTON ----------------------------- */
@@ -735,8 +721,13 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     padding-right: 1rem;
     padding-left: 1rem;
     background: #fff;
+
+    top: $body-border;
+    right: $body-border;
+
     .the-burger {
       border-color: #000;
+
     }
   }
 
@@ -767,6 +758,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   .menu-button.active:hover {
     .the-burger {
       border-color: $pink;
+      background-color: $pink;
     }
   }
 
@@ -794,8 +786,27 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     }
   }
 
+  .menu {
+    h4 {
+      opacity: 0;
+      transition: $time;
+    }
+    .menu-wrapper {
+      opacity: 0;
+      transition: $time;
+    }
+  }
+
   .menu.openSesame {
     margin-left: 67%;
+    h4 {
+     opacity: 1;
+      transition: all 1s ease-in-out;
+    }
+    .menu-wrapper {
+      opacity: 1;
+      transition: all 1s ease-in-out;
+    }
   }
 
 /* -----------------------------------------------------------------------------
@@ -804,99 +815,103 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 
 
 /* ------------------------------ NEWSBAR ----------------------------------- */
+  .newsbar,
+  .newsbar-link,
+  .newsbar .newsbar-link .newsbar-widget {
+    min-height: 90px;
+    max-height: 90px;
+  }
+
   .newsbar {
     flex-direction: row;
-    min-height: calc(100px + #{$border-weight});
     border-bottom: none;
     margin-top: 0;
+    .newsbar-link {
+      background: rgb(255,255,255);
+      transition: $time;
+      border-right: $borders;
+      width: 20%;
+      .newsbar-widget {
+        padding: 0 1rem;
+        transition: $time;
+        flex-direction: column;
+        justify-content: flex-start;
+          p {
+            font-weight: normal;
+            font-size: 14px;
+            width: 90%;
+          }
+        .newsbar-title {
+          font-size: 16px;
+          padding: 0;
+          width: 100%;
+          text-transform: uppercase;
+          margin-bottom: 0;
+          font-weight: bold;
+          // border-bottom: $borders;
+          display: block;
+        }
+        .textwidget {
+          width: 100%;
+          padding: 0;
+        }
+        .fa-angle-right {
+          position: absolute;
+          padding-left: 18%;
+          padding-right: 16px;
+          padding-top: 35px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .newsbar-link:hover {
+    background: $purple;
+    transition: $time;
+    .textwidget {
+      color: #fff;
+    }
+    .newsbar-title {
+      color: #fff;
+    }
     .fa-angle-right {
-      position: absolute;
-      padding-left: 18%;
-      padding-top: 35px;
-      font-size: 20px;
-    }
-    .fa-angle-right:hover {
-      color: $pink;
+      color: $yellow;
     }
   }
 
-  #next-bar,
-  #recent-bar,
-  #class-bar,
-  #outreach-bar,
-  #contribute-bar {
-    background-color: #fff;
-  }
+  // #next-bar {
+  //   .newsbar-title {
+  //     color: $orange;
+  //   }
+  // }
+  //
+  // #recent-bar {
+  //   .newsbar-title {
+  //     color: $green;
+  //   }
+  // }
+  //
+  // #class-bar {
+  //   .newsbar-title {
+  //     color: $light-blue;
+  //   }
+  // }
+  //
+  // #outreach-bar {
+  //   .newsbar-title {
+  //     color: $purple;
+  //   }
+  // }
+  //
+  // #contribute-bar {
+  //   .newsbar-title {
+  //     color: $pink;
+  //   }
+  // }
 
-  #next-bar {
-    .newsbar-title {
-      color: $orange;
-    }
-  }
-
-  #recent-bar {
-    .newsbar-title {
-      color: $green;
-    }
-  }
-
-  #class-bar {
-    .newsbar-title {
-      color: $light-blue;
-    }
-  }
-
-  #outreach-bar {
-    .newsbar-title {
-      color: $purple;
-    }
-  }
-
-  #contribute-bar {
-    .newsbar-title {
-      color: $pink;
-    }
-  }
-
-  .newsbar-link,
-  .newsbar > .newsbar-link > .newsbar-widget {
-    min-height: 100px;
-    max-height: 100px;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .newsbar .newsbar-link .newsbar-widget  {
-    padding: 0 1rem;
-  }
-
-  .newsbar .newsbar-link .newsbar-widget .newsbar-title {
-    display: block;
-    width: 100%;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    font-weight: bold;
-    // border-bottom: $borders;
-  }
-  .newsbar .newsbar-link .newsbar-widget .textwidget {
-    width: 100%;
-    padding: 0;
-  }
-
-  .newsbar .newsbar-link .newsbar-widget .textwidget p {
-    font-weight: normal;
-    font-size: 14px;
-    width: 90%;
-  }
-
-  .newsbar-link {
-    border-right: $borders;
-    width: 20%;
-  }
   .newsbar-link:last-child {
     border-right: none;
-  }
-  .newsbar-title {
-    display: block;
   }
 
   .home-wrapper {
