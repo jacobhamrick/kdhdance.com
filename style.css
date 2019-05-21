@@ -16,10 +16,10 @@ I hope to empower creatives and small businesses.
 /* KDH */
 /* padding of navbars, page sections, etc */
 .blue {
-  color: #0033ff; }
+  color: #0026ca; }
 
 .pink {
-  color: #eb3e8f; }
+  color: #FF82AF; }
 
 html, body {
   margin: 0;
@@ -55,8 +55,8 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-  border-color: #eb3e8f;
-  box-shadow: 0 0 7px #eb3e8f inset, 0 0 0 #eb3e8f;
+  border-color: #FF82AF;
+  box-shadow: 0 0 7px #FF82AF inset, 0 0 0 #FF82AF;
   outline: 0 none;
   transition: all 0.3s linear; }
 
@@ -98,7 +98,7 @@ h6 {
   text-transform: uppercase; }
 
 a {
-  color: #eb3e8f;
+  color: #FF82AF;
   font-weight: 500;
   transition: all 0.3s linear; }
 
@@ -160,7 +160,7 @@ body.logged-in .menu-button {
 #sticky-nav {
   position: relative;
   height: 70px;
-  background-color: #0033ff;
+  background-color: #0026ca;
   padding: 0; }
   #sticky-nav .title-wrapper {
     position: relative;
@@ -169,7 +169,7 @@ body.logged-in .menu-button {
     flex-direction: row;
     padding-left: 1rem; }
     #sticky-nav .title-wrapper h2 {
-      color: #fff;
+      color: #FF82AF;
       font-size: 2.7rem;
       margin-bottom: 0;
       font-weight: bold;
@@ -244,7 +244,7 @@ body.logged-in .menu-button {
   display: block; }
 
 .menu {
-  background-color: #0033ff;
+  background-color: #0026ca;
   padding: 1rem;
   color: #fff;
   left: 100%;
@@ -278,7 +278,7 @@ a.nav-link {
   color: #fff;
   border-bottom: #fff 2px solid; }
   a.nav-link .menu-shape {
-    color: #FFDB00;
+    color: #FFFA00;
     opacity: 0.0;
     float: right;
     line-height: 22px; }
@@ -291,7 +291,7 @@ a.nav-link:hover .menu-shape {
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
-  color: #eb3e8f; }
+  color: #FF82AF; }
 
 .navbar-nav .active > .nav-link:hover,
 .navbar-nav .nav-link.active:hover,
@@ -310,8 +310,10 @@ a.nav-link:hover .menu-shape {
 */
 /* newsbar-widget height on small screens */
 .home-wrapper {
-  padding: .8rem 1rem 1rem 1rem; }
-  .home-wrapper div {
+  padding: .8rem 1rem 1rem 1rem;
+  text-align: justify; }
+  .home-wrapper -
+div {
     padding: 0; }
 
 /* ------------------------------- NEWSFLASH -------------------------------- */
@@ -325,7 +327,7 @@ a.nav-link:hover .menu-shape {
   position: fixed;
   white-space: nowrap;
   width: 100%;
-  background-color: #FFDB00;
+  background-color: #FFFA00;
   height: 48px;
   /* same as newsbar-widget */
   border-bottom: 2px solid black;
@@ -339,7 +341,6 @@ a.nav-link:hover .menu-shape {
     .newsflash-widget .textwidget p,
     .newsflash-widget .textwidget p:first-child {
       margin-bottom: 0;
-      text-transform: uppercase;
       color: #000;
       padding-left: 32%;
       width: 114%;
@@ -351,10 +352,13 @@ a.nav-link:hover .menu-shape {
   margin-top: 48px;
   /* same as newsflash */
   min-height: calc(5 * (48px));
-  /* 5 = # of rows */ }
+  /* 5 = # of rows */
+  justify-content: space-between; }
   .newsbar .newsbar-link {
     transition: all 0.3s linear;
-    color: #000; }
+    color: #000;
+    width: 100%;
+    margin: 0 auto; }
     .newsbar .newsbar-link .newsbar-widget {
       flex-direction: row;
       align-items: center;
@@ -375,8 +379,7 @@ a.nav-link:hover .menu-shape {
       .newsbar .newsbar-link .newsbar-widget .newsbar-title {
         font-size: 5vw;
         margin-bottom: 0;
-        text-transform: uppercase;
-        width: 69%;
+        width: 43%;
         padding-left: 1rem; }
       .newsbar .newsbar-link .newsbar-widget .textwidget {
         display: flex;
@@ -388,32 +391,13 @@ a.nav-link:hover .menu-shape {
         .newsbar .newsbar-link .newsbar-widget .textwidget p {
           font-weight: normal;
           margin-bottom: 0;
-          line-height: 1; }
+          line-height: 1;
+          font-size: 13px;
+          color: #000; }
   .newsbar i {
-    padding-left: 1rem; }
-
-.newsbar-link:nth-child(1) {
-  background-color: #FF962A; }
-
-.newsbar-link:nth-child(2) {
-  background-color: #97FF00; }
-
-.newsbar-link:nth-child(3) {
-  background-color: #00C7FF; }
-
-.newsbar-link:nth-child(4) {
-  background-color: #7B3FFC; }
-
-.newsbar-link:nth-child(5) {
-  background-color: #eb3e8f; }
-
-.newsbar-link:hover {
-  transition: all 0.3s linear; }
-  .newsbar-link:hover .newsbar-title {
-    transition: all 0.3s linear; }
-  .newsbar-link:hover .newsbar-widget {
-    padding-right: calc(1rem / 2);
-    transition: all 0.3s linear; }
+    padding-left: 1rem;
+    font-size: 25px;
+    color: #0026ca; }
 
 /* ------------- MAILCHIMP SUBSCRIBE ------------- */
 #mc_embed_signup_scroll {
@@ -429,12 +413,12 @@ a.nav-link:hover .menu-shape {
     padding-left: calc(1rem / 2);
     transition: all 0.3s linear; }
   #mc_embed_signup_scroll #mc-embedded-subscribe {
-    background-color: #0033ff;
-    font-weight: bold;
+    background-color: #0026ca;
     text-transform: uppercase;
-    transition: all 0.3s linear; }
+    transition: all 0.3s linear;
+    color: #fff; }
   #mc_embed_signup_scroll #mc-embedded-subscribe:hover {
-    background-color: #eb3e8f;
+    background-color: #FF82AF;
     transition: all 0.3s linear; }
 
 /* ------------- FOOTER ------------- */
@@ -481,8 +465,6 @@ a.nav-link:hover .menu-shape {
    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
 @media screen and (min-width: 783px) {
-  body {
-    border: 30px solid #0033ff; }
   body.logged-in {
     padding-top: 0; }
   body.logged-in .menu-button {
@@ -508,8 +490,6 @@ a.nav-link:hover .menu-shape {
     margin-bottom: 1.5rem; }
   .hideme {
     display: inline; }
-  .nav-text {
-    letter-spacing: 0px; }
   #sticky-nav {
     background-color: #fff;
     border-bottom: 2px solid black; }
@@ -519,12 +499,13 @@ a.nav-link:hover .menu-shape {
       border-right: 2px solid black;
       width: calc(100% - 76px); }
       #sticky-nav .title-wrapper .nav-text {
+        letter-spacing: 0px;
         width: auto;
-        font-size: 3.5vw; }
+        font-size: 5vw; }
       #sticky-nav .title-wrapper .blue {
-        color: #0033ff; }
+        color: #0026ca; }
       #sticky-nav .title-wrapper .pink {
-        color: #eb3e8f; }
+        color: #FF82AF; }
   #sticky-nav .title-wrapper h2:first-child {
     margin-right: 0; }
   .hideme {
@@ -534,10 +515,8 @@ a.nav-link:hover .menu-shape {
     top: 0;
     border: none;
     background: none;
-    width: 100%;
-    height: 30px; }
+    width: 100%; }
     .newsflash-widget .text-widget {
-      height: 30px;
       align-items: flex-start; }
   .newsflash-widget .textwidget p,
   .newsflash-widget .textwidget p:first-child {
@@ -550,24 +529,23 @@ a.nav-link:hover .menu-shape {
   /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     top: 0;
+    right: 0;
     width: 76px;
     height: calc(70px - 2px);
     padding-right: 1rem;
     padding-left: 1rem;
-    background: #fff;
-    top: 30px;
-    right: 30px; }
+    background: #fff; }
     .menu-button .the-burger {
       border-color: #000; }
   .menu-button:hover {
-    background: #0033ff; }
+    background: #0026ca; }
     .menu-button:hover .the-burger {
       border-color: #fff; }
   /* Burger Animation - Turn burger into X */
   .menu-button.active {
     transtion: all .1s linear;
-    border-left-color: #0033ff;
-    background-color: #0033ff; }
+    border-left-color: #0026ca;
+    background-color: #0026ca; }
     .menu-button.active .top-bun {
       transform-origin: 8% 10px; }
     .menu-button.active .bottom-bun {
@@ -576,8 +554,8 @@ a.nav-link:hover .menu-shape {
       transition: all .4s linear;
       border-color: #fff; }
   .menu-button.active:hover .the-burger {
-    border-color: #eb3e8f;
-    background-color: #eb3e8f; }
+    border-color: #FF82AF;
+    background-color: #FF82AF; }
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
     width: 33%;
@@ -630,18 +608,19 @@ a.nav-link:hover .menu-shape {
         transition: all 0.3s linear;
         flex-direction: column;
         justify-content: flex-start; }
-        .newsbar .newsbar-link .newsbar-widget p {
+        .newsbar .newsbar-link .newsbar-widget .textwidget p {
           font-weight: normal;
-          font-size: 14px;
+          font-size: 13px;
           width: 90%; }
         .newsbar .newsbar-link .newsbar-widget .newsbar-title {
+          display: block;
+          width: 100%;
+          height: 22px;
           font-size: 16px;
           padding: 0;
-          width: 100%;
           text-transform: uppercase;
           margin-bottom: 0;
-          font-weight: bold;
-          display: block; }
+          font-weight: bold; }
         .newsbar .newsbar-link .newsbar-widget .textwidget {
           width: 100%;
           padding: 0; }
@@ -649,7 +628,7 @@ a.nav-link:hover .menu-shape {
           position: absolute;
           padding-left: 18%;
           padding-right: 16px;
-          padding-top: 35px;
+          padding-top: 27px;
           font-size: 20px; }
   .newsbar-link:hover {
     background: #7B3FFC;
@@ -659,7 +638,7 @@ a.nav-link:hover .menu-shape {
     .newsbar-link:hover .newsbar-title {
       color: #fff; }
     .newsbar-link:hover .fa-angle-right {
-      color: #FFDB00; }
+      color: #FFFA00; }
   .newsbar-link:last-child {
     border-right: none; }
   .home-wrapper {
