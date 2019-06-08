@@ -162,29 +162,28 @@ hr:not(.the-burger) {
 --------------------------------------------------------------------------------
 */
 /* Adjust for WP Admin bar */
-body.logged-in .menu-button {
-  top: 46px; }
-
 /* ------------------------------- TITLE ------------------------------------ */
 #sticky-nav {
   position: relative;
   height: 70px;
-  background-color: #0026ca;
-  padding: 0; }
+  background-color: #FFF;
+  padding: 0;
+  border-bottom: 2px solid black; }
   #sticky-nav .title-wrapper {
     position: relative;
     height: 100%;
     align-items: center;
     flex-direction: row;
-    padding-left: 1rem; }
+    padding: 1rem; }
     #sticky-nav .title-wrapper h2 {
       color: #ff3399;
       font-size: 2.7rem;
       margin-bottom: 0;
       font-weight: bold;
-      line-height: 2.7rem; }
-    #sticky-nav .title-wrapper h2:first-child {
+      line-height: 2.7rem;
       margin-right: calc(1rem / 2); }
+    #sticky-nav .title-wrapper h2:first-child {
+      color: #0026ca; }
 
 .blue {
   letter-spacing: 8px; }
@@ -192,21 +191,18 @@ body.logged-in .menu-button {
 .pink {
   letter-spacing: 2px; }
 
-.newsflash-widget {
-  top: 70px; }
-
 /* ------------------------------ BURGER BUTTON ----------------------------- */
 .menu-button {
   position: fixed;
   right: .5rem;
-  top: 7px;
+  top: 6px;
   border: none;
   border-radius: 0;
   cursor: pointer;
   width: 60px;
   height: 60px;
   float: right;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   margin-left: auto;
   transition: all 0.3s linear; }
 
@@ -220,11 +216,10 @@ body.logged-in .menu-button {
 
 /* the burger in the box */
 .the-burger {
-  border: 2px solid;
-  border-color: #fff;
+  border: 2px solid black;
+  background: black;
   margin: 0;
-  transition: all .4s linear;
-  background-color: #fff; }
+  transition: all .4s linear; }
 
 /* Burger Animation - Turn burger into X */
 .menu-button.active {
@@ -257,20 +252,20 @@ body.logged-in .menu-button {
   padding: 1rem;
   color: #fff;
   left: 100%;
-  margin-top: 59px;
+  margin-top: 70px;
   height: 100%;
   position: fixed;
   width: 100%;
-  transition: all .6s ease-in-out; }
+  transition: all 0.3s linear; }
   .menu #navbarSupportedContent {
     height: 100%; }
   .menu #menu-title {
-    text-align: left; }
+    text-align: center; }
 
 .menu.openSesame {
   display: block;
   left: 0;
-  transition: all .6s ease-in-out; }
+  transition: all 0.3s linear; }
 
 .menu-primary-menu {
   display: flex;
@@ -320,51 +315,36 @@ a.nav-link:hover .menu-shape {
 /* ------------------------------- GENERAL ---------------------------------- */
 /* newsbar-widget height on small screens */
 .body-wrap {
-  padding: .5rem;
+  position: fixed;
+  z-index: 8000;
+  padding: 0;
   background-color: #FFF;
   border: 2px solid black;
-  text-align: justify; }
+  text-align: justify;
+  margin: 0 auto;
+  width: auto;
+  left: 10px;
+  right: 10px;
+  top: 128px;
+  bottom: 104px;
+  height: auto; }
+
+.home-col {
+  height: 100%; }
 
 .page-wrapper {
   padding: 0;
   background: #fff; }
 
 .page-body {
-  padding: 1rem; }
+  padding: 1rem;
+  height: 336px; }
+  .page-body h2 {
+    margin-bottom: 0; }
 
-.home-col {
-  height: 100%; }
-
-/* -----------------------------------------------------------------------------
-                    ------------- NEWSBAR -------------
------------------------------------------------------------------------------ */
-/* ------------------------------ NEWSFLASH --------------------------------- */
-.newsflash-widget {
-  position: fixed;
-  top: 0;
-  white-space: nowrap;
-  width: 100%;
-  background-color: #0026ca;
-  height: 48px;
-  /* same as newsbar-widget */
-  border-bottom: 2px solid black;
-  border-top: 2px solid black; }
-  .newsflash-widget .textwidget {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%; }
-    .newsflash-widget .textwidget .mtphr-dnt-tick-contents {
-      color: #fff;
-      text-transform: uppercase; }
-
-/* ------------------------------- GENERAL ---------------------------------- */
+/* ------------------------------- NEWSBAR ---------------------------------- */
 .newsbar {
   flex-direction: column;
-  margin-top: 37px;
-  /* same as newsflash */
-  min-height: calc(5 * (48px));
-  /* 5 = # of rows */
   justify-content: space-between; }
   .newsbar .newsbar-link {
     transition: all 0.3s linear;
@@ -372,8 +352,8 @@ a.nav-link:hover .menu-shape {
     border-bottom: 2px solid black;
     width: 100%;
     margin: 0 auto;
-    padding: .25rem 1rem;
-    height: 58px; }
+    padding: 0.25rem 1rem;
+    height: 48px; }
     .newsbar .newsbar-link .newsbar-widget {
       flex-direction: row;
       align-items: center;
@@ -382,30 +362,40 @@ a.nav-link:hover .menu-shape {
       height: 100%;
       transition: all 0.3s linear; }
       .newsbar .newsbar-link .newsbar-widget .newsbar-title {
-        font-size: 5vw;
-        margin-bottom: 0;
-        width: 65%;
-        text-transform: uppercase;
-        margin-right: 1rem; }
+        font-size: 9vw;
+        margin: 0;
+        width: 100%;
+        text-transform: uppercase; }
       .newsbar .newsbar-link .newsbar-widget .textwidget {
-        display: flex;
-        flex-direction: row;
-        vertical-align: middle;
-        width: 90%;
-        font-size: 3.5vw; }
-        .newsbar .newsbar-link .newsbar-widget .textwidget p {
-          text-align: left;
-          font-weight: normal;
-          margin-bottom: 0;
-          line-height: 1;
-          font-size: 13px;
-          color: #000; }
+        display: none; }
   .newsbar i {
     padding-left: 1rem;
     font-size: 25px;
     color: #0026ca; }
 
-/* ------------- MAILCHIMP SUBSCRIBE ------------- */
+/* ------------------------------ NEWSFLASH --------------------------------- */
+.newsflash-widget {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fffa00;
+  height: 48px;
+  /* same as newsbar-widget */
+  border: none;
+  border-bottom: 2px solid black; }
+  .newsflash-widget .textwidget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; }
+    .newsflash-widget .textwidget .mtphr-dnt-tick-contents {
+      color: black;
+      text-transform: uppercase;
+      font-size: 2rem; }
+
+/* ------------------------------ MAILCHIMP --------------------------------- */
 #mc_embed_signup_scroll {
   display: flex;
   flex-direction: column;
@@ -427,7 +417,24 @@ a.nav-link:hover .menu-shape {
     background-color: #ff3399;
     transition: all 0.3s linear; }
 
-/* ------------- FOOTER ------------- */
+/* ------------------------------- SPONSORS --------------------------------- */
+.sponsor-row {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0; }
+  .sponsor-row .sponsor-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 300px;
+    margin-bottom: 1rem; }
+    .sponsor-row .sponsor-img img {
+      width: 66%;
+      height: 100%; }
+
+/* -----------------------------------------------------------------------------
+                      ------------- FOOTER -------------
+----------------------------------------------------------------------------- */
 .footer {
   display: flex;
   height: 94px;
@@ -551,7 +558,8 @@ a.nav-link:hover .menu-shape {
       transform-origin: -7% -8px; }
     .menu-button.active .the-burger {
       transition: all .4s linear;
-      border-color: #fff; }
+      border-color: #fff;
+      background-color: #fff; }
   .menu-button.active:hover .the-burger {
     border-color: #fffa00;
     background-color: #fffa00; }
@@ -560,21 +568,20 @@ a.nav-link:hover .menu-shape {
     top: 96px;
     bottom: 108px;
     left: 80px;
-    right: 80px; }
+    right: 80px;
+    width: auto; }
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
     opacity: 0;
     transition: all 1s ease-in-out;
     position: fixed;
-    width: auto;
     height: auto;
     margin: 0;
     transition: all 0.3s linear;
     border: 2px solid #fff; }
     .menu #menu-title {
       opacity: 0;
-      transition: all 0.3s linear;
-      text-align: center; }
+      transition: all 0.3s linear; }
   .menu.openSesame {
     display: block;
     z-index: 9000;
@@ -601,32 +608,13 @@ a.nav-link:hover .menu-shape {
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */
   /* ------------------------------- GENERAL ---------------------------------- */
-  .body-wrap {
-    position: fixed;
-    z-index: 8000;
-    padding: 0;
-    margin: 0; }
   .home-col {
     display: flex;
     flex-direction: row; }
   .page-body {
-    padding: 1rem 3rem; }
-  /* -----------------------------------------------------------------------------
-                    ------------- NEWSBAR -------------
------------------------------------------------------------------------------ */
-  /* ------------------------------ NEWSFLASH --------------------------------- */
-  .newsflash-widget {
-    position: relative;
-    height: 35px;
-    top: 0;
-    border-top: none;
-    border-right: 2px solid black;
-    width: 100%; }
-  .mtphr-dnt-tick-contents {
-    font-size: 1rem;
-    padding-left: 45%;
-    width: 100%; }
-  /* ------------------------------- GENERAL ---------------------------------- */
+    padding: 1rem 3rem;
+    height: 100%; }
+  /* ------------------------------- NEWSBAR ---------------------------------- */
   .newsbar,
   .newsbar-link,
   .newsbar .newsbar-link .newsbar-widget {
@@ -643,7 +631,7 @@ a.nav-link:hover .menu-shape {
       transition: all 0.3s linear;
       border-right: 2px solid black;
       height: 100%;
-      padding: .5rem .5rem .25rem 1rem; }
+      padding: 0.5rem 0.5rem 0.25rem 1rem; }
       .newsbar .newsbar-link .newsbar-widget {
         padding: 0;
         transition: all 0.3s linear;
@@ -652,6 +640,7 @@ a.nav-link:hover .menu-shape {
         height: 100%;
         width: 100%; }
         .newsbar .newsbar-link .newsbar-widget .textwidget {
+          display: block;
           width: 100%;
           height: auto;
           padding: 0;
@@ -659,7 +648,9 @@ a.nav-link:hover .menu-shape {
           .newsbar .newsbar-link .newsbar-widget .textwidget p {
             font-weight: normal;
             font-size: 1rem;
-            padding-right: 22px; }
+            padding-right: 22px;
+            line-height: 1rem;
+            text-align: left; }
         .newsbar .newsbar-link .newsbar-widget .newsbar-title {
           display: block;
           width: 100%;
@@ -680,16 +671,41 @@ a.nav-link:hover .menu-shape {
   .newsbar-link:hover {
     background: #fffa00;
     transition: all 0.3s linear; }
-    .newsbar-link:hover .textwidget {
-      color: #fff; }
     .newsbar-link:hover .newsbar-title {
-      color: #000;
       transition: all 0.3s linear; }
     .newsbar-link:hover .fa-angle-right {
       color: #ff3399;
       padding-left: 22.8%; }
   .newsbar .newsbar-link:last-child {
     border-bottom: none; }
+  /* ------------------------------- NEWSFLASH -------------------------------- */
+  .newsflash-widget {
+    position: relative;
+    height: 35px;
+    top: 0;
+    border-top: none;
+    border-right: 2px solid black;
+    width: 100%; }
+  .mtphr-dnt-tick-contents {
+    font-size: 1rem;
+    padding-left: 45%;
+    width: 100%; }
+  /* ------------------------------- SPONSORS --------------------------------- */
+  .sponsor-row {
+    flex-direction: row;
+    align-content: space-between;
+    margin: 1rem 0;
+    height: 150px; }
+    .sponsor-row .sponsor-img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 20%;
+      margin-bottom: 1rem; }
+      .sponsor-row .sponsor-img img {
+        width: 88%;
+        height: auto;
+        margin: 0 auto; }
   /* -----------------------------------------------------------------------------
                     ------------- PROJECTS PAGE -------------
 ----------------------------------------------------------------------------- */
