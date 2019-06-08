@@ -1,15 +1,14 @@
 <?php
 /*
-  Template Name: Page
+  Template Name: Staff
 */
 ?>
 <?php get_header(); ?>
-
-<div class="body-skin yel2ora">
-  <div class="body-wrap">
-  <div class="page-wrapper page-body scroll">
+<div class="scroll">
+  <div class="page-wrapper page-space">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <h2 class="page-title"><?php the_title(); ?></h2>
+    <hr>
     <?php the_content(); ?>
 
 
