@@ -28,6 +28,7 @@
 
     <div class="menu">
         <h4 id="menu-title">menu</h4>
+        <hr class="white-hr">
         <?php
         wp_nav_menu( array(
           'theme_location'    => 'primary',
@@ -40,4 +41,5 @@
           'walker'            => new WP_Bootstrap_Navwalker()
         ) );
         ?>
+
     </div> <!-- end #menu -->

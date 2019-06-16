@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
 
-  jQuery('.toggle-menu, .nav-link').on('click', function() {
+  jQuery('.toggle-menu').on('click', function() {
     jQuery('.menu').toggleClass('opensesame');
     jQuery(this).toggleClass('active')
   });
