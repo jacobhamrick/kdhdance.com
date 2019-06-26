@@ -37,10 +37,10 @@ function wpt_create_nextUp_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a  class="newsbar-link" href="/upcoming/"><div id="next-bar" class="newsbar-widget flex">',
+    'before_widget' => '<a  class="newsbar-link" href="/upcoming-performances/"><div id="next-bar" class="newsbar-widget flex">',
     'after_widget'  => '</div></a>',
     'before_title'  => '<p class="newsbar-title flex">',
-    'after_title'   => '<i class="fas fa-chevron-right"></i></p>',
+    'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
   ) );
 }
 wpt_create_nextUp_widget( 'Next Up', 'nextup', 'Next Up' );
@@ -51,10 +51,10 @@ function wpt_create_recent_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a class="newsbar-link" href="/dance/"><div id="recent-bar" class="newsbar-widget flex">',
+    'before_widget' => '<a class="newsbar-link" href="/dance-works/"><div id="recent-bar" class="newsbar-widget flex">',
     'after_widget'  => '</div></a>',
     'before_title'  => '<p class="newsbar-title flex">',
-    'after_title'   => '<i class="fas fa-chevron-right"></i></p>',
+    'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
   ) );
 }
 wpt_create_recent_widget( 'Recent', 'recent', 'Recent' );
@@ -68,7 +68,7 @@ function wpt_create_classes_widget( $name, $id, $description ) {
     'before_widget' => '<a class="newsbar-link" href="/classes/"><div id="class-bar" class="newsbar-widget flex">',
     'after_widget'  => '</div></a>',
     'before_title'  => '<p class="newsbar-title flex">',
-    'after_title'   => '<i class="fas fa-chevron-right"></i></p>',
+    'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
   ) );
 }
 wpt_create_classes_widget( 'Classes', 'classes', 'Classes' );
@@ -82,7 +82,7 @@ function wpt_create_outreach_widget( $name, $id, $description ) {
     'before_widget' => '<a  class="newsbar-link" href="/outreach/"><div id="outreach-bar" class="newsbar-widget flex">',
     'after_widget'  => '</div></a>',
     'before_title'  => '<p class="newsbar-title flex">',
-    'after_title'   => '<i class="fas fa-chevron-right"></i></p>',
+    'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
   ) );
 }
 wpt_create_outreach_widget( 'Outreach', 'outreach', 'Outreach' );
@@ -96,7 +96,7 @@ function wpt_create_contribute_widget( $name, $id, $description ) {
     'before_widget' => '<a  class="newsbar-link" href="/contribute/"><div id="contribute-bar" class="newsbar-widget flex">',
     'after_widget'  => '</div></a>',
     'before_title'  => '<p class="newsbar-title flex">',
-    'after_title'   => '<i class="fas fa-chevron-right"></i></p>',
+    'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
   ) );
 }
 wpt_create_contribute_widget( 'Contribute', 'contribute', 'Contribute' );
@@ -147,7 +147,7 @@ add_action( 'init', 'register_theme_menus');
     wp_enqueue_script( 'jQuery', 'https://code.jquery.com/jquery-3.3.1.min.js');
     wp_enqueue_script('text/js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js');
     wp_enqueue_script('text/js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js.map');
-  wp_enqueue_script( 'jquery-js', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ));
+    wp_enqueue_script( 'jquery-js', '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ));
     wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/js/bootstrap.js', true);
     wp_enqueue_script( 'myscript.js', get_template_directory_uri() . '/js/myscript.js');
 

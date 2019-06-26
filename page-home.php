@@ -10,6 +10,7 @@
   <div class="body-wrap flex">
     <div class="newsbar flex">
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
+        <i class="fas fa-chevron-right"></i>
       <?php endif; ?>
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Next Up") ) : ?>
       <?php endif; ?>

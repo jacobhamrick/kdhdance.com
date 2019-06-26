@@ -163,6 +163,10 @@ a:hover {
   background: linear-gradient(45deg, $yellow 0%, $orange 100%);
 }
 
+.whitekout {
+  background: #fff;
+}
+
 .flex-ends {
   align-self: flex-end;
 }
@@ -378,19 +382,39 @@ hr.white-hr {
 a.nav-link {
   text-transform: uppercase;
   color: #fff;
-  border-bottom: #fff $border-weight $border-type;
   .menu-shape {
     color: $yellow;
     opacity: 0.0;
-    float: right;
+    float: left;
     line-height: 22px;
+    margin-right: .5rem;
   }
 }
 
-a.nav-link:hover {
-  .menu-shape {
-  opacity: 1;
 
+ul.dropdown-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 0;
+  border-top: $border-type $border-weight #fff;
+  top: 0;
+  list-style: none;
+  padding: 0;
+  .dropdown-item {
+      color: #fff;
+      text-transform: uppercase;
+      margin-left: $page-padding;
+      padding: 0;
+      font-weight: 500;
+      width: 100%;
+      .menu-shape {
+        opacity: 0; /* remove bullet from list */
+    }
   }
 }
 
@@ -415,10 +439,31 @@ a.nav-link:hover {
   padding: 0;
 }
 
+.dropdown-toggle::after {
+  display: none; /* remove bootstrap arrow icon */
+}
+
+.dropdown-item:focus,
+a.dropdown-item:hover {
+    background: none;
+    color: $pink;
+}
+
+a.nav-link:hover {
+  .menu-shape {
+  opacity: 1;
+
+  }
+}
+
 .navbar-nav:last-child::after {
   content: 'Dance that moves you.';
   margin-top: auto;
+  margin-left: auto;
+  text-transform: uppercase;
+  font-style: italic;
 }
+
 /*
 --------------------------------------------------------------------------------
                    ------------- HOME PAGE -------------
@@ -590,6 +635,42 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 }
 
 
+
+
+/*
+--------------------------------------------------------------------------------
+                ------------- UPCOMING PAGE -------------
+--------------------------------------------------------------------------------
+*/
+
+#upcoming-season {
+  text-align: center;
+}
+
+.show-title {
+  font-weight: bold;
+}
+
+.upcoming-wrapper {
+  flex-direction: column;
+}
+
+.upcoming-show {
+  border-bottom: $borders;
+  width: 100%;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+                    ------------- DANCE WORKS -------------
+--------------------------------------------------------------------------------
+*/
+
+
+
+
+
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
@@ -640,6 +721,8 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 .projects-page div:last-child {
   border-left: none;
 }
+
+
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    ++++++++++++++++++++++++++++++ BIG SCREENS ++++++++++++++++++++++++++++++++++
@@ -809,42 +892,50 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
    opacity: 1;
    transition: $time;
   }
+  .menu-shape {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
+
 .menu #navbarSupportedContent {
   height: 88%;
 }
 
-  .navbar-nav {
+.navbar-nav {
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  .menu-item {
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    .menu-item {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items:flex-end;
-      border-bottom: #fff $border-type $border-weight;
+    justify-content: space-between;
+    align-items: center;
+    transition: $time;
+    height: auto;
+    width: 48%;
+    margin-left: .5rem;
+    a.nav-link {
+      font-size: 2.4vw;
+      line-height: 30px;
+      width: 100%;
+      height: 100%;
+      border: none;
       transition: $time;
-      height: 15%;
-      width: 25%;
-      a.nav-link {
-        font-size: 20px;
-        line-height: 20px;
-        width: 100%;
-        border: none;
-        transition: $time;
-      }
-      .nav-link:hover {
-        color: $pink;
-      }
+      margin-left: 5px;
     }
+    .nav-link:hover {
+      color: $pink;
+    }
+    }
+    ul.dropdown-menu {
+      margin-left: 62px;
+    }
+
   }
-
-
-
-
 
 /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
@@ -859,6 +950,10 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 .page-body {
   padding: $page-padding 3rem;
   height: 100%;
+}
+
+.page-title {
+  text-align: center;
 }
 
 /* -------------------------------- SWIPER ---------------------------------- */
@@ -925,10 +1020,11 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
           font-weight: bold;
           text-transform: uppercase;
         }
-        .fa-chevron-right {
-          padding-right:$page-padding;
+        .fa-arrow-circle-right {
+          padding-right: $page-padding;
+          opacity: 0;
           font-size: 20px;
-          margin-top: 23%;
+          transition: $time;
         }
       }
     }
@@ -938,13 +1034,16 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
 
   .newsbar-link:hover {
+    display: block;
     background: $yellow;
     transition: $time;
     .newsbar-title {
       transition: $time;
-    }
-    .fa-chevron-right {
-      color: $pink;
+      .fa-arrow-circle-right {
+        opacity: 1;
+        color: $primary-color;
+        transition: $time;
+      }
     }
   }
 
@@ -1021,9 +1120,40 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     }
   }
 
-/* -----------------------------------------------------------------------------
-                    ------------- PROJECTS PAGE -------------
------------------------------------------------------------------------------ */
+
+/*
+--------------------------------------------------------------------------------
+                ------------- UPCOMING PAGE -------------
+--------------------------------------------------------------------------------
+*/
+
+  #upcoming-season {
+    text-align: center;
+  }
+
+  .upcoming-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .upcoming-show {
+    border-bottom: none;
+    padding: 0 $page-padding;
+  }
+
+  .upcoming-show:nth-child(2) {
+    border-left: $borders;
+    border-right: $borders;
+  }
+
+
+
+  /*
+  --------------------------------------------------------------------------------
+                      ------------- DANCE WORKS -------------
+  --------------------------------------------------------------------------------
+  */
+
   .projects-page {
     padding: 0;
     display: flex;
@@ -1041,6 +1171,7 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
       overflow-y: auto;
     }
   }
+
 
 
 /* -----------------------------------------------------------------------------
