@@ -382,41 +382,20 @@ hr.white-hr {
 a.nav-link {
   text-transform: uppercase;
   color: #fff;
-  .menu-shape {
-    color: $yellow;
-    opacity: 0.0;
-    float: left;
-    line-height: 22px;
-    margin-right: .5rem;
-  }
+  margin-left: .5rem;
+  transition: $time;
 }
 
-
-ul.dropdown-menu {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  background: none;
-  border: none;
-  border-radius: 0;
-  border-top: $border-type $border-weight #fff;
-  top: 0;
-  list-style: none;
-  padding: 0;
-  .dropdown-item {
-      color: #fff;
-      text-transform: uppercase;
-      margin-left: $page-padding;
-      padding: 0;
-      font-weight: 500;
-      width: 100%;
-      .menu-shape {
-        opacity: 0; /* remove bullet from list */
-    }
-  }
+.menu-shape {
+  color: $yellow;
+  font-size: 13px;
+  opacity: 0.0;
+  float: left;
+  line-height: 26px;
+  transition: $time;
+  margin-right: .25rem;
 }
+
 
 /* color of current menu-item */
 .navbar-nav .active > .nav-link,
@@ -424,6 +403,10 @@ ul.dropdown-menu {
 .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
   color: $pink;
+  .menu-shape {
+    opacity: 1;
+    color: $pink;
+  }
 }
 
 .navbar-nav .active > .nav-link:hover,
@@ -439,29 +422,73 @@ ul.dropdown-menu {
   padding: 0;
 }
 
+a.nav-link:hover {
+  color: $pink;
+  .menu-shape {
+  opacity: 1;
+  }
+}
+
+.navbar-nav:last-child::after {
+  content: 'Dance that moves you.';
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.dropdown-toggle.nav-link,
+.dropdown-toggle.nav-link:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
 .dropdown-toggle::after {
   display: none; /* remove bootstrap arrow icon */
+}
+
+a.dropdown-toggle.nav-link:hover {
+  .menu-shape {
+    opacity: 0;
+  }
+}
+
+ul.dropdown-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 0;
+  top: 0;
+  list-style: none;
+  padding: 0;
+  .dropdown-item {
+      color: #fff;
+      text-transform: uppercase;
+      margin-left: $page-padding;
+      padding: 0;
+      font-weight: 500;
+      width: 100%;
+      margin-left: 1.5rem;
+      .menu-shape {
+        opacity: 0; /* remove bullet from list */
+
+        color: $yellow;
+    }
+  }
+  .dropdown-item:hover {
+    .menu-shape {
+      opacity: 1;
+    }
+  }
 }
 
 .dropdown-item:focus,
 a.dropdown-item:hover {
     background: none;
     color: $pink;
-}
-
-a.nav-link:hover {
-  .menu-shape {
-  opacity: 1;
-
-  }
-}
-
-.navbar-nav:last-child::after {
-  content: 'Dance that moves you.';
-  margin-top: auto;
-  margin-left: auto;
-  text-transform: uppercase;
-  font-style: italic;
 }
 
 /*
@@ -918,6 +945,9 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     height: auto;
     width: 48%;
     margin-left: .5rem;
+    a.dropdown-toggle {
+      margin-left: 62px;
+    }
     a.nav-link {
       font-size: 2.4vw;
       line-height: 30px;
@@ -930,12 +960,12 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
     .nav-link:hover {
       color: $pink;
     }
-    }
-    ul.dropdown-menu {
-      margin-left: 62px;
-    }
 
   }
+  ul.dropdown-menu {
+    margin-left: 62px;
+  }
+}
 
 /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
