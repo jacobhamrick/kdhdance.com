@@ -305,25 +305,6 @@ a.nav-link {
   transition: all 0.3s linear;
   margin-right: .25rem; }
 
-/* color of current menu-item */
-.navbar-nav .active > .nav-link,
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .show > .nav-link {
-  color: #ff3399; }
-  .navbar-nav .active > .nav-link .menu-shape,
-  .navbar-nav .nav-link.active .menu-shape,
-  .navbar-nav .nav-link.show .menu-shape,
-  .navbar-light .navbar-nav .show > .nav-link .menu-shape {
-    opacity: 1;
-    color: #ff3399; }
-
-.navbar-nav .active > .nav-link:hover,
-.navbar-nav .nav-link.active:hover,
-.navbar-nav .nav-link.show:hover,
-.navbar-light .navbar-nav .show > .nav-link:hover {
-  color: #9a3eeb; }
-
 .navbar .navbar-nav a.nav-link {
   font-size: 2em;
   padding: 0; }
@@ -739,6 +720,12 @@ a.dropdown-item:hover {
         color: #ff3399; }
     .navbar-nav ul.dropdown-menu {
       margin-left: 62px; }
+  .current-menu-item.active {
+    color: #ff3399; }
+    .current-menu-item.active a {
+      color: #ff3399; }
+      .current-menu-item.active a .fas {
+        opacity: 1; }
   /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */

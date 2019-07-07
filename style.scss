@@ -396,27 +396,6 @@ a.nav-link {
   margin-right: .25rem;
 }
 
-
-/* color of current menu-item */
-.navbar-nav .active > .nav-link,
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .show > .nav-link {
-  color: $pink;
-  .menu-shape {
-    opacity: 1;
-    color: $pink;
-  }
-}
-
-.navbar-nav .active > .nav-link:hover,
-.navbar-nav .nav-link.active:hover,
-.navbar-nav .nav-link.show:hover,
-.navbar-light .navbar-nav .show > .nav-link:hover  {
-  color: $hover-color;
-}
-
-
 .navbar .navbar-nav a.nav-link {
   font-size: 2em;
   padding: 0;
@@ -964,6 +943,16 @@ $nbw-height-s: 48px; /* newsbar-widget height on small screens */
   }
   ul.dropdown-menu {
     margin-left: 62px;
+  }
+}
+
+.current-menu-item.active {
+  color: $pink;
+  a {
+    color: $pink;
+    .fas {
+      opacity: 1;
+    }
   }
 }
 
