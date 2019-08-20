@@ -6,8 +6,8 @@
 
 <?php get_header(); ?>
 
-<div class="body-skin pink2blue">
-  <div class="body-wrap flex">
+<main>
+
     <div class="newsbar flex">
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
         <i class="fas fa-chevron-right"></i>
@@ -23,7 +23,8 @@
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Contribute") ) : ?>
       <?php endif; ?>
       </div>
-      <div class="scroll">
+
+      <div class="main-body scroll">
         <!-- Slider main container -->
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -49,49 +50,80 @@
       	</div> <!-- end swiper-container -->
         <div class="page-body">
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <h2><?php the_title(); ?></h2>
-            <hr>
+            <!-- <h2><?php the_title(); ?></h2>
+            <hr> -->
             <?php the_content(); ?>
-            <h2>SPONSORS</h2>
-            <hr>
-            <div class="sponsor-row sr-1">
-              <div class="sponsor-img">
-                <img src="<?php the_field('sr-1-1'); ?>" />
-              </div>
-              <div class="sponsor-img">
-                <img src="<?php the_field('sr-1-2'); ?>" />
-              </div>
-              <div class="sponsor-img">
-                <img src="<?php the_field('sr-1-3'); ?>" />
-              </div>
-              <div class="sponsor-img">
-                <img src="<?php the_field('sr-1-4'); ?>" />
-              </div>
-              <div class="sponsor-img">
-                <img src="<?php the_field('sr-1-5'); ?>" />
-              </div>
-            </div> <!-- end sponsor-row-->
 
-          <div class="sponsor-row sr-2">
-            <div class="sponsor-img">
-              <img src="<?php the_field('sr-2-1'); ?>" />
-            </div>
-            <div class="sponsor-img">
-              <img src="<?php the_field('sr-2-2'); ?>" />
-            </div>
-            <div class="sponsor-img">
-              <img src="<?php the_field('sr-2-3'); ?>" />
-            </div>
-            <div class="sponsor-img">
-              <img src="<?php the_field('sr-2-4'); ?>" />
-            </div>
-            <div class="sponsor-img">
-              <img src="<?php the_field('sr-2-5'); ?>" />
-            </div>
-          </div> <!-- end sponsor-row-->
-        </div> <!-- end page-body -->
-      </div> <!-- end page-scroll -->
-    <?php endwhile; endif; ?>
-  </div> <!-- end body-wrap -->
-</div> <!-- end body-skin -->
+            <section id="sponsor-section">
+              <h2>SPONSORS</h2>
+              <hr>
+              <div id="sponsor-wrapper">
+                <div class="sponsor-row sr-1">
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-1-1'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-1-2'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-1-3'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-1-4'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-1-5'); ?>" />
+                  </div>
+                </div> <!-- end sponsor-row-->
+
+                <div class="sponsor-row sr-2">
+                <div class="sponsor-img">
+                  <img src="<?php the_field('sr-2-1'); ?>" />
+                </div>
+                <div class="sponsor-img">
+                  <img src="<?php the_field('sr-2-2'); ?>" />
+                </div>
+                <div class="sponsor-img">
+                  <img src="<?php the_field('sr-2-3'); ?>" />
+                </div>
+                <div class="sponsor-img">
+                  <img src="<?php the_field('sr-2-4'); ?>" />
+                </div>
+                <div class="sponsor-img">
+                  <img src="<?php the_field('sr-2-5'); ?>" />
+                </div>
+                </div> <!-- end sponsor-row-->
+              </div> <!-- end sponsor-wrapper -->
+            </section>
+
+        </div>
+
+      </div> <!-- end main-body -->
+      <?php endwhile; endif; ?>
+
+
+</main>
 <?php get_footer(); ?>
+</div> <!-- end page-body -->
+<script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    effect: 'fade',
+    preloadImages: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })
+  </script>
+  </body>
+</html>

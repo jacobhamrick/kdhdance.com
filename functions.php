@@ -102,6 +102,7 @@ function wpt_create_contribute_widget( $name, $id, $description ) {
 wpt_create_contribute_widget( 'Contribute', 'contribute', 'Contribute' );
 
 
+
 // -------------------------------- NAVWALKER ----------------------------------
 require_once('class-wp-bootstrap-navwalker.php');
 add_action( 'init', 'register_theme_menus');

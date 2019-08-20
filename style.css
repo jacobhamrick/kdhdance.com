@@ -12,16 +12,10 @@ I hope to empower creatives and small businesses.
 */
 /* ------------- GENERAL ------------- */
 /* padding of navbars, page sections, etc */
-html, body {
-  margin: 0;
-  height: 100%; }
-
 body {
   font-family: "Helvetica Neue";
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
   color: black;
   background-color: #FFF;
   overflow: hidden;
@@ -31,11 +25,11 @@ body {
 body.logged-in {
   padding-top: 0; }
 
-.body-skin {
-  position: fixed;
-  z-index: 0;
-  height: 100vh;
-  width: 100vw; }
+#body-wrapper {
+  margin: 1rem;
+  border: 2px solid black;
+  height: calc(100% - (1rem * 2));
+  width: calc(100% - (1rem * 2)); }
 
 textarea:focus,
 input[type="text"]:focus,
@@ -152,7 +146,7 @@ a:hover {
 .scroll {
   overflow-y: scroll;
   width: 100%;
-  height: 100%; }
+  height: 100vh; }
 
 .hideMe {
   display: none; }
@@ -181,71 +175,68 @@ hr.white-hr {
   height: 70px;
   background-color: #FFF;
   padding: 0;
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid black;
+  margin: auto 0;
+  padding: 0 1rem; }
   #sticky-nav .title-wrapper {
-    position: relative;
-    height: 100%;
     align-items: center;
     flex-direction: row;
-    padding: 1rem; }
-    #sticky-nav .title-wrapper h2 {
-      color: #ff3399;
-      font-size: 2.7rem;
-      margin-bottom: 0;
-      font-weight: bold;
-      line-height: 2.7rem;
-      margin-right: calc(1rem / 2); }
-    #sticky-nav .title-wrapper h2:first-child {
-      color: #0026ca; }
+    justify-content: space-between;
+    height: 30px;
+    width: 100%; }
+    #sticky-nav .title-wrapper #nav-text {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: 700; }
+      #sticky-nav .title-wrapper #nav-text .blue {
+        letter-spacing: 8px; }
+      #sticky-nav .title-wrapper #nav-text .pink {
+        letter-spacing: 2px; }
 
-.blue {
-  letter-spacing: 8px; }
-
-.pink {
-  letter-spacing: 2px; }
-
-/* ------------------------------ BURGER BUTTON ----------------------------- */
+/* -------------------------------- MENU BUTTON ----------------------------- */
 .menu-button {
-  position: fixed;
-  right: .5rem;
-  top: 6px;
+  flex-direction: column;
+  justify-content: space-between;
+  right: 1.5rem;
   border: none;
   border-radius: 0;
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 30px;
   float: right;
-  padding: 1rem 0.5rem;
-  margin-left: auto;
   transition: all 0.3s linear; }
+  .menu-button span {
+    display: block;
+    height: calc(2px * 3);
+    width: 100%;
+    background-color: #000;
+    border-radius: 5px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out; }
 
-.burger-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 44px;
-  margin-right: 0; }
-
-/* the burger in the box */
-.the-burger {
-  border: 2px solid black;
-  background: black;
-  margin: 0;
-  transition: all .4s linear; }
+.menu-button:hover span {
+  background-color: #0026ca; }
 
 /* Burger Animation - Turn burger into X */
 .menu-button.active {
   transition: all .4s linear;
   border-bottom: none; }
-  .menu-button.active .top-bun {
+  .menu-button.active hr:nth-child(1) {
     transform: rotate(40deg);
-    transform-origin: 12% 6px; }
-  .menu-button.active .goods {
+    transform-origin: -2% -2px; }
+  .menu-button.active hr:nth-child(2) {
     opacity: 0; }
-  .menu-button.active .bottom-bun {
+  .menu-button.active hr:nth-child(3) {
     transform: rotate(-40deg);
-    transform-origin: 9% -3px; }
+    transform-origin: 4% 5px; }
 
 .menu-button .top-bun {
   transform: rotate(0); }
@@ -257,18 +248,16 @@ hr.white-hr {
   transform: rotate(0); }
 
 /* ------------------------------ TOGGLE MENU ------------------------------- */
-.navbar {
-  display: block; }
-
 .menu {
+  display: none;
   background-color: #0026ca;
   padding: 1rem;
   color: #fff;
-  left: 100%;
-  margin-top: 70px;
-  height: 100%;
   position: fixed;
-  width: 100%;
+  top: calc(70px + 1rem);
+  bottom: 1rem;
+  width: calc(100% - ( ( 1rem) + 2px ) * 2);
+  margin: 2px 0;
   transition: all 0.3s linear; }
   .menu #navbarSupportedContent {
     height: 100%; }
@@ -277,7 +266,7 @@ hr.white-hr {
 
 .menu.openSesame {
   display: block;
-  left: 0;
+  left: calc(1rem + 2px);
   transition: all 0.3s linear; }
 
 .menu-primary-menu {
@@ -371,8 +360,7 @@ a.dropdown-item:hover {
 */
 /* ------------------------------- GENERAL ---------------------------------- */
 /* newsbar-widget height on small screens */
-.body-wrap {
-  position: fixed;
+main {
   display: flex;
   flex-direction: column;
   z-index: 8000;
@@ -381,11 +369,9 @@ a.dropdown-item:hover {
   text-align: justify;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
-  top: 70px;
-  bottom: 104px; }
-  .body-wrap .scroll {
-    margin-bottom: 163px; }
+  height: calc(100vh - ( 70px + (1rem * 2) + 70px + (2px * 2))); }
+  main .main-body {
+    height: 100%; }
 
 .page-wrapper {
   padding: 0;
@@ -393,9 +379,7 @@ a.dropdown-item:hover {
 
 .page-body {
   padding: 1rem;
-  height: auto; }
-  .page-body h2 {
-    margin-bottom: 0; }
+  height: 100%; }
 
 /* -------------------------------- SWIPER ---------------------------------- */
 .swiper-container {
@@ -491,14 +475,18 @@ a.dropdown-item:hover {
     transition: all 0.3s linear; }
 
 /* ------------------------------- SPONSORS --------------------------------- */
-.sponsor-row {
+#sponsor-wrapper {
   display: flex;
-  flex-direction: column;
-  margin: 1rem 0; }
-  .sponsor-row .sponsor-img {
-    margin-bottom: 1rem; }
-    .sponsor-row .sponsor-img img {
-      width: 100%; }
+  flex-direction: row; }
+  #sponsor-wrapper .sponsor-row {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1rem; }
+    #sponsor-wrapper .sponsor-row .sponsor-img {
+      margin-bottom: 1rem; }
+      #sponsor-wrapper .sponsor-row .sponsor-img img {
+        width: 100%; }
 
 /*
 --------------------------------------------------------------------------------
@@ -526,35 +514,35 @@ a.dropdown-item:hover {
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
-.footer {
-  display: flex;
-  height: 94px;
-  position: fixed;
-  bottom: 0;
-  background: #fff;
-  flex-shrink: 0;
-  flex-direction: column;
-  border-top: 2px solid black;
+footer {
+  flex-direction: column-reverse;
+  justify-content: space-between;
   align-items: center;
-  padding: 1em 0;
+  z-index: 9000;
+  height: 70px;
+  background: #fff;
+  border-top: 2px solid black;
+  padding: 1rem;
   margin: 0;
-  min-width: 100%; }
-  .footer .footer-col {
+  width: 100%; }
+  footer .footer-col {
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: .5rem;
-    text-align: center; }
-    .footer .footer-col .textwidget {
-      font-size: .7rem;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 0; }
+    footer .footer-col .textwidget {
+      font-size: 1rem;
       width: 100%; }
-  .footer .module-heading {
+  footer .module-heading {
     margin-bottom: 0; }
 
 .sm-flex {
-  width: 50%;
-  margin: 0 auto;
+  width: 66%;
+  margin: 0;
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   font-size: 1.4em; }
@@ -574,7 +562,7 @@ a.dropdown-item:hover {
 @media screen and (min-width: 783px) {
   body.logged-in {
     padding-top: 0; }
-    body.logged-in .body-wrap,
+    body.logged-in main,
     body.logged-in .menu,
     body.logged-in .menu.opensesame {
       top: 130px; }
@@ -652,15 +640,6 @@ a.dropdown-item:hover {
   .menu-button.active:hover .the-burger {
     border-color: #fffa00;
     background-color: #fffa00; }
-  .menu,
-  .body-wrap {
-    position: fixed;
-    height: auto;
-    top: 96px;
-    bottom: 108px;
-    left: 33px;
-    right: 33px;
-    width: auto; }
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
     opacity: 0;
@@ -681,7 +660,7 @@ a.dropdown-item:hover {
     opacity: 1;
     transition: all 0.3s linear;
     left: 33px;
-    /* needs to match body-wrap */ }
+    /* needs to match main */ }
     .menu.openSesame #menu-title {
       opacity: 1;
       transition: all 0.3s linear; }
@@ -720,22 +699,13 @@ a.dropdown-item:hover {
         color: #ff3399; }
     .navbar-nav ul.dropdown-menu {
       margin-left: 62px; }
-  .current-menu-item.active {
-    color: #ff3399; }
-    .current-menu-item.active a {
-      color: #ff3399; }
-      .current-menu-item.active a .fas {
-        opacity: 1; }
   /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */
   /* ------------------------------- GENERAL ---------------------------------- */
-  .body-wrap {
+  main {
     border: 2px solid black;
     flex-direction: row; }
-  .page-body {
-    padding: 1rem 3rem;
-    height: 100%; }
   .page-title {
     text-align: center; }
   /* -------------------------------- SWIPER ---------------------------------- */
@@ -760,7 +730,7 @@ a.dropdown-item:hover {
       transition: all 0.3s linear;
       border-right: 2px solid black;
       border-bottom: 2px solid black;
-      height: 100%;
+      height: auto;
       padding: 1vh 0.1vh 0.25vh 1rem; }
       .newsbar .newsbar-link .newsbar-widget {
         padding: 0;
@@ -878,9 +848,9 @@ a.dropdown-item:hover {
   /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
-  .footer {
+  footer {
     z-index: 8000;
     flex-direction: row;
     height: 80px; }
-  .footer .footer-col .textwidget {
+  footer .footer-col .textwidget {
     font-size: 1rem; } }

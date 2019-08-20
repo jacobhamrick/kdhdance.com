@@ -128,6 +128,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 			if ( in_array( 'current-menu-item', $classes, true ) || in_array( 'current-menu-parent', $classes, true ) ) {
 				$classes[] = 'active';
+
 			}
 			// Add some additional default classes to the item.
 			$classes[] = 'menu-item-' . $item->ID;
@@ -165,7 +166,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			// If item has_children add atts to <a>.
 			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
 				$atts['href']          = '#';
-				// $atts['data-toggle']   = 'dropdown';
+				$atts['data-toggle']   = '';
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'true'; /* custome edit */
 				$atts['class']         = 'dropdown-toggle nav-link';

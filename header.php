@@ -13,20 +13,24 @@
   </head>
 
 
-  <body <?php body_class(); ?>>
-    <nav id="sticky-nav" class="sticky navbar flex">
-        <a class="title-wrapper flex" href="<?php bloginfo('url'); ?>">
-          <h2 class="nav-text blue">K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
-          </h2>
-          <h2 class="nav-text pink">Dance</h2>
-        </a> <!-- end title-wrapper -->
+  <body <?php body_class("pink2blue"); ?>>
+    <div id="body-wrapper">
+    <header>
+      <nav id="sticky-nav" class="sticky navbar flex">
+        <div class="title-wrapper flex">
+          <a id="nav-text" class="flex" href="<?php bloginfo('url'); ?>">
+            <span class="blue">K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
+            </span>
+            <span class="pink">Dance</span>
+          </a>
+          <div class="menu-button toggle-menu flex" role="navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+      </div> <!-- end title-wrapper -->
     </nav>
-    <div class="menu-button toggle-menu">
-        <div class="burger-box"><hr class="the-burger top-bun"><hr class="the-burger goods"><hr class="the-burger bottom-bun"></div>
-    </div>
-
-
-    <div class="menu">
+    <div class="menu" role="menu">
         <h4 id="menu-title">menu</h4>
         <?php
         wp_nav_menu( array(
@@ -40,5 +44,5 @@
           'walker'            => new WP_Bootstrap_Navwalker()
         ) );
         ?>
-
     </div> <!-- end #menu -->
+  </header>
