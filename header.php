@@ -13,7 +13,7 @@
   </head>
 
 
-  <body <?php body_class("pink2blue"); ?>>
+  <body <?php body_class(""); ?>>
     <div id="body-wrapper">
     <header>
       <nav id="sticky-nav" class="sticky navbar flex">

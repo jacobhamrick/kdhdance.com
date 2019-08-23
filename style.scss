@@ -13,18 +13,20 @@ I hope to empower creatives and small businesses.
 
 /* ------------- GENERAL ------------- */
 $primary-color: rgba(0,0,0,1);
-$pink: rgba(255,51,153,1);
-$blue: rgba(0,38,202,1);
+$pink: rgb(212,0,200);
+$blue: rgb(22,34,219);
 $yellow: rgba(255,250,0,1);
 $purple: #7B3FFC;
-$green: #97FF00;
+$green: #42D400;
 $orange: rgba(255,150,42,1);
 $light-blue: #00C7FF;
 $background-color: #FFF;
 $hover-color: #9a3eeb;
+$pink2blue: linear-gradient(0deg,$pink 0%, $blue 50%);
 $border-type: solid;
 $border-weight: 2px;
 $borders: $border-weight $border-type $primary-color;
+$body-curve: 30px;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
 $navbar-height-sm: 70px;
 $navbar-height-lg: 120px;
@@ -40,7 +42,7 @@ body {
   width: 100%;
   height: 100vh;
   color: $primary-color;
-  background-color: $background-color;
+  background: $green;
   overflow: hidden;
   transition: $time;
   border: none;
@@ -52,7 +54,7 @@ body.logged-in {
 
 #body-wrapper {
   margin: $page-padding;
-  border: $borders;
+  border: none;
   height: calc(100% - (#{$page-padding} * 2));
   width: calc(100% - (#{$page-padding} * 2));
 }
@@ -145,16 +147,6 @@ a:hover {
   color: $pink;
 }
 
-.pink2blue {
-  background: $pink;
-  background: linear-gradient(45deg, $pink 0%, $blue 100%);
-}
-
-.yel2ora {
-  background: $orange;
-  background: linear-gradient(45deg, $yellow 0%, $orange 100%);
-}
-
 .whitekout {
   background: #fff;
 }
@@ -219,6 +211,22 @@ hr.white-hr {
 }
 
 
+header,
+#sticky-nav {
+  border-top-left-radius: $body-curve;
+  border-top-right-radius: $body-curve;
+  background: $background-color;
+}
+
+footer {
+  border-bottom-left-radius: $body-curve;
+  border-bottom-right-radius: $body-curve;
+  background: $background-color;
+}
+
+#body-wrapper {
+  border-radius: $body-curve;
+}
 /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
@@ -233,10 +241,8 @@ hr.white-hr {
 #sticky-nav {
   position: relative;
   height: $navbar-height-sm;
-  background-color: $background-color;
   padding: 0;
   border-bottom: $borders;
-  margin: auto 0;
   padding: 0 $page-padding;
   .title-wrapper {
     align-items: center;
@@ -244,10 +250,14 @@ hr.white-hr {
     justify-content: space-between;
     height: 30px;
     width: 100%;
+    margin: auto 0;
     #nav-text {
+      align-items: center;
+      height: 30px;
       font-size: 2.5rem;
       text-transform: uppercase;
       font-weight: 700;
+      transition: $time;
       .blue  {
         letter-spacing: 8px;
       }
@@ -256,6 +266,10 @@ hr.white-hr {
       }
     }
   }
+}
+
+#nav-text:hover {
+  background-color: $yellow;
 }
 
 /* -------------------------------- MENU BUTTON ----------------------------- */
@@ -453,6 +467,13 @@ ul.dropdown-menu {
 a.dropdown-item:hover {
     background: none;
     color: $pink;
+}
+
+.menu-item.current-menu-item a {
+  color: $pink;
+  .menu-shape {
+    opacity: 1;
+  }
 }
 
 /*
