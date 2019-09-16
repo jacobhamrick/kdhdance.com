@@ -31,7 +31,6 @@
       </div> <!-- end title-wrapper -->
     </nav>
     <div class="menu" role="menu">
-        <h4 id="menu-title">menu</h4>
         <?php
         wp_nav_menu( array(
           'theme_location'    => 'primary',

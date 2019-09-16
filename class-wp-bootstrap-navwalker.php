@@ -166,7 +166,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			// If item has_children add atts to <a>.
 			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
 				$atts['href']          = '#';
-				$atts['data-toggle']   = 'dropdown';
+				$atts['data-toggle']   = 'none'; /* custome edit */
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'true'; /* custome edit */
 				$atts['class']         = 'dropdown-toggle nav-link';
@@ -209,7 +209,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$item_output .= self::linkmod_element_open( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
-				$item_output .= '<a' . $attributes . '><i class="fas fa-circle menu-shape"></i>';
+				$item_output .= '<a' . $attributes . '>';
 			}
 			/**
 			 * Initiate empty icon var, then if we have a string containing any
@@ -255,7 +255,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$item_output .= self::linkmod_element_close( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
-				$item_output .= '</a>';
+				$item_output .= '<i class="fas fa-long-arrow-alt-left menu-shape"></i></a>';
 			}
 			$item_output .= isset( $args->after ) ? $args->after : '';
 			/**
