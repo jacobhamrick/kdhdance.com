@@ -5,9 +5,9 @@
 ?>
 <?php get_header(); ?>
 
-<div class="body-skin pink2blue">
-  <div class="body-wrap flex">
-    <div class="page-body scroll">
+<main>
+  <div class="main-body scroll">
+    <div class="page-body">
       <h2 id="upcoming-season">Season <?php the_field('season_num'); ?></h2>
       <hr>
       <div class="upcoming-wrapper flex">
@@ -38,9 +38,5 @@
     <!-- end page-body -->
       <?php endwhile; endif; ?>
   </div>
-  <!-- end body-wrap -->
-</div>
-<!-- end body-skin -->
-
-
+</main>
 <?php get_footer(); ?>
