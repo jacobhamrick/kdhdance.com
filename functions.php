@@ -37,7 +37,7 @@ function wpt_create_nextUp_widget( $name, $id, $description ) {
     'name'          => __( $name ),
     'id'            => $id,
     'description'   => __( $description ),
-    'before_widget' => '<a  class="newsbar-link" href="/upcoming-performances/"><div id="next-bar" class="newsbar-widget flex">',
+    'before_widget' => '<div id="newsbar-link-container"><a  class="newsbar-link" href="/upcoming-performances/"><div id="next-bar" class="newsbar-widget flex">',
     'after_widget'  => '</div></a>',
     'before_title'  => '<p class="newsbar-title flex">',
     'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
@@ -94,7 +94,7 @@ function wpt_create_contribute_widget( $name, $id, $description ) {
     'id'            => $id,
     'description'   => __( $description ),
     'before_widget' => '<a  class="newsbar-link" href="/contribute/"><div id="contribute-bar" class="newsbar-widget flex">',
-    'after_widget'  => '</div></a>',
+    'after_widget'  => '</div></a></div>', //last div is for newsbar-link-container from 'next up'
     'before_title'  => '<p class="newsbar-title flex">',
     'after_title'   => '<i class="fas fa-arrow-circle-right"></i></p>',
   ) );

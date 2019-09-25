@@ -29,11 +29,8 @@ $border-weight: 2px;
 $borders: $border-weight $border-type $primary-color;
 $body-curve: 15px;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
-$navbar-height-sm: 70px;
-$navbar-height-lg: 120px;
-$footer-height: 6em;
-$footer-height-sm: 70px;
-$footer-height-lg: 80px;
+$navbar-height: 70px;
+$footer-height: 70px;
 $time: all 0.3s linear;
 $main-font: "Helvetica Neue";
 $shadow: 5px 5px 0px 0px rgba(0,0,0,1);
@@ -267,7 +264,7 @@ footer {
 }
 #sticky-nav {
   position: relative;
-  height: $navbar-height-sm;
+  height: $navbar-height;
   border: $borders;
   padding: 0;
   padding-left: calc(#{$page-padding} );
@@ -369,7 +366,7 @@ footer {
   background-color: $dark-blue;
   color: #fff;
   position: fixed;
-  top: calc(#{$navbar-height-sm} + (#{$page-padding} / 2));
+  top: calc(#{$navbar-height} + (#{$page-padding} / 2));
   bottom: 5.1rem;
   width: calc(100% - ( #{$page-padding} ) - (#{$border-weight} * 2));
   transition: $time;
@@ -515,7 +512,7 @@ main {
   // text-align: justify;
   margin: 0 auto;
   width: 100%;
-  height: calc(100vh - ( #{$navbar-height-sm} + (#{$page-padding}) + #{$footer-height-sm} + (#{$border-weight} * 2));
+  height: calc(100vh - ( #{$navbar-height} + (#{$page-padding}) + #{$footer-height} + (#{$border-weight} * 2));
   .main-body {
     height: 100%;
   }
@@ -589,31 +586,6 @@ main {
 
 .newsbar {
   display: none;
-}
-
-/* ------------------------------ NEWSFLASH --------------------------------- */
-
-.newsflash-widget {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  margin: 0 auto;
-  background-color: $yellow;
-  height: $nbw-height-s; /* same as newsbar-widget */
-  border: none;
-  border-bottom: $borders;
-  .textwidget {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    .mtphr-dnt-tick-contents {
-      color: $primary-color;
-      text-transform: uppercase;
-      font-size: 2rem;
-    }
-  }
 }
 
 
@@ -711,7 +683,7 @@ footer {
   align-items: center;
   border: $borders;
   z-index: 9000;
-  height: $footer-height-sm;
+  height: $footer-height;
   background: #fff;
   padding: 6px;
   margin: 0;
@@ -782,8 +754,8 @@ footer {
 
   .admin-bar #sticky-nav {
      top: 32px; /* accomodates admin bar when user logged in */
-     min-height: $navbar-height-sm;
-     max-height: $navbar-height-sm;
+     // min-height: $navbar-height;
+     // max-height: $navbar-height;
      position: sticky;
   }
 
@@ -795,6 +767,12 @@ footer {
     padding: 0;
   }
 
+
+  #body-wrapper {
+    margin: 1.5rem;
+    height: calc(100% - 3rem);
+    width: calc(100% - 3rem)
+  }
 /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
@@ -806,111 +784,56 @@ footer {
   }
 
   #sticky-nav {
-    background-color: #fff;
-    border-bottom: $borders;
     .title-wrapper {
-      background-color: #fff;
-      padding-right: $page-padding;
-      border-right: $borders;
-      width: calc(100% - 76px); // 100px - width of menu-button
-      transition: $time;
-      .nav-text {
-        letter-spacing: 0px;
+      height: auto;
+      margin: 0;
+      #nav-text {
         width: auto;
         font-size: 5vw;
+        height: 5vw;
       }
       .blue {
-        color: $blue;
+        letter-spacing: normal;
       }
       .pink {
-        color: $pink;
+        letter-spacing: normal;
       }
     }
-    .title-wrapper:hover {
-      background-color: $yellow;
-      transition: $time;
-    }
-  }
-  #sticky-nav .title-wrapper h2:first-child{
-    margin-right:0;
   }
 
   .hideme {
     margin-right: $page-padding;
   }
 
-
-
 /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     top: 0;
     right: 0;
-    width: 76px;
-    height: calc(#{$navbar-height-sm} - #{$border-weight});
-    padding-right: $page-padding;
-    padding-left: $page-padding;
-    background: #fff;
-    .the-burger {
-      border-color: #000;
-    }
-  }
-
-  .menu-button:hover {
-    background: $pink;
-    .the-burger {
-      border-color: #000;
-    }
-  }
-
-  /* Burger Animation - Turn burger into X */
-  .menu-button.active {
-    transtion: all .1s linear;
-    border-left-color: $blue;
-    background-color: $blue;
-    .top-bun {
-      transform-origin: 8% 10px;
-    }
-    .bottom-bun {
-      transform-origin: -7% -8px;
-    }
-    .the-burger {
-    transition: all .4s linear;
-    border-color: #fff;
-    background-color: #fff;
-    }
-  }
-
-  .menu-button.active:hover {
-    .the-burger {
-      border-color: $yellow;
-      background-color: $yellow;
-    }
-  }
-
-  .menu,
-  main {
-
-  }
-
-
+    width: 45px;
+    height: 29px;
+    span:nth-child(1) {
+      transform-origin: 4px 6px;
+     }
+     span:nth-child(3) {
+     transform-origin: 6px 2px;
+   }
+ }
 
 /* ------------------------------ TOGGLE MENU ------------------------------- */
 .menu {
   opacity: 0;
-  transition: all 1s ease-in-out;
-  position: fixed;
-  height: auto;
-  margin: 0;
   transition: $time;
-  border: $border-weight $border-type #fff;
 }
 
 .menu.openSesame {
-  display: block;
-  z-index: 9000;
-  opacity: 1;
+  position: fixed;
+  left: calc( (#{$page-padding} * 1.5) + #{$border-weight});
+  height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
+  width: calc( 100% - ( (#{$page-padding * 1.5 * 2}) + (#{$border-weight} * 2) );
+  top: calc( #{$navbar-height} + ( (#{$page-padding} * 1.5) );
   transition: $time;
-  left: 33px; /* needs to match main */
+  opacity: 1;
+
   .menu-shape {
     font-size: 20px;
     line-height: 30px;
@@ -967,10 +890,9 @@ footer {
 
 /* ------------------------------- GENERAL ---------------------------------- */
 main {
-  border: $borders;
   flex-direction: row;
+  height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
 }
-
 
 
 .page-title {
@@ -983,72 +905,96 @@ main {
 }
 
 
+/* ------------------------------ NEWSFLASH --------------------------------- */
+  .newsbar {
+    height: calc(100vh - ( #{$navbar-height} + (#{$page-padding * 1.5}) + #{$footer-height} + (#{$border-weight} * 2)));
+  }
+
+  .newsflash-widget {
+    position: relative;
+    background-color: $yellow;
+    border-right: none;
+    border-bottom: $borders;
+    width: 100%;
+  }
+
+
 /* ------------------------------- NEWSBAR ---------------------------------- */
 
-  .newsbar,
-  .newsbar-link,
-  .newsbar .newsbar-link .newsbar-widget {
-    min-height: auto;
-    max-height: auto;
-  }
+
 
   .newsbar {
     display: flex;
     flex-direction: column;
     border-bottom: none;
+    border-right: $borders;
     margin-top: 0;
     min-width: 240px;
     max-width: 240px;
-    .newsbar-link {
-      background: rgb(255,255,255);
-      color: $primary-color;
-      transition: $time;
-      border-right: $borders;
-      border-bottom: $borders;
-      height: auto;
-      padding: 1vh .1vh .25vh $page-padding;
-      .newsbar-widget {
-        padding: 0;
+    height: 100%;
+
+    #newsbar-link-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+
+      .newsbar-link {
+        display: block;
+        background-color: rgb(255,255,255);
+        color: $primary-color;
+        height: auto;
         transition: $time;
-        flex-direction: column;
-        justify-content: flex-start;
-        height: 100%;
-        width: 100%;
-        .textwidget {
-          display: block;
-          width: 85%;
+        border-bottom: $borders;
+
+        .newsbar-widget {
           height: auto;
+          width: 100%;
           padding: 0;
-          margin: auto 0;
-          p {
-              font-weight: normal;
-              font-size: 2vh;
-              line-height: 1rem;
-              text-align: left;
-              margin: 0;
-          }
-        }
-        .newsbar-title {
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-          width: auto;
-          height: 20px;
-          padding: 0;
-          margin: 0;
-          font-size: 3vh;
-          line-height: 1.5rem;
-          font-weight: bold;
-          text-transform: uppercase;
-        }
-        .fa-arrow-circle-right {
-          padding-right: $page-padding;
-          opacity: 0;
-          font-size: 20px;
           transition: $time;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .textwidget {
+            display: block;
+            width: 85%;
+            height: auto;
+            padding: 0;
+            margin: auto 0;
+
+            p {
+                font-weight: normal;
+                font-size: 2vh;
+                line-height: 1rem;
+                text-align: left;
+                margin: 0;
+            }
+          }
+
+          .newsbar-title {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: auto;
+            height: 20px;
+            padding: 0;
+            margin: 0;
+            font-size: 3vh;
+            line-height: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          .fa-arrow-circle-right {
+            padding-right: $page-padding;
+            opacity: 0;
+            font-size: 20px;
+            transition: $time;
+          }
         }
       }
     }
+
     .newsbar-link:last-child {
       border-bottom: none;
     }
@@ -1102,21 +1048,12 @@ main {
     border-bottom: none;
   }
 
-/* ------------------------------- NEWSFLASH -------------------------------- */
-
-  .newsflash-widget {
-    position: relative;
-    height: 35px;
-    top: 0;
-    border-top: none;
-    border-right: $borders;
-    width: 100%;
-  }
-
   .mtphr-dnt-tick-contents  {
-      font-size: $page-padding;
-      padding-left: 45%;
-      width: 100%;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: auto 0;
+    padding-left: 45%;
+    width: 100%;
   }
 
 /* ------------------------------- SPONSORS --------------------------------- */
@@ -1179,7 +1116,7 @@ main {
     padding: 0;
     display: flex;
     flex-direction: row;
-    max-height:calc( 100% - #{$navbar-height-sm} - #{$footer-height-lg});
+    max-height:calc( 100% - #{$navbar-height} - #{$footer-height});
     overflow-y: hidden;
     div {
       padding: $page-padding;
@@ -1201,7 +1138,7 @@ main {
   footer {
     z-index: 8000;
     flex-direction: row;
-    height: $footer-height-lg;
+    height: $footer-height;
   }
   footer .footer-col .textwidget {
     font-size: $page-padding;
