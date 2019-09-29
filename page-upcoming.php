@@ -9,7 +9,6 @@
   <div class="main-body scroll">
     <div class="page-body">
       <h2 id="upcoming-season">Season <?php the_field('season_num'); ?></h2>
-      <hr>
       <div class="upcoming-wrapper flex">
         <!-- show 1 -->
         <div class="upcoming-show">
@@ -31,7 +30,6 @@
         </div>
       </div>
       <!-- end upcoming-wrapper -->
-      <hr>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <?php the_content(); ?>
     </div>

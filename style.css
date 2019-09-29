@@ -500,15 +500,23 @@ main {
 #upcoming-season {
   text-align: center; }
 
-.show-title {
-  font-weight: bold; }
+p.show-title {
+  font-weight: 500;
+  font-family: "Helvetica Neue";
+  color: #3455db;
+  margin-bottom: 0; }
 
 .upcoming-wrapper {
-  flex-direction: column; }
+  flex-direction: column;
+  border-top: 2px solid black; }
 
 .upcoming-show {
   border-bottom: 2px solid black;
-  width: 100%; }
+  width: 100%;
+  padding-top: .5rem; }
+
+.upcoming-show:nth-child(3) {
+  margin-bottom: .5rem; }
 
 /*
 --------------------------------------------------------------------------------
@@ -568,6 +576,8 @@ footer {
    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
 @media screen and (min-width: 783px) {
+  .page-body p {
+    font-size: 2vw; }
   body.logged-in {
     padding-top: 0; }
     body.logged-in main,
@@ -600,14 +610,18 @@ footer {
     margin: 0; }
     #sticky-nav .title-wrapper #nav-text {
       width: auto;
-      font-size: 5vw;
-      height: 5vw; }
+      font-size: 3.5vw;
+      height: 3.4vw; }
     #sticky-nav .title-wrapper .blue {
       letter-spacing: normal; }
     #sticky-nav .title-wrapper .pink {
       letter-spacing: normal; }
   .hideme {
     margin-right: 1rem; }
+  #nav-text:hover {
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    background-color: #fffa00; }
   /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
     top: 0;
@@ -621,7 +635,8 @@ footer {
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
     opacity: 0;
-    transition: all 0.3s linear; }
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear; }
   .menu.openSesame {
     position: fixed;
     left: calc( (1rem * 1.5) + 2px);
@@ -629,42 +644,44 @@ footer {
     width: calc( 100% - ( (3rem) + (2px * 2) ));
     top: calc( 70px + ( (1rem * 1.5) ));
     transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
     opacity: 1; }
     .menu.openSesame .menu-shape {
-      font-size: 20px;
-      line-height: 30px; }
-  .menu #navbarSupportedContent {
-    height: 88%; }
-  .navbar-nav {
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    margin: 0; }
-    .navbar-nav .menu-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 3.3vw;
       transition: all 0.3s linear;
-      height: auto;
-      width: 48%;
-      margin-left: .5rem; }
-      .navbar-nav .menu-item a.dropdown-toggle {
-        margin-left: 62px; }
-      .navbar-nav .menu-item a.nav-link {
-        font-size: 2.4vw;
-        line-height: 30px;
-        width: 100%;
-        height: 100%;
-        border: none;
+      -webkit-transition: all 0.3s linear; }
+  .menu #navbarSupportedContent {
+    height: 100%;
+    padding: 1rem; }
+    .menu #navbarSupportedContent .navbar-nav {
+      flex-direction: column;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      height: 88%;
+      width: 100%; }
+      .menu #navbarSupportedContent .navbar-nav .menu-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
         transition: all 0.3s linear;
-        margin-left: 5px; }
-      .navbar-nav .menu-item .nav-link:hover {
-        color: #d400c8; }
-    .navbar-nav ul.dropdown-menu {
-      margin-left: 62px; }
+        margin: 0; }
+        .menu #navbarSupportedContent .navbar-nav .menu-item a.dropdown-toggle {
+          margin-left: 62px; }
+        .menu #navbarSupportedContent .navbar-nav .menu-item a.nav-link {
+          font-size: 4vw;
+          line-height: 68px;
+          width: 100%;
+          height: 100%;
+          border: none;
+          transition: all 0.3s linear;
+          -webkit-transition: all 0.3s linear; }
+        .menu #navbarSupportedContent .navbar-nav .menu-item .nav-link:hover {
+          color: #d400c8;
+          transition: all 0.3s linear;
+          -webkit-transition: all 0.3s linear; }
+      .menu #navbarSupportedContent .navbar-nav ul.dropdown-menu {
+        margin-left: 62px; }
   /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */
@@ -679,7 +696,14 @@ footer {
     height: 100%; }
   /* ------------------------------ NEWSFLASH --------------------------------- */
   .newsbar {
-    height: calc(100vh - ( 70px + (1.5rem) + 70px + (2px * 2))); }
+    display: flex;
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 2px solid black;
+    margin-top: 0;
+    min-width: 240px;
+    max-width: 25%;
+    height: 100%; }
   .newsflash-widget {
     position: relative;
     background-color: #fffa00;
@@ -687,76 +711,80 @@ footer {
     border-bottom: 2px solid black;
     width: 100%; }
   /* ------------------------------- NEWSBAR ---------------------------------- */
-  .newsbar {
+  .newsbar-link-container {
     display: flex;
     flex-direction: column;
-    border-bottom: none;
-    border-right: 2px solid black;
-    margin-top: 0;
-    min-width: 240px;
-    max-width: 240px;
-    height: 100%; }
-    .newsbar #newsbar-link-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%; }
-      .newsbar #newsbar-link-container .newsbar-link {
-        display: block;
-        background-color: white;
-        color: black;
-        height: auto;
-        transition: all 0.3s linear;
-        border-bottom: 2px solid black; }
-        .newsbar #newsbar-link-container .newsbar-link .newsbar-widget {
-          height: auto;
-          width: 100%;
-          padding: 0;
-          transition: all 0.3s linear;
-          flex-direction: column;
-          justify-content: space-between; }
-          .newsbar #newsbar-link-container .newsbar-link .newsbar-widget .textwidget {
-            display: block;
-            width: 85%;
-            height: auto;
-            padding: 0;
-            margin: auto 0; }
-            .newsbar #newsbar-link-container .newsbar-link .newsbar-widget .textwidget p {
-              font-weight: normal;
-              font-size: 2vh;
-              line-height: 1rem;
-              text-align: left;
-              margin: 0; }
-          .newsbar #newsbar-link-container .newsbar-link .newsbar-widget .newsbar-title {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            width: auto;
-            height: 20px;
-            padding: 0;
-            margin: 0;
-            font-size: 3vh;
-            line-height: 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase; }
-          .newsbar #newsbar-link-container .newsbar-link .newsbar-widget .fa-arrow-circle-right {
-            padding-right: 1rem;
-            opacity: 0;
-            font-size: 20px;
-            transition: all 0.3s linear; }
-    .newsbar .newsbar-link:last-child {
-      border-bottom: none; }
-  .newsbar-link:hover {
-    display: block;
-    background: #fffa00;
-    transition: all 0.3s linear; }
-    .newsbar-link:hover .newsbar-title {
+    justify-content: space-between;
+    height: 100%;
+    border-bottom: 2px solid black; }
+    .newsbar-link-container .newsbar-link {
+      display: block;
+      background-color: snow;
+      color: black;
+      height: 100%;
       transition: all 0.3s linear; }
-      .newsbar-link:hover .newsbar-title .fa-arrow-circle-right {
-        opacity: 1;
-        color: black;
-        transition: all 0.3s linear; }
-  .newsbar .newsbar-link:last-child {
+      .newsbar-link-container .newsbar-link .newsbar-widget {
+        height: 100%;
+        width: 100%;
+        padding: calc( 1rem / 2) 1rem;
+        transition: all 0.3s linear;
+        flex-direction: column;
+        justify-content: flex-start; }
+        .newsbar-link-container .newsbar-link .newsbar-widget .textwidget {
+          display: block;
+          width: 85%;
+          height: auto;
+          padding: 0;
+          margin: 0; }
+          .newsbar-link-container .newsbar-link .newsbar-widget .textwidget p {
+            font-weight: normal;
+            font-size: 1.5vw;
+            line-height: 1.5vw;
+            text-align: left;
+            margin: 0; }
+        .newsbar-link-container .newsbar-link .newsbar-widget .newsbar-title {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: auto;
+          color: #000;
+          height: 20px;
+          font-size: 2vw;
+          line-height: 1.5rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          transition: all 0.3s linear;
+          -webkit-transition: all 0.3s linear; }
+        .newsbar-link-container .newsbar-link .newsbar-widget .fas, .newsbar-link-container .newsbar-link .newsbar-widget .far {
+          padding-right: 0;
+          opacity: 0;
+          font-size: 20px;
+          transition: all 0.3s linear;
+          margin-top: 25%; }
+    .newsbar-link-container .newsbar-link:hover {
+      display: block;
+      background: #fff;
+      transition: all 0.3s linear;
+      -webkit-transition: all 0.3s linear; }
+      .newsbar-link-container .newsbar-link:hover .newsbar-widget .newsbar-title {
+        transition: all 0.3s linear;
+        -webkit-transition: all 0.3s linear;
+        font-style: italic; }
+        .newsbar-link-container .newsbar-link:hover .newsbar-widget .newsbar-title .fas, .newsbar-link-container .newsbar-link:hover .newsbar-widget .newsbar-title .far {
+          opacity: 1;
+          color: black;
+          transition: all 0.3s linear; }
+  #next-bar:hover .fas, #next-bar:hover .far, #next-bar:hover .newsbar-title {
+    color: #ff962a; }
+  #recent-bar:hover .fas, #recent-bar:hover .far, #recent-bar:hover .newsbar-title {
+    color: #A2D936; }
+  #class-bar:hover .fas, #class-bar:hover .far, #class-bar:hover .newsbar-title {
+    color: #3455db; }
+  #outreach-bar:hover .fas, #outreach-bar:hover .far, #outreach-bar:hover .newsbar-title {
+    color: #7B3FFC; }
+  #contribute-bar:hover .fas, #contribute-bar:hover .far, #contribute-bar:hover .newsbar-title {
+    color: #d400c8; }
+  .newsbar .newsbar-link-container:last-child {
     border-bottom: none; }
   .mtphr-dnt-tick-contents {
     text-transform: uppercase;
@@ -787,16 +815,23 @@ footer {
 --------------------------------------------------------------------------------
 */
   #upcoming-season {
-    text-align: center; }
+    text-align: center;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid black; }
   .upcoming-wrapper {
     flex-direction: row;
-    justify-content: space-between; }
-  .upcoming-show {
-    border-bottom: none;
-    padding: 0 1rem; }
-  .upcoming-show:nth-child(2) {
-    border-left: 2px solid black;
-    border-right: 2px solid black; }
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-top: none;
+    border-bottom: 2px solid black; }
+    .upcoming-wrapper .upcoming-show {
+      padding: 0 1rem;
+      border-bottom: none; }
+    .upcoming-wrapper .upcoming-show:nth-child(1) {
+      padding: 0; }
+    .upcoming-wrapper .upcoming-show:nth-child(3) {
+      margin-bottom: 0;
+      padding: 0; }
   /*
   --------------------------------------------------------------------------------
                       ------------- DANCE WORKS -------------
