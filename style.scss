@@ -132,7 +132,7 @@ a {
 }
 
 .page-body p {
-  font-family: Georgia;
+  font-family: $main-font;
   font-size: 4vw;
 }
 
@@ -525,7 +525,8 @@ main {
 
 .page-body {
   padding: #{$page-padding} 6vw;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
 }
 
 /* -------------------------------- SWIPER ---------------------------------- */
@@ -649,14 +650,6 @@ main {
   text-align: center;
 }
 
-
-p.show-title {
-  font-weight: 500;
-  font-family: $main-font;
-  color: $blue;
-  margin-bottom: 0;
-}
-
 .upcoming-wrapper {
   flex-direction: column;
   border-top: $borders;
@@ -672,6 +665,13 @@ p.show-title {
   margin-bottom: .5rem;
 }
 
+p.show-title {
+  font-weight: 500;
+  font-family: $main-font;
+  color: $blue;
+  margin-bottom: 0;
+}
+
 
 /*
 --------------------------------------------------------------------------------
@@ -680,6 +680,38 @@ p.show-title {
 */
 
 
+/*
+--------------------------------------------------------------------------------
+                ------------- CLASSES PAGE -------------
+--------------------------------------------------------------------------------
+*/
+
+#classes-title {
+  text-align: center;
+}
+
+.classes-wrapper {
+  flex-direction: column;
+  border-top: $borders;
+}
+
+
+.class-container {
+  border-bottom: $borders;
+  width: 100%;
+  padding-top: .5rem;
+}
+
+.class-container:nth-child(3) {
+  margin-bottom: .5rem;
+}
+
+p.class-day {
+  font-weight: 500;
+  font-family: $main-font;
+  color: $purple;
+  margin-bottom: 0;
+}
 
 
 
@@ -1091,7 +1123,7 @@ main {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 20%;
+      width: 48%;
       margin-bottom: 0;
       padding: .5rem;
       img {
