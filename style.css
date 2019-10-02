@@ -498,14 +498,15 @@ main {
                 ------------- UPCOMING PAGE -------------
 --------------------------------------------------------------------------------
 */
-#upcoming-season {
+h2#upcoming-season {
   text-align: center; }
 
 .upcoming-wrapper {
   flex-direction: column;
   border-top: 2px solid black; }
 
-.upcoming-show {
+.upcoming-show,
+.show-about-container {
   border-bottom: 2px solid black;
   width: 100%;
   padding-top: .5rem; }
@@ -513,11 +514,18 @@ main {
 .upcoming-show:nth-child(3) {
   margin-bottom: .5rem; }
 
-p.show-title {
+p.show-title,
+h2#upcoming-season {
   font-weight: 500;
   font-family: "Helvetica Neue";
+  text-transform: uppercase;
+  font-size: 5vw;
+  line-height: 7vw;
   color: #3455db;
   margin-bottom: 0; }
+
+#show-photo {
+  width: 100%; }
 
 /*
 --------------------------------------------------------------------------------
@@ -529,7 +537,7 @@ p.show-title {
                 ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
-#classes-title {
+h2#classes-title {
   text-align: center; }
 
 .classes-wrapper {
@@ -544,9 +552,21 @@ p.show-title {
 .class-container:nth-child(3) {
   margin-bottom: .5rem; }
 
-p.class-day {
+#class-feature,
+#class-info {
+  display: block; }
+
+p.class-time {
+  margin-bottom: 0; }
+
+p.class-day,
+p#class-feature-title,
+h2#classes-title {
   font-weight: 500;
   font-family: "Helvetica Neue";
+  text-transform: uppercase;
+  font-size: 5vw;
+  line-height: 7vw;
   color: #7B3FFC;
   margin-bottom: 0; }
 

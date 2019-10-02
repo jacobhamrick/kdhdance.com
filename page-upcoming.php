@@ -30,8 +30,14 @@
         </div>
       </div>
       <!-- end upcoming-wrapper -->
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <?php the_content(); ?>
+      <div class="show-about-cotainer">
+        <p class="show-about"><?php the_field('show-about'); ?></p>
+        <?php if( get_field('show-photo') ): ?>
+            <img id="show-photo" src="<?php the_field('show-photo'); ?>" />
+        <?php endif; ?>
+      </div>
+      <!-- <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php the_content(); ?> -->
     </div>
     <!-- end page-body -->
       <?php endwhile; endif; ?>
