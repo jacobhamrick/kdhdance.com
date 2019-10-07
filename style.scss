@@ -662,8 +662,8 @@ h2#upcoming-season {
   padding-top: .5rem;
 }
 
-.upcoming-show:nth-child(3) {
-  margin-bottom: .5rem;
+.show-date {
+  margin-bottom: 0;
 }
 
 p.show-title,
@@ -671,9 +671,7 @@ h2#upcoming-season  {
   font-weight: 500;
   font-family: $main-font;
   text-transform: uppercase;
-  font-size: 5vw;
-  line-height: 7vw;
-  color: $blue;
+  color: $pink;
   margin-bottom: 0;
 }
 
@@ -697,6 +695,7 @@ h2#upcoming-season  {
 
 h2#classes-title {
   text-align: center;
+  color: $purple;
 }
 
 .classes-wrapper {
@@ -708,34 +707,35 @@ h2#classes-title {
 .class-container {
   border-bottom: $borders;
   width: 100%;
+}
+
+.class-container,
+#class-feature-container {
   padding-top: .5rem;
 }
 
-.class-container:nth-child(3) {
-  margin-bottom: .5rem;
-}
-
-#class-feature,
+div#class-feature,
 #class-info {
   display: block;
 }
 
 p.class-time {
   margin-bottom: 0;
+  font-style: italic;
 }
 
 p.class-day,
-p#class-feature-title,
-h2#classes-title {
+p#class-feature-title {
   font-weight: 500;
   font-family: $main-font;
   text-transform: uppercase;
-  font-size: 5vw;
-  line-height: 7vw;
   color: $purple;
   margin-bottom: 0;
 }
 
+#class-feature-photo {
+  display: block;
+}
 
 
 /* -----------------------------------------------------------------------------
@@ -1176,22 +1176,13 @@ main {
     border-top: none;
     border-bottom: $borders;
     .upcoming-show {
-      padding: 0 $page-padding;
       border-bottom: none;
+      margin: 0;
     }
 
-    .upcoming-show:nth-child(2) {
-      // border-left: $borders;
-      // border-right: $borders;
-    }
-
-    .upcoming-show:nth-child(1) {
-      padding: 0;
-    }
-
+    .upcoming-show:nth-child(2),
     .upcoming-show:nth-child(3) {
-      margin-bottom: 0;
-      padding: 0;
+      // border-left: $borders;
     }
   }
 
@@ -1218,6 +1209,29 @@ main {
       border-left: $borders;
       overflow-y: auto;
     }
+  }
+
+  /*
+  --------------------------------------------------------------------------------
+                  ------------- CLASSES PAGE -------------
+  --------------------------------------------------------------------------------
+  */
+
+  .classes-wrapper {
+    flex-direction: row;
+  }
+
+  .class-container {
+    padding: $page-padding  $page-padding  $page-padding 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  p.class-time,
+  .class-info p {
+      font-size: 1.5vw;
+      line-height: 2vw;
   }
 
 

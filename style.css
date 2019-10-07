@@ -511,17 +511,15 @@ h2#upcoming-season {
   width: 100%;
   padding-top: .5rem; }
 
-.upcoming-show:nth-child(3) {
-  margin-bottom: .5rem; }
+.show-date {
+  margin-bottom: 0; }
 
 p.show-title,
 h2#upcoming-season {
   font-weight: 500;
   font-family: "Helvetica Neue";
   text-transform: uppercase;
-  font-size: 5vw;
-  line-height: 7vw;
-  color: #3455db;
+  color: #d400c8;
   margin-bottom: 0; }
 
 #show-photo {
@@ -538,7 +536,8 @@ h2#upcoming-season {
 --------------------------------------------------------------------------------
 */
 h2#classes-title {
-  text-align: center; }
+  text-align: center;
+  color: #7B3FFC; }
 
 .classes-wrapper {
   flex-direction: column;
@@ -546,29 +545,30 @@ h2#classes-title {
 
 .class-container {
   border-bottom: 2px solid black;
-  width: 100%;
+  width: 100%; }
+
+.class-container,
+#class-feature-container {
   padding-top: .5rem; }
 
-.class-container:nth-child(3) {
-  margin-bottom: .5rem; }
-
-#class-feature,
+div#class-feature,
 #class-info {
   display: block; }
 
 p.class-time {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  font-style: italic; }
 
 p.class-day,
-p#class-feature-title,
-h2#classes-title {
+p#class-feature-title {
   font-weight: 500;
   font-family: "Helvetica Neue";
   text-transform: uppercase;
-  font-size: 5vw;
-  line-height: 7vw;
   color: #7B3FFC;
   margin-bottom: 0; }
+
+#class-feature-photo {
+  display: block; }
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -872,13 +872,8 @@ footer {
     border-top: none;
     border-bottom: 2px solid black; }
     .upcoming-wrapper .upcoming-show {
-      padding: 0 1rem;
-      border-bottom: none; }
-    .upcoming-wrapper .upcoming-show:nth-child(1) {
-      padding: 0; }
-    .upcoming-wrapper .upcoming-show:nth-child(3) {
-      margin-bottom: 0;
-      padding: 0; }
+      border-bottom: none;
+      margin: 0; }
   /*
   --------------------------------------------------------------------------------
                       ------------- DANCE WORKS -------------
@@ -897,6 +892,22 @@ footer {
     .projects-page div:last-child {
       border-left: 2px solid black;
       overflow-y: auto; }
+  /*
+  --------------------------------------------------------------------------------
+                  ------------- CLASSES PAGE -------------
+  --------------------------------------------------------------------------------
+  */
+  .classes-wrapper {
+    flex-direction: row; }
+  .class-container {
+    padding: 1rem 1rem 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; }
+  p.class-time,
+  .class-info p {
+    font-size: 1.5vw;
+    line-height: 2vw; }
   /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
