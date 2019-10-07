@@ -131,6 +131,10 @@ a {
   transition: $time;
 }
 
+strong {
+  font-weight: 600;
+}
+
 .page-body p {
   font-family: $main-font;
   font-size: 4vw;
@@ -228,6 +232,8 @@ footer {
 #body-wrapper {
   border-radius: $body-curve;
 }
+
+
 /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
@@ -490,6 +496,23 @@ a.nav-link:hover {
   }
 }
 
+/*
+--------------------------------------------------------------------------------
+                        ------------- PAGE -------------
+--------------------------------------------------------------------------------
+*/
+.page-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 5vw;
+}
+
+
+.page-content {
+  border-top: $borders;
+
+}
+
 
 /*
 --------------------------------------------------------------------------------
@@ -648,6 +671,7 @@ main {
 
 h2#upcoming-season {
   text-align: center;
+  color: $pink;
 }
 
 .upcoming-wrapper {
@@ -666,8 +690,7 @@ h2#upcoming-season {
   margin-bottom: 0;
 }
 
-p.show-title,
-h2#upcoming-season  {
+p.show-title {
   font-weight: 500;
   font-family: $main-font;
   text-transform: uppercase;
@@ -722,6 +745,7 @@ div#class-feature,
 p.class-time {
   margin-bottom: 0;
   font-style: italic;
+  font-weight: 600;
 }
 
 p.class-day,
@@ -806,6 +830,7 @@ footer {
 
   .page-body p {
     font-size: 2vw;
+    line-height: 2.5vw;
   }
   body.logged-in  {
     padding-top: 0;
@@ -839,6 +864,10 @@ footer {
     margin: 1.5rem;
     height: calc(100% - 3rem);
     width: calc(100% - 3rem)
+  }
+
+  h2.page-title {
+    font-size: 3vw;
   }
 /*
 --------------------------------------------------------------------------------
@@ -910,7 +939,7 @@ footer {
   opacity: 1;
 
   .menu-shape {
-    font-size: 3.3vw;
+    font-size: 2.9vw;
     transition: $time;
     -webkit-transition: $time;
   }
@@ -972,9 +1001,6 @@ main {
 }
 
 
-.page-title {
-  text-align: center;
-}
 
 /* -------------------------------- SWIPER ---------------------------------- */
 .swiper-container {
@@ -1056,6 +1082,7 @@ main {
           text-transform: uppercase;
           transition: $time;
           -webkit-transition: $time;
+          margin-bottom: calc( #{$page-padding} / 4);
         }
 
         .fas, .far {
@@ -1222,7 +1249,7 @@ main {
   }
 
   .class-container {
-    padding: $page-padding  $page-padding  $page-padding 0;
+    padding: $page-padding  2rem  $page-padding 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

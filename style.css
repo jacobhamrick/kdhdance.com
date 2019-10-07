@@ -96,6 +96,9 @@ a {
   font-weight: 500;
   transition: all 0.3s linear; }
 
+strong {
+  font-weight: 600; }
+
 .page-body p {
   font-family: "Helvetica Neue";
   font-size: 4vw; }
@@ -380,6 +383,19 @@ a.nav-link:hover {
 
 /*
 --------------------------------------------------------------------------------
+                        ------------- PAGE -------------
+--------------------------------------------------------------------------------
+*/
+.page-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 5vw; }
+
+.page-content {
+  border-top: 2px solid black; }
+
+/*
+--------------------------------------------------------------------------------
                    ------------- HOME PAGE -------------
 --------------------------------------------------------------------------------
 */
@@ -499,7 +515,8 @@ main {
 --------------------------------------------------------------------------------
 */
 h2#upcoming-season {
-  text-align: center; }
+  text-align: center;
+  color: #d400c8; }
 
 .upcoming-wrapper {
   flex-direction: column;
@@ -514,8 +531,7 @@ h2#upcoming-season {
 .show-date {
   margin-bottom: 0; }
 
-p.show-title,
-h2#upcoming-season {
+p.show-title {
   font-weight: 500;
   font-family: "Helvetica Neue";
   text-transform: uppercase;
@@ -557,7 +573,8 @@ div#class-feature,
 
 p.class-time {
   margin-bottom: 0;
-  font-style: italic; }
+  font-style: italic;
+  font-weight: 600; }
 
 p.class-day,
 p#class-feature-title {
@@ -624,7 +641,8 @@ footer {
 */
 @media screen and (min-width: 783px) {
   .page-body p {
-    font-size: 2vw; }
+    font-size: 2vw;
+    line-height: 2.5vw; }
   body.logged-in {
     padding-top: 0; }
     body.logged-in main,
@@ -645,6 +663,8 @@ footer {
     margin: 1.5rem;
     height: calc(100% - 3rem);
     width: calc(100% - 3rem); }
+  h2.page-title {
+    font-size: 3vw; }
   /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
@@ -694,7 +714,7 @@ footer {
     -webkit-transition: all 0.3s linear;
     opacity: 1; }
     .menu.openSesame .menu-shape {
-      font-size: 3.3vw;
+      font-size: 2.9vw;
       transition: all 0.3s linear;
       -webkit-transition: all 0.3s linear; }
   .menu #navbarSupportedContent {
@@ -736,8 +756,6 @@ footer {
   main {
     flex-direction: row;
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2)); }
-  .page-title {
-    text-align: center; }
   /* -------------------------------- SWIPER ---------------------------------- */
   .swiper-container {
     height: 100%; }
@@ -801,7 +819,8 @@ footer {
           font-weight: bold;
           text-transform: uppercase;
           transition: all 0.3s linear;
-          -webkit-transition: all 0.3s linear; }
+          -webkit-transition: all 0.3s linear;
+          margin-bottom: calc( 1rem / 4); }
         .newsbar-link-container .newsbar-link .newsbar-widget .fas, .newsbar-link-container .newsbar-link .newsbar-widget .far {
           padding-right: 0;
           opacity: 0;
@@ -900,7 +919,7 @@ footer {
   .classes-wrapper {
     flex-direction: row; }
   .class-container {
-    padding: 1rem 1rem 1rem 0;
+    padding: 1rem 2rem 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; }

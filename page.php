@@ -7,16 +7,18 @@
 <main>
   <div class="main-body scroll">
     <div class="page-body">
+      <h2 class="page-title"><?php the_title(); ?></h2>
+      <div class="page-content">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <h2 class="page-title"><?php the_title(); ?></h2>
         <?php the_content(); ?>
-
+      </div>
     </div>
-      <?php endwhile; else : ?>
+    <!-- end page-body -->
+
+    <?php endwhile; else : ?>
+    	<p><?php esc_html_e( 'Sorry, no pages found.' ); ?></p>
+      <?php endif; ?>
   </div>
-
-  	<p><?php esc_html_e( 'Sorry, no pages found.' ); ?></p>
-  <?php endif; ?>
-
+    <!-- end main-body-scroll -->
 </main>
 <?php get_footer(); ?>

@@ -8,7 +8,7 @@
 <main>
   <div class="main-body scroll">
     <div class="page-body">
-      <h2 id="upcoming-season">Season <?php the_field('season_num'); ?></h2>
+      <h2 class="page-title" id="upcoming-season">Season <?php the_field('season_num'); ?></h2>
       <div class="upcoming-wrapper flex">
         <!-- show 1 -->
         <div class="upcoming-show">

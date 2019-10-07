@@ -8,7 +8,7 @@
 <main>
   <div class="main-body scroll">
     <div class="page-body">
-      <h2 id="classes-title"><?php wp_title('', true,''); ?></h2>
+      <h2 class="page-title" id="classes-title"><?php wp_title('', true,''); ?></h2>
       <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
       <div class="classes-wrapper flex">
 
