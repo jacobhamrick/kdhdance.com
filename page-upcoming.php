@@ -9,7 +9,7 @@
   <div class="main-body scroll">
     <div class="page-body">
       <h2 class="page-title" id="upcoming-season">Season <?php the_field('season_num'); ?></h2>
-      <div class="upcoming-wrapper flex">
+      <div id="upcoming-wrapper flex">
         <!-- show 1 -->
         <div class="upcoming-show">
           <p class="show-title"><?php the_field('up-show-title-1'); ?></p>

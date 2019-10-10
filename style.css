@@ -392,7 +392,8 @@ a.nav-link:hover {
   font-size: 5vw; }
 
 .page-content {
-  border-top: 2px solid black; }
+  border-top: 2px solid black;
+  padding-top: .5rem; }
 
 /*
 --------------------------------------------------------------------------------
@@ -518,7 +519,7 @@ h2#upcoming-season {
   text-align: center;
   color: #d400c8; }
 
-.upcoming-wrapper {
+#upcoming-wrapper {
   flex-direction: column;
   border-top: 2px solid black; }
 
@@ -555,7 +556,7 @@ h2#classes-title {
   text-align: center;
   color: #7B3FFC; }
 
-.classes-wrapper {
+#classes-wrapper {
   flex-direction: column;
   border-top: 2px solid black; }
 
@@ -586,6 +587,26 @@ p#class-feature-title {
 
 #class-feature-photo {
   display: block; }
+
+/*
+--------------------------------------------------------------------------------
+                  ------------- ARTISTIC STAFF -------------
+--------------------------------------------------------------------------------
+*/
+h2#staff-title {
+  color: #3455db; }
+
+#staff-wrapper {
+  flex-direction: column; }
+
+.staff-container {
+  flex-direction: column; }
+
+.staff-name {
+  color: #7B3FFC; }
+
+.staff-role {
+  color: #d400c8; }
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -884,13 +905,13 @@ footer {
     text-align: center;
     padding-bottom: .5rem;
     border-bottom: 2px solid black; }
-  .upcoming-wrapper {
+  #upcoming-wrapper {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 1rem;
     border-top: none;
     border-bottom: 2px solid black; }
-    .upcoming-wrapper .upcoming-show {
+    #upcoming-wrapper .upcoming-show {
       border-bottom: none;
       margin: 0; }
   /*
@@ -916,7 +937,7 @@ footer {
                   ------------- CLASSES PAGE -------------
   --------------------------------------------------------------------------------
   */
-  .classes-wrapper {
+  #classes-wrapper {
     flex-direction: row; }
   .class-container {
     padding: 1rem 2rem 1rem 0;

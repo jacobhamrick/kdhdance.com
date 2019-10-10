@@ -510,7 +510,7 @@ a.nav-link:hover {
 
 .page-content {
   border-top: $borders;
-
+  padding-top: .5rem;
 }
 
 
@@ -674,7 +674,7 @@ h2#upcoming-season {
   color: $pink;
 }
 
-.upcoming-wrapper {
+#upcoming-wrapper {
   flex-direction: column;
   border-top: $borders;
 }
@@ -721,7 +721,7 @@ h2#classes-title {
   color: $purple;
 }
 
-.classes-wrapper {
+#classes-wrapper {
   flex-direction: column;
   border-top: $borders;
 }
@@ -761,6 +761,37 @@ p#class-feature-title {
   display: block;
 }
 
+/*
+--------------------------------------------------------------------------------
+                  ------------- ARTISTIC STAFF -------------
+--------------------------------------------------------------------------------
+*/
+
+h2#staff-title {
+  color: $blue;
+}
+
+#staff-wrapper {
+  flex-direction: column;
+}
+
+.staff-container {
+  flex-direction: column;
+}
+
+.profile-pic {
+
+}
+
+.staff-name {
+  color: $purple;
+
+}
+
+.staff-role {
+  color: $pink;
+
+}
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -1196,7 +1227,7 @@ main {
     border-bottom: $borders;
   }
 
-  .upcoming-wrapper {
+  #upcoming-wrapper {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: $page-padding;
@@ -1244,7 +1275,7 @@ main {
   --------------------------------------------------------------------------------
   */
 
-  .classes-wrapper {
+  #classes-wrapper {
     flex-direction: row;
   }
 
