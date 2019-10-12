@@ -13,34 +13,82 @@
 
         <!-- dancer 1 -->
         <div class="dancer-container flex">
-          <?php if( get_field('dancer-pic-1') ): ?>
-              <img class="dancer-pic" src="<?php the_field('dancer-pic-1'); ?>" />
-          <?php endif; ?>
-          <?php echo '<p class="dancer-text">'; the_field('dancer-text-1'); echo '</p>';?>
+          <?php $image = get_field('dancer-pic-1');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<div class="dancer-text">'; the_field('dancer-text-1'); echo '</div>';?>
         </div>
 
         <!-- dancer 2 -->
         <div class="dancer-container flex">
-          <?php if( get_field('dancer-pic-2') ): ?>
-              <img class="dancer-pic" src="<?php the_field('dancer-pic-2'); ?>" />
-          <?php endif; ?>
+          <?php $image = get_field('dancer-pic-2');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
           <?php echo '<p class="dancer-text">'; the_field('dancer-text-2'); echo '</p>';?>
         </div>
 
         <!-- dancer 3 -->
         <div class="dancer-container flex">
-          <?php if( get_field('dancer-pic-3') ): ?>
-              <img class="dancer-pic" src="<?php the_field('dancer-pic-3'); ?>" />
-          <?php endif; ?>
+          <?php $image = get_field('dancer-pic-3');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
           <?php echo '<p class="dancer-text">'; the_field('dancer-text-3'); echo '</p>';?>
         </div>
 
         <!-- dancer 4 -->
         <div class="dancer-container flex">
-          <?php if( get_field('dancer-pic-4') ): ?>
-              <img class="dancer-pic" src="<?php the_field('dancer-pic-4'); ?>" />
-          <?php endif; ?>
+          <?php $image = get_field('dancer-pic-4');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
           <?php echo '<p class="dancer-text">'; the_field('dancer-text-4'); echo '</p>';?>
+        </div>
+
+        <!-- dancer 5 -->
+        <div class="dancer-container flex">
+          <?php $image = get_field('dancer-pic-5');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<p class="dancer-text">'; the_field('dancer-text-5'); echo '</p>';?>
+        </div>
+
+        <!-- dancer 6 -->
+        <div class="dancer-container flex">
+          <?php $image = get_field('dancer-pic-6');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<p class="dancer-text">'; the_field('dancer-text-6'); echo '</p>';?>
+        </div>
+
+        <!-- dancer 7 -->
+        <div class="dancer-container flex">
+          <?php $image = get_field('dancer-pic-7');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<p class="dancer-text">'; the_field('dancer-text-7'); echo '</p>';?>
+        </div>
+
+        <!-- dancer 8 -->
+        <!--
+        <div class="dancer-container flex">
+          <?php $image = get_field('dancer-pic-8');
+              if( !empty( $image ) ): ?>
+                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<p class="dancer-text">'; the_field('dancer-text-8'); echo '</p>';?>
+        </div>
+      -->
+
+
+        <!-- dancer photo credit -->
+        <div id="dancer-photo-credit-div">
+          <p id="dancer-photo-credit-text"><?php the_field('dancer-photo-credit'); ?></P
         </div>
 
       </div> <!-- end dancer-wrapper -->

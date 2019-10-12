@@ -793,6 +793,39 @@ h2#staff-title {
 
 }
 
+/*
+--------------------------------------------------------------------------------
+                    ------------- DANCERS -------------
+--------------------------------------------------------------------------------
+*/
+
+.dancer-container {
+  flex-direction: column;
+  border: $borders;
+  padding: $page-padding;
+  margin-bottom: $page-padding;
+}
+
+.dancer-pic {
+  width: 100%;
+  margin-bottom: $page-padding;
+}
+
+.dancer-text {
+  p {
+    text-align: justify;
+  }
+}
+
+#dancer-photo-credit-div {
+
+}
+
+#dancer-photo-credit-text {
+  font-style: italic;
+  text-align: center;
+}
+
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */

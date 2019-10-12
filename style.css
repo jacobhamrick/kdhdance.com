@@ -608,6 +608,28 @@ h2#staff-title {
 .staff-role {
   color: #d400c8; }
 
+/*
+--------------------------------------------------------------------------------
+                    ------------- DANCERS -------------
+--------------------------------------------------------------------------------
+*/
+.dancer-container {
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem; }
+
+.dancer-pic {
+  width: 100%;
+  margin-bottom: 1rem; }
+
+.dancer-text p {
+  text-align: justify; }
+
+#dancer-photo-credit-text {
+  font-style: italic;
+  text-align: center; }
+
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
