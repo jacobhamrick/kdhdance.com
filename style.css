@@ -389,7 +389,7 @@ a.nav-link:hover {
 .page-title {
   text-align: center;
   font-weight: bold;
-  font-size: 5vw; }
+  font-size: 8vw; }
 
 .page-content {
   border-top: 2px solid black;
@@ -593,17 +593,53 @@ p#class-feature-title {
                   ------------- ARTISTIC STAFF -------------
 --------------------------------------------------------------------------------
 */
-h2#staff-title {
-  color: #3455db; }
+.artistic.staff-div {
+  background-color: #fffa00; }
+
+#staff-title {
+  color: #000060; }
 
 #staff-wrapper {
   flex-direction: column; }
 
 .staff-container {
-  flex-direction: column; }
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 15px; }
 
-.staff-name {
-  color: #7B3FFC; }
+.staff-container:nth-child(1) {
+  background-color: #3455db; }
+  .staff-container:nth-child(1) .staff-name {
+    color: #3455db; }
+
+.staff-container:nth-child(2) {
+  background-color: #ff962a; }
+  .staff-container:nth-child(2) .staff-name {
+    color: #ff962a; }
+
+.staff-container:nth-child(3) {
+  background-color: #990033; }
+  .staff-container:nth-child(3) .staff-name {
+    color: #990033; }
+
+.staff-container:nth-child(4) {
+  background-color: #087f23; }
+  .staff-container:nth-child(4) .staff-name {
+    color: #087f23; }
+
+.profile-pic {
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 2px solid black; }
+
+.profile-text {
+  padding: 1rem;
+  background: #fff; }
+  .profile-text p {
+    font-size: 3.5vw;
+    margin: 0; }
 
 .staff-role {
   color: #d400c8; }
@@ -613,18 +649,44 @@ h2#staff-title {
                     ------------- DANCERS -------------
 --------------------------------------------------------------------------------
 */
+.dancers-div {
+  background-color: #ffcccb; }
+
+#dancers-title {
+  color: #3455db; }
+
 .dancer-container {
   flex-direction: column;
   border: 2px solid black;
   padding: 1rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  border-radius: 15px; }
+
+.dancer-container:nth-child(1),
+.dancer-container:nth-child(4),
+.dancer-container:nth-child(7) {
+  background-color: #ffff81; }
+
+.dancer-container:nth-child(2),
+.dancer-container:nth-child(5),
+.dancer-container:nth-child(8) {
+  background-color: rgba(0, 255, 255, 0.5); }
+
+.dancer-container:nth-child(3),
+.dancer-container:nth-child(6) {
+  background-color: #ccff90; }
 
 .dancer-pic {
   width: 100%;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  border: 2px solid black; }
 
-.dancer-text p {
-  text-align: justify; }
+.dancer-text {
+  padding: 1rem;
+  background: #fff; }
+  .dancer-text p {
+    font-size: 3.5vw;
+    margin: 0; }
 
 #dancer-photo-credit-text {
   font-style: italic;
@@ -970,6 +1032,28 @@ footer {
   .class-info p {
     font-size: 1.5vw;
     line-height: 2vw; }
+  /*
+  --------------------------------------------------------------------------------
+                    ------------- ARTISTIC STAFF -------------
+  --------------------------------------------------------------------------------
+  */
+  .staff-container {
+    flex-direction: row; }
+  .profile-pic {
+    height: 100%;
+    width: 300px;
+    margin-bottom: 1rem;
+    border: 2px solid black;
+    border-right: none; }
+  .profile-text {
+    padding: 1rem;
+    background: #fff; }
+    .profile-text p {
+      font-size: 1.5vw;
+      line-height: 2 vw;
+      margin: 0; }
+  .staff-role {
+    color: #d400c8; }
   /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */

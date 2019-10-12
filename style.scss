@@ -18,6 +18,7 @@ $blue: rgb(52,85,219);
 $yellow: rgba(255,250,0,1);
 $purple: #7B3FFC;
 $green: #A2D936;
+$red:	#990033;
 $orange: rgba(255,150,42,1);
 $light-blue: #00C7FF;
 $dark-blue: rgb(0,0,96);
@@ -504,7 +505,7 @@ a.nav-link:hover {
 .page-title {
   text-align: center;
   font-weight: bold;
-  font-size: 5vw;
+  font-size: 8vw;
 }
 
 
@@ -761,14 +762,19 @@ p#class-feature-title {
   display: block;
 }
 
+
 /*
 --------------------------------------------------------------------------------
                   ------------- ARTISTIC STAFF -------------
 --------------------------------------------------------------------------------
 */
 
-h2#staff-title {
-  color: $blue;
+.artistic.staff-div {
+  background-color: $yellow;
+}
+
+#staff-title {
+  color: $dark-blue;
 }
 
 #staff-wrapper {
@@ -777,20 +783,57 @@ h2#staff-title {
 
 .staff-container {
   flex-direction: column;
+  border: $borders;
+  padding: $page-padding;
+  margin-bottom: $page-padding;
+  border-radius: $body-curve;
+}
+
+.staff-container:nth-child(1) {
+  background-color: $blue;
+  .staff-name {
+    color: $blue;
+  }
+}
+
+.staff-container:nth-child(2) {
+  background-color: $orange;
+  .staff-name {
+    color: $orange;
+  }
+}
+
+.staff-container:nth-child(3) {
+  background-color: $red;
+  .staff-name {
+    color: $red;
+  }
+}
+
+.staff-container:nth-child(4) {
+  background-color: #087f23;
+  .staff-name {
+    color: #087f23;
+  }
 }
 
 .profile-pic {
-
+  width: 100%;
+  margin-bottom: $page-padding;
+  border: $borders;
 }
 
-.staff-name {
-  color: $purple;
-
+.profile-text {
+  padding: $page-padding;
+  background: #fff;
+  p {
+    font-size: 3.5vw;
+    margin: 0;
+  }
 }
 
 .staff-role {
   color: $pink;
-
 }
 
 /*
@@ -799,21 +842,53 @@ h2#staff-title {
 --------------------------------------------------------------------------------
 */
 
+.dancers-div {
+  background-color: #ffcccb;
+}
+
+#dancers-title {
+  color: $blue;
+}
+
 .dancer-container {
   flex-direction: column;
   border: $borders;
   padding: $page-padding;
   margin-bottom: $page-padding;
+  border-radius: $body-curve;
 }
+
+.dancer-container:nth-child(1),
+.dancer-container:nth-child(4),
+.dancer-container:nth-child(7) {
+  background-color: #ffff81;
+}
+
+.dancer-container:nth-child(2),
+.dancer-container:nth-child(5),
+.dancer-container:nth-child(8) {
+  background-color: rgba(0,255,255, 0.5);
+}
+
+.dancer-container:nth-child(3),
+.dancer-container:nth-child(6) {
+  background-color: #ccff90;
+}
+
 
 .dancer-pic {
   width: 100%;
   margin-bottom: $page-padding;
+  border: $borders;
+
 }
 
 .dancer-text {
+  padding: $page-padding;
+  background: #fff;
   p {
-    text-align: justify;
+    font-size: 3.5vw;
+    margin: 0;
   }
 }
 
@@ -1325,6 +1400,38 @@ main {
       line-height: 2vw;
   }
 
+  /*
+  --------------------------------------------------------------------------------
+                    ------------- ARTISTIC STAFF -------------
+  --------------------------------------------------------------------------------
+  */
+
+  .staff-container {
+    flex-direction: row;
+  }
+
+  .profile-pic {
+    height: 100%;
+    width: 300px;
+    margin-bottom: $page-padding;
+    border: $borders;
+    border-right: none;
+  }
+
+  .profile-text {
+    padding: $page-padding;
+    background: #fff;
+    p {
+      font-size: 1.5vw;
+      line-height: 2
+      vw;
+      margin: 0;
+    }
+  }
+
+  .staff-role {
+    color: $pink;
+  }
 
 
 /* -----------------------------------------------------------------------------

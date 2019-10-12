@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <main>
   <div class="main-body scroll">
-    <div class="page-body">
+    <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title"><?php the_title(); ?></h2>
       <div class="page-content">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

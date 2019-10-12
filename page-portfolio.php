@@ -7,7 +7,7 @@
 
 <main>
   <div class="main-body scroll">
-    <div class="page-body">
+    <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
         <?php
         //this is normally where the WP Loop would be. Instead we add a loop to get pods stuff
           $mypod = pods('mypods');

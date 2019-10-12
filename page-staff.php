@@ -7,40 +7,44 @@
 
 <main>
   <div class="main-body scroll">
-    <div class="page-body">
+    <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="staff-title"><?php wp_title('', true,''); ?></h2>
       <div id="staff-wrapper flex">
 
         <!-- staff 1 -->
         <div class="staff-container flex">
-          <?php if( get_field('profile-pic-1') ): ?>
-              <img class="profile-pic" src="<?php the_field('profile-pic-1'); ?>" />
-          <?php endif; ?>
-          <?php echo '<p class="profile-text">'; the_field('profile-text-1'); echo '</p>';?>
+          <?php $image = get_field('profile-pic-1');
+              if( !empty( $image ) ): ?>
+                <img class="profile-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<div class="profile-text">'; the_field('profile-text-1'); echo '</div>';?>
         </div>
 
         <!-- staff 2 -->
         <div class="staff-container flex">
-          <?php if( get_field('profile-pic-2') ): ?>
-              <img class="profile-pic" src="<?php the_field('profile-pic-2'); ?>" />
-          <?php endif; ?>
-          <?php echo '<p class="profile-text">'; the_field('profile-text-2'); echo '</p>';?>
+          <?php $image = get_field('profile-pic-2');
+              if( !empty( $image ) ): ?>
+                <img class="profile-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<div class="profile-text">'; the_field('profile-text-2'); echo '</div>';?>
         </div>
 
         <!-- staff 3 -->
         <div class="staff-container flex">
-          <?php if( get_field('profile-pic-3') ): ?>
-              <img class="profile-pic" src="<?php the_field('profile-pic-3'); ?>" />
-          <?php endif; ?>
-          <?php echo '<p class="profile-text">'; the_field('profile-text-3'); echo '</p>';?>
+          <?php $image = get_field('profile-pic-3');
+              if( !empty( $image ) ): ?>
+                <img class="profile-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<div class="profile-text">'; the_field('profile-text-3'); echo '</div>';?>
         </div>
 
         <!-- staff 4 -->
         <div class="staff-container flex">
-          <?php if( get_field('profile-pic-4') ): ?>
-              <img class="profile-pic" src="<?php the_field('profile-pic-4'); ?>" />
-          <?php endif; ?>
-          <?php echo '<p class="profile-text">'; the_field('profile-text-4'); echo '</p>';?>
+          <?php $image = get_field('profile-pic-4');
+              if( !empty( $image ) ): ?>
+                <img class="profile-pic" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
+          <?php echo '<div class="profile-text">'; the_field('profile-text-4'); echo '</div>';?>
         </div>
 
       </div> <!-- end staff-wrapper -->
