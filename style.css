@@ -12,6 +12,9 @@ I hope to empower creatives and small businesses.
 */
 /* ------------- GENERAL ------------- */
 /* padding of navbars, page sections, etc */
+html {
+  scroll-behavior: smooth; }
+
 body {
   font-family: "Helvetica Neue";
   width: 100%;
@@ -612,7 +615,7 @@ p#class-feature-title {
 --------------------------------------------------------------------------------
 */
 .artistic.staff-div {
-  background-color: gold; }
+  background-color: #fffa00; }
 
 #staff-title {
   color: #000;
@@ -1093,14 +1096,21 @@ footer {
   .dancer-list {
     display: block;
     position: fixed;
-    left: calc( (page-padding * 2) +2px);
+    top: 10rem;
+    left: calc( (1rem * 3) + 2px);
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
     background: #fff;
     border: 2px solid black;
     padding: calc( 1rem / 2);
-    margin-bottom: calc( 1rem / 2); }
+    margin-bottom: calc( 1rem / 2);
+    width: 175px;
+    border-radius: 15px; }
+    .dancer-list p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px; }
   /* -----------------------------------------------------------------------------
                         ------------- FOOTER -------------
      -----------------------------------------------------------------------------
