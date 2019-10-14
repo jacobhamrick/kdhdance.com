@@ -389,10 +389,14 @@ a.nav-link:hover {
 .page-title {
   text-align: center;
   font-weight: bold;
-  font-size: 8vw; }
+  font-size: 8vw;
+  line-height: 9vw;
+  height: 10vw;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #fff; }
 
 .page-content {
-  border-top: 2px solid black;
   padding-top: .5rem; }
 
 /*
@@ -517,13 +521,23 @@ main {
 */
 h2#upcoming-season {
   text-align: center;
-  color: #d400c8; }
+  color: #fff;
+  background-color: #00C7FF; }
 
-#upcoming-wrapper {
+.upcoming-wrapper {
   flex-direction: column;
-  border-top: 2px solid black; }
+  background-color: #fffa00;
+  border: 2px solid black;
+  padding-bottom: 1rem;
+  border-radius: 15px; }
 
-.upcoming-show,
+.upcoming-show {
+  border: 2px solid black;
+  width: 95%;
+  padding: calc( 1rem / 2) 1rem;
+  margin: 1rem auto 0 auto;
+  background-color: #fff; }
+
 .show-about-container {
   border-bottom: 2px solid black;
   width: 100%;
@@ -552,11 +566,15 @@ p.show-title {
                 ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
+.classes-div {
+  background-color: #FFFA7B; }
+
 h2#classes-title {
   text-align: center;
-  color: #7B3FFC; }
+  color: #3455db;
+  background-color: #fff; }
 
-#classes-wrapper {
+.classes-wrapper {
   flex-direction: column;
   border-top: 2px solid black; }
 
@@ -582,7 +600,7 @@ p#class-feature-title {
   font-weight: 500;
   font-family: "Helvetica Neue";
   text-transform: uppercase;
-  color: #7B3FFC;
+  color: #3455db;
   margin-bottom: 0; }
 
 #class-feature-photo {
@@ -594,12 +612,13 @@ p#class-feature-title {
 --------------------------------------------------------------------------------
 */
 .artistic.staff-div {
-  background-color: #fffa00; }
+  background-color: gold; }
 
 #staff-title {
-  color: #000060; }
+  color: #000;
+  background-color: #ccff90; }
 
-#staff-wrapper {
+.staff-wrapper {
   flex-direction: column; }
 
 .staff-container {
@@ -654,6 +673,12 @@ p#class-feature-title {
 
 #dancers-title {
   color: #3455db; }
+
+.dancer-list {
+  display: none; }
+
+.dancer-wrapper {
+  flex-direction: column; }
 
 .dancer-container {
   flex-direction: column;
@@ -769,7 +794,11 @@ footer {
     height: calc(100% - 3rem);
     width: calc(100% - 3rem); }
   h2.page-title {
-    font-size: 3vw; }
+    font-size: 3vw;
+    height: 5vw;
+    line-height: 4.5vw;
+    width: 60%;
+    margin: 0 auto 1rem auto; }
   /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
@@ -788,8 +817,8 @@ footer {
       letter-spacing: normal; }
     #sticky-nav .title-wrapper .pink {
       letter-spacing: normal; }
-  .hideme {
-    margin-right: 1rem; }
+  .hideMe {
+    margin-right: .66rem; }
   #nav-text:hover {
     transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
@@ -986,18 +1015,13 @@ footer {
 --------------------------------------------------------------------------------
 */
   #upcoming-season {
-    text-align: center;
-    padding-bottom: .5rem;
-    border-bottom: 2px solid black; }
-  #upcoming-wrapper {
+    text-align: center; }
+  .upcoming-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 1rem;
-    border-top: none;
-    border-bottom: 2px solid black; }
-    #upcoming-wrapper .upcoming-show {
-      border-bottom: none;
-      margin: 0; }
+    padding: calc(1rem / 2); }
+    .upcoming-wrapper .upcoming-show {
+      margin: calc(1rem / 2); }
   /*
   --------------------------------------------------------------------------------
                       ------------- DANCE WORKS -------------
@@ -1021,7 +1045,7 @@ footer {
                   ------------- CLASSES PAGE -------------
   --------------------------------------------------------------------------------
   */
-  #classes-wrapper {
+  .classes-wrapper {
     flex-direction: row; }
   .class-container {
     padding: 1rem 2rem 1rem 0;
@@ -1043,20 +1067,44 @@ footer {
     height: 100%;
     width: 300px;
     margin-bottom: 1rem;
-    border: 2px solid black;
-    border-right: none; }
+    margin-right: 1rem;
+    border: 2px solid black; }
   .profile-text {
-    padding: 1rem;
-    background: #fff; }
+    border: 2px solid black; }
     .profile-text p {
-      font-size: 1.5vw;
-      line-height: 2 vw;
+      font-size: 1.7vw;
+      line-height: 2.5vw;
+      text-align: justify;
       margin: 0; }
   .staff-role {
     color: #d400c8; }
+  /*
+  --------------------------------------------------------------------------------
+                     ------------- DANCERS -------------
+  --------------------------------------------------------------------------------
+  */
+  .dancer-wrapper {
+    flex-direction: column; }
+  .dancer-container {
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto; }
+  .dancer-list {
+    display: block;
+    position: fixed;
+    left: calc( (page-padding * 2) +2px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    background: #fff;
+    border: 2px solid black;
+    padding: calc( 1rem / 2);
+    margin-bottom: calc( 1rem / 2); }
   /* -----------------------------------------------------------------------------
-                      ------------- FOOTER -------------
------------------------------------------------------------------------------ */
+                        ------------- FOOTER -------------
+     -----------------------------------------------------------------------------
+  */
   footer {
     z-index: 8000;
     flex-direction: row;

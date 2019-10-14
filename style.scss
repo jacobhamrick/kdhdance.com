@@ -14,10 +14,12 @@ I hope to empower creatives and small businesses.
 /* ------------- GENERAL ------------- */
 $primary-color: rgba(0,0,0,1);
 $pink: rgb(212,0,200);
+$light-pink: #ffcccb;
 $blue: rgb(52,85,219);
 $yellow: rgba(255,250,0,1);
 $purple: #7B3FFC;
 $green: #A2D936;
+$light-green: #ccff90;
 $red:	#990033;
 $orange: rgba(255,150,42,1);
 $light-blue: #00C7FF;
@@ -506,11 +508,15 @@ a.nav-link:hover {
   text-align: center;
   font-weight: bold;
   font-size: 8vw;
+  line-height: 9vw;
+  height: 10vw;
+  border: $borders;
+  border-radius: $body-curve;
+  background-color: #fff;
 }
 
 
 .page-content {
-  border-top: $borders;
   padding-top: .5rem;
 }
 
@@ -672,19 +678,32 @@ main {
 
 h2#upcoming-season {
   text-align: center;
-  color: $pink;
+  color: #fff;
+  background-color: $light-blue;
 }
 
-#upcoming-wrapper {
+.upcoming-wrapper {
   flex-direction: column;
-  border-top: $borders;
+  background-color: $yellow;
+  border: $borders;
+  padding-bottom: $page-padding;
+  border-radius: $body-curve;
 }
 
-.upcoming-show,
+.upcoming-show {
+  border: $borders;
+  width: 95%;
+  padding: calc( #{$page-padding} / 2) $page-padding;
+  margin: $page-padding auto 0 auto;
+  background-color: #fff;
+}
+
+
 .show-about-container {
   border-bottom: $borders;
   width: 100%;
   padding-top: .5rem;
+
 }
 
 .show-date {
@@ -717,12 +736,17 @@ p.show-title {
 --------------------------------------------------------------------------------
 */
 
-h2#classes-title {
-  text-align: center;
-  color: $purple;
+.classes-div {
+  background-color: #FFFA7B;
 }
 
-#classes-wrapper {
+h2#classes-title {
+  text-align: center;
+  color: $blue;
+  background-color: #fff;
+}
+
+.classes-wrapper {
   flex-direction: column;
   border-top: $borders;
 }
@@ -754,7 +778,7 @@ p#class-feature-title {
   font-weight: 500;
   font-family: $main-font;
   text-transform: uppercase;
-  color: $purple;
+  color: $blue;
   margin-bottom: 0;
 }
 
@@ -770,14 +794,15 @@ p#class-feature-title {
 */
 
 .artistic.staff-div {
-  background-color: $yellow;
+  background-color: gold;
 }
 
 #staff-title {
-  color: $dark-blue;
+  color: #000;
+  background-color: $light-green;
 }
 
-#staff-wrapper {
+.staff-wrapper {
   flex-direction: column;
 }
 
@@ -843,11 +868,19 @@ p#class-feature-title {
 */
 
 .dancers-div {
-  background-color: #ffcccb;
+  background-color: $light-pink;
 }
 
 #dancers-title {
   color: $blue;
+}
+
+.dancer-list {
+  display: none;
+}
+
+.dancer-wrapper {
+  flex-direction: column;
 }
 
 .dancer-container {
@@ -1007,6 +1040,10 @@ footer {
 
   h2.page-title {
     font-size: 3vw;
+    height: 5vw;
+    line-height: 4.5vw;
+    width: 60%;
+    margin: 0 auto $page-padding auto;
   }
 /*
 --------------------------------------------------------------------------------
@@ -1036,8 +1073,8 @@ footer {
     }
   }
 
-  .hideme {
-    margin-right: $page-padding;
+  .hideMe {
+    margin-right: .66rem;
   }
 
   #nav-text:hover {
@@ -1331,27 +1368,16 @@ main {
 
   #upcoming-season {
     text-align: center;
-    padding-bottom: .5rem;
-    border-bottom: $borders;
   }
 
-  #upcoming-wrapper {
+  .upcoming-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: $page-padding;
-    border-top: none;
-    border-bottom: $borders;
+    padding: calc(#{$page-padding} / 2);
     .upcoming-show {
-      border-bottom: none;
-      margin: 0;
-    }
-
-    .upcoming-show:nth-child(2),
-    .upcoming-show:nth-child(3) {
-      // border-left: $borders;
+      margin: calc(#{$page-padding} / 2);
     }
   }
-
 
   /*
   --------------------------------------------------------------------------------
@@ -1383,7 +1409,7 @@ main {
   --------------------------------------------------------------------------------
   */
 
-  #classes-wrapper {
+  .classes-wrapper {
     flex-direction: row;
   }
 
@@ -1414,17 +1440,16 @@ main {
     height: 100%;
     width: 300px;
     margin-bottom: $page-padding;
+    margin-right: $page-padding;
     border: $borders;
-    border-right: none;
   }
 
   .profile-text {
-    padding: $page-padding;
-    background: #fff;
+    border: $borders;
     p {
-      font-size: 1.5vw;
-      line-height: 2
-      vw;
+      font-size: 1.7vw;
+      line-height: 2.5vw;
+      text-align: justify;
       margin: 0;
     }
   }
@@ -1434,9 +1459,42 @@ main {
   }
 
 
-/* -----------------------------------------------------------------------------
-                      ------------- FOOTER -------------
------------------------------------------------------------------------------ */
+  /*
+  --------------------------------------------------------------------------------
+                     ------------- DANCERS -------------
+  --------------------------------------------------------------------------------
+  */
+
+  .dancer-wrapper {
+    flex-direction: column;
+  }
+
+  .dancer-container {
+
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dancer-list {
+    display: block;
+    position: fixed;
+    left: calc( (#{page-padding} * 2) +2px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    background: #fff;
+    border: $borders;
+    padding: calc( #{$page-padding } / 2);
+    margin-bottom: calc( #{$page-padding } / 2);
+  }
+
+
+  /* -----------------------------------------------------------------------------
+                        ------------- FOOTER -------------
+     -----------------------------------------------------------------------------
+  */
   footer {
     z-index: 8000;
     flex-direction: row;

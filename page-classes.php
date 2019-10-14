@@ -10,7 +10,7 @@
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="classes-title"><?php wp_title('', true,''); ?></h2>
       <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
-      <div id="classes-wrapper flex">
+      <div class="classes-wrapper flex">
 
         <!-- class 1 -->
         <div class="class-container">

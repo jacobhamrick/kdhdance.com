@@ -9,7 +9,7 @@
   <div class="main-body scroll">
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="staff-title"><?php wp_title('', true,''); ?></h2>
-      <div id="staff-wrapper flex">
+      <div class="staff-wrapper flex">
 
         <!-- staff 1 -->
         <div class="staff-container flex">
