@@ -25,8 +25,8 @@
       </div>
 
       <div class="main-body scroll">
-        <!-- Slider main container -->
-        <div class="swiper-container">
+        <!-- swiper main container -->
+        <div class="swiper-container" id="home-swiper">
           <div class="swiper-wrapper">
       			<!-- Slides -->
       			<div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-1'); ?>)">

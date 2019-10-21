@@ -564,7 +564,7 @@ main {
 
 /* -------------------------------- SWIPER ---------------------------------- */
 
-.swiper-container {
+#home-swiper {
   width: 100%;
   height: 50vh;
   .swiper-wrapper {
@@ -578,43 +578,42 @@ main {
       background-size: cover;
     }
   }
-}
-
-.swiper-container {
-	width: 100%;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  background: none;
-  width: auto;
-  height: auto;
-  i {
-    color: #fff;
-    font-size: 30px;
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: none;
+    width: auto;
+    height: auto;
+    i {
+      color: #fff;
+      font-size: 30px;
+      transition: $time;
+    }
+  }
+  .swiper-button-prev i:hover,
+  .swiper-button-next i:hover {
+    color: $yellow;
     transition: $time;
+  }
+  .swiper-container-horizontal >.swiper-pagination-bullets,
+  .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: $page-padding;
+  }
+
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: .5;
+  }
+  .swiper-pagination-bullet-active {
+    background: $pink;
+    opacity: 1;
   }
 }
 
-.swiper-button-prev i:hover,
-.swiper-button-next i:hover {
-  color: $yellow;
-  transition: $time;
-}
 
-.swiper-container-horizontal >.swiper-pagination-bullets,
-.swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: $page-padding;
-}
 
-.swiper-pagination-bullet {
-  background: #fff;
-  opacity: .5;
-}
-.swiper-pagination-bullet-active {
-  background: $pink;
-  opacity: 1;
-}
+
+
+
 
 /* ------------------------------- NEWSBAR ---------------------------------- */
 
@@ -937,6 +936,130 @@ p#class-feature-title {
   text-align: center;
 }
 
+
+/*
+--------------------------------------------------------------------------------
+                      ------------- BOARD -------------
+--------------------------------------------------------------------------------
+*/
+
+.directors-div {
+  background-color: bisque;
+}
+
+#board-page-title {
+  font-size: 5vw;
+  line-height: 9.5vw;
+  background-color: $light-green;
+}
+
+.board-title,
+.board-list p {
+  margin: 0;
+}
+
+.board-title {
+  font-weight: 500;
+}
+
+.board-section-title {
+  margin: $page-padding;
+  font-style: italic;
+}
+
+#board-text-wrapper {
+  flex-direction: column;
+}
+
+#board-intro {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#board-intro,
+.board-list,
+.board-swiper-container {
+  border: $borders;
+  border-radius: $body-curve;
+  background-color: #fff;
+  padding: $page-padding;
+}
+
+.board-list {
+  margin-top: $page-padding;
+}
+.board-member {
+  margin-bottom: $page-padding;
+}
+
+.board-swiper-div {
+  margin-top: $page-padding;
+  position: relative;
+  height: 250px;
+  background-color: #fff;
+  border: $borders;
+  border-radius: $body-curve;
+  padding: $page-padding;
+  #board-swiper {
+    .swiper-wrapper {
+      height: 100%;
+      .swiper-slide {
+        height: 100%;
+        background: center no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      background: none;
+      width: auto;
+      height: auto;
+      i {
+        color: $yellow;
+        font-size: 30px;
+        transition: $time;
+      }
+    }
+    .swiper-button-prev i:hover,
+    .swiper-button-next i:hover {
+      color: $light-blue;
+      transition: $time;
+    }
+    .swiper-container-horizontal >.swiper-pagination-bullets,
+    .swiper-pagination-custom, .swiper-pagination-fraction {
+      bottom: $page-padding;
+    }
+
+    .swiper-pagination-bullet {
+      background: #fff;
+      opacity: .5;
+    }
+    .swiper-pagination-bullet-active {
+      background: $pink;
+      opacity: 1;
+    }
+  }
+}
+
+/*
+--------------------------------------------------------------------------------
+                      ------------- OUTREACH -------------
+--------------------------------------------------------------------------------
+*/
+
+#outreach-page-title {
+  background-color: $light-blue;
+}
+
+#outreach-header {
+  text-align: center;
+}
+
+
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
@@ -1182,7 +1305,7 @@ main {
 
 
 /* -------------------------------- SWIPER ---------------------------------- */
-.swiper-container {
+#home-swiper {
   height: 100%;
 }
 
@@ -1473,7 +1596,6 @@ main {
   }
 
   .dancer-container {
-
     width: 60%;
     height: auto;
     margin-left: auto;
@@ -1483,7 +1605,7 @@ main {
   .dancer-list {
     display: block;
     position: fixed;
-    top: 10rem;
+    top: 11.5rem;
     left: calc( (#{$page-padding} * 3) + 2px);
     flex-direction: row;
     flex-wrap: wrap;
@@ -1492,7 +1614,7 @@ main {
     border: $borders;
     padding: calc( #{$page-padding } / 2);
     margin-bottom: calc( #{$page-padding } / 2);
-    width: 175px;
+    width: 17vw;
     border-radius: $body-curve;
     p {
       margin: 0;
@@ -1500,6 +1622,42 @@ main {
       line-height: 18px;
     }
   }
+
+  /*
+  --------------------------------------------------------------------------------
+                        ------------- BOARD -------------
+  --------------------------------------------------------------------------------
+  */
+
+  #board-page-title {
+    font-size: 3vw;
+    line-height: 4.5vw;
+    background-color: $light-green;
+  }
+
+  #board-text-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .board-section-title {
+    text-align: center;
+  }
+
+  #board-intro,
+  .board-list {
+    width: 48%;
+  }
+
+
+  .board-list {
+    margin: 0;
+  }
+
+  #board-swiper-div {
+    height: 300px;
+  }
+
 
 
   /* -----------------------------------------------------------------------------

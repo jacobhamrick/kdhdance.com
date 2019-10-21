@@ -433,49 +433,41 @@ main {
   height: auto; }
 
 /* -------------------------------- SWIPER ---------------------------------- */
-.swiper-container {
+#home-swiper {
   width: 100%;
   height: 50vh; }
-  .swiper-container .swiper-wrapper {
+  #home-swiper .swiper-wrapper {
     height: 100%; }
-    .swiper-container .swiper-wrapper .swiper-slide {
+    #home-swiper .swiper-wrapper .swiper-slide {
       height: 100%;
       background: center no-repeat;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover; }
-
-.swiper-container {
-  width: 100%; }
-
-.swiper-button-prev,
-.swiper-button-next {
-  background: none;
-  width: auto;
-  height: auto; }
-  .swiper-button-prev i,
-  .swiper-button-next i {
-    color: #fff;
-    font-size: 30px;
+  #home-swiper .swiper-button-prev,
+  #home-swiper .swiper-button-next {
+    background: none;
+    width: auto;
+    height: auto; }
+    #home-swiper .swiper-button-prev i,
+    #home-swiper .swiper-button-next i {
+      color: #fff;
+      font-size: 30px;
+      transition: all 0.3s linear; }
+  #home-swiper .swiper-button-prev i:hover,
+  #home-swiper .swiper-button-next i:hover {
+    color: #fffa00;
     transition: all 0.3s linear; }
-
-.swiper-button-prev i:hover,
-.swiper-button-next i:hover {
-  color: #fffa00;
-  transition: all 0.3s linear; }
-
-.swiper-container-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: 1rem; }
-
-.swiper-pagination-bullet {
-  background: #fff;
-  opacity: .5; }
-
-.swiper-pagination-bullet-active {
-  background: #d400c8;
-  opacity: 1; }
+  #home-swiper .swiper-container-horizontal > .swiper-pagination-bullets,
+  #home-swiper .swiper-pagination-custom, #home-swiper .swiper-pagination-fraction {
+    bottom: 1rem; }
+  #home-swiper .swiper-pagination-bullet {
+    background: #fff;
+    opacity: .5; }
+  #home-swiper .swiper-pagination-bullet-active {
+    background: #d400c8;
+    opacity: 1; }
 
 /* ------------------------------- NEWSBAR ---------------------------------- */
 .newsbar {
@@ -720,6 +712,102 @@ p#class-feature-title {
   font-style: italic;
   text-align: center; }
 
+/*
+--------------------------------------------------------------------------------
+                      ------------- BOARD -------------
+--------------------------------------------------------------------------------
+*/
+.directors-div {
+  background-color: bisque; }
+
+#board-page-title {
+  font-size: 5vw;
+  line-height: 9.5vw;
+  background-color: #ccff90; }
+
+.board-title,
+.board-list p {
+  margin: 0; }
+
+.board-title {
+  font-weight: 500; }
+
+.board-section-title {
+  margin: 1rem;
+  font-style: italic; }
+
+#board-text-wrapper {
+  flex-direction: column; }
+
+#board-intro p:last-child {
+  margin-bottom: 0; }
+
+#board-intro,
+.board-list,
+.board-swiper-container {
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 1rem; }
+
+.board-list {
+  margin-top: 1rem; }
+
+.board-member {
+  margin-bottom: 1rem; }
+
+.board-swiper-div {
+  margin-top: 1rem;
+  position: relative;
+  height: 250px;
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 1rem; }
+  .board-swiper-div #board-swiper .swiper-wrapper {
+    height: 100%; }
+    .board-swiper-div #board-swiper .swiper-wrapper .swiper-slide {
+      height: 100%;
+      background: center no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover; }
+  .board-swiper-div #board-swiper .swiper-button-prev,
+  .board-swiper-div #board-swiper .swiper-button-next {
+    background: none;
+    width: auto;
+    height: auto; }
+    .board-swiper-div #board-swiper .swiper-button-prev i,
+    .board-swiper-div #board-swiper .swiper-button-next i {
+      color: #fffa00;
+      font-size: 30px;
+      transition: all 0.3s linear; }
+  .board-swiper-div #board-swiper .swiper-button-prev i:hover,
+  .board-swiper-div #board-swiper .swiper-button-next i:hover {
+    color: #00C7FF;
+    transition: all 0.3s linear; }
+  .board-swiper-div #board-swiper .swiper-container-horizontal > .swiper-pagination-bullets,
+  .board-swiper-div #board-swiper .swiper-pagination-custom, .board-swiper-div #board-swiper .swiper-pagination-fraction {
+    bottom: 1rem; }
+  .board-swiper-div #board-swiper .swiper-pagination-bullet {
+    background: #fff;
+    opacity: .5; }
+  .board-swiper-div #board-swiper .swiper-pagination-bullet-active {
+    background: #d400c8;
+    opacity: 1; }
+
+/*
+--------------------------------------------------------------------------------
+                      ------------- OUTREACH -------------
+--------------------------------------------------------------------------------
+*/
+#outreach-page-title {
+  background-color: #00C7FF; }
+
+#outreach-header {
+  text-align: center; }
+
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
@@ -894,7 +982,7 @@ footer {
     flex-direction: row;
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2)); }
   /* -------------------------------- SWIPER ---------------------------------- */
-  .swiper-container {
+  #home-swiper {
     height: 100%; }
   /* ------------------------------ NEWSFLASH --------------------------------- */
   .newsbar {
@@ -1096,7 +1184,7 @@ footer {
   .dancer-list {
     display: block;
     position: fixed;
-    top: 10rem;
+    top: 11.5rem;
     left: calc( (1rem * 3) + 2px);
     flex-direction: row;
     flex-wrap: wrap;
@@ -1105,12 +1193,33 @@ footer {
     border: 2px solid black;
     padding: calc( 1rem / 2);
     margin-bottom: calc( 1rem / 2);
-    width: 175px;
+    width: 17vw;
     border-radius: 15px; }
     .dancer-list p {
       margin: 0;
       font-size: 14px;
       line-height: 18px; }
+  /*
+  --------------------------------------------------------------------------------
+                        ------------- BOARD -------------
+  --------------------------------------------------------------------------------
+  */
+  #board-page-title {
+    font-size: 3vw;
+    line-height: 4.5vw;
+    background-color: #ccff90; }
+  #board-text-wrapper {
+    flex-direction: row;
+    justify-content: space-between; }
+  .board-section-title {
+    text-align: center; }
+  #board-intro,
+  .board-list {
+    width: 48%; }
+  .board-list {
+    margin: 0; }
+  #board-swiper-div {
+    height: 300px; }
   /* -----------------------------------------------------------------------------
                         ------------- FOOTER -------------
      -----------------------------------------------------------------------------
