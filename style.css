@@ -84,7 +84,7 @@ h4,
 h5,
 h6,
 p {
-  margin-bottom: .5rem; }
+  margin-bottom: 1rem; }
 
 h1,
 h2,
@@ -802,11 +802,64 @@ p#class-feature-title {
                       ------------- OUTREACH -------------
 --------------------------------------------------------------------------------
 */
+.outreach-div {
+  background-color: rgba(255, 250, 0, 0.3); }
+
 #outreach-page-title {
   background-color: #00C7FF; }
 
 #outreach-header {
   text-align: center; }
+
+#outreach-banner {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center; }
+
+#outreach-sections {
+  flex-direction: column; }
+  #outreach-sections .outreach-section {
+    background-color: #fff;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 15px; }
+    #outreach-sections .outreach-section .btn {
+      padding: 0;
+      white-space: normal;
+      text-align: left;
+      text-decoration: none;
+      width: 100%; }
+    #outreach-sections .outreach-section [data-toggle="collapse"] i:before {
+      content: "\f067"; }
+    #outreach-sections .outreach-section [aria-expanded="true"] i:before {
+      content: "\f068"; }
+    #outreach-sections .outreach-section h4 {
+      transition: all 0.3s linear; }
+      #outreach-sections .outreach-section h4 i.fas {
+        float: right; }
+    #outreach-sections .outreach-section .btn-link:hover {
+      text-decoration: none; }
+      #outreach-sections .outreach-section .btn-link:hover h4 {
+        transition: all 0.3s linear;
+        color: #d400c8; }
+    #outreach-sections .outreach-section .outreach-section-title {
+      font-weight: bold;
+      color: #3455db;
+      font-size: 14px;
+      word-wrap: break-word;
+      margin-bottom: 0; }
+    #outreach-sections .outreach-section .outreach-section-wrapper {
+      flex-direction: column; }
+      #outreach-sections .outreach-section .outreach-section-wrapper .outreach-paragraph {
+        padding-top: calc(1rem / 2); }
+        #outreach-sections .outreach-section .outreach-section-wrapper .outreach-paragraph p {
+          font-size: 14px; }
+      #outreach-sections .outreach-section .outreach-section-wrapper .outreach-section-image {
+        width: 100%; }
+
+#outreach-feature-image {
+  width: 100%; }
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -1220,6 +1273,22 @@ footer {
     margin: 0; }
   #board-swiper-div {
     height: 300px; }
+  /*
+  --------------------------------------------------------------------------------
+                        ------------- OUTREACH -------------
+  --------------------------------------------------------------------------------
+  */
+  #outreach-sections .outreach-section {
+    height: 100%; }
+    #outreach-sections .outreach-section .outreach-section-wrapper {
+      flex-direction: column; }
+      #outreach-sections .outreach-section .outreach-section-wrapper .outreach-section-image {
+        width: 100%; }
+  .outreach-paragraph p {
+    font-size: 16px;
+    line-height: 16px; }
+  #outreach-feature-image {
+    width: 100%; }
   /* -----------------------------------------------------------------------------
                         ------------- FOOTER -------------
      -----------------------------------------------------------------------------

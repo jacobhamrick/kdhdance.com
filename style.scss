@@ -17,6 +17,7 @@ $pink: rgb(212,0,200);
 $light-pink: #ffcccb;
 $blue: rgb(52,85,219);
 $yellow: rgba(255,250,0,1);
+$light-yellow: rgba(255,250,0,.3);
 $purple: #7B3FFC;
 $green: #A2D936;
 $light-green: #ccff90;
@@ -119,7 +120,7 @@ h4,
 h5,
 h6,
 p {
-  margin-bottom: .5rem;
+  margin-bottom: $page-padding;
 }
 
 h1,
@@ -1051,6 +1052,10 @@ p#class-feature-title {
 --------------------------------------------------------------------------------
 */
 
+.outreach-div {
+  background-color: $light-yellow;
+}
+
 #outreach-page-title {
   background-color: $light-blue;
 }
@@ -1058,6 +1063,76 @@ p#class-feature-title {
 #outreach-header {
   text-align: center;
 }
+
+#outreach-banner {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+#outreach-sections {
+  flex-direction: column;
+  .outreach-section {
+    background-color: #fff;
+    margin-bottom: $page-padding;
+    padding: $page-padding;
+    border: $borders;
+    border-radius: $body-curve;
+    .btn {
+      padding: 0;
+      white-space: normal;
+      text-align: left;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    [data-toggle="collapse"] i:before {
+        content: "\f067";
+
+    }
+
+    [aria-expanded="true"] i:before {
+        content: "\f068";
+    }
+
+    h4 {
+      transition: $time;
+      i.fas {
+        float: right;
+      }
+    }
+    .btn-link:hover {
+      text-decoration: none;
+      h4 {
+        transition: $time;
+        color: $pink;
+      }
+    }
+    .outreach-section-title {
+      font-weight: bold;
+      color: $blue;
+      font-size: 14px;
+      word-wrap: break-word;
+      margin-bottom: 0;
+    }
+    .outreach-section-wrapper {
+      flex-direction: column;
+      .outreach-paragraph {
+        padding-top: calc(#{$page-padding} / 2);
+        p {
+          font-size: 14px;
+        }
+      }
+      .outreach-section-image {
+        width: 100%;
+      }
+    }
+  }
+}
+#outreach-feature-image {
+  width: 100%;
+}
+
 
 
 /* -----------------------------------------------------------------------------
@@ -1656,6 +1731,36 @@ main {
 
   #board-swiper-div {
     height: 300px;
+  }
+
+  /*
+  --------------------------------------------------------------------------------
+                        ------------- OUTREACH -------------
+  --------------------------------------------------------------------------------
+  */
+
+  #outreach-sections {
+
+    .outreach-section {
+      height: 100%;
+      .outreach-section-wrapper {
+        flex-direction: column;
+        .outreach-section-image {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .outreach-paragraph {
+    p {
+    font-size: 16px;
+    line-height: 16px;
+    }
+  }
+
+  #outreach-feature-image {
+    width: 100%;
   }
 
 
