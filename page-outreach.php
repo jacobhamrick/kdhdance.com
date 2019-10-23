@@ -24,13 +24,11 @@
           </button>
 
           <div id="collapse1" class="outreach-section-wrapper flex collapse show" aria-labelledby="sectionTitle1" data-parent="#outreachSection1">
-            <div class="outreach-section-wrapper flex">
               <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-1'); echo '</div>';?>
               <?php $image = get_field('outreach-section-1-image');
                   if( !empty( $image ) ): ?>
                     <img class="outreach-section-image" src="<?php echo esc_url($image['url']); ?>" />
                   <?php endif; ?>
-            </div>
           </div>
 
         </div>
@@ -46,13 +44,11 @@
           </button>
 
           <div id="collapse2" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle2" data-parent="#outreachSection2">
-            <div class="outreach-section-wrapper flex">
             <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-2'); echo '</div>';?>
               <?php $image = get_field('outreach-section-2-image');
                   if( !empty( $image ) ): ?>
                     <img class="outreach-section-image" src="<?php echo esc_url($image['url']); ?>" />
                   <?php endif; ?>
-            </div>
           </div>
 
         </div>
@@ -68,13 +64,11 @@
           </button>
 
           <div id="collapse3" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle3" data-parent="#outreachSection3">
-            <div class="outreach-section-wrapper flex">
             <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-3'); echo '</div>';?>
               <?php $image = get_field('outreach-section-3-image');
                   if( !empty( $image ) ): ?>
                     <img class="outreach-section-image" src="<?php echo esc_url($image['url']); ?>" />
                   <?php endif; ?>
-            </div>
           </div>
 
         </div>
@@ -89,9 +83,7 @@
           </button>
 
           <div id="collapse4" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle4" data-parent="#outreachSection4">
-            <div class="outreach-section-wrapper flex">
             <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-4'); echo '</div>';?>
-            </div>
           </div>
 
         </div>
@@ -106,9 +98,7 @@
           </button>
 
           <div id="collapse5" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle5" data-parent="#outreachSection5">
-            <div class="outreach-section-wrapper flex">
             <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-5'); echo '</div>';?>
-            </div>
           </div>
 
         </div>
@@ -123,13 +113,11 @@
           </button>
 
           <div id="collapse6" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle6" data-parent="#outreachSection6">
-            <div class="outreach-section-wrapper flex">
             <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-3'); echo '</div>';?>
               <?php $image = get_field('outreach-section-6-image');
                   if( !empty( $image ) ): ?>
                     <img class="outreach-section-image" id="outreach-feature-image" src="<?php echo esc_url($image['url']); ?>" />
                   <?php endif; ?>
-            </div>
           </div>
 
         </div>
@@ -144,9 +132,7 @@
           </button>
 
           <div id="collapse7" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle7" data-parent="#outreachSection7">
-            <div class="outreach-section-wrapper flex">
             <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-7'); echo '</div>';?>
-            </div>
           </div>
 
         </div>

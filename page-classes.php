@@ -43,10 +43,11 @@
       <div id="class-feature-container">
         <p id="class-feature-title"><?php the_field('class-feature-title'); ?></p>
         <div id="class-feature"><?php the_field('class-feature'); ?>
-          <?php if( get_field('class-feature-photo') ): ?>
-              <img id="class-feature-photo" src="<?php the_field('class-feature-photo'); ?>" />
+          <?php $image = get_field('class-feature-photo');
+              if( !empty( $image ) ): ?>
+                <img id="class-feature-photo" src="<?php echo esc_url($image['url']); ?>" />
+              <?php endif; ?>
         </div>
-          <?php endif; ?>
       </div>
         <!--
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

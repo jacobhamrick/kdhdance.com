@@ -19,6 +19,7 @@ $blue: rgb(52,85,219);
 $yellow: rgba(255,250,0,1);
 $light-yellow: rgba(255,250,0,.3);
 $purple: #7B3FFC;
+$light-purple: rgba(123,63,252,.1);
 $green: #A2D936;
 $light-green: #ccff90;
 $red:	#990033;
@@ -1053,7 +1054,7 @@ p#class-feature-title {
 */
 
 .outreach-div {
-  background-color: $light-yellow;
+  background-color: $light-purple;
 }
 
 #outreach-page-title {
@@ -1068,18 +1069,19 @@ p#class-feature-title {
   font-style: italic;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 0;
 }
 
 #outreach-sections {
   flex-direction: column;
   .outreach-section {
     background-color: #fff;
-    margin-bottom: $page-padding;
-    padding: $page-padding;
+    margin: $page-padding 0 0 0;
     border: $borders;
     border-radius: $body-curve;
     .btn {
-      padding: 0;
+      padding: $page-padding 0;
+      height: 100%;
       white-space: normal;
       text-align: left;
       text-decoration: none;
@@ -1091,8 +1093,16 @@ p#class-feature-title {
 
     }
 
+    [data-toggle="collapse"] {
+      border-radius: $body-curve;
+    }
+
     [aria-expanded="true"] i:before {
         content: "\f068";
+    }
+
+    [aria-expanded="true"] {
+        border-radius: $body-curve $body-curve 0 0;
     }
 
     h4 {
@@ -1102,7 +1112,9 @@ p#class-feature-title {
       }
     }
     .btn-link:hover {
+      transition: $time;
       text-decoration: none;
+      background-color: $yellow;
       h4 {
         transition: $time;
         color: $pink;
@@ -1114,9 +1126,11 @@ p#class-feature-title {
       font-size: 14px;
       word-wrap: break-word;
       margin-bottom: 0;
+      padding: 0 $page-padding;
     }
     .outreach-section-wrapper {
       flex-direction: column;
+      padding: 0 $page-padding $page-padding $page-padding;
       .outreach-paragraph {
         padding-top: calc(#{$page-padding} / 2);
         p {
@@ -1740,11 +1754,12 @@ main {
   */
 
   #outreach-sections {
-
     .outreach-section {
       height: 100%;
+      width: 66%;
+      margin-left: auto;
+      margin-right: auto;
       .outreach-section-wrapper {
-        flex-direction: column;
         .outreach-section-image {
           width: 100%;
         }
