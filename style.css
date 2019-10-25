@@ -485,7 +485,8 @@ main {
     width: 50%;
     margin-bottom: 1rem;
     padding-left: calc(1rem / 2);
-    transition: all 0.3s linear; }
+    transition: all 0.3s linear;
+    font-family: Courier; }
   #mc_embed_signup_scroll #mc-embedded-subscribe {
     background-color: #3455db;
     text-transform: uppercase;
@@ -498,14 +499,15 @@ main {
 /* ------------------------------- SPONSORS --------------------------------- */
 #sponsor-wrapper {
   display: flex;
-  flex-direction: row; }
+  flex-direction: column;
+  padding: 1rem 0; }
   #sponsor-wrapper .sponsor-row {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin: 1rem; }
+    width: 70%;
+    margin: 0 auto; }
     #sponsor-wrapper .sponsor-row .sponsor-img {
-      margin-bottom: 1rem; }
+      margin: 1rem 0; }
       #sponsor-wrapper .sponsor-row .sponsor-img img {
         width: 100%; }
 
@@ -869,6 +871,27 @@ p#class-feature-title {
 
 #outreach-feature-image {
   width: 100%; }
+
+/* -----------------------------------------------------------------------------
+                      ------------- CONTACT -------------
+----------------------------------------------------------------------------- */
+.contact-div .contact-list {
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 1rem; }
+  .contact-div .contact-list .contact-item {
+    margin-bottom: 1rem; }
+    .contact-div .contact-list .contact-item h3 {
+      margin-bottom: 0; }
+    .contact-div .contact-list .contact-item a, .contact-div .contact-list .contact-item p {
+      font-size: 2vw;
+      margin-bottom: 0; }
+
+.contact-div #mc_embed_signup_scroll {
+  text-align: center;
+  width: 45%;
+  max-width: 400px;
+  margin: 0 auto; }
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------

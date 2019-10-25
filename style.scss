@@ -638,6 +638,7 @@ main {
     margin-bottom: $page-padding;
     padding-left: calc(#{$page-padding} / 2);
     transition: $time;
+    font-family: Courier;
   }
   #mc-embedded-subscribe {
     background-color: $blue;
@@ -657,14 +658,15 @@ main {
 
 #sponsor-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: $page-padding 0;
   .sponsor-row {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin: $page-padding;
+    width: 70%;
+    margin: 0 auto;
     .sponsor-img {
-      margin-bottom: $page-padding;
+      margin: $page-padding 0;
       img {
         width: 100%;
       }
@@ -1147,6 +1149,32 @@ p#class-feature-title {
   width: 100%;
 }
 
+/* -----------------------------------------------------------------------------
+                      ------------- CONTACT -------------
+----------------------------------------------------------------------------- */
+.contact-div {
+  .contact-list {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: $page-padding;
+    .contact-item {
+      margin-bottom: $page-padding;
+      h3 {
+        margin-bottom: 0;
+      }
+      a, p {
+        font-size: 2vw;
+        margin-bottom: 0;
+      }
+    }
+  }
+  #mc_embed_signup_scroll {
+    text-align: center;
+    width: 45%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
 
 
 /* -----------------------------------------------------------------------------

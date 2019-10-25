@@ -48,6 +48,7 @@
       		<div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
       		<div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
       	</div> <!-- end swiper-container -->
+
         <div class="page-body home-div">
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <!-- <h2><?php the_title(); ?></h2>
@@ -77,26 +78,26 @@
                 </div> <!-- end sponsor-row-->
 
                 <div class="sponsor-row sr-2">
-                <div class="sponsor-img">
-                  <img src="<?php the_field('sr-2-1'); ?>" />
-                </div>
-                <div class="sponsor-img">
-                  <img src="<?php the_field('sr-2-2'); ?>" />
-                </div>
-                <div class="sponsor-img">
-                  <img src="<?php the_field('sr-2-3'); ?>" />
-                </div>
-                <div class="sponsor-img">
-                  <img src="<?php the_field('sr-2-4'); ?>" />
-                </div>
-                <div class="sponsor-img">
-                  <img src="<?php the_field('sr-2-5'); ?>" />
-                </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-2-1'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-2-2'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-2-3'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-2-4'); ?>" />
+                  </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-2-5'); ?>" />
+                  </div>
                 </div> <!-- end sponsor-row-->
               </div> <!-- end sponsor-wrapper -->
             </section>
 
-        </div>
+        </div> <!-- end page-body -->
 
       </div> <!-- end main-body -->
       <?php endwhile; endif; ?>
