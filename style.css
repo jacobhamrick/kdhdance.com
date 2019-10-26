@@ -504,12 +504,14 @@ main {
   #sponsor-wrapper .sponsor-row {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 70%;
     margin: 0 auto; }
     #sponsor-wrapper .sponsor-row .sponsor-img {
       margin: 1rem 0; }
       #sponsor-wrapper .sponsor-row .sponsor-img img {
-        width: 100%; }
+        width: 100%;
+        max-width: 175px; }
 
 /*
 --------------------------------------------------------------------------------
@@ -1076,14 +1078,22 @@ footer {
     border-bottom: none;
     border-right: 2px solid black;
     margin-top: 0;
-    min-width: 240px;
-    max-width: 25%;
+    min-width: 280px;
+    width: 33%;
     height: 100%; }
   .newsflash-widget {
     position: relative;
     background-color: #fffa00;
     border-right: none;
     border-bottom: 2px solid black;
+    width: 100%;
+    font-size: 20px; }
+  .mtphr-dnt-tick-contents {
+    text-transform: uppercase;
+    font-size: 27px;
+    margin: auto 0;
+    letter-spacing: 2px;
+    padding-left: 45%;
     width: 100%; }
   /* ------------------------------- NEWSBAR ---------------------------------- */
   .newsbar-link-container {
@@ -1094,33 +1104,33 @@ footer {
     border-bottom: 2px solid black; }
     .newsbar-link-container .newsbar-link {
       display: block;
-      background-color: snow;
+      background-color: none;
       color: black;
       height: 100%;
       transition: all 0.3s linear; }
       .newsbar-link-container .newsbar-link .newsbar-widget {
         height: 100%;
-        width: 100%;
-        padding: calc( 1rem / 2) 1rem;
+        margin: 0 auto;
         transition: all 0.3s linear;
         flex-direction: column;
-        justify-content: flex-start; }
+        justify-content: flex-start;
+        padding: calc(1rem / 2); }
         .newsbar-link-container .newsbar-link .newsbar-widget .textwidget {
           display: block;
-          width: 85%;
+          width: 100%;
           height: auto;
           padding: 0;
           margin: 0; }
           .newsbar-link-container .newsbar-link .newsbar-widget .textwidget p {
             font-weight: normal;
-            font-size: 1.5vw;
-            line-height: 1.5vw;
+            font-size: 2.7vh;
+            line-height: 3vh;
             text-align: left;
             margin: 0; }
         .newsbar-link-container .newsbar-link .newsbar-widget .newsbar-title {
           flex-direction: row;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-start;
           width: auto;
           color: #000;
           height: 20px;
@@ -1130,61 +1140,46 @@ footer {
           text-transform: uppercase;
           transition: all 0.3s linear;
           -webkit-transition: all 0.3s linear;
-          margin-bottom: calc( 1rem / 4); }
+          margin-bottom: 0; }
         .newsbar-link-container .newsbar-link .newsbar-widget .fas, .newsbar-link-container .newsbar-link .newsbar-widget .far {
-          padding-right: 0;
+          padding-left: 1rem;
           opacity: 0;
+          color: #fff;
           font-size: 20px;
-          transition: all 0.3s linear;
-          margin-top: 25%; }
-    .newsbar-link-container .newsbar-link:hover {
-      display: block;
-      background: #fff;
-      transition: all 0.3s linear;
-      -webkit-transition: all 0.3s linear; }
-      .newsbar-link-container .newsbar-link:hover .newsbar-widget .newsbar-title {
-        transition: all 0.3s linear;
-        -webkit-transition: all 0.3s linear;
-        font-style: italic; }
-        .newsbar-link-container .newsbar-link:hover .newsbar-widget .newsbar-title .fas, .newsbar-link-container .newsbar-link:hover .newsbar-widget .newsbar-title .far {
-          opacity: 1;
-          color: black;
           transition: all 0.3s linear; }
-  #next-bar:hover .fas, #next-bar:hover .far, #next-bar:hover .newsbar-title {
-    color: #ff962a; }
-  #recent-bar:hover .fas, #recent-bar:hover .far, #recent-bar:hover .newsbar-title {
-    color: #A2D936; }
-  #class-bar:hover .fas, #class-bar:hover .far, #class-bar:hover .newsbar-title {
-    color: #3455db; }
-  #outreach-bar:hover .fas, #outreach-bar:hover .far, #outreach-bar:hover .newsbar-title {
-    color: #7B3FFC; }
-  #contribute-bar:hover .fas, #contribute-bar:hover .far, #contribute-bar:hover .newsbar-title {
-    color: #d400c8; }
+  div.newsbar-link-container:hover {
+    background-color: #000060;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear; }
+    div.newsbar-link-container:hover .newsbar-widget p {
+      transition: all 0.3s linear;
+      -webkit-transition: all 0.3s linear;
+      color: #fff; }
+    div.newsbar-link-container:hover .newsbar-widget p.newsbar-title {
+      transition: all 0.3s linear;
+      -webkit-transition: all 0.3s linear;
+      color: #d400c8; }
+      div.newsbar-link-container:hover .newsbar-widget p.newsbar-title .fas, div.newsbar-link-container:hover .newsbar-widget p.newsbar-title .far {
+        opacity: 1;
+        color: #fffa00; }
   .newsbar .newsbar-link-container:last-child {
     border-bottom: none; }
-  .mtphr-dnt-tick-contents {
-    text-transform: uppercase;
-    font-size: 16px;
-    margin: auto 0;
-    padding-left: 45%;
-    width: 100%; }
   /* ------------------------------- SPONSORS --------------------------------- */
-  .sponsor-row {
+  #sponsor-wrapper {
     flex-direction: row;
-    align-content: space-between;
-    margin: 1rem 0;
-    height: 220px;
-    width: 100%; }
-    .sponsor-row .sponsor-img {
+    padding: 1rem 0; }
+    #sponsor-wrapper .sponsor-row {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      width: 48%;
-      margin-bottom: 0;
-      padding: .5rem; }
-      .sponsor-row .sponsor-img img {
-        margin: auto;
-        max-width: 160px; }
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+      margin: 0 auto; }
+      #sponsor-wrapper .sponsor-row .sponsor-img {
+        margin: 1rem 0; }
+        #sponsor-wrapper .sponsor-row .sponsor-img img {
+          width: 100%;
+          max-width: 250px; }
   /*
 --------------------------------------------------------------------------------
                 ------------- UPCOMING PAGE -------------

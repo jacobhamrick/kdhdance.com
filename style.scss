@@ -663,12 +663,14 @@ main {
   .sponsor-row {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 70%;
     margin: 0 auto;
     .sponsor-img {
       margin: $page-padding 0;
       img {
         width: 100%;
+        max-width: 175px;
       }
     }
   }
@@ -1434,8 +1436,8 @@ main {
     border-bottom: none;
     border-right: $borders;
     margin-top: 0;
-    min-width: 240px;
-    max-width: 25%;
+    min-width: 280px;
+    width: 33%;
     height: 100%;
   }
 
@@ -1445,7 +1447,19 @@ main {
     border-right: none;
     border-bottom: $borders;
     width: 100%;
+    font-size: 20px;
   }
+
+
+  .mtphr-dnt-tick-contents  {
+    text-transform: uppercase;
+    font-size: 27px;
+    margin: auto 0;
+    letter-spacing: 2px;
+    padding-left: 45%;
+    width: 100%;
+  }
+
 
 /* ------------------------------- NEWSBAR ---------------------------------- */
 
@@ -1458,31 +1472,30 @@ main {
 
     .newsbar-link {
       display: block;
-      background-color: rgb(255,250,250);
+      background-color: none;
       color: $primary-color;
       height: 100%;
       transition: $time;
 
       .newsbar-widget {
         height: 100%;
-        width: 100%;
-        padding: calc( #{$page-padding} / 2) $page-padding;
+        margin: 0 auto;
         transition: $time;
         flex-direction: column;
         justify-content: flex-start;
+        padding: calc(#{$page-padding} / 2) ;
 
         .textwidget {
           display: block;
-          width: 85%;
+          width: 100%;
           height: auto;
           padding: 0;
           margin: 0;
-          // font-family: 'Georgia', serif;
 
           p {
               font-weight: normal;
-              font-size: 1.5vw;
-              line-height: 1.5vw;
+              font-size: 2.7vh;
+              line-height: 3vh;
               text-align: left;
               margin: 0;
           }
@@ -1491,7 +1504,7 @@ main {
         .newsbar-title {
           flex-direction: row;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-start;
           width: auto;
           color: #000;
           height: 20px;
@@ -1501,103 +1514,68 @@ main {
           text-transform: uppercase;
           transition: $time;
           -webkit-transition: $time;
-          margin-bottom: calc( #{$page-padding} / 4);
+          margin-bottom: 0;
         }
 
         .fas, .far {
-          padding-right: 0;
+          padding-left: $page-padding;
           opacity: 0;
+          color: #fff;
           font-size: 20px;
           transition: $time;
-          margin-top: 25%;
-        }
-      }
-    }
-    .newsbar-link:hover {
-      display: block;
-      background: #fff;
-      transition: $time;
-      -webkit-transition: $time;
-      .newsbar-widget {
-
-        .newsbar-title {
-          transition: $time;
-          -webkit-transition: $time;
-          font-style: italic;
-          .fas, .far {
-            opacity: 1;
-            color: $primary-color;
-            transition: $time;
-          }
         }
       }
     }
   }
 
-
-
-
-
-  #next-bar:hover {
-    .fas, .far, .newsbar-title {
-      color: $orange;
+  div.newsbar-link-container:hover {
+    background-color: $dark-blue;
+    transition: $time;
+    -webkit-transition: $time;
+    .newsbar-widget {
+      p {
+        transition: $time;
+        -webkit-transition: $time;
+        color: #fff;
+      }
+      p.newsbar-title {
+        transition: $time;
+        -webkit-transition: $time;
+        color: $pink;
+        .fas, .far {
+          opacity: 1;
+          color: $yellow;
+        }
+      }
     }
   }
-
-  #recent-bar:hover {
-    .fas, .far, .newsbar-title {
-    color: $green;
-    }
-  }
-
-  #class-bar:hover {
-    .fas, .far, .newsbar-title {
-      color: $blue;
-    }
-  }
-
-  #outreach-bar:hover {
-    .fas, .far, .newsbar-title {
-    color: $purple;
-    }
-  }
-
-  #contribute-bar:hover {
-    .fas, .far, .newsbar-title {
-      color: $pink;
-    }
-   }
 
   .newsbar .newsbar-link-container:last-child {
     border-bottom: none;
   }
 
-  .mtphr-dnt-tick-contents  {
-    text-transform: uppercase;
-    font-size: 16px;
-    margin: auto 0;
-    padding-left: 45%;
-    width: 100%;
-  }
+
+
+
 
 /* ------------------------------- SPONSORS --------------------------------- */
 
-  .sponsor-row {
+  #sponsor-wrapper {
     flex-direction: row;
-    align-content: space-between;
-    margin: $page-padding 0;
-    height: 220px;
-    width: 100%;
-    .sponsor-img {
+    padding: $page-padding 0;
+    .sponsor-row {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      width: 48%;
-      margin-bottom: 0;
-      padding: .5rem;
-      img {
-        margin: auto;
-        max-width: 160px;
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+      margin: 0 auto;
+      .sponsor-img {
+        margin: $page-padding 0;
+        img {
+          width: 100%;
+          max-width: 250px;
+        }
       }
     }
   }
