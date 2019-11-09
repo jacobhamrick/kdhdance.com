@@ -9,6 +9,10 @@
   <div class="main-body scroll">
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="classes-title"><?php wp_title('', true,''); ?></h2>
+      <?php $image = get_field('class-feature-photo-1');
+      if( !empty( $image ) ): ?>
+        <img class="class-photo" id="class-feature-photo-1" src="<?php echo esc_url($image['url']); ?>" />
+      <?php endif; ?>
       <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
       <div class="classes-wrapper flex">
 
@@ -40,20 +44,38 @@
       </div> <!-- end classes-wrapper -->
 
       <!-- class feature -->
-      <div id="class-feature-container">
-        <p id="class-feature-title"><?php the_field('class-feature-title'); ?></p>
-        <div id="class-feature"><?php the_field('class-feature'); ?>
-          <?php $image = get_field('class-feature-photo');
-              if( !empty( $image ) ): ?>
-                <img id="class-feature-photo" src="<?php echo esc_url($image['url']); ?>" />
-              <?php endif; ?>
+
+      <p id="class-feature-title"><?php the_field('class-feature-title'); ?></p>
+      <div class="class-feature-container flex">
+
+        <div class="class-feature">
+          <?php the_field('class-feature'); ?>
         </div>
+
+        <div class="class-feature">
+          <?php $image = get_field('class-feature-photo-2');
+          if( !empty( $image ) ): ?>
+            <img class="class-photo" id="class-feature-photo-2" src="<?php echo esc_url($image['url']); ?>" />
+          <?php endif; ?>
+        </div>
+
       </div>
-        <!--
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <?php the_content(); ?> -->
+
+      <div class="class-photo-group flex">
+
+        <?php $image = get_field('class-feature-photo-3');
+        if( !empty( $image ) ): ?>
+          <img class="class-photo" id="class-feature-photo-3" src="<?php echo esc_url($image['url']); ?>" />
+        <?php endif; ?>
+
+        <?php $image = get_field('class-feature-photo-4');
+        if( !empty( $image ) ): ?>
+          <img class="class-photo" id="class-feature-photo-4" src="<?php echo esc_url($image['url']); ?>" />
+        <?php endif; ?>
+
+      </div>
+
     </div> <!-- end page-body -->
-      <?php endwhile; endif; ?>
   </div>
 </main>
 <?php get_footer(); ?>

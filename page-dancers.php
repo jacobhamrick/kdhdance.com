@@ -12,8 +12,8 @@
 
       <div class="dancer-list flex">
         <p>
-          <a href="#dancer-1"><?php the_field('dancer-name-1'); ?></a>, <a href="#dancer-2"><?php the_field('dancer-name-2'); ?></a>, <a href="#dancer-3"><?php the_field('dancer-name-3'); ?></a>, <a href="#dancer-4"><?php the_field('dancer-name-4'); ?></a>, <a href="#dancer-5"><?php the_field('dancer-name-5');?></a>, <a href="#dancer-6"><?php the_field('dancer-name-6'); ?></a>, <a href="#dancer-7"><?php the_field('dancer-name-7'); ?></a>
-          <!-- <a href="#dancer-8"><?php the_field('dancer-name-8'); ?></a> -->
+          <a href="#dancer-1"><?php the_field('dancer-name-1'); ?></a> / <a href="#dancer-2"><?php the_field('dancer-name-2'); ?></a> / <a href="#dancer-3"><?php the_field('dancer-name-3'); ?></a> / <a href="#dancer-4"><?php the_field('dancer-name-4'); ?></a> / <a href="#dancer-5"><?php the_field('dancer-name-5');?></a> / <a href="#dancer-6"><?php the_field('dancer-name-6'); ?></a> / <a href="#dancer-7"><?php the_field('dancer-name-7'); ?></a> /
+          <a href="#dancer-8"><?php the_field('dancer-name-8'); ?></a>
         </p>
       </div>
 
@@ -83,7 +83,6 @@
         </div>
 
         <!-- dancer 8 -->
-        <!--
         <div class="dancer-container flex" id="dancer-8">
           <?php $image = get_field('dancer-pic-8');
               if( !empty( $image ) ): ?>
@@ -91,7 +90,7 @@
               <?php endif; ?>
           <?php echo '<div class="dancer-text">'; the_field('dancer-text-8'); echo '</div>';?>
         </div>
-      -->
+
 
 
         <!-- dancer photo credit -->

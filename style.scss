@@ -17,7 +17,7 @@ $pink: rgb(212,0,200);
 $light-pink: #ffcccb;
 $blue: rgb(52,85,219);
 $yellow: rgba(255,250,0,1);
-$light-yellow: rgba(255,250,0,.3);
+$light-yellow: rgb(255,255,153);
 $purple: #7B3FFC;
 $light-purple: rgba(123,63,252,.1);
 $green: #A2D936;
@@ -34,6 +34,7 @@ $border-weight: 2px;
 $borders: $border-weight $border-type $primary-color;
 $body-curve: 15px;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
+$sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
 $footer-height: 70px;
 $time: all 0.3s linear;
@@ -63,6 +64,7 @@ body.logged-in {
   border: none;
   height: calc(100% - #{$page-padding});
   width: calc(100% - #{$page-padding});
+  position: fixed;
 }
 
 textarea:focus,
@@ -146,6 +148,7 @@ strong {
 .page-body p {
   font-family: $main-font;
   font-size: 4vw;
+  line-height: 4.5vw;
 }
 
 a:hover {
@@ -559,7 +562,7 @@ main {
 }
 
 .page-body {
-  padding: #{$page-padding} 6vw;
+  padding: #{$page-padding} 8vw;
   min-height: 100%;
   height: auto;
 }
@@ -636,7 +639,7 @@ main {
   #mce-EMAIL {
     width: 50%;
     margin-bottom: $page-padding;
-    padding-left: calc(#{$page-padding} / 2);
+    padding-left: $sm-page-padding;
     transition: $time;
     font-family: Courier;
   }
@@ -684,52 +687,67 @@ main {
 --------------------------------------------------------------------------------
 */
 
+.Upcoming.Performances-div {
+  background-color: $light-purple;
+}
+
 h2#upcoming-season {
   text-align: center;
-  color: #fff;
-  background-color: $light-blue;
+  color: $pink;
+  background-color: #fff;
 }
 
 .upcoming-wrapper {
   flex-direction: column;
-  background-color: $yellow;
-  border: $borders;
-  padding-bottom: $page-padding;
-  border-radius: $body-curve;
 }
 
 .upcoming-show {
-  border: $borders;
-  width: 95%;
-  padding: calc( #{$page-padding} / 2) $page-padding;
-  margin: $page-padding auto 0 auto;
-  background-color: #fff;
+  border-top: $borders;
+  width: 100%;
 }
 
+.upcoming-show:last-child {
+  border-bottom: $borders;
+  margin-bottom: $page-padding;
+  .show-info {
+    margin-bottom: $sm-page-padding;
+  }
+}
+
+.show-title,
+.upcoming-show {
+  margin-top: $sm-page-padding;
+}
 
 .show-about-container {
   border-bottom: $borders;
   width: 100%;
   padding-top: .5rem;
-
 }
 
-.show-date {
+.show-date,
+.show-info {
   margin-bottom: 0;
 }
 
 p.show-title {
-  font-weight: 500;
+  font-weight: bold;
   font-family: $main-font;
   text-transform: uppercase;
-  color: $pink;
+  color: $dark-blue;
   margin-bottom: 0;
+}
+
+.show-about {
+  height: 100%;
+  p {
+    text-align: justify;
+  }
 }
 
 #show-photo {
   width: 100%;
 }
-
 
 /*
 --------------------------------------------------------------------------------
@@ -745,18 +763,19 @@ p.show-title {
 */
 
 .classes-div {
-  background-color: #FFFA7B;
+  background-color: $light-yellow;
 }
 
 h2#classes-title {
   text-align: center;
   color: $blue;
-  background-color: #fff;
+  background-color: $light-pink;
 }
 
 .classes-wrapper {
   flex-direction: column;
   border-top: $borders;
+  margin-bottom: $page-padding;
 }
 
 
@@ -766,8 +785,8 @@ h2#classes-title {
 }
 
 .class-container,
-#class-feature-container {
-  padding-top: .5rem;
+#class-feature-title {
+  margin-top: $sm-page-padding;
 }
 
 div#class-feature,
@@ -783,17 +802,56 @@ p.class-time {
 
 p.class-day,
 p#class-feature-title {
-  font-weight: 500;
+  font-weight: bold;
   font-family: $main-font;
   text-transform: uppercase;
   color: $blue;
   margin-bottom: 0;
 }
 
-#class-feature-photo {
-  display: block;
+p.class-day {
+  margin-bottom: 0;
 }
 
+.class-photo {
+  display: block;
+  width: 100%;
+}
+
+.class-feature,
+.class-photo {
+  margin-bottom: $sm-page-padding;
+}
+
+.class-feature-container {
+  flex-direction: column-reverse;
+  .class-photo  {
+    margin-top: $sm-page-padding;
+  }
+}
+
+.class-photo-group {
+  flex-direction: row;
+  justify-content: space-between;
+  .class-photo {
+    width: 45%;
+  }
+}
+
+/*
+--------------------------------------------------------------------------------
+                ------------- AUDITIONS -------------
+--------------------------------------------------------------------------------
+*/
+
+#auditions-page-title {
+  background-color: $pink;
+}
+
+.audition-image {
+  width: 100%;
+  margin-bottom: $page-padding;
+}
 
 /*
 --------------------------------------------------------------------------------
@@ -802,7 +860,7 @@ p#class-feature-title {
 */
 
 .artistic.staff-div {
-  background-color: $yellow;
+  background-color: $purple;
 }
 
 #staff-title {
@@ -823,16 +881,16 @@ p#class-feature-title {
 }
 
 .staff-container:nth-child(1) {
-  background-color: $blue;
+  background-color: $light-pink;
   .staff-name {
     color: $blue;
   }
 }
 
 .staff-container:nth-child(2) {
-  background-color: $orange;
+  background-color: $light-yellow;
   .staff-name {
-    color: $orange;
+    color: $blue;
   }
 }
 
@@ -852,13 +910,15 @@ p#class-feature-title {
 
 .profile-pic {
   width: 100%;
-  margin-bottom: $page-padding;
+  margin: 0 auto;
   border: $borders;
 }
 
 .profile-text {
-  padding: $page-padding;
-  background: #fff;
+  border: none;
+  padding: $sm-page-padding 0;
+  background: none;
+  text-align: justify;
   p {
     font-size: 3.5vw;
     margin: 0;
@@ -866,7 +926,7 @@ p#class-feature-title {
 }
 
 .staff-role {
-  color: $pink;
+  color: $blue;
 }
 
 /*
@@ -919,16 +979,19 @@ p#class-feature-title {
 
 .dancer-pic {
   width: 100%;
-  margin-bottom: $page-padding;
+  margin-bottom: 0;
   border: $borders;
-
 }
 
 .dancer-text {
-  padding: $page-padding;
-  background: #fff;
+  padding: $sm-page-padding;
+  background: rgba(255,255,255, 0.7);
+  text-align: left;
+  border: $borders;
+  border-top: none;
   p {
     font-size: 3.5vw;
+    line-height: 1.5;
     margin: 0;
   }
 }
@@ -1136,7 +1199,7 @@ p#class-feature-title {
       flex-direction: column;
       padding: 0 $page-padding $page-padding $page-padding;
       .outreach-paragraph {
-        padding-top: calc(#{$page-padding} / 2);
+        padding-top: $sm-page-padding;
         p {
           font-size: 14px;
         }
@@ -1243,11 +1306,14 @@ footer {
    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
 
-@media screen and (min-width: 783px) {
+@media screen and (min-width: 992px) {
 
+  .page-body {
+    padding: 1rem 10vw;
+  }
   .page-body p {
     font-size: 2vw;
-    line-height: 2.5vw;
+    line-height: 2.5vw;;
   }
   body.logged-in  {
     padding-top: 0;
@@ -1288,7 +1354,7 @@ footer {
     height: 5vw;
     line-height: 4.5vw;
     width: 60%;
-    margin: 0 auto $page-padding auto;
+    margin: 1rem auto 2rem auto;
   }
 /*
 --------------------------------------------------------------------------------
@@ -1483,7 +1549,7 @@ main {
         transition: $time;
         flex-direction: column;
         justify-content: flex-start;
-        padding: calc(#{$page-padding} / 2) ;
+        padding: $sm-page-padding;
 
         .textwidget {
           display: block;
@@ -1494,8 +1560,8 @@ main {
 
           p {
               font-weight: normal;
-              font-size: 2.7vh;
-              line-height: 3vh;
+              font-size: 2.5vh;
+              line-height: 2.7vh;
               text-align: left;
               margin: 0;
           }
@@ -1508,8 +1574,8 @@ main {
           width: auto;
           color: #000;
           height: 20px;
-          font-size: 2vw;
-          line-height: 1.5rem;
+          font-size: 2.7vh;
+          line-height: 2.7vh;
           font-weight: bold;
           text-transform: uppercase;
           transition: $time;
@@ -1521,7 +1587,7 @@ main {
           padding-left: $page-padding;
           opacity: 0;
           color: #fff;
-          font-size: 20px;
+          font-size: 2.7vh;
           transition: $time;
         }
       }
@@ -1593,15 +1659,23 @@ main {
 
   .upcoming-wrapper {
     flex-direction: row;
+    border-top: $borders;
+    border-bottom: $borders;
     justify-content: space-between;
-    padding: calc(#{$page-padding} / 2);
+    margin-bottom: calc((#{$page-padding}) * 2);
+    padding: $page-padding 0;
     .upcoming-show {
-      margin: calc(#{$page-padding} / 2);
+      margin: 0;
+      border: none;
+      .show-title,
+      .show-info {
+        margin: 0;
+      }
     }
   }
 
-  /*
-  --------------------------------------------------------------------------------
+
+  /* --------------------------------------------------------------------------------
                       ------------- DANCE WORKS -------------
   --------------------------------------------------------------------------------
   */
@@ -1632,6 +1706,7 @@ main {
 
   .classes-wrapper {
     flex-direction: row;
+    margin-bottom: $page-padding;
   }
 
   .class-container {
@@ -1645,6 +1720,10 @@ main {
   .class-info p {
       font-size: 1.5vw;
       line-height: 2vw;
+  }
+
+  .class-feature-container {
+    flex-direction: row;
   }
 
   /*
@@ -1666,17 +1745,12 @@ main {
   }
 
   .profile-text {
-    border: $borders;
     p {
       font-size: 1.7vw;
-      line-height: 2.5vw;
-      text-align: justify;
+      line-height: 2vw;
+      text-align: left;
       margin: 0;
     }
-  }
-
-  .staff-role {
-    color: $pink;
   }
 
 
@@ -1686,30 +1760,56 @@ main {
   --------------------------------------------------------------------------------
   */
 
+
   .dancer-wrapper {
     flex-direction: column;
+    width: 100%;
   }
 
   .dancer-container {
-    width: 60%;
+    flex-direction: row;
+    width: 100%;
     height: auto;
+    margin-bottom: $page-padding;
     margin-left: auto;
     margin-right: auto;
   }
 
+  .dancer-pic {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .dancer-pic,
+  .dancer-text {
+    height: 50vw;
+    max-height: 375px;
+  }
+
+  .dancer-text{
+    margin-bottom: 0;
+    padding: 0 $page-padding;
+    background: none;
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 2.5vw;
+    }
+  }
+
   .dancer-list {
-    display: block;
-    position: fixed;
+    display: inline-block;
     top: 11.5rem;
     left: calc( (#{$page-padding} * 3) + 2px);
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
-    background: #fff;
+    margin: 0 auto calc( #{$page-padding } / 2) auto;
+    background-color: #fff;
     border: $borders;
     padding: calc( #{$page-padding } / 2);
-    margin-bottom: calc( #{$page-padding } / 2);
-    width: 17vw;
+    width: auto;
     border-radius: $body-curve;
     p {
       margin: 0;

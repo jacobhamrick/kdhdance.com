@@ -31,16 +31,14 @@
       </div>
       <!-- end upcoming-wrapper -->
       <div class="show-about-cotainer">
-        <p class="show-about"><?php the_field('show-about'); ?></p>
+        <?php the_field('show-about'); ?>
+        </div>
+
         <?php if( get_field('show-photo') ): ?>
             <img id="show-photo" src="<?php the_field('show-photo'); ?>" />
         <?php endif; ?>
-      </div>
-      <!-- <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <?php the_content(); ?> -->
     </div>
     <!-- end page-body -->
-      <?php endwhile; endif; ?>
   </div>
 </main>
 <?php get_footer(); ?>
