@@ -10,12 +10,16 @@
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>" >
       <h2 class="page-title" id="dancers-title"><?php wp_title('', true,''); ?></h2>
 
-      <div class="dancer-list flex">
-        <p>
-          <a href="#dancer-1"><?php the_field('dancer-name-1'); ?></a> / <a href="#dancer-2"><?php the_field('dancer-name-2'); ?></a> / <a href="#dancer-3"><?php the_field('dancer-name-3'); ?></a> / <a href="#dancer-4"><?php the_field('dancer-name-4'); ?></a> / <a href="#dancer-5"><?php the_field('dancer-name-5');?></a> / <a href="#dancer-6"><?php the_field('dancer-name-6'); ?></a> / <a href="#dancer-7"><?php the_field('dancer-name-7'); ?></a> /
-          <a href="#dancer-8"><?php the_field('dancer-name-8'); ?></a>
-        </p>
-      </div>
+      <ul class="dancer-list flex">
+          <a class="dancer-name" href="#dancer-1"><li><?php the_field('dancer-name-1'); ?></li></a>
+          <a class="dancer-name" href="#dancer-2"><li><?php the_field('dancer-name-2'); ?></li></a>
+          <a class="dancer-name" href="#dancer-3"><li><?php the_field('dancer-name-3'); ?></li></a>
+          <a class="dancer-name" href="#dancer-4"><li><?php the_field('dancer-name-4'); ?></li></a>
+          <a class="dancer-name" href="#dancer-5"><li><?php the_field('dancer-name-5');?></li></a>
+          <a class="dancer-name" href="#dancer-6"><li><?php the_field('dancer-name-6'); ?></li></a>
+          <a class="dancer-name" href="#dancer-7"><li><?php the_field('dancer-name-7'); ?></li></a>
+          <a class="dancer-name" href="#dancer-8"><li><?php the_field('dancer-name-8'); ?></li></a>
+      </ul>
 
       <div class="dancer-wrapper flex">
 
@@ -25,7 +29,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-1'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-1'); echo '</div>';?>
         </div>
 
         <!-- dancer 2 -->
@@ -34,7 +38,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-2'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-2'); echo '</div>';?>
         </div>
 
         <!-- dancer 3 -->
@@ -43,7 +47,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-3'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-3'); echo '</div>';?>
         </div>
 
         <!-- dancer 4 -->
@@ -52,7 +56,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-4'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-4'); echo '</div>';?>
         </div>
 
         <!-- dancer 5 -->
@@ -61,7 +65,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-5'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-5'); echo '</div>';?>
         </div>
 
         <!-- dancer 6 -->
@@ -70,7 +74,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-6'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-6'); echo '</div>';?>
         </div>
 
         <!-- dancer 7 -->
@@ -79,7 +83,7 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-7'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-7'); echo '</div>';?>
         </div>
 
         <!-- dancer 8 -->
@@ -88,10 +92,8 @@
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
-          <?php echo '<div class="dancer-text">'; the_field('dancer-text-8'); echo '</div>';?>
+          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-8'); echo '</div>';?>
         </div>
-
-
 
         <!-- dancer photo credit -->
         <div id="dancer-photo-credit-div">
