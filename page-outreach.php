@@ -10,20 +10,20 @@
       <h2 class="page-title" id="outreach-page-title"><?php wp_title('', true,''); ?></h2>
       <?php echo '<div id="outreach-header">'; the_field('outreach-header'); echo '</div>';?>
       <?php echo '<div id="outreach-intro">'; the_field('outreach-intro'); echo '</div>';?>
-      <h4 id="outreach-banner"><?php the_field('outreach-banner'); ?></h4>
+      <p id="outreach-banner"><?php the_field('outreach-banner'); ?></p>
 
       <div id="outreach-sections" class="flex">
 
         <!-- outreach section w/ image -->
         <div class="outreach-section" id="outreachSection1">
 
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1" aria-hidden="false">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1" aria-hidden="false">
             <h4 class="outreach-section-title" id="sectionTitle1">
               <?php the_field('outreach-section-title-1'); ?> <i class="fas" ></i>
             </h4>
           </button>
 
-          <div id="collapse1" class="outreach-section-wrapper flex collapse show" aria-labelledby="sectionTitle1" data-parent="#outreachSection1">
+          <div id="collapse1" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle1" data-parent="#outreachSection1">
               <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-1'); echo '</div>';?>
               <?php $image = get_field('outreach-section-1-image');
                   if( !empty( $image ) ): ?>

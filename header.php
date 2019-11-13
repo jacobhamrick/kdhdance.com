@@ -14,7 +14,7 @@
 
 
   <body <?php body_class(""); ?>>
-    <div id="body-wrapper">
+    <div id="body-wrapper" class="loading">
     <header>
       <nav id="sticky-nav" class="sticky navbar flex">
         <div class="title-wrapper flex">

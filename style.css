@@ -33,7 +33,13 @@ body.logged-in {
   border: none;
   height: calc(100% - 1rem);
   width: calc(100% - 1rem);
-  position: fixed; }
+  position: fixed;
+  opacity: 1;
+  transition: all 0.3s linear; }
+
+#body-wrapper.loading {
+  opacity: 0;
+  transition: all 0.3s linear; }
 
 textarea:focus,
 input[type="text"]:focus,
@@ -277,11 +283,15 @@ footer {
 
 /* ------------------------------ TOGGLE MENU ------------------------------- */
 .menu {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  left: calc((1rem / 2) + 2px);
+  top: calc(70px + (1rem / 2));
   background-color: #000060;
   color: #fff;
   position: fixed;
-  top: calc(70px + (1rem / 2));
   bottom: 5.1rem;
   width: calc(100% - ( 1rem ) - (2px * 2));
   transition: all 0.3s linear; }
@@ -315,9 +325,8 @@ footer {
           margin-left: 1.5rem; }
 
 .menu.openSesame {
-  display: flex;
-  align-items: center;
-  left: calc((1rem / 2) + 2px);
+  opacity: 1;
+  visibility: visible;
   transition: all 0.3s linear; }
 
 .menu-primary-menu {
@@ -391,10 +400,10 @@ a.nav-link:hover {
                         ------------- PAGE -------------
 --------------------------------------------------------------------------------
 */
-.page-title {
+h2.page-title {
   text-align: center;
   font-weight: bold;
-  font-size: 8vw;
+  font-size: 5vw;
   line-height: 9vw;
   height: 10vw;
   border: 2px solid black;
@@ -776,12 +785,7 @@ p.class-day {
                       ------------- BOARD -------------
 --------------------------------------------------------------------------------
 */
-.directors-div {
-  background-color: #00C7FF; }
-
 #board-page-title {
-  font-size: 5vw;
-  line-height: 9.5vw;
   background-color: #ccff90; }
 
 .board-title,
@@ -956,6 +960,7 @@ p.class-day {
                       ------------- FOOTER -------------
 ----------------------------------------------------------------------------- */
 footer {
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -1007,10 +1012,10 @@ footer {
 */
 @media screen and (min-width: 992px) {
   .page-body {
-    padding: 1rem 10vw; }
+    padding: 1rem 12vw; }
   .page-body p {
-    font-size: 2vw;
-    line-height: 2.5vw; }
+    font-size: 1.75vw;
+    line-height: 2.25vw; }
   body.logged-in {
     padding-top: 0; }
     body.logged-in main,
@@ -1032,11 +1037,28 @@ footer {
     height: calc(100% - 3.5rem);
     width: calc(100% - 3.5rem); }
   h2.page-title {
-    font-size: 3vw;
-    height: 5vw;
-    line-height: 4.5vw;
-    width: 60%;
-    margin: 1rem auto 2rem auto; }
+    position: fixed;
+    z-index: 1000;
+    font-size: 4vw;
+    line-height: 5.75vw;
+    width: calc(100vh - 22vh);
+    height: 6vw;
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 0 auto;
+    border-radius: 0;
+    -webkit-transform-origin: 0 50%;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -o-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transform: rotate(-90deg) translate(-50%, 50%);
+    -moz-transform: rotate(-90deg) translate(-50%, 50%);
+    -ms-transform: rotate(-90deg) translate(-50%, 50%);
+    -o-transform: rotate(-90deg) translate(-50%, 50%);
+    transform: rotate(-90deg) translate(-50%, 50%);
+    left: 30px;
+    bottom: 45vh; }
   /*
 --------------------------------------------------------------------------------
                       ------------- HEADER -------------
@@ -1075,13 +1097,13 @@ footer {
   .menu {
     opacity: 0;
     transition: all 0.3s linear;
-    -webkit-transition: all 0.3s linear; }
-  .menu.openSesame {
-    position: fixed;
+    -webkit-transition: all 0.3s linear;
     left: calc( (1rem * 1.75) + 2px);
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2));
     width: calc( 100% - ( (3.5rem) + (2px * 2) ));
-    top: calc( 70px + ( (1rem * 1.75) ));
+    top: calc( 70px + ( (1rem * 1.75) )); }
+  .menu.openSesame {
+    position: fixed;
     transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
     opacity: 1; }
@@ -1245,6 +1267,8 @@ footer {
                 ------------- UPCOMING PAGE -------------
 --------------------------------------------------------------------------------
 */
+  #upcoming-title {
+    font-size: 30px; }
   #upcoming-season {
     text-align: center; }
   .upcoming-wrapper {
@@ -1356,16 +1380,15 @@ footer {
     list-style: none;
     margin: 0 auto 1rem auto;
     padding: calc( 1rem / 2);
-    width: calc(100% - 80px);
+    width: auto;
     left: 40px;
     top: 35%;
-    height: 400px;
+    height: 300px;
     border-radius: 15px; }
     .dancer-list li {
       margin: 0;
-      font-size: 20px;
-      line-height: 1.5;
-      width: 50%; }
+      font-size: 15px;
+      line-height: 1.5; }
     .dancer-list a {
       color: #3455db; }
     .dancer-list a:hover {
@@ -1375,10 +1398,6 @@ footer {
                         ------------- BOARD -------------
   --------------------------------------------------------------------------------
   */
-  #board-page-title {
-    font-size: 3vw;
-    line-height: 4.5vw;
-    background-color: #ccff90; }
   #board-text-wrapper {
     flex-direction: row;
     justify-content: space-between; }
@@ -1416,7 +1435,6 @@ footer {
      -----------------------------------------------------------------------------
   */
   footer {
-    z-index: 8000;
     flex-direction: row;
     height: 70px; }
   footer .footer-col .textwidget {
