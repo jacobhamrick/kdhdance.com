@@ -530,12 +530,15 @@ main {
 --------------------------------------------------------------------------------
 */
 .Upcoming.Performances-div {
-  background-color: rgba(123, 63, 252, 0.1); }
+  background-color: #f3e5ff; }
 
 h2#upcoming-season {
   text-align: center;
   color: #d400c8;
-  background-color: #fff; }
+  font-weight: bold; }
+
+#upcoming-title {
+  color: #7B3FFC; }
 
 .upcoming-wrapper {
   flex-direction: column; }
@@ -669,8 +672,8 @@ p.class-day {
   background-color: #7B3FFC; }
 
 #staff-title {
-  color: #000;
-  background-color: #ccff90; }
+  color: #3455db;
+  background-color: #f3e5ff; }
 
 .staff-wrapper {
   flex-direction: column; }
@@ -806,8 +809,6 @@ p.class-day {
 #board-intro p:last-child {
   margin-bottom: 0; }
 
-#board-intro,
-.board-list,
 .board-swiper-container {
   border: 2px solid black;
   border-radius: 15px;
@@ -868,7 +869,7 @@ p.class-day {
 --------------------------------------------------------------------------------
 */
 .outreach-div {
-  background-color: rgba(123, 63, 252, 0.1); }
+  background-color: #f3e5ff; }
 
 #outreach-page-title {
   background-color: #00C7FF; }
@@ -945,10 +946,14 @@ p.class-day {
   .contact-div .contact-list .contact-item {
     margin-bottom: 1rem; }
     .contact-div .contact-list .contact-item h3 {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      font-weight: bold; }
     .contact-div .contact-list .contact-item a, .contact-div .contact-list .contact-item p {
       font-size: 2vw;
       margin-bottom: 0; }
+    .contact-div .contact-list .contact-item #contact-us-phone,
+    .contact-div .contact-list .contact-item #contact-us-email {
+      font-weight: normal; }
 
 .contact-div #mc_embed_signup_scroll {
   text-align: center;
@@ -1012,7 +1017,7 @@ footer {
 */
 @media screen and (min-width: 992px) {
   .page-body {
-    padding: 1rem 12vw; }
+    padding: 1rem 12vw 1rem 18vw; }
   .page-body p {
     font-size: 1.75vw;
     line-height: 2.25vw; }
@@ -1381,9 +1386,9 @@ footer {
     margin: 0 auto 1rem auto;
     padding: calc( 1rem / 2);
     width: auto;
-    left: 40px;
-    top: 35%;
-    height: 300px;
+    left: 112px;
+    top: 17%;
+    height: 65%;
     border-radius: 15px; }
     .dancer-list li {
       margin: 0;
@@ -1401,8 +1406,8 @@ footer {
   #board-text-wrapper {
     flex-direction: row;
     justify-content: space-between; }
-  .board-section-title {
-    font-size: 20px; }
+  #board-page-title {
+    font-size: 4vh; }
   #board-intro,
   .board-list {
     width: 48%; }
@@ -1420,7 +1425,7 @@ footer {
   */
   #outreach-sections .outreach-section {
     height: 100%;
-    width: 66%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto; }
     #outreach-sections .outreach-section .outreach-section-wrapper .outreach-section-image {
