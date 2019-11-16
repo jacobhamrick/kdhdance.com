@@ -608,8 +608,7 @@ h2#classes-title {
   border-bottom: 2px solid black;
   width: 100%; }
 
-.class-container,
-#class-feature-title {
+.class-container {
   margin-top: calc(1rem / 2); }
 
 div#class-feature,
@@ -626,8 +625,7 @@ p#class-feature-title {
   font-weight: bold;
   font-family: "Helvetica Neue";
   text-transform: uppercase;
-  color: #3455db;
-  margin-bottom: 0; }
+  color: #3455db; }
 
 p.class-day {
   margin-bottom: 0; }
@@ -638,6 +636,9 @@ p.class-day {
 
 .class-feature,
 .class-photo {
+  margin-bottom: calc(1rem / 2); }
+
+p#class-feature-title {
   margin-bottom: calc(1rem / 2); }
 
 .class-feature-container {
@@ -872,7 +873,7 @@ p.class-day {
   background-color: #f3e5ff; }
 
 #outreach-page-title {
-  background-color: #00C7FF; }
+  background-color: #bbdefb; }
 
 #outreach-header {
   text-align: center; }
@@ -960,6 +961,22 @@ p.class-day {
   width: 45%;
   max-width: 400px;
   margin: 0 auto; }
+
+/* -----------------------------------------------------------------------------
+                    ------------- CONTRIBUTE -------------
+----------------------------------------------------------------------------- */
+.contribute-div {
+  background-color: #bbdefb; }
+  .contribute-div #contribute-title {
+    color: #ccff90;
+    background-color: #3455db; }
+  .contribute-div form {
+    margin: 0 auto;
+    width: 147px;
+    /* eyballed */ }
+  .contribute-div #contribute-banner {
+    width: 100%;
+    margin: 1rem auto; }
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -1319,12 +1336,19 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; }
+  .class-container:last-child {
+    padding-right: 0; }
   p.class-time,
   .class-info p {
     font-size: 1.5vw;
     line-height: 2vw; }
+  p#class-feature-title {
+    text-align: center;
+    margin-bottom: 1rem; }
   .class-feature-container {
     flex-direction: row; }
+    .class-feature-container .class-photo {
+      margin: 0 0 0 1rem; }
   /*
   --------------------------------------------------------------------------------
                     ------------- ARTISTIC STAFF -------------

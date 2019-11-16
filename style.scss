@@ -24,7 +24,7 @@ $green: #A2D936;
 $light-green: #ccff90;
 $red:	#990033;
 $orange: rgba(255,150,42,1);
-$light-blue: #00C7FF;
+$light-blue: #bbdefb;
 $dark-blue: rgb(0,0,96);
 $background-color: #FFF;
 $hover-color: #9a3eeb;
@@ -796,8 +796,7 @@ h2#classes-title {
   width: 100%;
 }
 
-.class-container,
-#class-feature-title {
+.class-container {
   margin-top: $sm-page-padding;
 }
 
@@ -818,7 +817,6 @@ p#class-feature-title {
   font-family: $main-font;
   text-transform: uppercase;
   color: $blue;
-  margin-bottom: 0;
 }
 
 p.class-day {
@@ -835,6 +833,9 @@ p.class-day {
   margin-bottom: $sm-page-padding;
 }
 
+p#class-feature-title {
+  margin-bottom: $sm-page-padding;
+}
 .class-feature-container {
   flex-direction: column-reverse;
   .class-photo  {
@@ -1248,6 +1249,26 @@ p.class-day {
     width: 45%;
     max-width: 400px;
     margin: 0 auto;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+                    ------------- CONTRIBUTE -------------
+----------------------------------------------------------------------------- */
+
+.contribute-div {
+  background-color: $light-blue;
+  #contribute-title {
+    color: $light-green;
+    background-color:  $blue;
+  }
+  form {
+    margin: 0 auto;
+    width: 147px; /* eyballed */
+  }
+  #contribute-banner {
+    width: 100%;
+    margin: $page-padding auto;
   }
 }
 
@@ -1750,14 +1771,26 @@ main {
     justify-content: flex-start;
   }
 
+  .class-container:last-child {
+    padding-right: 0;
+  }
+
   p.class-time,
   .class-info p {
       font-size: 1.5vw;
       line-height: 2vw;
   }
 
+  p#class-feature-title {
+    text-align: center;
+    margin-bottom: $page-padding;
+  }
+
   .class-feature-container {
     flex-direction: row;
+    .class-photo {
+      margin: 0 0 0 $page-padding;
+    }
   }
 
   /*
