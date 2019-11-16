@@ -14,6 +14,9 @@
 
 
   <body <?php body_class(""); ?>>
+    <div id="loader" class="flex">
+      <p>Loading . . .</p>
+  </div>
     <div id="body-wrapper" class="loading">
     <header>
       <nav id="sticky-nav" class="sticky navbar flex">
@@ -30,6 +33,7 @@
         </div>
       </div> <!-- end title-wrapper -->
     </nav>
+
     <div class="menu" role="menu">
         <?php
         wp_nav_menu( array(

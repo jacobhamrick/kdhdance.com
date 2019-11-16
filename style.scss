@@ -37,7 +37,7 @@ $page-padding: 1rem; /* padding of navbars, page sections, etc */
 $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
 $footer-height: 70px;
-$time: all 0.3s linear;
+$time: all 0.5s ease;
 $main-font: "Helvetica Neue";
 $shadow: 5px 5px 0px 0px rgba(0,0,0,1);
 
@@ -69,32 +69,6 @@ body.logged-in {
   transition: $time;
 }
 
-#body-wrapper.loading {
-  opacity: 0;
-  transition: $time;
-}
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {
-  border-color: $pink;
-  box-shadow: 0 0 7px $pink inset, 0 0 0 $pink;
-  outline: 0 none;
-  transition: $time;
-}
-
 .sticky {
   position: sticky;
 }
@@ -104,7 +78,7 @@ input[type="color"]:focus,
   vertical-align: middle;
 }
 
-/* SCROLLBAR */
+/* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
     width: $page-padding;
@@ -121,6 +95,37 @@ input[type="color"]:focus,
   background: $blue;
   border-radius: $body-curve;
 }
+
+
+/* ------------- LOADER ------------- */
+
+#body-wrapper.loading {
+  opacity: 0;
+  transition: $time;
+}
+
+#loader {
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+  background: none;
+  transition: $time;
+  p {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 0;
+      font-size: 2rem;
+  }
+}
+
+#loader.loaded {
+  transition: all 1s ease;
+}
+
+/* ------------- TYPOGRAPHY ------------- */
 
 h1,
 h2,
@@ -162,6 +167,30 @@ a:hover {
   text-decoration: none;
 }
 
+/* ------------- FORMS ------------- */
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: $pink;
+  box-shadow: 0 0 7px $pink inset, 0 0 0 $pink;
+  outline: 0 none;
+  transition: $time;
+}
+
+/* ------------- COLOR CLASSES ------------- */
 .blue {
   color: $blue;
 }
@@ -169,15 +198,6 @@ a:hover {
 .pink {
   color: $pink;
 }
-
-.whitekout {
-  background: #fff;
-}
-
-.flex-ends {
-  align-self: flex-end;
-}
-
 
 /* ------------- Z-INDEX LAYERS ------------- */
 .newsflash-widget,
@@ -246,9 +266,11 @@ footer {
   background: $background-color;
 }
 
-#body-wrapper {
-  border-radius: $body-curve;
+.flex-ends {
+  align-self: flex-end;
 }
+
+
 
 
 /*
@@ -452,7 +474,7 @@ footer {
 a.nav-link,
 a.dropdown-item {
   transition: none;
-  font-size: 8vw;
+  font-size: 4vh;
   line-height: 22px;
   color: #fff;
   margin-left: .5rem;
@@ -468,7 +490,7 @@ a.dropdown-item {
 
 .menu-shape {
   color: $pink;
-  font-size: 26px;
+  font-size: 21px;
   opacity: 0;
   margin-left: $page-padding;
 }
@@ -520,6 +542,7 @@ a.nav-link:hover {
                         ------------- PAGE -------------
 --------------------------------------------------------------------------------
 */
+
 h2.page-title {
   text-align: center;
   font-weight: bold;
@@ -531,11 +554,9 @@ h2.page-title {
   background-color: #fff;
 }
 
-
 .page-content {
   padding-top: .5rem;
 }
-
 
 /*
 --------------------------------------------------------------------------------
@@ -1272,6 +1293,14 @@ p#class-feature-title {
   }
 }
 
+/*
+--------------------------------------------------------------------------------
+                      ------------- PRESS -------------
+--------------------------------------------------------------------------------
+*/
+#press-title {
+  background-color: $light-pink;
+}
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -1835,10 +1864,10 @@ main {
 
   .dancer-container {
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin-bottom: $page-padding;
-    margin-left: auto;
+    margin-left: 8vw;
     margin-right: auto;
   }
 
@@ -1861,8 +1890,8 @@ main {
     overflow-y: scroll;
     p {
       margin: 0;
-      font-size: 18px;
-      line-height: 20px;
+      font-size: 20px;
+      line-height: 22px;
     }
   }
 
@@ -1877,13 +1906,13 @@ main {
     margin: 0 auto $page-padding auto;
     padding: calc( #{$page-padding } / 2);
     width: auto;
-    left: 112px;
+    left: 10vw;
     top: 17%;
     height: 65%;
     border-radius: $body-curve;
     li {
       margin: 0;
-      font-size: 15px;
+      font-size: 20px;
       line-height: 1.5;
     }
     a {

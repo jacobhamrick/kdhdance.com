@@ -22,7 +22,7 @@ body {
   color: black;
   background: #A2D936;
   overflow: hidden;
-  transition: all 0.3s linear;
+  transition: all 0.5s ease;
   border: none; }
 
 body.logged-in {
@@ -35,32 +35,7 @@ body.logged-in {
   width: calc(100% - 1rem);
   position: fixed;
   opacity: 1;
-  transition: all 0.3s linear; }
-
-#body-wrapper.loading {
-  opacity: 0;
-  transition: all 0.3s linear; }
-
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {
-  border-color: #d400c8;
-  box-shadow: 0 0 7px #d400c8 inset, 0 0 0 #d400c8;
-  outline: 0 none;
-  transition: all 0.3s linear; }
+  transition: all 0.5s ease; }
 
 .sticky {
   position: sticky; }
@@ -69,7 +44,7 @@ input[type="color"]:focus,
   display: flex;
   vertical-align: middle; }
 
-/* SCROLLBAR */
+/* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
   width: 1rem; }
@@ -84,6 +59,30 @@ input[type="color"]:focus,
   background: #3455db;
   border-radius: 15px; }
 
+/* ------------- LOADER ------------- */
+#body-wrapper.loading {
+  opacity: 0;
+  transition: all 0.5s ease; }
+
+#loader {
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+  background: none;
+  transition: all 0.5s ease; }
+  #loader p {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 2rem; }
+
+#loader.loaded {
+  transition: all 1s ease; }
+
+/* ------------- TYPOGRAPHY ------------- */
 h1,
 h2,
 h3,
@@ -104,7 +103,7 @@ h6 {
 a {
   color: #d400c8;
   font-weight: 500;
-  transition: all 0.3s linear; }
+  transition: all 0.5s ease; }
 
 strong {
   font-weight: 600; }
@@ -118,17 +117,34 @@ a:hover {
   color: #9a3eeb;
   text-decoration: none; }
 
+/* ------------- FORMS ------------- */
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: #d400c8;
+  box-shadow: 0 0 7px #d400c8 inset, 0 0 0 #d400c8;
+  outline: 0 none;
+  transition: all 0.5s ease; }
+
+/* ------------- COLOR CLASSES ------------- */
 .blue {
   color: #3455db; }
 
 .pink {
   color: #d400c8; }
-
-.whitekout {
-  background: #fff; }
-
-.flex-ends {
-  align-self: flex-end; }
 
 /* ------------- Z-INDEX LAYERS ------------- */
 .newsflash-widget,
@@ -183,8 +199,8 @@ footer {
   border-bottom-right-radius: 15px;
   background: #FFF; }
 
-#body-wrapper {
-  border-radius: 15px; }
+.flex-ends {
+  align-self: flex-end; }
 
 /*
 --------------------------------------------------------------------------------
@@ -194,7 +210,7 @@ footer {
 /* ------------------------------- TITLE ------------------------------------ */
 .blue,
 .pink {
-  transition: all 0.3s linear; }
+  transition: all 0.5s ease; }
 
 @media screen and (max-width: 374px) {
   #sticky-nav .title-wrapper #nav-text .blue {
@@ -228,7 +244,7 @@ footer {
       font-size: 2.5rem;
       text-transform: uppercase;
       font-weight: 700;
-      transition: all 0.3s linear; }
+      transition: all 0.5s ease; }
 
 /* -------------------------------- MENU BUTTON ----------------------------- */
 .menu-button {
@@ -241,7 +257,7 @@ footer {
   width: 33px;
   height: 29px;
   float: right;
-  transition: all 0.3s linear; }
+  transition: all 0.5s ease; }
   .menu-button span {
     display: inline-block;
     height: 4px;
@@ -294,7 +310,7 @@ footer {
   position: fixed;
   bottom: 5.1rem;
   width: calc(100% - ( 1rem ) - (2px * 2));
-  transition: all 0.3s linear; }
+  transition: all 0.5s ease; }
   .menu #navbarSupportedContent {
     display: flex;
     align-items: baseline;
@@ -327,7 +343,7 @@ footer {
 .menu.openSesame {
   opacity: 1;
   visibility: visible;
-  transition: all 0.3s linear; }
+  transition: all 0.5s ease; }
 
 .menu-primary-menu {
   display: flex;
@@ -342,7 +358,7 @@ footer {
 a.nav-link,
 a.dropdown-item {
   transition: none;
-  font-size: 8vw;
+  font-size: 4vh;
   line-height: 22px;
   color: #fff;
   margin-left: .5rem;
@@ -355,7 +371,7 @@ a.dropdown-item {
 
 .menu-shape {
   color: #d400c8;
-  font-size: 26px;
+  font-size: 21px;
   opacity: 0;
   margin-left: 1rem; }
 
@@ -465,11 +481,11 @@ main {
     #home-swiper .swiper-button-next i {
       color: #fff;
       font-size: 30px;
-      transition: all 0.3s linear; }
+      transition: all 0.5s ease; }
   #home-swiper .swiper-button-prev i:hover,
   #home-swiper .swiper-button-next i:hover {
     color: #fffa00;
-    transition: all 0.3s linear; }
+    transition: all 0.5s ease; }
   #home-swiper .swiper-container-horizontal > .swiper-pagination-bullets,
   #home-swiper .swiper-pagination-custom, #home-swiper .swiper-pagination-fraction {
     bottom: 1rem; }
@@ -496,16 +512,16 @@ main {
     width: 50%;
     margin-bottom: 1rem;
     padding-left: calc(1rem / 2);
-    transition: all 0.3s linear;
+    transition: all 0.5s ease;
     font-family: Courier; }
   #mc_embed_signup_scroll #mc-embedded-subscribe {
     background-color: #3455db;
     text-transform: uppercase;
-    transition: all 0.3s linear;
+    transition: all 0.5s ease;
     color: #fff; }
   #mc_embed_signup_scroll #mc-embedded-subscribe:hover {
     background-color: #d400c8;
-    transition: all 0.3s linear; }
+    transition: all 0.5s ease; }
 
 /* ------------------------------- SPONSORS --------------------------------- */
 #sponsor-wrapper {
@@ -849,11 +865,11 @@ p#class-feature-title {
     .board-swiper-div #board-swiper .swiper-button-next i {
       color: #fffa00;
       font-size: 30px;
-      transition: all 0.3s linear; }
+      transition: all 0.5s ease; }
   .board-swiper-div #board-swiper .swiper-button-prev i:hover,
   .board-swiper-div #board-swiper .swiper-button-next i:hover {
     color: #d400c8;
-    transition: all 0.3s linear; }
+    transition: all 0.5s ease; }
   .board-swiper-div #board-swiper .swiper-container-horizontal > .swiper-pagination-bullets,
   .board-swiper-div #board-swiper .swiper-pagination-custom, .board-swiper-div #board-swiper .swiper-pagination-fraction {
     bottom: 1rem; }
@@ -907,15 +923,15 @@ p#class-feature-title {
     #outreach-sections .outreach-section [aria-expanded="true"] {
       border-radius: 15px 15px 0 0; }
     #outreach-sections .outreach-section h4 {
-      transition: all 0.3s linear; }
+      transition: all 0.5s ease; }
       #outreach-sections .outreach-section h4 i.fas {
         float: right; }
     #outreach-sections .outreach-section .btn-link:hover {
-      transition: all 0.3s linear;
+      transition: all 0.5s ease;
       text-decoration: none;
       background-color: #fffa00; }
       #outreach-sections .outreach-section .btn-link:hover h4 {
-        transition: all 0.3s linear;
+        transition: all 0.5s ease;
         color: #d400c8; }
     #outreach-sections .outreach-section .outreach-section-title {
       font-weight: bold;
@@ -977,6 +993,14 @@ p#class-feature-title {
   .contribute-div #contribute-banner {
     width: 100%;
     margin: 1rem auto; }
+
+/*
+--------------------------------------------------------------------------------
+                      ------------- PRESS -------------
+--------------------------------------------------------------------------------
+*/
+#press-title {
+  background-color: #ffcccb; }
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -1102,8 +1126,8 @@ footer {
   .hideMe {
     margin-right: .66rem; }
   #nav-text:hover {
-    transition: all 0.3s linear;
-    -webkit-transition: all 0.3s linear;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
     background-color: #fffa00; }
   /* ------------------------------ BURGER BUTTON ----------------------------- */
   .menu-button {
@@ -1118,21 +1142,21 @@ footer {
   /* ------------------------------ TOGGLE MENU ------------------------------- */
   .menu {
     opacity: 0;
-    transition: all 0.3s linear;
-    -webkit-transition: all 0.3s linear;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
     left: calc( (1rem * 1.75) + 2px);
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2));
     width: calc( 100% - ( (3.5rem) + (2px * 2) ));
     top: calc( 70px + ( (1rem * 1.75) )); }
   .menu.openSesame {
     position: fixed;
-    transition: all 0.3s linear;
-    -webkit-transition: all 0.3s linear;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
     opacity: 1; }
     .menu.openSesame .menu-shape {
       font-size: 2.9vw;
-      transition: all 0.3s linear;
-      -webkit-transition: all 0.3s linear; }
+      transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease; }
   .menu #navbarSupportedContent {
     height: 100%;
     padding: 1rem; }
@@ -1147,7 +1171,7 @@ footer {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        transition: all 0.3s linear;
+        transition: all 0.5s ease;
         margin: 0; }
         .menu #navbarSupportedContent .navbar-nav .menu-item a.dropdown-toggle {
           margin-left: 62px; }
@@ -1157,12 +1181,12 @@ footer {
           width: 100%;
           height: 100%;
           border: none;
-          transition: all 0.3s linear;
-          -webkit-transition: all 0.3s linear; }
+          transition: all 0.5s ease;
+          -webkit-transition: all 0.5s ease; }
         .menu #navbarSupportedContent .navbar-nav .menu-item .nav-link:hover {
           color: #d400c8;
-          transition: all 0.3s linear;
-          -webkit-transition: all 0.3s linear; }
+          transition: all 0.5s ease;
+          -webkit-transition: all 0.5s ease; }
       .menu #navbarSupportedContent .navbar-nav ul.dropdown-menu {
         margin-left: 62px; }
   /* -----------------------------------------------------------------------------
@@ -1211,11 +1235,11 @@ footer {
       background-color: none;
       color: black;
       height: 100%;
-      transition: all 0.3s linear; }
+      transition: all 0.5s ease; }
       .newsbar-link-container .newsbar-link .newsbar-widget {
         height: 100%;
         margin: 0 auto;
-        transition: all 0.3s linear;
+        transition: all 0.5s ease;
         flex-direction: column;
         justify-content: flex-start;
         padding: calc(1rem / 2); }
@@ -1242,26 +1266,26 @@ footer {
           line-height: 2.7vh;
           font-weight: bold;
           text-transform: uppercase;
-          transition: all 0.3s linear;
-          -webkit-transition: all 0.3s linear;
+          transition: all 0.5s ease;
+          -webkit-transition: all 0.5s ease;
           margin-bottom: 0; }
         .newsbar-link-container .newsbar-link .newsbar-widget .fas, .newsbar-link-container .newsbar-link .newsbar-widget .far {
           padding-left: 1rem;
           opacity: 0;
           color: #fff;
           font-size: 2.7vh;
-          transition: all 0.3s linear; }
+          transition: all 0.5s ease; }
   div.newsbar-link-container:hover {
     background-color: #000060;
-    transition: all 0.3s linear;
-    -webkit-transition: all 0.3s linear; }
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease; }
     div.newsbar-link-container:hover .newsbar-widget p {
-      transition: all 0.3s linear;
-      -webkit-transition: all 0.3s linear;
+      transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
       color: #fff; }
     div.newsbar-link-container:hover .newsbar-widget p.newsbar-title {
-      transition: all 0.3s linear;
-      -webkit-transition: all 0.3s linear;
+      transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
       color: #d400c8; }
       div.newsbar-link-container:hover .newsbar-widget p.newsbar-title .fas, div.newsbar-link-container:hover .newsbar-widget p.newsbar-title .far {
         opacity: 1;
@@ -1377,10 +1401,10 @@ footer {
     width: 100%; }
   .dancer-container {
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin-bottom: 1rem;
-    margin-left: auto;
+    margin-left: 8vw;
     margin-right: auto; }
   .dancer-pic {
     width: auto;
@@ -1397,8 +1421,8 @@ footer {
     overflow-y: scroll; }
     .dancer-text p {
       margin: 0;
-      font-size: 18px;
-      line-height: 20px; }
+      font-size: 20px;
+      line-height: 22px; }
   .dancer-list {
     display: flex;
     position: fixed;
@@ -1410,13 +1434,13 @@ footer {
     margin: 0 auto 1rem auto;
     padding: calc( 1rem / 2);
     width: auto;
-    left: 112px;
+    left: 10vw;
     top: 17%;
     height: 65%;
     border-radius: 15px; }
     .dancer-list li {
       margin: 0;
-      font-size: 15px;
+      font-size: 20px;
       line-height: 1.5; }
     .dancer-list a {
       color: #3455db; }
