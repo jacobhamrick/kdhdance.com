@@ -143,8 +143,32 @@ input[type="color"]:focus,
 .blue {
   color: #3455db; }
 
+.light-blue {
+  color: #bbdefb; }
+
 .pink {
   color: #d400c8; }
+
+.light-pink {
+  color: #ffcccb; }
+
+.green {
+  color: #A2D936; }
+
+.light-green {
+  color: #ccff90; }
+
+.purple {
+  color: #7B3FFC; }
+
+.light-purple {
+  color: #f3e5ff; }
+
+.yellow {
+  color: #fffa00; }
+
+.light-yellow {
+  color: #ffff99; }
 
 /* ------------- Z-INDEX LAYERS ------------- */
 .newsflash-widget,
@@ -208,21 +232,21 @@ footer {
 --------------------------------------------------------------------------------
 */
 /* ------------------------------- TITLE ------------------------------------ */
-.blue,
-.pink {
-  transition: all 0.5s ease; }
-
 @media screen and (max-width: 374px) {
-  #sticky-nav .title-wrapper #nav-text .blue {
-    letter-spacing: 0; }
-  #sticky-nav .title-wrapper #nav-text .pink {
-    letter-spacing: -1vw; } }
+  #sticky-nav .title-wrapper #nav-text .blue.navtext {
+    letter-spacing: 0;
+    transition: all 0.5s ease; }
+  #sticky-nav .title-wrapper #nav-text .pink.navtext {
+    letter-spacing: -1vw;
+    transition: all 0.5s ease; } }
 
 @media screen and (min-width: 375px) {
-  .blue {
-    letter-spacing: 2vw; }
-  .pink {
-    letter-spacing: 1vw; } }
+  .blue.navtext {
+    letter-spacing: 2vw;
+    transition: all 0.5s ease; }
+  .pink.navtext {
+    letter-spacing: 1vw;
+    transition: all 0.5s ease; } }
 
 #sticky-nav {
   position: relative;
@@ -1119,9 +1143,9 @@ footer {
       width: auto;
       font-size: 3.5vw;
       height: 3.4vw; }
-    #sticky-nav .title-wrapper .blue {
+    #sticky-nav .title-wrapper .blue.navtext {
       letter-spacing: normal; }
-    #sticky-nav .title-wrapper .pink {
+    #sticky-nav .title-wrapper .pink.navtext {
       letter-spacing: normal; }
   .hideMe {
     margin-right: .66rem; }

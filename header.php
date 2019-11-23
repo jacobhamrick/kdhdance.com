@@ -22,9 +22,9 @@
       <nav id="sticky-nav" class="sticky navbar flex">
         <div class="title-wrapper flex">
           <a id="nav-text" class="flex" href="<?php bloginfo('url'); ?>">
-            <span class="blue">K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
+            <span class="blue navtext">K<span class="hideMe">athy</span>D<span class="hideMe">unn</span>H<span class="hideMe">amrick</span>
             </span>
-            <span class="pink">Dance</span>
+            <span class="pink navtext">Dance</span>
           </a>
           <div class="menu-button toggle-menu flex" role="navigation">
             <span></span>

@@ -14,7 +14,7 @@
       <?php endif; ?>
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Next Up") ) : ?>
       <?php endif; ?>
-      <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Recent") ) : ?>
+      <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Say What") ) : ?>
       <?php endif; ?>
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Classes") ) : ?>
       <?php endif; ?>

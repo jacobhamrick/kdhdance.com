@@ -195,8 +195,41 @@ input[type="color"]:focus,
   color: $blue;
 }
 
+
+.light-blue {
+  color: $light-blue;
+}
+
 .pink {
   color: $pink;
+}
+
+.light-pink {
+  color: $light-pink
+}
+
+.green {
+  color: $green;
+}
+
+.light-green {
+  color: $light-green
+}
+
+.purple {
+  color: $purple;
+}
+
+.light-purple {
+  color: $light-purple;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.light-yellow {
+  color: $light-yellow;
 }
 
 /* ------------- Z-INDEX LAYERS ------------- */
@@ -282,30 +315,28 @@ footer {
 
 /* ------------------------------- TITLE ------------------------------------ */
 
-.blue,
-.pink {
-  transition: $time;
-}
-
 @media screen and (max-width: 374px) {
   #sticky-nav .title-wrapper #nav-text {
-    .blue  {
+    .blue.navtext  {
       letter-spacing: 0;
+      transition: $time;
     }
-    .pink {
+    .pink.navtext {
       letter-spacing: -1vw;
+      transition: $time;
     }
   }
 }
 
 @media screen and (min-width: 375px) {
-.blue  {
-  letter-spacing: 2vw;
-}
-.pink {
-  letter-spacing: 1vw;
-}
-
+  .blue.navtext  {
+    letter-spacing: 2vw;
+    transition: $time;
+  }
+  .pink.navtext {
+    letter-spacing: 1vw;
+    transition: $time;
+  }
 }
 #sticky-nav {
   position: relative;
@@ -1456,10 +1487,10 @@ footer {
         font-size: 3.5vw;
         height: 3.4vw;
       }
-      .blue {
+      .blue.navtext {
         letter-spacing: normal;
       }
-      .pink {
+      .pink.navtext {
         letter-spacing: normal;
       }
     }
