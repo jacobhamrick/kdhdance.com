@@ -1182,10 +1182,10 @@ footer {
     transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
     opacity: 1; }
-    .menu.openSesame .menu-shape {
-      font-size: 2.9vw;
-      transition: all 0.5s ease;
-      -webkit-transition: all 0.5s ease; }
+  .menu-shape {
+    font-size: 2.9vw;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease; }
   .menu #navbarSupportedContent {
     height: 100%;
     padding: 1rem; }
@@ -1512,6 +1512,15 @@ footer {
     line-height: 16px; }
   #outreach-feature-image {
     width: 100%; }
+  /* -----------------------------------------------------------------------------
+                        ------------- FOOTER -------------
+     -----------------------------------------------------------------------------
+  */
+  .contact-div .contact-list .contact-item a .contact-item, .contact-div .contact-list .contact-item {
+    margin-bottom: 1rem; }
+    .contact-div .contact-list .contact-item a .contact-item a, .contact-div .contact-list .contact-item a .contact-item p, .contact-div .contact-list .contact-item a, .contact-div .contact-list .contact-item p {
+      font-size: 2vw;
+      margin-bottom: 0; }
   /* -----------------------------------------------------------------------------
                         ------------- FOOTER -------------
      -----------------------------------------------------------------------------

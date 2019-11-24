@@ -1540,12 +1540,12 @@ footer {
   transition: $time;
   -webkit-transition: $time;
   opacity: 1;
+}
 
-  .menu-shape {
-    font-size: 2.9vw;
-    transition: $time;
-    -webkit-transition: $time;
-  }
+.menu-shape {
+  font-size: 2.9vw;
+  transition: $time;
+  -webkit-transition: $time;
 }
 
 .menu #navbarSupportedContent {
@@ -2021,6 +2021,20 @@ main {
   #outreach-feature-image {
     width: 100%;
   }
+
+  /* -----------------------------------------------------------------------------
+                        ------------- FOOTER -------------
+     -----------------------------------------------------------------------------
+  */
+  .contact-div .contact-list .contact-item a, .contact-div .contact-list {
+  .contact-item {
+    margin-bottom: $page-padding;
+    a, p {
+      font-size: 2vw;
+      margin-bottom: 0;
+    }
+  }
+}
 
 
 
