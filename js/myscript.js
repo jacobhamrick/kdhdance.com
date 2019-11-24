@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function() {
   jQuery('.toggle-menu, .nav-link').on('click', function() {
     jQuery('.menu').toggleClass('opensesame');
@@ -11,9 +12,11 @@ jQuery(document).ready(function() {
     jQuery('#body-wrapper').toggleClass('loading');
   });
 
+
 });
 
 jQuery(window).on('load', function() {
   jQuery('#loader').addClass('loaded');
   jQuery("#body-wrapper").delay(1000).removeClass('loading');
+
 });

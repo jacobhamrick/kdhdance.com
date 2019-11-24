@@ -48,6 +48,7 @@ body {
   font-family: $main-font;
   width: 100%;
   height: 100vh;
+  height: calc((var(--vh, 1vh) * 100);
   color: $primary-color;
   background: $green;
   overflow: hidden;
@@ -62,7 +63,7 @@ body.logged-in {
 #body-wrapper {
   margin: .5rem;
   border: none;
-  height: calc(100% - #{$page-padding});
+  height: calc(100% - #{$sm-page-padding});
   width: calc(100% - #{$page-padding});
   position: fixed;
   opacity: 1;
@@ -290,13 +291,13 @@ header,
 #sticky-nav {
   border-top-left-radius: $body-curve;
   border-top-right-radius: $body-curve;
-  background: $background-color;
+  background-color: $background-color;
 }
 
 footer {
   border-bottom-left-radius: $body-curve;
   border-bottom-right-radius: $body-curve;
-  background: $background-color;
+  background-color: $background-color;
 }
 
 .flex-ends {
@@ -362,8 +363,6 @@ footer {
     }
   }
 }
-
-
 
 /* -------------------------------- MENU BUTTON ----------------------------- */
 
@@ -441,12 +440,12 @@ footer {
   opacity: 0;
   visibility: hidden;display: flex;
   align-items: center;
-  left: calc((#{$page-padding} / 2) + #{$border-weight});
-    top: calc(#{$navbar-height} + (#{$page-padding} / 2));
+  left: calc(#{$sm-page-padding} + #{$border-weight});
+  top: calc(#{$navbar-height} + #{$sm-page-padding});
   background-color: $dark-blue;
   color: #fff;
   position: fixed;
-  bottom: 5.1rem;
+  bottom: calc( #{$footer-height} + #{$sm-page-padding} );
   width: calc(100% - ( #{$page-padding} ) - (#{$border-weight} * 2));
   transition: $time;
   #navbarSupportedContent {
@@ -479,7 +478,6 @@ footer {
           margin-left: 1.5rem;
         }
       }
-
     }
   }
 }
@@ -610,7 +608,7 @@ main {
   // text-align: justify;
   margin: 0 auto;
   width: 100%;
-  height: calc(100vh - ( #{$navbar-height} + (#{$page-padding}) + #{$footer-height} + (#{$border-weight} * 2));
+  height: calc(100% - ( #{$navbar-height} + (#{$sm-page-padding}) + #{$footer-height} + (#{$border-weight} * 2));
   .main-body {
     height: 100%;
   }
@@ -618,7 +616,7 @@ main {
 
 .page-wrapper {
   padding: 0;
-  background: #fff;
+  background-color: #fff;
 }
 
 .page-body {
@@ -896,10 +894,10 @@ p#class-feature-title {
 }
 
 .class-photo-group {
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   .class-photo {
-    width: 45%;
+
   }
 }
 
@@ -1138,6 +1136,8 @@ p#class-feature-title {
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        position: relative;
+        z-index: 1000;
       }
     }
     .swiper-button-prev,
@@ -1145,6 +1145,7 @@ p#class-feature-title {
       background: none;
       width: auto;
       height: auto;
+      z-index: 9000;
       i {
         color: $yellow;
         font-size: 30px;
@@ -1206,7 +1207,7 @@ p#class-feature-title {
     border-radius: $body-curve;
     .btn {
       padding: $page-padding 0;
-      height: 100%;
+      height: auto;
       white-space: normal;
       text-align: left;
       text-decoration: none;
@@ -1287,7 +1288,7 @@ p#class-feature-title {
         font-weight: bold;
       }
       a, p {
-        font-size: 2vw;
+        font-size: 4vw;
         margin-bottom: 0;
       }
       #contact-us-phone,
@@ -1298,9 +1299,12 @@ p#class-feature-title {
   }
   #mc_embed_signup_scroll {
     text-align: center;
-    width: 45%;
+    width: 100%;
     max-width: 400px;
     margin: 0 auto;
+  }
+  #mc-embedded-subscribe {
+    width: 60%;
   }
 }
 
