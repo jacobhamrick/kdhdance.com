@@ -38,7 +38,7 @@ $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
 $footer-height: 70px;
 $time: all 0.5s ease;
-$main-font: "Helvetica Neue";
+$main-font: "Helvetica Neue", Arial, sans-serif;
 $shadow: 5px 5px 0px 0px rgba(0,0,0,1);
 
 html {
@@ -629,7 +629,7 @@ main {
 
 #home-swiper {
   width: 100%;
-  height: 50vh;
+  height: 32vh;
   .swiper-wrapper {
     height: 100%;
     .swiper-slide {
@@ -1451,10 +1451,10 @@ footer {
   h2.page-title {
     position: fixed;
     z-index: 1000;
-    font-size: 4vw;
-    line-height: 5.75vw;
-    width: calc(100vh - 22vh);
-    height: 6vw;
+    font-size: 30px;
+    line-height: 3.5;
+    width: calc(100vh - (#{$navbar-height} * 2));
+    height: 120px;
     border: none;
     border-bottom: $borders;
     margin: 0 auto;
@@ -1484,12 +1484,12 @@ footer {
 
   #sticky-nav {
     .title-wrapper {
-      height: auto;
+      height: 100%;
       margin: 0;
       #nav-text {
         width: auto;
-        font-size: 3.5vw;
-        height: 3.4vw;
+        font-size: 3vw;
+        height: 100%;
       }
       .blue.navtext {
         letter-spacing: normal;
