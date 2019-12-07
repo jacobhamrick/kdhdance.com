@@ -9,7 +9,7 @@
   <div class="main-body scroll">
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="contribute-title"><?php wp_title('', true,''); ?></h2>
-
+      <p class="preheader" id="contribute-preheader"><?php the_field('contribute-preheader'); ?></p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input name="cmd" type="hidden" value="_s-xclick" />
         <input name="hosted_button_id" type="hidden" value="JMSGW4D7UYZAW" />
         <input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" type="image" />

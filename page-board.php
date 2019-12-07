@@ -44,14 +44,6 @@
             </div>
             <div class="swiper-slide" style="background-image: url(<?php the_field('board-image-5'); ?>)">
             </div>
-            <div class="swiper-slide" style="background-image: url(<?php the_field('board-image-6'); ?>)">
-            </div>
-            <div class="swiper-slide" style="background-image: url(<?php the_field('board-image-7'); ?>)">
-            </div>
-            <div class="swiper-slide" style="background-image: url(<?php the_field('board-image-8'); ?>)">
-            </div>
-            <div class="swiper-slide" style="background-image: url(<?php the_field('board-image-9'); ?>)">
-            </div>
           </div> <!-- end swiper-wrapper -->
           <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
           <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>

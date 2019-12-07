@@ -8,6 +8,7 @@
   <div class="main-body scroll">
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="outreach-page-title"><?php wp_title('', true,''); ?></h2>
+      <p class="preheader" id="outreach-preheader"><?php the_field('outreach-preheader'); ?></p>
       <?php echo '<div id="outreach-header">'; the_field('outreach-header'); echo '</div>';?>
       <?php echo '<div id="outreach-intro">'; the_field('outreach-intro'); echo '</div>';?>
       <p id="outreach-banner"><?php the_field('outreach-banner'); ?></p>
@@ -113,7 +114,7 @@
           </button>
 
           <div id="collapse6" class="outreach-section-wrapper flex collapse" aria-labelledby="sectionTitle6" data-parent="#outreachSection6">
-            <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-3'); echo '</div>';?>
+            <?php echo '<div class="outreach-paragraph">'; the_field('outreach-section-paragraph-6'); echo '</div>';?>
               <?php $image = get_field('outreach-section-6-image');
                   if( !empty( $image ) ): ?>
                     <img class="outreach-section-image" id="outreach-feature-image" src="<?php echo esc_url($image['url']); ?>" />

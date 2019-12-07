@@ -38,7 +38,7 @@ $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
 $footer-height: 70px;
 $time: all 0.5s ease;
-$main-font: "Helvetica Neue", Arial, sans-serif;
+$main-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $shadow: 5px 5px 0px 0px rgba(0,0,0,1);
 
 html {
@@ -93,7 +93,7 @@ body.logged-in {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $blue;
+  background-color: $blue;
   border-radius: $body-curve;
 }
 
@@ -166,6 +166,12 @@ strong {
 a:hover {
   color: $hover-color;
   text-decoration: none;
+}
+
+.preheader {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /* ------------- FORMS ------------- */
@@ -555,8 +561,6 @@ a.nav-link:hover {
   margin-bottom: 1.5vw;
 }
 
-
-
 .dropdown-toggle.nav-link,
 .dropdown-toggle.nav-link:hover {
   text-decoration: none;
@@ -597,6 +601,10 @@ h2.page-title {
 
 $nbw-height-s: 48px; /* newsbar-widget height on small screens */
 
+.newsflash-widget {
+  display: none;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -629,16 +637,12 @@ main {
 
 #home-swiper {
   width: 100%;
-  height: 32vh;
+  height: 60vw;
   .swiper-wrapper {
     height: 100%;
     .swiper-slide {
       height: 100%;
-      background: center no-repeat;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
+      width: 100%;
     }
   }
   .swiper-button-prev,
@@ -671,12 +675,6 @@ main {
     opacity: 1;
   }
 }
-
-
-
-
-
-
 
 /* ------------------------------- NEWSBAR ---------------------------------- */
 
@@ -788,7 +786,9 @@ h2#upcoming-season {
 }
 
 .show-date,
-.show-info {
+.show-info,
+.show-venue,
+show-city {
   margin-bottom: 0;
 }
 
@@ -807,6 +807,18 @@ p.show-title {
   }
 }
 
+.show-date {
+  color: $purple;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.show-venue {
+  color: $purple;
+  font-weight: bold;
+}
+
+
 #show-photo {
   width: 100%;
 }
@@ -823,6 +835,13 @@ p.show-title {
                 ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
+
+#classes-intro {
+  text-align: center;
+  text-transform: uppercase;
+  color: $blue;
+  font-weight: bold;
+}
 
 .classes-div {
   background-color: $light-yellow;
@@ -1081,6 +1100,7 @@ p#class-feature-title {
 .board-title,
 .board-list p {
   margin: 0;
+  height: 2vw;
 }
 
 .board-title {
@@ -1089,8 +1109,8 @@ p#class-feature-title {
 
 .board-section-title {
   margin: $page-padding;
-  font-style: italic;
   text-align: center;
+  font-weight: bold;
 }
 
 #board-text-wrapper {
@@ -1178,6 +1198,10 @@ p#class-feature-title {
                       ------------- OUTREACH -------------
 --------------------------------------------------------------------------------
 */
+
+#outreach-preheader {
+  color: $blue;
+}
 
 .outreach-div {
   background-color: $light-purple;
@@ -1312,6 +1336,10 @@ p#class-feature-title {
                     ------------- CONTRIBUTE -------------
 ----------------------------------------------------------------------------- */
 
+#contribute-preheader {
+  color: $blue;
+}
+
 .contribute-div {
   background-color: $light-blue;
   #contribute-title {
@@ -1333,6 +1361,17 @@ p#class-feature-title {
                       ------------- PRESS -------------
 --------------------------------------------------------------------------------
 */
+
+#press-preheader {
+  color: $pink;
+  margin-bottom: 0;
+}
+
+#press-image {
+  width: 100%;
+  margin: $page-padding auto;
+}
+
 #press-title {
   background-color: $light-pink;
 }
@@ -1407,12 +1446,10 @@ footer {
 
 @media screen and (min-width: 992px) {
 
-  .page-body {
-    padding: 1rem 12vw 1rem 18vw;
-  }
+
   .page-body p {
-    font-size: 1.75vw;
-    line-height: 2.25vw;;
+    font-size: 1.5vw;
+    line-height: 2vw;;
   }
   body.logged-in  {
     padding-top: 0;
@@ -1444,6 +1481,7 @@ footer {
 
   #body-wrapper {
     margin: 1.75rem;
+    min-height: 500px;
     height: calc(100% - 3.5rem);
     width: calc(100% - 3.5rem);
   }
@@ -1452,9 +1490,9 @@ footer {
     position: fixed;
     z-index: 1000;
     font-size: 30px;
-    line-height: 3.5;
+    line-height: 2.5;
     width: calc(100vh - (#{$navbar-height} * 2));
-    height: 120px;
+    height: 76px;
     border: none;
     border-bottom: $borders;
     margin: 0 auto;
@@ -1603,6 +1641,21 @@ main {
   height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
 }
 
+.page-body {
+  padding: 1rem 12vw 1rem 18vw
+}
+
+.home {
+  .main-body {
+    margin-top: calc(40px + (#{$border-weight} * 2));
+    height: calc(100% - (40px + (#{$border-weight} * 2)));
+  }
+  .page-body {
+    padding: $page-padding 8vw;
+    margin-bottom: calc(40px + (#{$border-weight} * 2));
+  }
+}
+
 
 
 /* -------------------------------- SWIPER ---------------------------------- */
@@ -1618,17 +1671,20 @@ main {
     border-bottom: none;
     border-right: $borders;
     margin-top: 0;
-    min-width: 280px;
-    width: 33%;
+    min-width: 300px;
+    max-width: 300px;
     height: 100%;
   }
 
   .newsflash-widget {
-    position: relative;
+    display: block;
+    position: fixed;
+    height: calc(40px + (#{$border-weight} * 2));
     background-color: $yellow;
     border-right: none;
     border-bottom: $borders;
-    width: 100%;
+    left: calc(1.75rem + 300px + 2px);
+    width: calc(100vw - 300px - 4px - (1.75rem * 2));
     font-size: 20px;
   }
 
@@ -1665,7 +1721,7 @@ main {
         transition: $time;
         flex-direction: column;
         justify-content: flex-start;
-        padding: $sm-page-padding;
+        padding: .25rem $sm-page-padding;
 
         .textwidget {
           display: block;
@@ -1676,8 +1732,8 @@ main {
 
           p {
               font-weight: normal;
-              font-size: 2.5vh;
-              line-height: 2.7vh;
+              font-size: 2vh;
+              line-height: 1;
               text-align: left;
               margin: 0;
           }
@@ -1690,8 +1746,8 @@ main {
           width: auto;
           color: #000;
           height: 20px;
-          font-size: 2.7vh;
-          line-height: 2.7vh;
+          font-size: 16px;
+          line-height: 1;
           font-weight: bold;
           text-transform: uppercase;
           transition: $time;
@@ -1703,7 +1759,7 @@ main {
           padding-left: $page-padding;
           opacity: 0;
           color: #fff;
-          font-size: 2.7vh;
+          font-size: 15px;
           transition: $time;
         }
       }
@@ -1735,10 +1791,6 @@ main {
   .newsbar .newsbar-link-container:last-child {
     border-bottom: none;
   }
-
-
-
-
 
 /* ------------------------------- SPONSORS --------------------------------- */
 
@@ -1868,8 +1920,9 @@ main {
   }
 
   .profile-pic {
+    min-width: 300px;
+    max-width: 300px;
     height: 100%;
-    width: 300px;
     margin-bottom: $page-padding;
     margin-right: $page-padding;
     border: $borders;

@@ -9,11 +9,11 @@
   <div class="main-body scroll">
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="classes-title"><?php wp_title('', true,''); ?></h2>
+      <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
       <?php $image = get_field('class-feature-photo-1');
       if( !empty( $image ) ): ?>
         <img class="class-photo" id="class-feature-photo-1" src="<?php echo esc_url($image['url']); ?>" />
       <?php endif; ?>
-      <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
       <div class="classes-wrapper flex">
 
         <!-- class 1 -->

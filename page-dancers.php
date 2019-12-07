@@ -18,7 +18,6 @@
           <a class="dancer-name" href="#dancer-5"><li><?php the_field('dancer-name-5');?></li></a>
           <a class="dancer-name" href="#dancer-6"><li><?php the_field('dancer-name-6'); ?></li></a>
           <a class="dancer-name" href="#dancer-7"><li><?php the_field('dancer-name-7'); ?></li></a>
-          <a class="dancer-name" href="#dancer-8"><li><?php the_field('dancer-name-8'); ?></li></a>
       </ul>
 
       <div class="dancer-wrapper flex">
@@ -84,15 +83,6 @@
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
           <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-7'); echo '</div>';?>
-        </div>
-
-        <!-- dancer 8 -->
-        <div class="dancer-container flex" id="dancer-8">
-          <?php $image = get_field('dancer-pic-8');
-              if( !empty( $image ) ): ?>
-                <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
-              <?php endif; ?>
-          <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-8'); echo '</div>';?>
         </div>
 
         <!-- dancer photo credit -->

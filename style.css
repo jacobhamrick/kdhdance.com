@@ -16,7 +16,7 @@ html {
   scroll-behavior: smooth; }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
   height: 100vh;
   height: calc((var(--vh, 1vh) * 100));
@@ -57,7 +57,7 @@ body.logged-in {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #3455db;
+  background-color: #3455db;
   border-radius: 15px; }
 
 /* ------------- LOADER ------------- */
@@ -110,13 +110,18 @@ strong {
   font-weight: 600; }
 
 .page-body p {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 4vw;
   line-height: 4.5vw; }
 
 a:hover {
   color: #9a3eeb;
   text-decoration: none; }
+
+.preheader {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold; }
 
 /* ------------- FORMS ------------- */
 textarea:focus,
@@ -461,6 +466,9 @@ h2.page-title {
 */
 /* ------------------------------- GENERAL ---------------------------------- */
 /* newsbar-widget height on small screens */
+.newsflash-widget {
+  display: none; }
+
 main {
   display: flex;
   flex-direction: column;
@@ -487,16 +495,12 @@ main {
 /* -------------------------------- SWIPER ---------------------------------- */
 #home-swiper {
   width: 100%;
-  height: 32vh; }
+  height: 60vw; }
   #home-swiper .swiper-wrapper {
     height: 100%; }
     #home-swiper .swiper-wrapper .swiper-slide {
       height: 100%;
-      background: center no-repeat;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover; }
+      width: 100%; }
   #home-swiper .swiper-button-prev,
   #home-swiper .swiper-button-next {
     background: none;
@@ -604,12 +608,14 @@ h2#upcoming-season {
   padding-top: .5rem; }
 
 .show-date,
-.show-info {
+.show-info,
+.show-venue,
+show-city {
   margin-bottom: 0; }
 
 p.show-title {
   font-weight: bold;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: #000060;
   margin-bottom: 0; }
@@ -618,6 +624,15 @@ p.show-title {
   height: 100%; }
   .show-about p {
     text-align: justify; }
+
+.show-date {
+  color: #7B3FFC;
+  font-style: italic;
+  font-weight: bold; }
+
+.show-venue {
+  color: #7B3FFC;
+  font-weight: bold; }
 
 #show-photo {
   width: 100%; }
@@ -632,6 +647,12 @@ p.show-title {
                 ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
+#classes-intro {
+  text-align: center;
+  text-transform: uppercase;
+  color: #3455db;
+  font-weight: bold; }
+
 .classes-div {
   background-color: #ffff99; }
 
@@ -664,7 +685,7 @@ p.class-time {
 p.class-day,
 p#class-feature-title {
   font-weight: bold;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: #3455db; }
 
@@ -833,15 +854,16 @@ p#class-feature-title {
 
 .board-title,
 .board-list p {
-  margin: 0; }
+  margin: 0;
+  height: 2vw; }
 
 .board-title {
   font-weight: 500; }
 
 .board-section-title {
   margin: 1rem;
-  font-style: italic;
-  text-align: center; }
+  text-align: center;
+  font-weight: bold; }
 
 #board-text-wrapper {
   flex-direction: column; }
@@ -911,6 +933,9 @@ p#class-feature-title {
                       ------------- OUTREACH -------------
 --------------------------------------------------------------------------------
 */
+#outreach-preheader {
+  color: #3455db; }
+
 .outreach-div {
   background-color: #f3e5ff; }
 
@@ -1010,6 +1035,9 @@ p#class-feature-title {
 /* -----------------------------------------------------------------------------
                     ------------- CONTRIBUTE -------------
 ----------------------------------------------------------------------------- */
+#contribute-preheader {
+  color: #3455db; }
+
 .contribute-div {
   background-color: #bbdefb; }
   .contribute-div #contribute-title {
@@ -1028,6 +1056,14 @@ p#class-feature-title {
                       ------------- PRESS -------------
 --------------------------------------------------------------------------------
 */
+#press-preheader {
+  color: #d400c8;
+  margin-bottom: 0; }
+
+#press-image {
+  width: 100%;
+  margin: 1rem auto; }
+
 #press-title {
   background-color: #ffcccb; }
 
@@ -1086,11 +1122,9 @@ footer {
    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
 @media screen and (min-width: 992px) {
-  .page-body {
-    padding: 1rem 12vw 1rem 18vw; }
   .page-body p {
-    font-size: 1.75vw;
-    line-height: 2.25vw; }
+    font-size: 1.5vw;
+    line-height: 2vw; }
   body.logged-in {
     padding-top: 0; }
     body.logged-in main,
@@ -1109,15 +1143,16 @@ footer {
     padding: 0; }
   #body-wrapper {
     margin: 1.75rem;
+    min-height: 500px;
     height: calc(100% - 3.5rem);
     width: calc(100% - 3.5rem); }
   h2.page-title {
     position: fixed;
     z-index: 1000;
     font-size: 30px;
-    line-height: 3.5;
+    line-height: 2.5;
     width: calc(100vh - (70px * 2));
-    height: 120px;
+    height: 76px;
     border: none;
     border-bottom: 2px solid black;
     margin: 0 auto;
@@ -1225,6 +1260,14 @@ footer {
   main {
     flex-direction: row;
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2)); }
+  .page-body {
+    padding: 1rem 12vw 1rem 18vw; }
+  .home .main-body {
+    margin-top: calc(40px + (2px * 2));
+    height: calc(100% - (40px + (2px * 2))); }
+  .home .page-body {
+    padding: 1rem 8vw;
+    margin-bottom: calc(40px + (2px * 2)); }
   /* -------------------------------- SWIPER ---------------------------------- */
   #home-swiper {
     height: 100%; }
@@ -1235,15 +1278,18 @@ footer {
     border-bottom: none;
     border-right: 2px solid black;
     margin-top: 0;
-    min-width: 280px;
-    width: 33%;
+    min-width: 300px;
+    max-width: 300px;
     height: 100%; }
   .newsflash-widget {
-    position: relative;
+    display: block;
+    position: fixed;
+    height: calc(40px + (2px * 2));
     background-color: #fffa00;
     border-right: none;
     border-bottom: 2px solid black;
-    width: 100%;
+    left: calc(1.75rem + 300px + 2px);
+    width: calc(100vw - 300px - 4px - (1.75rem * 2));
     font-size: 20px; }
   .mtphr-dnt-tick-contents {
     text-transform: uppercase;
@@ -1271,7 +1317,7 @@ footer {
         transition: all 0.5s ease;
         flex-direction: column;
         justify-content: flex-start;
-        padding: calc(1rem / 2); }
+        padding: 0.25rem calc(1rem / 2); }
         .newsbar-link-container .newsbar-link .newsbar-widget .textwidget {
           display: block;
           width: 100%;
@@ -1280,8 +1326,8 @@ footer {
           margin: 0; }
           .newsbar-link-container .newsbar-link .newsbar-widget .textwidget p {
             font-weight: normal;
-            font-size: 2.5vh;
-            line-height: 2.7vh;
+            font-size: 2vh;
+            line-height: 1;
             text-align: left;
             margin: 0; }
         .newsbar-link-container .newsbar-link .newsbar-widget .newsbar-title {
@@ -1291,8 +1337,8 @@ footer {
           width: auto;
           color: #000;
           height: 20px;
-          font-size: 2.7vh;
-          line-height: 2.7vh;
+          font-size: 16px;
+          line-height: 1;
           font-weight: bold;
           text-transform: uppercase;
           transition: all 0.5s ease;
@@ -1302,7 +1348,7 @@ footer {
           padding-left: 1rem;
           opacity: 0;
           color: #fff;
-          font-size: 2.7vh;
+          font-size: 15px;
           transition: all 0.5s ease; }
   div.newsbar-link-container:hover {
     background-color: #000060;
@@ -1410,8 +1456,9 @@ footer {
   .staff-container {
     flex-direction: row; }
   .profile-pic {
+    min-width: 300px;
+    max-width: 300px;
     height: 100%;
-    width: 300px;
     margin-bottom: 1rem;
     margin-right: 1rem;
     border: 2px solid black; }

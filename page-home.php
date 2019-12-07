@@ -9,9 +9,6 @@
 <main>
 
     <div class="newsbar flex">
-      <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
-        <i class="fas fa-chevron-right"></i>
-      <?php endif; ?>
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Next Up") ) : ?>
       <?php endif; ?>
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Say What") ) : ?>
@@ -23,6 +20,9 @@
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Contribute") ) : ?>
       <?php endif; ?>
       </div>
+      <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("News Flash") ) : ?>
+        <i class="fas fa-chevron-right"></i>
+      <?php endif; ?>
 
       <div class="main-body scroll">
         <!-- swiper main container -->
