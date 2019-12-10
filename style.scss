@@ -642,7 +642,11 @@ main {
     height: 100%;
     .swiper-slide {
       height: 100%;
-      width: 100%;
+      background: center no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
     }
   }
   .swiper-button-prev,
@@ -1100,11 +1104,11 @@ p#class-feature-title {
 .board-title,
 .board-list p {
   margin: 0;
-  height: 2vw;
+  height: 5vw;
 }
 
 .board-title {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .board-section-title {
@@ -1133,6 +1137,7 @@ p#class-feature-title {
 .board-list {
   margin-top: $page-padding;
 }
+
 .board-member {
   margin-bottom: $page-padding;
 }
@@ -1569,8 +1574,8 @@ footer {
   -webkit-transition: $time;
   left: calc( (#{$page-padding} * 1.75) + #{$border-weight});
   height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
-  width: calc( 100% - ( (#{$page-padding * 1.75 * 2}) + (#{$border-weight} * 2) );
-  top: calc( #{$navbar-height} + ( (#{$page-padding} * 1.75) );
+  width: calc( 100% - ( (#{$page-padding * 1.75 * 2}) + (#{$border-weight} * 2) ));
+  top: calc( #{$navbar-height} + ( (#{$page-padding} * 1.75) ));
 }
 
 .menu.openSesame {
@@ -1716,7 +1721,7 @@ main {
       transition: $time;
 
       .newsbar-widget {
-        height: 100%;
+        height: auto;
         margin: 0 auto;
         transition: $time;
         flex-direction: column;
@@ -1920,9 +1925,9 @@ main {
   }
 
   .profile-pic {
-    min-width: 300px;
-    max-width: 300px;
-    height: 100%;
+    display: block;
+    width: auto;
+    height: 420px;
     margin-bottom: $page-padding;
     margin-right: $page-padding;
     border: $borders;
@@ -2032,10 +2037,12 @@ main {
     width: 48%;
   }
 
-
-  .board-list {
-    margin: 0;
+  .board-list,
+  .board-title {
+    p
+    {height: 2vw;}
   }
+
 
   .board-swiper-div {
     height: 600px;
