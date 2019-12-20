@@ -1466,6 +1466,12 @@ footer {
     margin-bottom: 1rem;
     margin-right: 1rem;
     border: 2px solid black; }
+  /* specifcally for Stephen's current pic */
+  .staff-container:nth-child(2) {
+    flex-direction: column; }
+    .staff-container:nth-child(2) .profile-pic {
+      margin-left: auto;
+      margin-right: auto; }
   .profile-text p {
     font-size: 1.7vw;
     line-height: 2vw;
@@ -1545,7 +1551,7 @@ footer {
   .board-swiper-div {
     height: 600px;
     max-width: 800px;
-    max-height: 100%;
+    min-height: 540px;
     margin: calc(1rem * 2) auto; }
   /*
   --------------------------------------------------------------------------------
