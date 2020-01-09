@@ -643,9 +643,13 @@ p.show-title {
 
 /*
 --------------------------------------------------------------------------------
-                    ------------- DANCE WORKS -------------
+                    ------------- PORTFOLIO -------------
 --------------------------------------------------------------------------------
 */
+.piece-title {
+  font-weight: bold;
+  font-size: 20px; }
+
 /*
 --------------------------------------------------------------------------------
                 ------------- CLASSES PAGE -------------
@@ -787,6 +791,9 @@ p#class-feature-title {
 .staff-role {
   color: #3455db; }
 
+/* -----------------------------------------------------------------------------
+                    ------------- PORTFOLIO -------------
+----------------------------------------------------------------------------- */
 /*
 --------------------------------------------------------------------------------
                     ------------- DANCERS -------------
@@ -1113,14 +1120,6 @@ footer {
   align-items: center;
   font-size: 26px; }
 
-/* ------------- PROJECTS PAGE ------------- */
-.projects-page {
-  display: flex;
-  flex-direction: column; }
-
-.projects-page div:last-child {
-  border-left: none; }
-
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    ++++++++++++++++++++++++++++++ BIG SCREENS ++++++++++++++++++++++++++++++++++
    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1409,28 +1408,37 @@ footer {
       .upcoming-wrapper .upcoming-show .show-title,
       .upcoming-wrapper .upcoming-show .show-info {
         margin: 0; }
-  /* --------------------------------------------------------------------------------
-                      ------------- DANCE WORKS -------------
-  --------------------------------------------------------------------------------
-  */
-  .projects-page {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    max-height: calc( 100% - 70px - 70px);
-    overflow-y: hidden; }
-    .projects-page div {
-      padding: 1rem; }
-    .projects-page div:first-child {
-      width: 50%; }
-    .projects-page div:last-child {
-      border-left: 2px solid black;
-      overflow-y: auto; }
   /*
   --------------------------------------------------------------------------------
-                  ------------- CLASSES PAGE -------------
+                      ------------- PORTFOLIO -------------
   --------------------------------------------------------------------------------
   */
+  #portfolio-main-body {
+    margin-top: 30px; }
+  .portfolio-div #portfolio {
+    margin-top: 45px; }
+  .portfolio-div .piece-title {
+    font-size: 30px; }
+  #portfolio-nav {
+    height: 30px;
+    background-color: #f3e5ff;
+    position: absolute;
+    display: block;
+    top: 70px;
+    width: calc(100% - 4px);
+    border-bottom: 2px solid black; }
+    #portfolio-nav ul {
+      list-style: none;
+      flex-direction: row;
+      vertical-align: middle;
+      margin: 0; }
+      #portfolio-nav ul li {
+        line-height: 26px; }
+  /*
+--------------------------------------------------------------------------------
+                  ------------- CLASSES PAGE -------------
+--------------------------------------------------------------------------------
+*/
   .classes-wrapper {
     flex-direction: row;
     margin-bottom: 1rem; }
