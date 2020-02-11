@@ -1414,7 +1414,7 @@ footer {
   --------------------------------------------------------------------------------
   */
   #portfolio-main-body {
-    margin-top: 30px; }
+    top: 30px; }
   .portfolio-div #portfolio {
     margin-top: 45px; }
   .portfolio-div .piece-title {
@@ -1433,7 +1433,7 @@ footer {
       vertical-align: middle;
       margin: 0; }
       #portfolio-nav ul li {
-        line-height: 26px; }
+        line-height: 28px; }
   /*
 --------------------------------------------------------------------------------
                   ------------- CLASSES PAGE -------------

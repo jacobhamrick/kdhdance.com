@@ -75,6 +75,9 @@
                   <div class="sponsor-img">
                     <img src="<?php the_field('sr-1-5'); ?>" />
                   </div>
+                  <div class="sponsor-img">
+                    <img src="<?php the_field('sr-1-6'); ?>" />
+                  </div>
                 </div> <!-- end sponsor-row-->
 
                 <div class="sponsor-row sr-2">
