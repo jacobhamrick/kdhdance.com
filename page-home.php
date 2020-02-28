@@ -61,22 +61,29 @@
               <div id="sponsor-wrapper">
                 <div class="sponsor-row sr-1">
                   <div class="sponsor-img">
-                    <img src="<?php the_field('sr-1-1'); ?>" />
+                    <a href="<?php the_field('sr-1-1-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-1-1'); ?>" />
+                    </a>
                   </div>
                   <div class="sponsor-img">
-                    <img src="<?php the_field('sr-1-2'); ?>" />
+                    <a href="<?php the_field('sr-1-2-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-1-2'); ?>" />
+                    </a>
                   </div>
                   <div class="sponsor-img">
-                    <img src="<?php the_field('sr-1-3'); ?>" />
+                    <a href="<?php the_field('sr-1-3-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-1-3'); ?>" />
+                    </a>
                   </div>
                   <div class="sponsor-img">
-                    <img src="<?php the_field('sr-1-4'); ?>" />
+                    <a href="<?php the_field('sr-1-4-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-1-4'); ?>" />
+                    </a>
                   </div>
                   <div class="sponsor-img">
-                    <img src="<?php the_field('sr-1-5'); ?>" />
-                  </div>
-                  <div class="sponsor-img">
-                    <img src="<?php the_field('sr-1-6'); ?>" />
+                    <a href="<?php the_field('sr-1-5-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-1-5'); ?>" />
+                    </a>
                   </div>
                 </div> <!-- end sponsor-row-->
 
@@ -92,9 +99,6 @@
                   </div>
                   <div class="sponsor-img">
                     <img src="<?php the_field('sr-2-4'); ?>" />
-                  </div>
-                  <div class="sponsor-img">
-                    <img src="<?php the_field('sr-2-5'); ?>" />
                   </div>
                 </div> <!-- end sponsor-row-->
               </div> <!-- end sponsor-wrapper -->
