@@ -1,6 +1,7 @@
 <?php
 /*
-  Template Name: Home Page
+  Template Name: Home
+
 */
 ?>
 
@@ -9,6 +10,11 @@
 <main>
 
     <div class="newsbar flex">
+
+      <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Move Now") ) : ?>
+      <?php endif; ?>
+
+
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Next Up") ) : ?>
       <?php endif; ?>
       <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Say What") ) : ?>

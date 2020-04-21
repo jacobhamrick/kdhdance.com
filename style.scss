@@ -1441,11 +1441,38 @@ footer {
   font-size: 26px;
 }
 
+/* SPECIAL UPDATE */
+
+.move.now-div {
+  overflow-y:  scroll;
+  position: relative;
+  .page-content {
+    height: 0;
+    .move-row {
+      .move-child {
+        border: $borders;
+        padding: $page-padding;
+        margin-top: $page-padding;
+        margin-bottom: $page-padding;
+        p {
+          text-align: center;
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+}
+
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    ++++++++++++++++++++++++++++++ BIG SCREENS ++++++++++++++++++++++++++++++++++
    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
+
+
+
 
 @media screen and (min-width: 992px) {
 
@@ -1454,6 +1481,7 @@ footer {
     font-size: 1.5vw;
     line-height: 2vw;;
   }
+
   body.logged-in  {
     padding-top: 0;
     main,
@@ -1568,6 +1596,7 @@ footer {
 /* ------------------------------ TOGGLE MENU ------------------------------- */
 .menu {
   opacity: 0;
+  display: none;
   transition: $time;
   -webkit-transition: $time;
   left: calc( (#{$page-padding} * 1.75) + #{$border-weight});
@@ -1578,9 +1607,11 @@ footer {
 
 .menu.openSesame {
   position: fixed;
+  display: block;
   transition: $time;
   -webkit-transition: $time;
   opacity: 1;
+  z-index: 9999;
 }
 
 .menu-shape {
@@ -1609,7 +1640,7 @@ footer {
         margin-left: 62px;
       }
       a.nav-link {
-        font-size: 4vw;
+        font-size: 3.5vw;
         line-height: 68px;
         width: 100%;
         height: 100%;
@@ -1668,16 +1699,6 @@ main {
 
 
 /* ------------------------------ NEWSFLASH --------------------------------- */
-  .newsbar {
-    display: flex;
-    flex-direction: column;
-    border-bottom: none;
-    border-right: $borders;
-    margin-top: 0;
-    min-width: 300px;
-    max-width: 300px;
-    height: 100%;
-  }
 
   .newsflash-widget {
     display: block;
@@ -1703,89 +1724,104 @@ main {
 
 
 /* ------------------------------- NEWSBAR ---------------------------------- */
-
-  .newsbar-link-container {
+  .newsbar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    border-bottom: none;
+    border-right: $borders;
+    margin-top: 0;
+    min-width: 300px;
+    max-width: 300px;
     height: 100%;
-    border-bottom: $borders;
 
-    .newsbar-link {
-      display: block;
-      background-color: none;
-      color: $primary-color;
+    .newsbar-link-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       height: 100%;
-      transition: $time;
+      border-bottom: $borders;
 
-      .newsbar-widget {
-        height: auto;
-        margin: 0 auto;
+      .newsbar-link {
+        display: block;
+        background-color: none;
+        color: $primary-color;
+        height: 100%;
         transition: $time;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: .25rem $sm-page-padding;
 
-        .textwidget {
-          display: block;
-          width: 100%;
+        .newsbar-widget {
           height: auto;
-          padding: 0;
-          margin: 0;
-
-          p {
-              font-weight: normal;
-              font-size: 2vh;
-              line-height: 1;
-              text-align: left;
-              margin: 0;
-          }
-        }
-
-        .newsbar-title {
-          flex-direction: row;
-          align-items: center;
+          margin: 0 auto;
+          transition: $time;
+          flex-direction: column;
           justify-content: flex-start;
-          width: auto;
-          color: #000;
-          height: 20px;
-          font-size: 16px;
-          line-height: 1;
-          font-weight: bold;
-          text-transform: uppercase;
-          transition: $time;
-          -webkit-transition: $time;
-          margin-bottom: 0;
-        }
+          padding: .25rem $sm-page-padding;
 
-        .fas, .far {
-          padding-left: $page-padding;
-          opacity: 0;
-          color: #fff;
-          font-size: 15px;
-          transition: $time;
+          .textwidget {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 0;
+            margin: 0;
+            margin-top: $sm-page-padding;
+
+            p {
+                font-weight: normal;
+                font-size: 1.8vh;
+                line-height: 1;
+                text-align: left;
+                margin: 0;
+            }
+          }
+
+          .newsbar-title {
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            width: auto;
+            color: #000;
+            height: 25px;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: $time;
+            -webkit-transition: $time;
+            margin-bottom: 0;
+          }
+
+          .fas, .far {
+            padding-left: $page-padding;
+            opacity: 0;
+            color: #fff;
+            font-size: 15px;
+            transition: $time;
+          }
         }
       }
     }
   }
 
-  div.newsbar-link-container:hover {
+  .newsbar-link-container:hover {
     background-color: $dark-blue;
     transition: $time;
     -webkit-transition: $time;
-    .newsbar-widget {
-      p {
-        transition: $time;
-        -webkit-transition: $time;
-        color: #fff;
-      }
-      p.newsbar-title {
-        transition: $time;
-        -webkit-transition: $time;
-        color: $pink;
-        .fas, .far {
-          opacity: 1;
-          color: $yellow;
+    .newsbar-link {
+      .newsbar-widget {
+        .newsbar-title {
+          transition: $time;
+          -webkit-transition: $time;
+          color: $pink;
+          .fas, .far {
+            opacity: 1;
+            color: $yellow;
+          }
+        }
+        .textwidget {
+          p {
+            transition: $time;
+            -webkit-transition: $time;
+            color: #fff;
+          }
         }
       }
     }
@@ -2134,4 +2170,67 @@ main {
   }
 
 
+  /* SPECIAL UPDATE */
+
+  .move.now-div {
+    width: calc(100vw - 134px);
+    height: 100%;
+    margin-left: 74px;
+    padding: 0;
+    overflow-y: hidden;
+
+    .page-content {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      .move-row {
+        position: absolute;
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 2rem 4rem;
+        .move-child {
+          width: auto;
+          height: auto;
+          border: none;
+          padding: 0;
+          margin-left: 16%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          p {
+              text-align: left;
+          }
+        }
+      }
+      #move-text-div {
+        margin-top: 8rem;
+        position: fixed;
+        #move-title {
+          margin-left: $page-padding;
+          margin-bottom: 0;
+          transform: rotate(-10deg);
+        }
+        #move-text-1 {
+          margin-top: 5rem;
+          margin-left: 5rem;
+          transform: rotate(5deg);
+        }
+        #move-text-2 {
+          margin-top: 5rem;
+          margin-left: 5rem;
+          transform: rotate(-3deg);
+        }
+        #move-text-3 {
+          font-size: 27px;
+          margin-left: 198px;
+          margin-top: 48px;
+        }
+      }
+    }
+  }
 }

@@ -1,4 +1,3 @@
-
 <?php
 
   add_theme_support('menus');
@@ -30,6 +29,23 @@ wpt_create_newsFlash_widget( 'News Flash', 'newsflash', 'News Flash!' );
 
 
 // ------------------------------ NEWS BAR -------------------------------------
+
+// Move Now
+function wpt_create_moveNow_widget( $name, $id, $description ) {
+  register_sidebar( array(
+    'name'          => __( $name ),
+    'id'            => $id,
+    'description'   => __( $description ),
+    'before_widget' => '<div class="newsbar-link-container"><a class="newsbar-link" href="/movenow/"><div id="next-bar" class="newsbar-widget flex">',
+    'after_widget'  => '</div></a></div>',
+    'before_title'  => '<p class="newsbar-title flex">',
+    'after_title'   => '<i class="fas fa-external-link-square-alt"></i></p>',
+  ) );
+}
+wpt_create_moveNow_widget( 'Move Now', 'moveNow', 'Move Now' );
+
+
+
 
 // Next Up
 function wpt_create_nextUp_widget( $name, $id, $description ) {
