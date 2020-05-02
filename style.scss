@@ -813,7 +813,6 @@ p.show-title {
 
 .show-date {
   color: $purple;
-  font-style: italic;
   font-weight: bold;
 }
 
@@ -1676,7 +1675,7 @@ main {
 }
 
 .page-body {
-  padding: 1rem 12vw 1rem 18vw
+  padding: 2vw 2vw 2vw 9vw
 }
 
 .home {
@@ -2015,10 +2014,10 @@ main {
 
   .dancer-container {
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-bottom: $page-padding;
-    margin-left: 8vw;
+    margin-left: 15vw;
     margin-right: auto;
   }
 
@@ -2101,6 +2100,11 @@ main {
       height: 2vw;
     }
   }
+
+  .board-list {
+    margin-top: 0;
+  }
+
 
 
   .board-swiper-div {

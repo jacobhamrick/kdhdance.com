@@ -631,7 +631,6 @@ p.show-title {
 
 .show-date {
   color: #7B3FFC;
-  font-style: italic;
   font-weight: bold; }
 
 .show-venue {
@@ -1283,7 +1282,7 @@ footer {
     flex-direction: row;
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2)); }
   .page-body {
-    padding: 1rem 12vw 1rem 18vw; }
+    padding: 2vw 2vw 2vw 9vw; }
   .home .main-body {
     margin-top: calc(40px + (2px * 2));
     height: calc(100% - (40px + (2px * 2))); }
@@ -1515,10 +1514,10 @@ footer {
     width: 100%; }
   .dancer-container {
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-bottom: 1rem;
-    margin-left: 8vw;
+    margin-left: 15vw;
     margin-right: auto; }
   .dancer-pic {
     width: auto;
@@ -1576,6 +1575,8 @@ footer {
   .board-list p,
   .board-title p {
     height: 2vw; }
+  .board-list {
+    margin-top: 0; }
   .board-swiper-div {
     height: 600px;
     max-width: 800px;
