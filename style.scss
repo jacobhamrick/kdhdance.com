@@ -32,7 +32,7 @@ $pink2blue: linear-gradient(0deg,$pink 0%, $blue 50%);
 $border-type: solid;
 $border-weight: 2px;
 $borders: $border-weight $border-type $primary-color;
-$body-curve: 15px;
+$body-curve: 0;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
 $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
@@ -50,7 +50,7 @@ body {
   height: 100vh;
   height: calc((var(--vh, 1vh) * 100);
   color: $primary-color;
-  background: $green;
+  background-color: $green;
   overflow: hidden;
   transition: $time;
   border: none;
@@ -159,7 +159,7 @@ strong {
 
 .page-body p {
   font-family: $main-font;
-  font-size: 4vw;
+  font-size: 3vw;
   line-height: 4.5vw;
 }
 
@@ -613,7 +613,6 @@ main {
   border-left: $borders;
   border-right: $borders;
   background-color: $background-color;
-  // text-align: justify;
   margin: 0 auto;
   width: 100%;
   height: calc(100% - ( #{$navbar-height} + (#{$sm-page-padding}) + #{$footer-height} + (#{$border-weight} * 2));
@@ -832,9 +831,25 @@ p.show-title {
 --------------------------------------------------------------------------------
 */
 
-.piece-title {
-  font-weight: bold;
-  font-size: 20px;
+#portfolio-nav {
+  display: none;
+}
+
+#portfolio-main-body {
+  top: 30px;
+  .portfolio-div {
+    #portfolio {
+      .portfolio-piece {
+        margin-bottom: calc(#{$page-padding} * 3);
+        padding-bottom: calc(#{$page-padding} * 3);
+        border-bottom: $borders;
+        .piece-title {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }
 
 
@@ -844,26 +859,43 @@ p.show-title {
 --------------------------------------------------------------------------------
 */
 
-#classes-intro {
+#classes-title {
   text-align: center;
-  text-transform: uppercase;
   color: $blue;
-  font-weight: bold;
+  background-color: $light-pink;
 }
 
 .classes-div {
   background-color: $light-yellow;
 }
 
-h2#classes-title {
-  text-align: center;
+#classes-intro-header,
+#schedule-header,
+#class-feature-title,
+.class-day {
+  text-transform: uppercase;
   color: $blue;
-  background-color: $light-pink;
+  font-family: $main-font;
+  font-weight: bold;
+}
+
+#classes-intro-header,
+#schedule-header,
+#class-feature-title {
+  font-size: 14px;
+}
+
+#classes-intro {
+  color: #000;
+}
+
+
+#schedule-header {
+  margin-top: 1rem;
 }
 
 .classes-wrapper {
   flex-direction: column;
-  border-top: $borders;
   margin-bottom: $page-padding;
 }
 
@@ -883,21 +915,8 @@ div#class-feature,
 }
 
 p.class-time {
-  margin-bottom: 0;
   font-style: italic;
   font-weight: 600;
-}
-
-p.class-day,
-p#class-feature-title {
-  font-weight: bold;
-  font-family: $main-font;
-  text-transform: uppercase;
-  color: $blue;
-}
-
-p.class-day {
-  margin-bottom: 0;
 }
 
 .class-photo {
@@ -912,6 +931,7 @@ p.class-day {
 
 p#class-feature-title {
   margin-bottom: $sm-page-padding;
+  text-align: left;
 }
 .class-feature-container {
   flex-direction: column-reverse;
@@ -1022,7 +1042,6 @@ p#class-feature-title {
 /* -----------------------------------------------------------------------------
                     ------------- PORTFOLIO -------------
 ----------------------------------------------------------------------------- */
-
 
 
 /*
@@ -1477,8 +1496,8 @@ footer {
 
 
   .page-body p {
-    font-size: 1.5vw;
-    line-height: 2vw;;
+    font-size: 1.2vw;
+    line-height: 1.5vw;;
   }
 
   body.logged-in  {
@@ -1675,7 +1694,7 @@ main {
 }
 
 .page-body {
-  padding: 2vw 2vw 2vw 9vw
+  padding: 2vw 2.5vw 2vw 9vw
 }
 
 .home {
@@ -1890,20 +1909,8 @@ main {
   --------------------------------------------------------------------------------
   */
 
-  #portfolio-main-body {
-    top: 30px;
-  }
-
-  .portfolio-div {
-    #portfolio {
-      margin-top: 45px;
-    }
-    .piece-title {
-      font-size: 30px;
-    }
-  }
-
   #portfolio-nav {
+    display: flex;
     height: 30px;
     background-color: $light-purple;
     position: absolute;
@@ -1911,16 +1918,38 @@ main {
     top: 70px;
     width: calc(100% - 4px);
     border-bottom: $borders;
+    z-index: 9000;
     ul {
       list-style: none;
       flex-direction: row;
       vertical-align: middle;
-      margin: 0;
-      li {
+      margin: 0 0 0 9vw;
+      padding: 0;
+      a {
         line-height: 28px;
+        margin-right: 28px;
       }
     }
   }
+
+  #portfolio-main-body {
+    top: 30px;
+    .portfolio-div {
+      padding: 2vw 9vw;
+      #portfolio {
+        margin-top: 45px;
+        .portfolio-piece {
+          margin-bottom: calc(#{$page-padding} * 3);
+          padding-bottom: calc(#{$page-padding} * 3);
+          border-bottom: $borders;
+          .piece-title {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+
 
 /*
 --------------------------------------------------------------------------------
@@ -1928,9 +1957,19 @@ main {
 --------------------------------------------------------------------------------
 */
 
+
+
+  #classes-intro-header,
+  #schedule-header,
+  #class-feature-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
   .classes-wrapper {
     flex-direction: row;
     margin-bottom: $page-padding;
+    border-top: $borders;
   }
 
   .class-container {
@@ -1942,6 +1981,7 @@ main {
 
   .class-container:last-child {
     padding-right: 0;
+    padding-top: 38px; // special pandemic style !
   }
 
   p.class-time,
@@ -1959,6 +1999,20 @@ main {
     flex-direction: row;
     .class-photo {
       margin: 0 0 0 $page-padding;
+    }
+  }
+
+  #class-feature-photo-2 {
+    margin-bottom: $page-padding;
+  }
+
+  .class-photo-group {
+    flex-direction: row;
+    #class-feature-photo-3 {
+      margin-right: 5px;
+    }
+    #class-feature-photo-5 {
+      margin-left: 5px;
     }
   }
 

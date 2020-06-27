@@ -9,7 +9,7 @@
   <div class="main-body scroll">
     <div class="page-body <?php wp_title('', true,''); echo '-div'?>">
       <h2 class="page-title" id="upcoming-title"><?php wp_title('', true,''); ?></h2>
-      <h2 id="upcoming-season">Season <?php the_field('season_num'); ?></h2>
+     <h2 id="upcoming-season">   <!-- Season --> <?php the_field('season_num'); ?></h2>
       <div class="upcoming-wrapper flex">
         <!-- show 1 -->
         <div class="upcoming-show">

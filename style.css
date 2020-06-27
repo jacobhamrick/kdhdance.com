@@ -21,7 +21,7 @@ body {
   height: 100vh;
   height: calc((var(--vh, 1vh) * 100));
   color: black;
-  background: #A2D936;
+  background-color: #A2D936;
   overflow: hidden;
   transition: all 0.5s ease;
   border: none; }
@@ -58,7 +58,7 @@ body.logged-in {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: #3455db;
-  border-radius: 15px; }
+  border-radius: 0; }
 
 /* ------------- LOADER ------------- */
 #body-wrapper.loading {
@@ -111,7 +111,7 @@ strong {
 
 .page-body p {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 4vw;
+  font-size: 3vw;
   line-height: 4.5vw; }
 
 a:hover {
@@ -220,13 +220,13 @@ hr.white-hr {
 
 header,
 #sticky-nav {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   background-color: #FFF; }
 
 footer {
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: #FFF; }
 
 .flex-ends {
@@ -453,7 +453,7 @@ h2.page-title {
   line-height: 9vw;
   height: 10vw;
   border: 2px solid black;
-  border-radius: 15px;
+  border-radius: 0;
   background-color: #fff; }
 
 .page-content {
@@ -645,32 +645,54 @@ p.show-title {
                     ------------- PORTFOLIO -------------
 --------------------------------------------------------------------------------
 */
-.piece-title {
-  font-weight: bold;
-  font-size: 20px; }
+#portfolio-nav {
+  display: none; }
+
+#portfolio-main-body {
+  top: 30px; }
+  #portfolio-main-body .portfolio-div #portfolio .portfolio-piece {
+    margin-bottom: calc(1rem * 3);
+    padding-bottom: calc(1rem * 3);
+    border-bottom: 2px solid black; }
+    #portfolio-main-body .portfolio-div #portfolio .portfolio-piece .piece-title {
+      font-weight: bold;
+      font-size: 20px; }
 
 /*
 --------------------------------------------------------------------------------
                 ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
-#classes-intro {
-  text-align: center;
-  text-transform: uppercase;
-  color: #3455db;
-  font-weight: bold; }
-
-.classes-div {
-  background-color: #ffff99; }
-
-h2#classes-title {
+#classes-title {
   text-align: center;
   color: #3455db;
   background-color: #ffcccb; }
 
+.classes-div {
+  background-color: #ffff99; }
+
+#classes-intro-header,
+#schedule-header,
+#class-feature-title,
+.class-day {
+  text-transform: uppercase;
+  color: #3455db;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold; }
+
+#classes-intro-header,
+#schedule-header,
+#class-feature-title {
+  font-size: 14px; }
+
+#classes-intro {
+  color: #000; }
+
+#schedule-header {
+  margin-top: 1rem; }
+
 .classes-wrapper {
   flex-direction: column;
-  border-top: 2px solid black;
   margin-bottom: 1rem; }
 
 .class-container {
@@ -685,19 +707,8 @@ div#class-feature,
   display: block; }
 
 p.class-time {
-  margin-bottom: 0;
   font-style: italic;
   font-weight: 600; }
-
-p.class-day,
-p#class-feature-title {
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  color: #3455db; }
-
-p.class-day {
-  margin-bottom: 0; }
 
 .class-photo {
   display: block;
@@ -708,7 +719,8 @@ p.class-day {
   margin-bottom: calc(1rem / 2); }
 
 p#class-feature-title {
-  margin-bottom: calc(1rem / 2); }
+  margin-bottom: calc(1rem / 2);
+  text-align: left; }
 
 .class-feature-container {
   flex-direction: column-reverse; }
@@ -751,7 +763,7 @@ p#class-feature-title {
   border: 2px solid black;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 15px; }
+  border-radius: 0; }
 
 .staff-container:nth-child(1) {
   background-color: #ffcccb; }
@@ -815,7 +827,7 @@ p#class-feature-title {
   border: 2px solid black;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 15px; }
+  border-radius: 0; }
 
 .dancer-container:nth-child(1),
 .dancer-container:nth-child(4),
@@ -883,7 +895,7 @@ p#class-feature-title {
 
 .board-swiper-container {
   border: 2px solid black;
-  border-radius: 15px;
+  border-radius: 0;
   background-color: #fff;
   padding: 1rem; }
 
@@ -900,7 +912,7 @@ p#class-feature-title {
   width: 100%;
   background-color: #fff;
   border: 2px solid black;
-  border-radius: 15px;
+  border-radius: 0;
   padding: 1rem; }
   .board-swiper-div #board-swiper .swiper-wrapper {
     height: 100%; }
@@ -967,7 +979,7 @@ p#class-feature-title {
     background-color: #fff;
     margin: 1rem 0 0 0;
     border: 2px solid black;
-    border-radius: 15px; }
+    border-radius: 0; }
     #outreach-sections .outreach-section .btn {
       padding: 1rem 0;
       height: auto;
@@ -978,11 +990,11 @@ p#class-feature-title {
     #outreach-sections .outreach-section [data-toggle="collapse"] i:before {
       content: "\f067"; }
     #outreach-sections .outreach-section [data-toggle="collapse"] {
-      border-radius: 15px; }
+      border-radius: 0; }
     #outreach-sections .outreach-section [aria-expanded="true"] i:before {
       content: "\f068"; }
     #outreach-sections .outreach-section [aria-expanded="true"] {
-      border-radius: 15px 15px 0 0; }
+      border-radius: 0 0 0 0; }
     #outreach-sections .outreach-section h4 {
       transition: all 0.5s ease; }
       #outreach-sections .outreach-section h4 i.fas {
@@ -1141,8 +1153,8 @@ footer {
 */
 @media screen and (min-width: 992px) {
   .page-body p {
-    font-size: 1.5vw;
-    line-height: 2vw; }
+    font-size: 1.2vw;
+    line-height: 1.5vw; }
   body.logged-in {
     padding-top: 0; }
     body.logged-in main,
@@ -1282,7 +1294,7 @@ footer {
     flex-direction: row;
     height: calc(100vh - 70px - 70px - (2px * 2) - (1.5rem * 2)); }
   .page-body {
-    padding: 2vw 2vw 2vw 9vw; }
+    padding: 2vw 2.5vw 2vw 9vw; }
   .home .main-body {
     margin-top: calc(40px + (2px * 2));
     height: calc(100% - (40px + (2px * 2))); }
@@ -1432,42 +1444,59 @@ footer {
                       ------------- PORTFOLIO -------------
   --------------------------------------------------------------------------------
   */
-  #portfolio-main-body {
-    top: 30px; }
-  .portfolio-div #portfolio {
-    margin-top: 45px; }
-  .portfolio-div .piece-title {
-    font-size: 30px; }
   #portfolio-nav {
+    display: flex;
     height: 30px;
     background-color: #f3e5ff;
     position: absolute;
     display: block;
     top: 70px;
     width: calc(100% - 4px);
-    border-bottom: 2px solid black; }
+    border-bottom: 2px solid black;
+    z-index: 9000; }
     #portfolio-nav ul {
       list-style: none;
       flex-direction: row;
       vertical-align: middle;
-      margin: 0; }
-      #portfolio-nav ul li {
-        line-height: 28px; }
+      margin: 0 0 0 9vw;
+      padding: 0; }
+      #portfolio-nav ul a {
+        line-height: 28px;
+        margin-right: 28px; }
+  #portfolio-main-body {
+    top: 30px; }
+    #portfolio-main-body .portfolio-div {
+      padding: 2vw 9vw; }
+      #portfolio-main-body .portfolio-div #portfolio {
+        margin-top: 45px; }
+        #portfolio-main-body .portfolio-div #portfolio .portfolio-piece {
+          margin-bottom: calc(1rem * 3);
+          padding-bottom: calc(1rem * 3);
+          border-bottom: 2px solid black; }
+          #portfolio-main-body .portfolio-div #portfolio .portfolio-piece .piece-title {
+            font-size: 30px; }
   /*
 --------------------------------------------------------------------------------
                   ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
+  #classes-intro-header,
+  #schedule-header,
+  #class-feature-title {
+    font-size: 20px;
+    text-align: center; }
   .classes-wrapper {
     flex-direction: row;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    border-top: 2px solid black; }
   .class-container {
     padding: 1rem 2rem 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; }
   .class-container:last-child {
-    padding-right: 0; }
+    padding-right: 0;
+    padding-top: 38px; }
   p.class-time,
   .class-info p {
     font-size: 1.5vw;
@@ -1479,6 +1508,14 @@ footer {
     flex-direction: row; }
     .class-feature-container .class-photo {
       margin: 0 0 0 1rem; }
+  #class-feature-photo-2 {
+    margin-bottom: 1rem; }
+  .class-photo-group {
+    flex-direction: row; }
+    .class-photo-group #class-feature-photo-3 {
+      margin-right: 5px; }
+    .class-photo-group #class-feature-photo-5 {
+      margin-left: 5px; }
   /*
   --------------------------------------------------------------------------------
                     ------------- ARTISTIC STAFF -------------
@@ -1550,7 +1587,7 @@ footer {
     left: 10vw;
     top: 17%;
     height: 65%;
-    border-radius: 15px; }
+    border-radius: 0; }
     .dancer-list li {
       margin: 0;
       font-size: 20px;

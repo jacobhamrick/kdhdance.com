@@ -9,7 +9,9 @@
 
   <nav id="portfolio-nav" class="flex">
     <ul class="flex">
-      <a href="#piece-title-1"><li><?php the_field('piece-title-1'); ?></li></a>
+      <li><a href="#piece-title-1"><?php the_field('piece-title-1'); ?></a></li>
+      <li><a href="#piece-title-2"><?php the_field('piece-title-2'); ?></a></li>
+      <li><a href="#piece-title-3"><?php the_field('piece-title-3'); ?></a></li>
     </ul>
   </nav>
 
@@ -21,11 +23,25 @@
       <div id="portfolio">
 
         <div class="portfolio-piece">
-          <p id="piece-title-1" class="piece-title"><?php the_field('piece-title-1'); ?></p>
+          <p id="piece-title-1" class="piece-title"><?php the_field('piece-title-1'); ?> <?php the_field('piece-year-1'); ?></p>
+
 
           <?php echo '<div class="piece-text">'; the_field('piece-text-1'); echo '</div>';?>
         </div>
-        <!-- end portfolio-piece -->
+
+        <div class="portfolio-piece">
+          <p id="piece-title-2" class="piece-title"><?php the_field('piece-title-2'); ?> <?php the_field('piece-year-2'); ?></p>
+
+          <?php echo '<div class="piece-text">'; the_field('piece-text-2'); echo '</div>';?>
+        </div>
+
+        <div class="portfolio-piece">
+          <p id="piece-title-3" class="piece-title"><?php the_field('piece-title-3'); ?> <?php the_field('piece-year-3'); ?></p>
+
+          <?php echo '<div class="piece-text">'; the_field('piece-text-3'); echo '</div>';?>
+        </div>
+
+
 
       </div>
 
