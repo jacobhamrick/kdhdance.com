@@ -14,11 +14,11 @@ I hope to empower creatives and small businesses.
 /* ------------- GENERAL ------------- */
 $primary-color: rgba(0,0,0,1);
 $pink: rgb(212,0,200);
-$light-pink: #ffcccb;
+$light-pink: #fbe4e3;
 $blue: rgb(52,85,219);
 $yellow: rgba(255,250,0,1);
 $light-yellow: rgb(255,255,153);
-$purple: #7B3FFC;
+$purple: #a880ff;
 $light-purple: #f3e5ff;
 $green: #A2D936;
 $light-green: #ccff90;
@@ -30,9 +30,9 @@ $background-color: #FFF;
 $hover-color: #9a3eeb;
 $pink2blue: linear-gradient(0deg,$pink 0%, $blue 50%);
 $border-type: solid;
-$border-weight: 2px;
+$border-weight: 1px;
 $borders: $border-weight $border-type $primary-color;
-$body-curve: 0;
+$body-curve: 15px;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
 $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
@@ -61,7 +61,7 @@ body.logged-in {
 }
 
 #body-wrapper {
-  margin: .5rem;
+  margin: $sm-page-padding;
   border: none;
   height: calc(100% - #{$sm-page-padding});
   width: calc(100% - #{$page-padding});
@@ -203,41 +203,15 @@ input[type="color"]:focus,
 }
 
 
-.light-blue {
-  color: $light-blue;
-}
-
 .pink {
   color: $pink;
 }
 
-.light-pink {
-  color: $light-pink
-}
-
-.green {
-  color: $green;
-}
-
-.light-green {
-  color: $light-green
-}
-
-.purple {
-  color: $purple;
-}
-
-.light-purple {
-  color: $light-purple;
-}
 
 .yellow {
   color: $yellow;
 }
 
-.light-yellow {
-  color: $light-yellow;
-}
 
 /* ------------- Z-INDEX LAYERS ------------- */
 .newsflash-widget,
@@ -279,7 +253,7 @@ input[type="color"]:focus,
 }
 
 hr:not(.the-burger) {
-  margin: .5rem 0;
+  margin:$sm-page-padding 0;
   border-top: $border-weight $primary-color solid;
   background-color: $primary-color;
   clear:both;
@@ -512,7 +486,7 @@ a.dropdown-item {
   font-size: 4vh;
   line-height: 22px;
   color: #fff;
-  margin-left: .5rem;
+  margin-left:$sm-page-padding;
   font-weight: 500;
 }
 
@@ -584,11 +558,11 @@ h2.page-title {
   height: 10vw;
   border: $borders;
   border-radius: $body-curve;
-  background-color: #fff;
+  background-color: $background-color;
 }
 
 .page-content {
-  padding-top: .5rem;
+  padding-top:$sm-page-padding;
 }
 
 /*
@@ -616,14 +590,15 @@ main {
   margin: 0 auto;
   width: 100%;
   height: calc(100% - ( #{$navbar-height} + (#{$sm-page-padding}) + #{$footer-height} + (#{$border-weight} * 2));
+
   .main-body {
     height: 100%;
   }
 }
 
-.page-wrapper {
+page-wrapper {
   padding: 0;
-  background-color: #fff;
+  background-color: $background-color;
 }
 
 .page-body {
@@ -670,7 +645,7 @@ main {
   }
 
   .swiper-pagination-bullet {
-    background: #fff;
+    background: $background-color;
     opacity: .5;
   }
   .swiper-pagination-bullet-active {
@@ -704,7 +679,6 @@ main {
   }
   #mc-embedded-subscribe {
     background-color: $blue;
-
     text-transform: uppercase;
     transition: $time;
     color: #fff;
@@ -720,8 +694,7 @@ main {
 
 #sponsor-wrapper {
   display: flex;
-  flex-direction: column;
-  padding: $page-padding 0;
+  flex-direction: row;
   .sponsor-row {
     display: flex;
     flex-direction: column;
@@ -732,9 +705,15 @@ main {
       margin: $page-padding 0;
       img {
         width: 100%;
-        max-width: 175px;
+        max-width: 120px;
       }
     }
+  }
+  .sr-1  {
+    margin-right: $sm-page-padding;
+  }
+  .sr-2 {
+    margin-left: $sm-page-padding;
   }
 }
 
@@ -747,7 +726,7 @@ main {
 */
 
 .Upcoming.Performances-div {
-  background-color: $light-purple;
+  background-color: $background-color;
 }
 
 h2#upcoming-season {
@@ -756,16 +735,12 @@ h2#upcoming-season {
   font-weight: bold;
 }
 
-#upcoming-title {
-  color: $purple;
-}
-
 .upcoming-wrapper {
   flex-direction: column;
 }
 
 .upcoming-show {
-  border-top: $borders;
+  // border-top: $borders;
   width: 100%;
 }
 
@@ -785,7 +760,7 @@ h2#upcoming-season {
 .show-about-container {
   border-bottom: $borders;
   width: 100%;
-  padding-top: .5rem;
+  padding-top: $sm-page-padding;
 }
 
 .show-date,
@@ -836,7 +811,6 @@ p.show-title {
 }
 
 #portfolio-main-body {
-  top: 30px;
   .portfolio-div {
     #portfolio {
       .portfolio-piece {
@@ -845,13 +819,14 @@ p.show-title {
         border-bottom: $borders;
         .piece-title {
           font-weight: bold;
-          font-size: 20px;
         }
+      }
+      .portfolio-piece:last-child {
+        border-bottom: none;
       }
     }
   }
 }
-
 
 /*
 --------------------------------------------------------------------------------
@@ -861,12 +836,14 @@ p.show-title {
 
 #classes-title {
   text-align: center;
-  color: $blue;
-  background-color: $light-pink;
+  background-color: $background-color;
 }
 
 .classes-div {
-  background-color: $light-yellow;
+  background-color: $background-color;
+  .fa-star {
+    color: $pink;
+  }
 }
 
 #classes-intro-header,
@@ -943,9 +920,6 @@ p#class-feature-title {
 .class-photo-group {
   flex-direction: column;
   justify-content: space-between;
-  .class-photo {
-
-  }
 }
 
 /*
@@ -955,7 +929,7 @@ p#class-feature-title {
 */
 
 #auditions-page-title {
-  background-color: $pink;
+  background-color: $background-color;
 }
 
 .audition-image {
@@ -970,12 +944,7 @@ p#class-feature-title {
 */
 
 .artistic.staff-div {
-  background-color: $purple;
-}
-
-#staff-title {
-  color: $blue;
-  background-color: $light-purple;
+  background: $yellow;
 }
 
 .staff-wrapper {
@@ -983,6 +952,7 @@ p#class-feature-title {
 }
 
 .staff-container {
+  background-color: $background-color;
   flex-direction: column;
   border: $borders;
   padding: $page-padding;
@@ -990,32 +960,9 @@ p#class-feature-title {
   border-radius: $body-curve;
 }
 
-.staff-container:nth-child(1) {
-  background-color: $light-pink;
-  .staff-name {
+
+.staff-name {
     color: $blue;
-  }
-}
-
-.staff-container:nth-child(2) {
-  background-color: $light-yellow;
-  .staff-name {
-    color: $blue;
-  }
-}
-
-.staff-container:nth-child(3) {
-  background-color: $red;
-  .staff-name {
-    color: $red;
-  }
-}
-
-.staff-container:nth-child(4) {
-  background-color: #087f23;
-  .staff-name {
-    color: #087f23;
-  }
 }
 
 .profile-pic {
@@ -1026,7 +973,7 @@ p#class-feature-title {
 
 .profile-text {
   border: none;
-  padding: $sm-page-padding 0;
+  padding: 0;
   background: none;
   text-align: justify;
   p {
@@ -1127,7 +1074,7 @@ p#class-feature-title {
 */
 
 #board-page-title {
-  background-color: $light-green;
+  background-color:$background-color;
 }
 
 .board-title,
@@ -1238,11 +1185,10 @@ p#class-feature-title {
 }
 
 .outreach-div {
-  background-color: $light-purple;
+  background-color: $background-color;
 }
-
 #outreach-page-title {
-  background-color: $light-blue;
+  background-color: $background-color;
 }
 
 #outreach-header {
@@ -1375,11 +1321,7 @@ p#class-feature-title {
 }
 
 .contribute-div {
-  background-color: $light-blue;
-  #contribute-title {
-    color: $light-green;
-    background-color:  $blue;
-  }
+  background-color: $background-color;
   form {
     margin: 0 auto;
     width: 147px; /* eyballed */
@@ -1406,9 +1348,6 @@ p#class-feature-title {
   margin: $page-padding auto;
 }
 
-#press-title {
-  background-color: $light-pink;
-}
 
 /* -----------------------------------------------------------------------------
                       ------------- FOOTER -------------
@@ -1422,7 +1361,7 @@ footer {
   border: $borders;
   z-index: 9000;
   height: $footer-height;
-  background: #fff;
+  background: $background-color;
   padding: 6px;
   margin: 0;
   width: 100%;
@@ -1449,7 +1388,6 @@ footer {
 }
 .sm-flex {
   width: 66%;
-  max-width: 250px;
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -1494,11 +1432,14 @@ footer {
 
 @media screen and (min-width: 992px) {
 
-
-  .page-body p {
-    font-size: 1.2vw;
-    line-height: 1.5vw;;
+  .page-body {
+    padding: 2vw 2vw 3vw 2vw;
+    p {
+      font-size: 1.2vw;
+      line-height: 1.5vw;
+    }
   }
+
 
   body.logged-in  {
     padding-top: 0;
@@ -1523,10 +1464,20 @@ footer {
     margin-right: 0;
   }
 
-  #navbarSupportedContent {
-    padding: 0;
+  /* accomodates sidebar */
+  .upcoming.performances-div,
+  .classes-div,
+  .auditions-div,
+  .artistic.staff-div,
+  .dancers-div,
+  .board.of.directors-div,
+  .outreach-div,
+  .contact-div,
+  .contribute-div,
+  .press-div,
+  .move.now-div {
+    margin-left: 76px;
   }
-
 
   #body-wrapper {
     margin: 1.75rem;
@@ -1575,8 +1526,9 @@ footer {
       margin: 0;
       #nav-text {
         width: auto;
-        font-size: 3vw;
-        height: 100%;
+        font-size: 16px;
+        height: 12px;
+        transform: scale(2.3,3.2) translate(78px,0);
       }
       .blue.navtext {
         letter-spacing: normal;
@@ -1640,7 +1592,7 @@ footer {
 
 .menu #navbarSupportedContent {
   height: 100%;
-  padding: $page-padding;
+  padding: 0 $page-padding;
   .navbar-nav {
     flex-direction: column;
     justify-content: flex-start;
@@ -1679,10 +1631,6 @@ footer {
   }
 }
 
-
-
-
-
 /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */
@@ -1693,21 +1641,12 @@ main {
   height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
 }
 
-.page-body {
-  padding: 2vw 2.5vw 2vw 9vw
-}
-
 .home {
   .main-body {
     margin-top: calc(40px + (#{$border-weight} * 2));
     height: calc(100% - (40px + (#{$border-weight} * 2)));
   }
-  .page-body {
-    padding: $page-padding 8vw;
-    margin-bottom: calc(40px + (#{$border-weight} * 2));
-  }
 }
-
 
 
 /* -------------------------------- SWIPER ---------------------------------- */
@@ -1767,12 +1706,12 @@ main {
         transition: $time;
 
         .newsbar-widget {
-          height: auto;
+          height: 100%;
           margin: 0 auto;
           transition: $time;
           flex-direction: column;
-          justify-content: flex-start;
-          padding: .25rem $sm-page-padding;
+          justify-content: space-evenly;
+          padding: 0 $page-padding;
 
           .textwidget {
             display: block;
@@ -1784,7 +1723,7 @@ main {
 
             p {
                 font-weight: normal;
-                font-size: 1.8vh;
+                font-size: 2vh;
                 line-height: 1;
                 text-align: left;
                 margin: 0;
@@ -1795,9 +1734,8 @@ main {
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
-            width: auto;
+            width: calc(296px / 2); /* adjust for transform scale */
             color: #000;
-            height: 25px;
             font-size: 16px;
             line-height: 1;
             font-weight: bold;
@@ -1805,14 +1743,15 @@ main {
             transition: $time;
             -webkit-transition: $time;
             margin-bottom: 0;
+            transform: translate(74px,18px) scale(2, 3.5);
           }
-
           .fas, .far {
-            padding-left: $page-padding;
+            padding-left: $sm-page-padding;
             opacity: 0;
             color: #fff;
             font-size: 15px;
             transition: $time;
+            transform: scale(1.6, 1);
           }
         }
       }
@@ -1852,31 +1791,38 @@ main {
 /* ------------------------------- SPONSORS --------------------------------- */
 
   #sponsor-wrapper {
-    flex-direction: row;
+    flex-direction: column;
     padding: $page-padding 0;
     .sponsor-row {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
       justify-content: space-between;
-      width: 70%;
-      margin: 0 auto;
+      width: 100%;
+      align-items: center;
+      margin: 0;
       .sponsor-img {
         margin: $page-padding 0;
         img {
-          width: 100%;
-          max-width: 250px;
+          width: 80%;
+          max-width: 225px;
+          margin: 0 10px;
         }
       }
     }
+    a:first-child {
+      margin-left: 0
+    }
+    a:last-child {
+      margin-right: 0;
+    }
   }
-
 
 /*
 --------------------------------------------------------------------------------
                 ------------- UPCOMING PAGE -------------
 --------------------------------------------------------------------------------
 */
+
   #upcoming-title {
     font-size: 30px;
   }
@@ -1902,7 +1848,6 @@ main {
     }
   }
 
-
   /*
   --------------------------------------------------------------------------------
                       ------------- PORTFOLIO -------------
@@ -1911,19 +1856,19 @@ main {
 
   #portfolio-nav {
     display: flex;
-    height: 30px;
-    background-color: $light-purple;
+    align-items: center;
+    height: 40px;
+    background-color: $background-color;
     position: absolute;
-    display: block;
     top: 70px;
-    width: calc(100% - 4px);
+    width: calc(100% - (#{$border-weight} * 2));
     border-bottom: $borders;
     z-index: 9000;
     ul {
       list-style: none;
       flex-direction: row;
       vertical-align: middle;
-      margin: 0 0 0 9vw;
+      margin: 0 0 0 2vw;
       padding: 0;
       a {
         line-height: 28px;
@@ -1933,17 +1878,19 @@ main {
   }
 
   #portfolio-main-body {
-    top: 30px;
+    height: calc(100% - 40px); // 100% - portfolio-nav height
+    transform: translate(0, 40px);
     .portfolio-div {
-      padding: 2vw 9vw;
       #portfolio {
-        margin-top: 45px;
         .portfolio-piece {
           margin-bottom: calc(#{$page-padding} * 3);
           padding-bottom: calc(#{$page-padding} * 3);
           border-bottom: $borders;
           .piece-title {
-            font-size: 30px;
+            font-size: 24px;
+          }
+          .piece-text {
+            width: 50%;
           }
         }
       }
@@ -1951,13 +1898,12 @@ main {
   }
 
 
+
 /*
 --------------------------------------------------------------------------------
                   ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
-
-
 
   #classes-intro-header,
   #schedule-header,
@@ -1981,13 +1927,7 @@ main {
 
   .class-container:last-child {
     padding-right: 0;
-    padding-top: 38px; // special pandemic style !
-  }
-
-  p.class-time,
-  .class-info p {
-      font-size: 1.5vw;
-      line-height: 2vw;
+    padding-top: 32px; // special pandemic style !
   }
 
   p#class-feature-title {
@@ -2024,30 +1964,21 @@ main {
 
   .staff-container {
     flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .profile-pic {
     display: block;
     width: auto;
-    height: 420px;
+    height: 300px;
     margin-bottom: $page-padding;
     margin-right: $page-padding;
     border: $borders;
   }
 
-  /* specifcally for Stephen's current pic */
-  .staff-container:nth-child(2) {
-    flex-direction: column;
-    .profile-pic {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
   .profile-text {
     p {
-      font-size: 1.7vw;
-      line-height: 2vw;
       text-align: left;
       margin: 0;
     }
@@ -2137,6 +2068,8 @@ main {
   #board-text-wrapper {
     flex-direction: row;
     justify-content: space-between;
+    max-width: 800px;
+    margin: calc(#{$page-padding} * 2) auto;
   }
 
   #board-page-title {
@@ -2157,9 +2090,8 @@ main {
 
   .board-list {
     margin-top: 0;
+    margin-left: $page-padding;
   }
-
-
 
   .board-swiper-div {
     height: 600px;
@@ -2207,7 +2139,8 @@ main {
   .contact-item {
     margin-bottom: $page-padding;
     a, p {
-      font-size: 2vw;
+      font-size: 1.5vw;
+      line-height: 2vw;
       margin-bottom: 0;
     }
   }
@@ -2233,7 +2166,6 @@ main {
   .move.now-div {
     width: calc(100vw - 134px);
     height: 100%;
-    margin-left: 74px;
     padding: 0;
     overflow-y: hidden;
 
