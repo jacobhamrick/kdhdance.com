@@ -100,10 +100,7 @@ body.logged-in {
 
 /* ------------- LOADER ------------- */
 
-#body-wrapper.loading {
-  opacity: 0;
-  transition: $time;
-}
+
 
 #loader {
   flex-direction: row;
@@ -967,7 +964,7 @@ p#class-feature-title {
 
 .profile-pic {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto $page-padding auto;
   border: $borders;
 }
 

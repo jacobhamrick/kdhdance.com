@@ -61,10 +61,6 @@ body.logged-in {
   border-radius: 15px; }
 
 /* ------------- LOADER ------------- */
-#body-wrapper.loading {
-  opacity: 0;
-  transition: all 0.5s ease; }
-
 #loader {
   flex-direction: row;
   align-items: center;
@@ -746,7 +742,7 @@ p#class-feature-title {
 
 .profile-pic {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   border: 1px solid black; }
 
 .profile-text {
