@@ -586,14 +586,14 @@ main {
   background-color: $background-color;
   margin: 0 auto;
   width: 100%;
-  height: calc(100% - ( #{$navbar-height} + (#{$sm-page-padding}) + #{$footer-height} + (#{$border-weight} * 2));
+  height: calc(100% - ( #{$navbar-height} + (#{$sm-page-padding}) + #{$footer-height} + (#{$border-weight} * 2)));
 
   .main-body {
     height: 100%;
   }
 }
 
-page-wrapper {
+.page-wrapper {
   padding: 0;
   background-color: $background-color;
 }
@@ -845,7 +845,7 @@ p.show-title {
 
 #classes-intro-header,
 #schedule-header,
-#class-feature-title,
+#featured-classes-header,
 .class-day {
   text-transform: uppercase;
   color: $blue;
@@ -853,10 +853,14 @@ p.show-title {
   font-weight: bold;
 }
 
+.class-day {
+  font-size: 15px;
+}
+
 #classes-intro-header,
 #schedule-header,
-#class-feature-title {
-  font-size: 14px;
+#featured-classes-header {
+  font-size: 3vw;
 }
 
 #classes-intro {
@@ -875,39 +879,46 @@ p.show-title {
 
 
 .class-container {
-  border-bottom: $borders;
   width: 100%;
+  border-bottom: $borders;
+  .class-info {
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.class-container {
-  margin-top: $sm-page-padding;
-}
-
-div#class-feature,
-#class-info {
+div#featured-classes {
   display: block;
 }
 
-p.class-time {
+.class-time {
   font-style: italic;
   font-weight: 600;
+  i {
+    color: $pink;
+  }
 }
 
 .class-photo {
   display: block;
   width: 100%;
+  max-width: 750px;
+  margin-top: $page-padding;
+  margin-bottom: $page-padding;
 }
 
-.class-feature,
+.featured-classes,
 .class-photo {
-  margin-bottom: $sm-page-padding;
+  margin-bottom: $page-padding;
 }
 
-p#class-feature-title {
+p#featured-classes-header {
   margin-bottom: $sm-page-padding;
   text-align: left;
 }
-.class-feature-container {
+
+.featured-classes-container {
   flex-direction: column-reverse;
   .class-photo  {
     margin-top: $sm-page-padding;
@@ -917,6 +928,50 @@ p#class-feature-title {
 .class-photo-group {
   flex-direction: column;
   justify-content: space-between;
+}
+
+#class-accordion {
+  border-radius: 0;
+  width: 100%;
+  .card {
+    border: $borders;
+    border-bottom: none;
+    border-radius: 0;
+    .card-header {
+      padding: 0;
+      background-color: $background-color;
+      transition: $time;
+      border: none;
+      .btn-link {
+          color: $blue;
+          font-weight: bold;
+          transition: $time;
+          padding: $page-padding $sm-page-padding;
+          border: none;
+          border-radius: 0;
+      }
+
+      .btn-link:hover,
+      .btn-link:focus {
+          text-decoration: none;
+          color: $pink;
+          transition: $time;
+      }
+    }
+    .card-header:hover,
+    .card-header:focus {
+      background-color: $yellow;
+      transition: $time;
+    }
+    .card-body {
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .card:last-child {
+    border-bottom: $borders;
+  }
 }
 
 /*
@@ -964,7 +1019,7 @@ p#class-feature-title {
 
 .profile-pic {
   width: 100%;
-  margin: 0 auto $page-padding auto;
+  margin: 0 auto $page-padding;
   border: $borders;
 }
 
@@ -1018,7 +1073,7 @@ p#class-feature-title {
   border-radius: $body-curve;
 }
 
-.dancer-container:nth-child(1),
+.dancer-container:first-child,
 .dancer-container:nth-child(4),
 .dancer-container:nth-child(7) {
   background-color: #ffff81;
@@ -1904,7 +1959,7 @@ main {
 
   #classes-intro-header,
   #schedule-header,
-  #class-feature-title {
+  #featured-classes-header{
     font-size: 20px;
     text-align: center;
   }
@@ -1913,6 +1968,7 @@ main {
     flex-direction: row;
     margin-bottom: $page-padding;
     border-top: $borders;
+    border-bottom: $borders;
   }
 
   .class-container {
@@ -1920,35 +1976,35 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border-bottom: none;
   }
 
-  .class-container:last-child {
-    padding-right: 0;
-    padding-top: 32px; // special pandemic style !
-  }
-
-  p#class-feature-title {
+  p#featured-classes-header{
     text-align: center;
     margin-bottom: $page-padding;
   }
 
-  .class-feature-container {
+  .class-info {
+    padding-top: $page-padding;
+  }
+
+  .featured-classes-container {
     flex-direction: row;
     .class-photo {
       margin: 0 0 0 $page-padding;
     }
   }
 
-  #class-feature-photo-2 {
+  #featured-classes-photo-2 {
     margin-bottom: $page-padding;
   }
 
   .class-photo-group {
     flex-direction: row;
-    #class-feature-photo-3 {
+    #featured-classes-photo-3 {
       margin-right: 5px;
     }
-    #class-feature-photo-5 {
+    #featured-classes-photo-5 {
       margin-left: 5px;
     }
   }
