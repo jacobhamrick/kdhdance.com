@@ -12,6 +12,7 @@
       <li><a href="#piece-title-1"><?php the_field('piece-title-1'); ?></a></li>
       <li><a href="#piece-title-2"><?php the_field('piece-title-2'); ?></a></li>
       <li><a href="#piece-title-3"><?php the_field('piece-title-3'); ?></a></li>
+      <li><a href="#piece-title-4"><?php the_field('piece-title-4'); ?></a></li>
     </ul>
   </nav>
 
@@ -38,6 +39,12 @@
           <p id="piece-title-3" class="piece-title"><?php the_field('piece-title-3'); ?> <?php the_field('piece-year-3'); ?></p>
           <?php echo '<div class="piece-text">'; the_field('piece-text-3'); echo '</div>';?>
           <?php echo '<div>'; the_field('gallery-link-3'); echo '</div>';?>
+        </div>
+
+        <div class="portfolio-piece">
+          <p id="piece-title-4" class="piece-title"><?php the_field('piece-title-4'); ?> <?php the_field('piece-year-4'); ?></p>
+          <?php echo '<div class="piece-text">'; the_field('piece-text-4'); echo '</div>';?>
+          <?php echo '<div>'; the_field('gallery-link-4'); echo '</div>';?>
         </div>
 
 

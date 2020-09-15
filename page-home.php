@@ -35,6 +35,8 @@
         <div class="swiper-container" id="home-swiper">
           <div class="swiper-wrapper">
       			<!-- Slides -->
+            <div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-8'); ?>)">
+      			</div>
       			<div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-1'); ?>)">
       			</div>
       			<div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-2'); ?>)">
