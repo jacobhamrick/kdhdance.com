@@ -3,6 +3,10 @@
   add_theme_support('menus');
   add_theme_support('post-thumbnails');
 
+  // Stop WordPress from adding <p> tags
+  remove_filter( ‘the_content’, ‘wpautop’ );
+  remove_filter( ‘the_excerpt’, ‘wpautop’ );
+
 
   function register_theme_menus() {
   register_nav_menus(
@@ -147,7 +151,7 @@ add_action( 'init', 'register_theme_menus');
     //wp_enqueue_style( 'normalize_css', 'http://');
     wp_enqueue_style('swiper_css', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css');
     wp_enqueue_style( 'main_css', get_template_directory_uri() . '/style.css ');
-    wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
+    wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.14.0/css/all.css' );
   }
 
   add_action( 'wp_enqueue_scripts', 'stfi_theme_styles');

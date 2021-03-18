@@ -13,41 +13,60 @@
 
       <p id="classes-intro-header" class="text-center"><?php the_field('classes-intro-header'); ?></p>
 
-      <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
 
-      <?php $image = get_field('featured-classes-photo-1');
-      if( !empty( $image ) ): ?>
-        <img class="class-photo mx-auto" id="featured-classes-photo-1" src="<?php echo esc_url($image['url']); ?>" />
-      <?php endif; ?>
+      <div class="class-intro-wrapper flex">
+        <p id="classes-intro"><?php the_field('classes-intro'); ?></p>
 
-      <p id="schedule-header"><?php the_field('schedule-header'); ?></p>
+        <?php $image = get_field('featured-classes-photo-1');
+        if( !empty( $image ) ): ?>
+          <img class="class-photo mx-auto" id="featured-classes-photo-1" src="<?php echo esc_url($image['url']); ?>" />
+        <?php endif; ?>
 
+      </div>
+
+      <hr />
+
+      <p id="schedule-header" class="text-center"><?php the_field('schedule-header'); ?></p>
+
+      <hr />
+      
       <div class="classes-wrapper flex">
 
         <!-- class 1 -->
         <div class="class-container">
           <p class="class-day"><?php the_field('class-day-1'); ?></p>
           <?php echo '<div class="class-info">'; the_field('class-info-1'); echo '</div>';?>
-          <p class="class-time"><i class="far fa-clock"></i> <?php the_field('class-time-1'); ?></p>
-
         </div>
         <!-- class 2 -->
         <div class="class-container">
           <p class="class-day"><?php the_field('class-day-2'); ?></p>
           <?php echo '<div class="class-info">'; the_field('class-info-2'); echo '</div>';?>
-          <p class="class-time"><i class="far fa-clock"></i> <?php the_field('class-time-2'); ?></p>
-
         </div>
         <!-- class 3 -->
-          <!-- removed for special pandemic schedule, just copy paste other class but update number to 3 -->
+        <div class="class-container">
+          <p class="class-day"><?php the_field('class-day-3'); ?></p>
+          <?php echo '<div class="class-info">'; the_field('class-info-3'); echo '</div>';?>
+        </div>
         <!-- class 4 -->
-          <!-- removed for special pandemic schedule, just copy paste other class but update number to 4 -->
-
+        <div class="class-container">
+          <p class="class-day"><?php the_field('class-day-4'); ?></p>
+          <?php echo '<div class="class-info">'; the_field('class-info-4'); echo '</div>';?>
+        </div>
+        <!-- class 5 -->
+        <div class="class-container">
+          <p class="class-day"><?php the_field('class-day-5'); ?></p>
+          <?php echo '<div class="class-info">'; the_field('class-info-5'); echo '</div>';?>
+        </div>
+        <!-- class 6 -->
+        <div class="class-container">
+          <p class="class-day"><?php the_field('class-day-6'); ?></p>
+          <?php echo '<div class="class-info">'; the_field('class-info-6'); echo '</div>';?>
+        </div>
       </div> <!-- end classes-wrapper -->
 
       <!-- class feature -->
 
-      <div class="featured-classes">
+      <!-- <div class="featured-classes">
         <?php $image = get_field('featured-classes-photo-2');
         if( !empty( $image ) ): ?>
           <img class="class-photo mx-auto" id="featured-classes-photo-2" src="<?php echo esc_url($image['url']); ?>" />
@@ -139,7 +158,7 @@
         <img class="class-photo mx-auto" id="featured-class-photo-4" src="<?php echo esc_url($image['url']); ?>" />
       <?php endif; ?>
 
-    </div>
+    </div> -->
 
     </div> <!-- end page-body -->
   </div>

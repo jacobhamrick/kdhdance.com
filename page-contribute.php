@@ -16,6 +16,10 @@
         <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1" border="0" />
       </form>
 
+      <br />
+
+      <p class="text-center">Venmo @kdhdance</p>
+
       <?php if( get_field('contribute-banner') ): ?>
           <img id="contribute-banner" src="<?php the_field('contribute-banner'); ?>" />
       <?php endif; ?>
@@ -28,7 +32,13 @@
         <input name="hosted_button_id" type="hidden" value="JMSGW4D7UYZAW" />
         <input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" type="image" />
         <img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1" border="0" />
+
       </form>
+
+      <br />
+
+      <p class="text-center">Venmo @kdhdance</p>
+
 </div>
 <!-- end page-body -->
 </div>

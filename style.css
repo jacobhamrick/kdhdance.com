@@ -591,7 +591,7 @@ h2#upcoming-season {
 show-city {
   margin-bottom: 0; }
 
-p.show-title {
+.show-title {
   font-weight: bold;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -600,7 +600,7 @@ p.show-title {
 
 .show-about {
   height: 100%; }
-  .show-about p {
+  .show-about p, .show-about span {
     text-align: justify; }
 
 .show-date {
@@ -643,7 +643,7 @@ p.show-title {
 
 .classes-div {
   background-color: #FFF; }
-  .classes-div .fa-star {
+  .classes-div .far, .classes-div .fas {
     color: #d400c8; }
 
 #classes-intro-header,
@@ -653,15 +653,12 @@ p.show-title {
   text-transform: uppercase;
   color: #3455db;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 20px; }
 
 .class-day {
-  font-size: 15px; }
-
-#classes-intro-header,
-#schedule-header,
-#featured-classes-header {
-  font-size: 3vw; }
+  margin-bottom: 0;
+  margin-top: 1rem; }
 
 #classes-intro {
   color: #000; }
@@ -675,18 +672,15 @@ p.show-title {
 
 .class-container {
   width: 100%;
-  border-bottom: 1px solid black; }
+  padding-bottom: 1rem; }
   .class-container .class-info p {
     margin-bottom: 0; }
 
 div#featured-classes {
   display: block; }
 
-.class-time {
-  font-style: italic;
-  font-weight: 600; }
-  .class-time i {
-    color: #d400c8; }
+.class-intro-wrapper {
+  flex-direction: column; }
 
 .class-photo {
   display: block;
@@ -1440,8 +1434,15 @@ footer {
       margin: 0;
       border: none; }
       .upcoming-wrapper .upcoming-show .show-title,
-      .upcoming-wrapper .upcoming-show .show-info {
-        margin: 0; }
+      .upcoming-wrapper .upcoming-show .show-info,
+      .upcoming-wrapper .upcoming-show .show-date {
+        margin: 0 0 .66rem 0; }
+  .upcoming-show:first-child {
+    padding-right: .5rem; }
+  .upcoming-show:nth-child(2) {
+    padding: 0 .5rem 0 0; }
+  .upcoming-show:nth-child(3) {
+    padding: 0 0 0 .5rem; }
   /*
   --------------------------------------------------------------------------------
                       ------------- PORTFOLIO -------------
@@ -1487,26 +1488,24 @@ footer {
   #featured-classes-header {
     font-size: 20px;
     text-align: center; }
-  .classes-wrapper {
-    flex-direction: row;
-    margin-bottom: 1rem;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black; }
   .class-container {
-    padding: 1rem 2rem 1rem 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border-bottom: none; }
+    margin-bottom: 0; }
   p#featured-classes-header {
     text-align: center;
     margin-bottom: 1rem; }
-  .class-info {
-    padding-top: 1rem; }
-  .featured-classes-container {
+  .class-intro-wrapper {
     flex-direction: row; }
-    .featured-classes-container .class-photo {
-      margin: 0 0 0 1rem; }
+  #classes-intro {
+    margin-right: 1rem; }
+  .class-photo {
+    width: 75%;
+    margin: 0 0 0 1rem; }
+  .class-info {
+    padding-bottom: 1rem; }
   #featured-classes-photo-2 {
     margin-bottom: 1rem; }
   .class-photo-group {
