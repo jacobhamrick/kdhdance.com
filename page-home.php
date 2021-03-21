@@ -69,6 +69,11 @@
               <div id="sponsor-wrapper">
                 <div class="sponsor-row sr-1">
                   <div class="sponsor-img">
+                    <a href="<?php the_field('sr-1-6-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-1-6'); ?>" />
+                    </a>
+                  </div>
+                  <div class="sponsor-img">
                     <a href="<?php the_field('sr-1-1-link'); ?>" target="_blank">
                       <img src="<?php the_field('sr-1-1'); ?>" />
                     </a>
@@ -88,11 +93,11 @@
                       <img src="<?php the_field('sr-1-4'); ?>" />
                     </a>
                   </div>
-                  <div class="sponsor-img">
+                  <!-- <div class="sponsor-img">
                     <a href="<?php the_field('sr-1-5-link'); ?>" target="_blank">
                       <img src="<?php the_field('sr-1-5'); ?>" />
                     </a>
-                  </div>
+                  </div> -->
                 </div> <!-- end sponsor-row-->
 
                 <div class="sponsor-row sr-2">
@@ -114,6 +119,11 @@
                   <div class="sponsor-img">
                     <a href="<?php the_field('sr-2-4-link'); ?>" target="_blank">
                       <img src="<?php the_field('sr-2-4'); ?>" />
+                    </a>
+                  </div>
+                  <div class="sponsor-img">
+                    <a href="<?php the_field('sr-2-5-link'); ?>" target="_blank">
+                      <img src="<?php the_field('sr-2-5'); ?>" />
                     </a>
                   </div>
                 </div> <!-- end sponsor-row-->
