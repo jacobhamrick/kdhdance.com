@@ -10,13 +10,14 @@
     <?php wp_enqueue_script("jquery"); ?>
     <?php wp_head(); ?>
     <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   </head>
 
 
   <body <?php body_class(""); ?>>
-    <div id="loader" class="flex">
-      <p>Loading . . .</p>
-  </div>
     <div id="body-wrapper" class="loading">
     <header>
       <nav id="sticky-nav" class="sticky navbar flex">
@@ -26,10 +27,12 @@
             </span>
             <span class="pink navtext">Dance</span>
           </a>
+
           <div class="menu-button toggle-menu flex" role="navigation">
             <span></span>
             <span></span>
             <span></span>
+            <!-- <p id="menu-text">MENU</p> -->
         </div>
       </div> <!-- end title-wrapper -->
     </nav>

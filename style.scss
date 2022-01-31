@@ -30,7 +30,7 @@ $background-color: #FFF;
 $hover-color: #9a3eeb;
 $pink2blue: linear-gradient(0deg,$pink 0%, $blue 50%);
 $border-type: solid;
-$border-weight: 1px;
+$border-weight: 2px;
 $borders: $border-weight $border-type $primary-color;
 $body-curve: 15px;
 $page-padding: 1rem; /* padding of navbars, page sections, etc */
@@ -38,14 +38,15 @@ $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
 $footer-height: 70px;
 $time: all 0.5s ease;
-$main-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$main-font: "Dosis", Helvetica, Arial, sans-serif;
+$secondary-font: "Helvetica Neue", Arial, sans-serif;
 $shadow: 5px 5px 0px 0px rgba(0,0,0,1);
 
 html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: $main-font;
+  font-family: $secondary-font;
   width: 100%;
   height: 100vh;
   height: calc((var(--vh, 1vh) * 100);
@@ -56,19 +57,17 @@ body {
   border: none;
 }
 
+#body-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 body.logged-in {
   padding-top: 0;
 }
 
-#body-wrapper {
-  margin: $sm-page-padding;
-  border: none;
-  height: calc(100% - #{$sm-page-padding});
-  width: calc(100% - #{$page-padding});
-  position: fixed;
-  opacity: 1;
-  transition: $time;
-}
 
 .sticky {
   position: sticky;
@@ -82,19 +81,20 @@ body.logged-in {
 /* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
-    width: $page-padding;
+    width: 16px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background-color: $pink;
   margin-left: 2px;
+  border-left: $borders;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: $blue;
-  border-radius: $body-curve;
+  border-left: $borders;
 }
 
 
@@ -135,6 +135,9 @@ p {
   margin-bottom: $page-padding;
 }
 
+p {
+  font-family: $secondary-font;
+}
 h1,
 h2,
 h3,
@@ -142,6 +145,8 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
+  font-family: $main-font;
+  font-weight: 700;
 }
 
 a {
@@ -155,7 +160,6 @@ strong {
 }
 
 .page-body p {
-  font-family: $main-font;
   font-size: 3vw;
   line-height: 4.5vw;
 }
@@ -209,6 +213,9 @@ input[type="color"]:focus,
   color: $yellow;
 }
 
+.primary-color {
+  color: $primary-color;
+}
 
 /* ------------- Z-INDEX LAYERS ------------- */
 .newsflash-widget,
@@ -264,18 +271,18 @@ hr.white-hr {
 }
 
 
-header,
-#sticky-nav {
-  border-top-left-radius: $body-curve;
-  border-top-right-radius: $body-curve;
-  background-color: $background-color;
-}
-
-footer {
-  border-bottom-left-radius: $body-curve;
-  border-bottom-right-radius: $body-curve;
-  background-color: $background-color;
-}
+// header,
+// #sticky-nav {
+//   border-top-left-radius: $body-curve;
+//   border-top-right-radius: $body-curve;
+//   background-color: $background-color;
+// }
+//
+// footer {
+//   border-bottom-left-radius: $body-curve;
+//   border-bottom-right-radius: $body-curve;
+//   background-color: $background-color;
+// }
 
 .flex-ends {
   align-self: flex-end;
@@ -319,10 +326,13 @@ footer {
 #sticky-nav {
   position: relative;
   height: $navbar-height;
-  border: $borders;
+  border-bottom: $borders;
   padding: 0;
+  height: $navbar-height;
+  background-color: #fff;
   padding-left: calc(#{$page-padding} );
   padding-right: calc(#{$page-padding} );
+  font-family: $main-font;
   .title-wrapper {
     align-items: center;
     flex-direction: row;
@@ -332,7 +342,7 @@ footer {
     margin: auto 0;
     #nav-text {
       align-items: center;
-      height: 30px;
+      height:36px;
       font-size: 2.5rem;
       text-transform: uppercase;
       font-weight: 700;
@@ -351,7 +361,7 @@ footer {
   border-radius: 0;
   cursor: pointer;
   width: 33px;
-  height: 29px;
+  height: 30px;
   float: right;
   transition: $time;
   span {
@@ -419,11 +429,10 @@ footer {
   align-items: center;
   left: calc(#{$sm-page-padding} + #{$border-weight});
   top: calc(#{$navbar-height} + #{$sm-page-padding});
-  background-color: $dark-blue;
+  background-color: black;
   color: #fff;
   position: fixed;
-  bottom: calc( #{$footer-height} + #{$sm-page-padding} );
-  width: calc(100% - ( #{$page-padding} ) - (#{$border-weight} * 2));
+  bottom: 70px;
   transition: $time;
   #navbarSupportedContent {
     display: flex;
@@ -541,6 +550,12 @@ a.nav-link:hover {
   }
 }
 
+
+ #menu-text {
+   display: none;
+ }
+
+
 /*
 --------------------------------------------------------------------------------
                         ------------- PAGE -------------
@@ -549,7 +564,7 @@ a.nav-link:hover {
 
 h2.page-title {
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 5vw;
   line-height: 9vw;
   height: 10vw;
@@ -581,13 +596,10 @@ main {
   flex-direction: column;
   z-index: 8000;
   padding: 0;
-  border-left: $borders;
-  border-right: $borders;
+  height: calc(100% - (#{$footer-height} + #{$navbar-height}));
   background-color: $background-color;
   margin: 0 auto;
   width: 100%;
-  height: calc(100% - ( #{$navbar-height} + (#{$sm-page-padding}) + #{$footer-height} + (#{$border-weight} * 2)));
-
   .main-body {
     height: 100%;
   }
@@ -672,7 +684,8 @@ main {
     margin-bottom: $page-padding;
     padding-left: $sm-page-padding;
     transition: $time;
-    font-family: Courier;
+    font-family: $main-font;
+    color: #808080;
   }
   #mc-embedded-subscribe {
     background-color: $blue;
@@ -684,6 +697,11 @@ main {
     background-color: $pink;
     transition: $time;
   }
+}
+#mc_embed_signup div.mce_inline_error {
+      background-color: black;
+      font-weight: normal;
+      font-family: $main-font;
 }
 
 
@@ -760,19 +778,32 @@ h2#upcoming-season {
   padding-top: $sm-page-padding;
 }
 
-.show-date,
-.show-info,
-.show-venue,
-show-city {
-  margin-bottom: 0;
+p.show-date,
+.show-title,
+p.show-info,
+p.show-venue,
+p.show-city {
+  margin-bottom: 2vh;
+  i {
+    margin-right: 8px;
+    color: $pink;
+  }
+}
+
+.show-info {
+  a {
+    font-weight: bold;
+    color: $blue;
+  }
+  a:hover {
+    color: $pink;
+  }
 }
 
 .show-title {
   font-weight: bold;
   font-family: $main-font;
   text-transform: uppercase;
-  color: $dark-blue;
-  margin-bottom: 0;
 }
 
 .show-about {
@@ -783,13 +814,15 @@ show-city {
 }
 
 .show-date {
-  color: $purple;
   font-weight: bold;
 }
 
-.show-venue {
-  color: $purple;
+p.show-venue {
   font-weight: bold;
+  a {
+    font-weight: bold;
+    color: $blue;
+  }
 }
 
 
@@ -823,6 +856,11 @@ show-city {
       }
     }
   }
+}
+
+.flex-gallery {
+  display: flex;
+  flex-direction: column;
 }
 
 /*
@@ -1050,6 +1088,10 @@ p#featured-classes-header {
 
 .dancer-list {
   display: none;
+  font-family: $main-font;
+  a {
+    font-weight: 700;
+  }
 }
 
 .dancer-wrapper {
@@ -1106,8 +1148,9 @@ p#featured-classes-header {
 
 
 #dancer-photo-credit-text {
-  margin-top: $page-padding;
+  margin-top: 10vh;
   text-align: center;
+  padding-left: 60px;
 }
 
 /*
@@ -1123,14 +1166,15 @@ p#featured-classes-header {
 .board-title,
 .board-list p {
   margin: 0;
-  height: 5vw;
 }
 
-.board-title {
+p.board-title {
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 .board-section-title {
+  font-family: $main-font;
   margin: $page-padding;
   text-align: center;
   font-weight: bold;
@@ -1159,6 +1203,9 @@ p#featured-classes-header {
 
 .board-member {
   margin-bottom: $page-padding;
+  p.board-title {
+    margin-bottom: 1vh;
+  }
 }
 
 .board-swiper-div {
@@ -1338,10 +1385,6 @@ p#featured-classes-header {
         font-size: 4vw;
         margin-bottom: 0;
       }
-      #contact-us-phone,
-      #contact-us-email {
-        font-weight: normal;
-      }
     }
   }
   #mc_embed_signup_scroll {
@@ -1401,7 +1444,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: $borders;
+  border-top: $borders;
   z-index: 9000;
   height: $footer-height;
   background: $background-color;
@@ -1413,7 +1456,7 @@ footer {
     align-items: flex-start;
     margin-bottom: 0;
     text-align: center;
-    padding: 0;
+    padding: 0 10px 0 0;
     a {
       color: $pink;
     }
@@ -1423,6 +1466,7 @@ footer {
     .textwidget {
       font-size: 14px;
       width: 100%;
+      text-align: right;
     }
   }
   .module-heading {
@@ -1434,7 +1478,7 @@ footer {
   margin: 0;
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
+  margin-left: 12px;
   justify-content: space-between;
   align-items: center;
   font-size: 26px;
@@ -1476,10 +1520,12 @@ footer {
 @media screen and (min-width: 992px) {
 
   .page-body {
-    padding: 2vw 2vw 3vw 2vw;
+    padding: 2vw 16px 3vw 16px;
     p {
-      font-size: 1.2vw;
-      line-height: 1.5vw;
+      font-size: 1.5vw;
+      line-height: 1.5;
+      letter-spacing: .6;
+      margin-bottom: 5vh;
     }
   }
 
@@ -1489,10 +1535,8 @@ footer {
     main,
     .menu,
     .menu.opensesame {
-      top: 130px;
-    }
-    .menu-button {
-      top:32px;
+      top: 70px;
+      bottom: 70px;
     }
   }
 
@@ -1522,19 +1566,14 @@ footer {
     margin-left: 76px;
   }
 
-  #body-wrapper {
-    margin: 1.75rem;
-    min-height: 500px;
-    height: calc(100% - 3.5rem);
-    width: calc(100% - 3.5rem);
-  }
+
 
   h2.page-title {
     position: fixed;
-    z-index: 1000;
+    z-index: 0;
     font-size: 30px;
     line-height: 2.5;
-    width: calc(100vh - (#{$navbar-height} * 2));
+    width: 100vh;
     height: 76px;
     border: none;
     border-bottom: $borders;
@@ -1545,13 +1584,13 @@ footer {
     -ms-transform-origin: 0 50%;
     -o-transform-origin: 0 50%;
     transform-origin: 0 50%;
-    -webkit-transform: rotate(-90deg) translate(-50%, 50%);
-    -moz-transform: rotate(-90deg) translate(-50%, 50%);
-    -ms-transform: rotate(-90deg) translate(-50%, 50%);
-    -o-transform: rotate(-90deg) translate(-50%, 50%);
-    transform: rotate(-90deg) translate(-50%, 50%);
-    left: 30px;
-    bottom: 45vh;
+    -webkit-transform: rotate(-90deg) translate(-42%, 50%);
+    -moz-transform: rotate(-90deg) translate(-42%, 50%);
+    -ms-transform: rotate(-90deg) translate(-42%, 50%);
+    -o-transform: rotate(-90deg) translate(-42%, 50%);
+    transform: rotate(-90deg) translate(-42%, 50%);
+    left: 0;
+    bottom: 40vh;
   }
 /*
 --------------------------------------------------------------------------------
@@ -1564,14 +1603,14 @@ footer {
   }
 
   #sticky-nav {
+    z-index: 9000;
     .title-wrapper {
       height: 100%;
       margin: 0;
       #nav-text {
         width: auto;
-        font-size: 16px;
-        height: 12px;
-        transform: scale(2.3,3.2) translate(78px,0);
+        font-size: 50px;
+        margin-left: 0px;
       }
       .blue.navtext {
         letter-spacing: normal;
@@ -1592,19 +1631,28 @@ footer {
     background-color: $yellow;
   }
 
+
 /* ------------------------------ BURGER BUTTON ----------------------------- */
-  .menu-button {
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 29px;
-    span:nth-child(1) {
-      transform-origin: 4px 6px;
-     }
-     span:nth-child(3) {
-     transform-origin: 6px 2px;
-   }
+ //  .menu-button {
+ //    top: 0;
+ //    right: 0;
+ //    width: 45px;
+ //    height: 63px;
+ //    padding-top: 10px;
+ //    span:nth-child(1) {
+ //      transform-origin: 4px 6px;
+ //     }
+ //     span:nth-child(3) {
+ //     transform-origin: 6px 2px;
+ //   }
+ // }
+
+ #menu-text {
+   display: block;
+   margin: 0;
  }
+
+
 
 /* ------------------------------ TOGGLE MENU ------------------------------- */
 .menu {
@@ -1612,10 +1660,11 @@ footer {
   display: none;
   transition: $time;
   -webkit-transition: $time;
-  left: calc( (#{$page-padding} * 1.75) + #{$border-weight});
-  height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
-  width: calc( 100% - ( (#{$page-padding * 1.75 * 2}) + (#{$border-weight} * 2) ));
-  top: calc( #{$navbar-height} + ( (#{$page-padding} * 1.75) ));
+  width: auto;
+  top: 70px;
+  left: 0;
+  right: 16px;
+  height: auto;
 }
 
 .menu.openSesame {
@@ -1674,6 +1723,8 @@ footer {
   }
 }
 
+
+
 /* -----------------------------------------------------------------------------
                   ------------- HOME PAGE   -------------
 ----------------------------------------------------------------------------- */
@@ -1681,13 +1732,12 @@ footer {
 /* ------------------------------- GENERAL ---------------------------------- */
 main {
   flex-direction: row;
-  height: calc(100vh - #{$navbar-height} - #{$footer-height} - (#{$border-weight} * 2) - (#{$page-padding * 1.5} * 2) );
 }
 
 .home {
   .main-body {
-    margin-top: calc(40px + (#{$border-weight} * 2));
-    height: calc(100% - (40px + (#{$border-weight} * 2)));
+    margin: 0;
+    height: auto;
   }
 }
 
@@ -1707,9 +1757,13 @@ main {
     background-color: $yellow;
     border-right: none;
     border-bottom: $borders;
-    left: calc(1.75rem + 300px + 2px);
-    width: calc(100vw - 300px - 4px - (1.75rem * 2));
+    left: 300px;
+    width: auto;
+    right: 16px;
     font-size: 20px;
+    top: 70px;
+    font-family: $main-font;
+    font-weight: 500;
   }
 
 
@@ -1740,6 +1794,7 @@ main {
       justify-content: space-between;
       height: 100%;
       border-bottom: $borders;
+      padding: 10px 0px;
 
       .newsbar-link {
         display: block;
@@ -1753,48 +1808,57 @@ main {
           margin: 0 auto;
           transition: $time;
           flex-direction: column;
-          justify-content: space-evenly;
+          justify-content: flex-start;
           padding: 0 $page-padding;
 
           .textwidget {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             width: 100%;
-            height: auto;
+            height: 100%;
             padding: 0;
             margin: 0;
-            margin-top: $sm-page-padding;
 
             p {
-                font-weight: normal;
-                font-size: 2vh;
-                line-height: 1;
+                font-size: 18px;
+                line-height: 1.4;
                 text-align: left;
-                margin: 0;
+                margin: 0 0 6px 0;
+                font-weight: normal;
             }
           }
 
           .newsbar-title {
             flex-direction: row;
             align-items: center;
-            justify-content: flex-start;
-            width: calc(296px / 2); /* adjust for transform scale */
-            color: #000;
-            font-size: 16px;
+            justify-content: space-between;
+            width: auto;
+            color: $blue;
+            font-size:4vh;
             line-height: 1;
-            font-weight: bold;
+            font-family: $main-font;
+            font-weight: 700;
             text-transform: uppercase;
             transition: $time;
             -webkit-transition: $time;
-            margin-bottom: 0;
-            transform: translate(74px,18px) scale(2, 3.5);
+            margin-bottom: 8px;
+
           }
           .fas, .far {
             padding-left: $sm-page-padding;
             opacity: 0;
+            margin-right: 10px;
             color: #fff;
-            font-size: 15px;
+            font-size:20px;
             transition: $time;
-            transform: scale(1.6, 1);
+          }
+          .far1 {
+            opacity: 1;
+            color: $pink;
+            padding-left: 0;
+            margin-right: 10px;
+            font-size: 13px;
           }
         }
       }
@@ -1805,8 +1869,12 @@ main {
     background-color: $dark-blue;
     transition: $time;
     -webkit-transition: $time;
+
     .newsbar-link {
       .newsbar-widget {
+        .far1 {
+          color: $yellow;
+        }
         .newsbar-title {
           transition: $time;
           -webkit-transition: $time;
@@ -1884,11 +1952,7 @@ main {
     .upcoming-show {
       margin: 0;
       border: none;
-      .show-title,
-      .show-info,
-      .show-date {
-        margin: 0 0 .66rem 0;
-      }
+
     }
   }
 
@@ -1900,6 +1964,18 @@ main {
   }
   .upcoming-show:nth-child(3) {
     padding: 0 0 0 .5rem;
+  }
+
+
+  p.show-date,
+  .show-title,
+  p.show-info,
+  p.show-venue,
+  p.show-city {
+    margin-bottom: 2vh;
+    i {
+      margin-right: 6px;
+    }
   }
 
   /*
@@ -1922,11 +1998,24 @@ main {
       list-style: none;
       flex-direction: row;
       vertical-align: middle;
-      margin: 0 0 0 2vw;
+      margin: 0 16px;
+      width: 100%;
+      justify-content: space-between;
       padding: 0;
+      i {
+        color: $pink;
+        margin-right: 10px;
+      }
       a {
         line-height: 28px;
-        margin-right: 28px;
+        font-family: $main-font;
+        font-weight: 600;
+        font-size: 20px;
+        color: $blue;
+      }
+
+      a:hover {
+        background-color: $yellow;
       }
     }
   }
@@ -1941,20 +2030,34 @@ main {
           padding-bottom: calc(#{$page-padding} * 3);
           border-bottom: $borders;
           .piece-title {
-            font-size: 24px;
+            font-size: 40px;
+            font-family: $main-font;
+            margin-bottom: 1vh;
           }
           .piece-text {
-            width: 50%;
+            width: 100%;
+            p {
+              margin-bottom: 1vh;
+            }
           }
         }
       }
     }
+    .rl-grid-sizer {
+      display: none;
+    }
+  }
+
+.rl-basicmasonry-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
 
 
-/*
---------------------------------------------------------------------------------
+
+/* --------------------------------------------------------------------------------
                   ------------- CLASSES PAGE -------------
 --------------------------------------------------------------------------------
 */
@@ -1990,7 +2093,7 @@ main {
 
   .class-photo {
     width: 75%;
-    margin: 0 0 0 $page-padding;
+    margin: 0 0 $page-padding $page-padding;
   }
 
   .class-info {
@@ -2011,6 +2114,18 @@ main {
     }
   }
 
+  #classes-intro-header {
+    font-size: 3vw;
+  }
+
+  p.class-day {
+    margin-bottom: 2vh;
+  }
+
+
+  #schedule-header {
+    margin: 3vh auto;
+  }
 
   /*
   --------------------------------------------------------------------------------
@@ -2055,10 +2170,10 @@ main {
 
   .dancer-container {
     flex-direction: row;
-    width: 80%;
+    width: 70%;
     height: auto;
     margin-bottom: $page-padding;
-    margin-left: 15vw;
+    margin-left: 23vw;
     margin-right: auto;
   }
 
@@ -2081,7 +2196,7 @@ main {
     overflow-y: scroll;
     p {
       margin: 0;
-      font-size: 20px;
+      font-size: 14px;
       line-height: 22px;
     }
   }
@@ -2105,6 +2220,7 @@ main {
       margin: 0;
       font-size: 20px;
       line-height: 1.5;
+      text-transform: uppercase;
     }
     a {
       color: $blue;
@@ -2156,6 +2272,14 @@ main {
     margin: calc(#{$page-padding} * 2) auto;
   }
 
+  p.board-title {
+    margin-bottom: 1vh;
+  }
+
+  .board-section-title {
+    font-size: 2vw;
+  }
+
   /*
   --------------------------------------------------------------------------------
                         ------------- OUTREACH -------------
@@ -2174,6 +2298,11 @@ main {
         }
       }
     }
+  }
+
+  #outreach-preheader {
+    font-size: 3vw;
+    font-family: $main-font;
   }
 
   .outreach-paragraph {
@@ -2200,6 +2329,13 @@ main {
       margin-bottom: 0;
     }
   }
+}
+
+
+
+#press-preheader {
+  font-size: 3vw;
+  font-family: $main-font;
 }
 
 
