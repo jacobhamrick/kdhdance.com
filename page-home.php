@@ -35,12 +35,15 @@
         <div class="swiper-container" id="home-swiper">
           <div class="swiper-wrapper">
       			<!-- Slides -->
+            <div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-10'); ?>)">
+
+      			</div>
             <div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-9'); ?>)">
       			</div>
             <div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-8'); ?>)">
       			</div>
-      			<div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-1'); ?>)">
-      			</div>
+      			<!-- <div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-1'); ?>)">
+      			</div> -->
       			<div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-2'); ?>)">
       			</div>
       			<div class="swiper-slide" style="background-image: url(<?php the_field('home-slider-image-3'); ?>)">
@@ -58,7 +61,7 @@
       		<div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
       		<div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
       	</div> <!-- end swiper-container -->
-
+        <p style="float: right; margin-right: 2vw;">Photo 1 by Sarah Annie Navarrete</p>
         <div class="page-body home-div">
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <!-- <h2><?php the_title(); ?></h2>

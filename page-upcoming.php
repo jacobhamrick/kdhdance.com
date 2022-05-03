@@ -15,6 +15,10 @@
         <div class="upcoming-show">
           <h3 class="show-title"><?php the_field('up-show-title-1'); ?></h3>
 
+          <?php if( get_field('up-info-1') ): ?>
+              <p class="show-info"><i class="fas fa-info-circle"></i><?php the_field('up-info-1'); ?></p>
+          <?php endif; ?>
+
           <p class="show-date"><i class="far fa-calendar"></i><?php the_field('up-date-1'); ?></p>
 
           <?php if( get_field('show-venue-1') ): ?>
@@ -29,14 +33,14 @@
               <p class="show-info"><i class="fas fa-ticket-alt"></i><?php the_field('up-ticket-1'); ?></p>
           <?php endif; ?>
 
-          <?php if( get_field('up-info-1') ): ?>
-              <p class="show-info"><i class="fas fa-info-circle"></i><?php the_field('up-info-1'); ?></p>
-          <?php endif; ?>
-
         </div>
         <!-- show 2 -->
         <div class="upcoming-show">
           <h3 class="show-title"><?php the_field('up-show-title-2'); ?></h3>
+
+          <?php if( get_field('up-info-2') ): ?>
+              <p class="show-info"><i class="fas fa-info-circle"></i><?php the_field('up-info-2'); ?></p>
+          <?php endif; ?>
 
           <p class="show-date"><i class="far fa-calendar"></i><?php the_field('up-date-2'); ?></p>
 
@@ -52,9 +56,6 @@
               <p class="show-info"><i class="fas fa-ticket-alt"></i><?php the_field('up-ticket-2'); ?></p>
           <?php endif; ?>
 
-          <?php if( get_field('up-info-2') ): ?>
-              <p class="show-info"><i class="fas fa-info-circle"></i><?php the_field('up-info-2'); ?></p>
-          <?php endif; ?>
 
 
         </div>
