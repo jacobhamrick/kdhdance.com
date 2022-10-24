@@ -38,7 +38,7 @@ $sm-page-padding: calc(#{$page-padding} / 2);
 $navbar-height: 70px;
 $footer-height: 70px;
 $time: all 0.5s ease;
-$main-font: "Dosis", Helvetica, Arial, sans-serif;
+$main-font: "Secular One", Helvetica, Arial, sans-serif;
 $secondary-font: "Helvetica Neue", Arial, sans-serif;
 $shadow: 5px 5px 0px 0px rgba(0,0,0,1);
 
@@ -1987,11 +1987,11 @@ main {
   #portfolio-nav {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 68px;
     background-color: $background-color;
     position: absolute;
     top: 70px;
-    width: calc(100% - (#{$border-weight} * 2));
+    width: 100%;
     border-bottom: $borders;
     z-index: 9000;
     ul {
@@ -2002,6 +2002,7 @@ main {
       width: 100%;
       justify-content: space-between;
       padding: 0;
+      flex-wrap: wrap;
       i {
         color: $pink;
         margin-right: 10px;
@@ -2010,7 +2011,7 @@ main {
         line-height: 28px;
         font-family: $main-font;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 16px;
         color: $blue;
       }
 
@@ -2021,8 +2022,8 @@ main {
   }
 
   #portfolio-main-body {
-    height: calc(100% - 40px); // 100% - portfolio-nav height
-    transform: translate(0, 40px);
+    height: calc(100% - 68px); // 100% - portfolio-nav height
+    transform: translate(0, 68px); // 68 = portfolio-nav height
     .portfolio-div {
       #portfolio {
         .portfolio-piece {

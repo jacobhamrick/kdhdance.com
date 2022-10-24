@@ -27,10 +27,10 @@
           <p id="board-president"><?php the_field('board-president'); ?></p>
         </div>
 
-        <div class="contact-item">
+        <!-- <div class="contact-item">
           <h3>Administrative Assistants</h3>
           <?php echo '<div class="administrative-assistants">'; the_field('administrative-assistants'); echo '</div>';?>
-        </div>
+        </div> -->
 
         <div class="contact-item">
           <h3>Physical Address</h3>

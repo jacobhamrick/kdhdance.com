@@ -68,13 +68,13 @@
         </div>
 
         <!-- dancer 6 -->
-        <div class="dancer-container flex"id="dancer-6">
+        <!-- <div class="dancer-container flex"id="dancer-6">
           <?php $image = get_field('dancer-pic-6');
               if( !empty( $image ) ): ?>
                 <img class="dancer-pic" src="<?php echo esc_url($image['url']); ?>" />
               <?php endif; ?>
           <?php echo '<div class="dancer-text scroll">'; the_field('dancer-text-6'); echo '</div>';?>
-        </div>
+        </div> -->
 
         <!-- dancer 7 -->
         <!-- <div class="dancer-container flex" id="dancer-7">
